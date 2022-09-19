@@ -1,4 +1,4 @@
 -----------------------------------------------------------------
 ------------Delete Resource Group--------------------------------
 
-Get-AzureRmResourceGroup -Name "rg-adftutorial" | Remove-AzureRmResourceGroup -Verbose -Force
+Get-AzureRmResourceGroup -Name "rg-WineStore" | Remove-AzureRmResourceGroup -Verbose -Force

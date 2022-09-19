@@ -1,14 +1,14 @@
 -------Powershell commands-----------------------------------------------------------
 -----Create Resource Group----------------------------------------
 
-New-AzResourceGroup -Name rg-adftutorial -Location "Central US"
+New-AzResourceGroup -Name rg-WineStore -Location "Central US"
 
 
 -----------------------------------------------------------------
 ------------Create Resource Storage Account----------------------
 
 New-AzResourceGroupDeployment `
-    -ResourceGroupName rg-adftutorial `
+    -ResourceGroupName rg-WineStore `
     -TemplateFile .\ch1_arm.json `
     -TemplateParameterFile .\ch1_arm.parameters.json `
     -Verbose

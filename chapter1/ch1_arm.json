@@ -18,7 +18,7 @@
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2021-04-01",
         "tags": {
-            "displayName": "sa-adftutorial"
+            "displayName": "stWineStore"
         },
         "location": "[resourceGroup().location]",
         "kind": "StorageV2",  
