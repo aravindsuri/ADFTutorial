@@ -18,7 +18,11 @@
 						"referenceName": "abs_csv_arancioneproducts_derived",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "LSstWineStore001",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -50,7 +54,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> stageSourceProducts",
 				"stageSourceProducts derive(Column_1 = toInteger(Column_1) + 1) ~> deriveremoveColumns",
-				"deriveremoveColumns sink(allowSchemaDrift: true,",
+				"deriveremoveColumns sink(allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Column_1 as string,",
