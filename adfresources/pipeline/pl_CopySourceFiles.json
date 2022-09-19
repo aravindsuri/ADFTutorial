@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "dfLoadStagingProducts",
+				"name": "LoadStagingProducts",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
