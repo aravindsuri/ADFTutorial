@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_ktl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adfstepbystepsa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "stagingdata"
+			}
+		}
+	}
+}
