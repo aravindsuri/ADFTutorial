@@ -1,14 +1,14 @@
 -------Powershell commands-----------------------------------------------------------
 -----Create Resource Group----------------------------------------
 
-New-AzResourceGroup -Name adfstepbystep-rg -Location "Central US"
+New-AzResourceGroup -Name rg-adftutorial -Location "Central US"
 
 
 -----------------------------------------------------------------
 ------------Create Resource Storage Account----------------------
 
 New-AzResourceGroupDeployment `
-    -ResourceGroupName adfstepbystep-rg `
+    -ResourceGroupName rg-adftutorial `
     -TemplateFile .\myfirstpipeline.json `
     -TemplateParameterFile .\myfirstpipeline.parameters.json `
     -Verbose
@@ -17,4 +17,4 @@ New-AzResourceGroupDeployment `
 -----------------------------------------------------------------
 ------------Delete Resource Group--------------------------------
 
-Get-AzureRmResourceGroup -Name "adfstepbystep-rg" | Remove-AzureRmResourceGroup -Verbose -Force
+Get-AzureRmResourceGroup -Name "rg-adftutorial" | Remove-AzureRmResourceGroup -Verbose -Force

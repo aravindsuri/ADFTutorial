@@ -18,7 +18,7 @@
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2021-04-01",
         "tags": {
-            "displayName": "adfstepbystepsa"
+            "displayName": "sa-adftutorial"
         },
         "location": "[resourceGroup().location]",
         "kind": "StorageV2",  
