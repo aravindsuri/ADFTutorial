@@ -9,7 +9,7 @@
 						"referenceName": "abs_csv_arancioneproducts",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "ImportStagingProducts"
 				}
 			],
 			"sinks": [
@@ -18,7 +18,7 @@
 						"referenceName": "asql_stage_product",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "LoadStagingProducts"
 				}
 			],
 			"transformations": [],
@@ -44,8 +44,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false) ~> ImportStagingProducts",
+				"ImportStagingProducts sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ProductNo as string,",
@@ -89,7 +89,7 @@
 				"          Title,",
 				"          Vintage,",
 				"          Winery",
-				"     )) ~> sink1"
+				"     )) ~> LoadStagingProducts"
 			]
 		}
 	}
