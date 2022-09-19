@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageaccount1": {
-            "value": "sa-adftutorial" 
+            "value": "stadftutorial001" 
         },
         "dataFactoryName1": {
-            "value": "adf-adftutorial" 
+            "value": "adf-adftutorial_dev" 
         }
     }
 }
