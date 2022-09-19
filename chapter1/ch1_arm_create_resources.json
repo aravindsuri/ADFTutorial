@@ -9,6 +9,6 @@ New-AzResourceGroup -Name rg-adftutorial -Location "Central US"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName rg-adftutorial `
-    -TemplateFile .\myfirstpipeline.json `
-    -TemplateParameterFile .\myfirstpipeline.parameters.json `
+    -TemplateFile .\ch1_arm.json `
+    -TemplateParameterFile .\ch1_arm.parameters.json `
     -Verbose
