@@ -66,7 +66,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Load Source Data",
+						"activity": "Data flow1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -101,6 +101,18 @@
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
+							{
+								"source": {
+									"name": "ProductId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ProductNo",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
 							{
 								"source": {
 									"name": "country",
@@ -259,18 +271,6 @@
 							},
 							{
 								"source": {
-									"name": "ProductId",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ProductNo",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
 									"name": "Winery",
 									"type": "String",
 									"physicalType": "String"
@@ -301,6 +301,37 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Load Source Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow1",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
 			}
 		],
 		"annotations": []
