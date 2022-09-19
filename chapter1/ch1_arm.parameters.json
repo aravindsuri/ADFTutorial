@@ -6,7 +6,7 @@
             "value": "stadftutorial001" 
         },
         "dataFactoryName1": {
-            "value": "adf-adftutorial_dev" 
+            "value": "adf-adftutorial-dev" 
         }
     }
 }
