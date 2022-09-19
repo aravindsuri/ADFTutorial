@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageaccount1": {
+            "value": "adfstepbystepsa" // TODO: Fill in parameter value
+        },
+        "dataFactoryName1": {
+            "value": "adfstepbystepadf" // TODO: Fill in parameter value
+        },
+    }
+}
