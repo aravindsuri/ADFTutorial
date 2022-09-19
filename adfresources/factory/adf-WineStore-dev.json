@@ -1,0 +1,9 @@
+{
+	"name": "adf-WineStore-dev",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6772f5e4-bd08-4d38-ac92-c9c2d0714413",
+		"tenantId": "5da37119-9dac-4a5a-8242-984a3c927e96"
+	}
+}
