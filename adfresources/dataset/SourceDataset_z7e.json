@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "*",
-				"container": "sourcedata"
+				"fileName": "Arancione_Products.csv",
+				"container": "stagingdata"
 			}
 		}
 	}
