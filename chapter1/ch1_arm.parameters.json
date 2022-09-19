@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageaccount1": {
-            "value": "sa-adftutorial" // TODO: Fill in parameter value
+            "value": "sa-adftutorial" 
         },
         "dataFactoryName1": {
-            "value": "adf-adftutorial" // TODO: Fill in parameter value
-        },
+            "value": "adf-adftutorial" 
+        }
     }
 }
