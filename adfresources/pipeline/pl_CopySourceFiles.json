@@ -271,6 +271,18 @@
 							},
 							{
 								"source": {
+									"name": "Vintage",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Variety",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
 									"name": "Winery",
 									"type": "String",
 									"physicalType": "String"
