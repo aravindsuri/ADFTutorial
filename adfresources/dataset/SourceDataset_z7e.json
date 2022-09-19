@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Arancione_Products.csv",
-				"container": "stagingdata"
+				"container": "sourcedata"
 			}
 		}
 	}
