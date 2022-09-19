@@ -103,18 +103,6 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ProductId",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ProductNo",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
 									"name": "country",
 									"type": "String",
 									"physicalType": "String"
@@ -271,12 +259,12 @@
 							},
 							{
 								"source": {
-									"name": "Vintage",
+									"name": "ProductId",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Variety",
+									"name": "ProductNo",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
