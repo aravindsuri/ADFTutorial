@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageaccount1": {
-            "value": "stWineStore001" 
+            "value": "stwinestore001" 
         },
         "dataFactoryName1": {
             "value": "adf-WineStore-dev" 
