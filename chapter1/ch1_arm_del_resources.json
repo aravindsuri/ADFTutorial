@@ -1,0 +1,4 @@
+-----------------------------------------------------------------
+------------Delete Resource Group--------------------------------
+
+Get-AzureRmResourceGroup -Name "rg-adftutorial" | Remove-AzureRmResourceGroup -Verbose -Force

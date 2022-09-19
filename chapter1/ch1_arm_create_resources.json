@@ -12,9 +12,3 @@ New-AzResourceGroupDeployment `
     -TemplateFile .\myfirstpipeline.json `
     -TemplateParameterFile .\myfirstpipeline.parameters.json `
     -Verbose
-
-
------------------------------------------------------------------
-------------Delete Resource Group--------------------------------
-
-Get-AzureRmResourceGroup -Name "rg-adftutorial" | Remove-AzureRmResourceGroup -Verbose -Force
