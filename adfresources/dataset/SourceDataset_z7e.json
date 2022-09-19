@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_z7e",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSstWineStore001",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sourcedata"
+			}
+		}
+	}
+}
