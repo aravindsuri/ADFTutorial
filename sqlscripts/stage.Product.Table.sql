@@ -1,4 +1,4 @@
-USE [WineStore]
+USE [sql-WineStoreDB]
 GO
 
 /****** Object:  Table [stage].[Product]    Script Date: 9/19/2022 7:17:58 AM ******/
@@ -20,7 +20,7 @@ CREATE TABLE [stage].[Product](
     [Region_2] [nvarchar] (50) NULL,
     [Varietal] [nvarchar](50) NULL,
     [Taster] [nvarchar] (100) NULL,
-    [Twitter] [nvarchar] (255) NULL,
+    [Twitter] [nvarchar] (1000) NULL,
     [Title]  [nvarchar] (100) NULL,
     [Vintage] [nvarchar] (50) NULL,
     [Variety] [nvarchar] (100) NULL,
