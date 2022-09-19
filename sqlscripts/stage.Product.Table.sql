@@ -11,7 +11,7 @@ GO
 CREATE TABLE [stage].[Product](
 	[ProductNo] [nvarchar] (50) NULL,
 	[Country] [nvarchar](50) NULL,
-	[Description] [nchar](255) NULL,
+	[Description] [nchar](1000) NULL,
     [Designation] [nvarchar](4000) NULL,
 	[Score] [nvarchar] (50) NULL,
     [Price] [nvarchar] (50) NULL,
