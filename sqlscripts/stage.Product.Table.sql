@@ -21,7 +21,7 @@ CREATE TABLE [stage].[Product](
     [Varietal] [nvarchar](50) NULL,
     [Taster] [nvarchar] (100) NULL,
     [Twitter] [nvarchar] (1000) NULL,
-    [Title]  [nvarchar] (100) NULL,
+    [Title]  [nvarchar] (255) NULL,
     [Vintage] [nvarchar] (50) NULL,
     [Variety] [nvarchar] (100) NULL,
 	[Winery] [nvarchar](50) NULL
