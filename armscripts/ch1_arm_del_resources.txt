@@ -1,4 +1,0 @@
------------------------------------------------------------------
-------------Delete Resource Group--------------------------------
-
-Get-AzureRmResourceGroup -Name "rg-WineStore" | Remove-AzureRmResourceGroup -Verbose -Force
