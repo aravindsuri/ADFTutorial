@@ -1,0 +1,156 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0" ,
+    "parameters": {
+        "storageaccount1": {
+            "type": "string"
+            
+        },
+        "datafactoryname1": {
+            "type": "string"
+            
+        },
+        "storageaccount2": {
+            "type": "string"
+        },
+        "sqlserver1": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }   
+        },
+        "sqlAdminLogin": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        },
+        "sqlAdminPassword": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        }
+        
+    },
+    "functions": [],
+    "variables": {
+
+         "sqlDatabase": {
+            "serverName": "[parameters('sqlserver1')]",
+            "databaseName": "[concat(parameters('sqlserver1'),'db')]"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageaccount1')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-09-01",
+            "tags": {
+                "displayName": "stVinoWorld"
+            },
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",  
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {}
+        },
+
+        {
+            "name": "[parameters('storageaccount2')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-09-01",
+            "tags": {
+                "displayName": "stVinoWorld"
+            },
+            "location": "[resourceGroup().location]",
+            "kind": "BlobStorage",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "properties": {
+                "accessTier": "Hot"
+            }
+        },
+
+        {
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('dataFactoryName1')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {} 
+        },
+
+    {
+        "type": "Microsoft.Sql/servers",
+        "apiVersion": "2021-11-01-preview",
+        "name": "[parameters('sqlserver1')]",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "administratorLogin": "[parameters('sqlAdminLogin')]",
+            "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
+        },
+        "resources": [
+            {
+                "type": "databases",
+                "name": "[variables('sqlDatabase').databaseName]",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2021-11-01-preview",
+                "dependsOn": [
+                    "[variables('sqlDatabase').serverName]"                
+                ],
+                    "properties": {
+                    "edition": "Basic",
+                    "collation": "SQL_Latin1_General_CP1_CI_AS",
+                    "maxSizeBytes": 1073741824,
+                    "requestedServiceObjectiveName": "Basic"
+                    },
+             "resources": [
+                    {
+                        "name": "Import",
+                        "type": "extensions",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.Sql/servers/databases', variables('sqlDatabase').serverName, variables('sqlDatabase').databaseName)]"
+                        ],
+                        "properties": {
+                            "operationMode": "Import",
+                            
+                            "administratorLogin": "[parameters('sqlAdminLogin')]",
+                            "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
+                            
+                        }
+                    }
+                ]
+
+            },
+                {
+                    "type": "firewallrules",
+                    "name": "AllowAllAzureIps",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2020-02-02-preview",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers/', variables('sqlDatabase').serverName)]"
+                    ],
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                }
+            
+        
+        ]
+              
+    
+    }
+    
+    
+    ],
+    "outputs": {}
+}

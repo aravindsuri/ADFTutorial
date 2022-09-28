@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageaccount1": {
+            "value": "stvinoworld001" // TODO: Fill in parameter value
+        },
+        "storageaccount2": {
+            "value": "stvinoworld002" // TODO: Fill in parameter value
+        },
+        "datafactoryname1": {
+            "value": "adf-vinoworld-dev" // TODO: Fill in parameter value
+        },
+        "sqlserver1": {
+            "value": "sql-vinoworld-dev" // TODO: Fill in parameter value
+        },
+        "sqlAdminLogin": {
+            "value": "sqlVinoAdmin" // TODO: Fill in parameter value
+        },
+        "sqlAdminPassword": {
+            "value": "lightYear2019!" // TODO: Fill in parameter value
+        }
+    }
+}
