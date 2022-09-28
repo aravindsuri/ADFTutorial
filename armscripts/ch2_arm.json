@@ -93,6 +93,7 @@
         "name": "[parameters('sqlserver1')]",
         "location": "[resourceGroup().location]",
         "properties": {
+                
             "administratorLogin": "[parameters('sqlAdminLogin')]",
             "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
         },
@@ -102,6 +103,9 @@
                 "name": "[variables('sqlDatabase').databaseName]",
                 "location": "[resourceGroup().location]",
                 "apiVersion": "2021-11-01-preview",
+                "sku": {
+                        "capacity": ""
+                },
                 "dependsOn": [
                     "[variables('sqlDatabase').serverName]"                
                 ],
@@ -110,6 +114,7 @@
                     "collation": "SQL_Latin1_General_CP1_CI_AS",
                     "maxSizeBytes": 1073741824,
                     "requestedServiceObjectiveName": "Basic"
+                    
                     },
              "resources": [
                     {
@@ -121,7 +126,6 @@
                         ],
                         "properties": {
                             "operationMode": "Import",
-                            
                             "administratorLogin": "[parameters('sqlAdminLogin')]",
                             "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
                             
