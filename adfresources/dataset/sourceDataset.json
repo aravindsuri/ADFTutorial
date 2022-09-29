@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_c5p",
+	"name": "sourceDataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "adlsSourceData",
@@ -9,6 +9,9 @@
 			"pSourceFileName": {
 				"type": "string"
 			}
+		},
+		"folder": {
+			"name": "chapter2"
 		},
 		"annotations": [],
 		"type": "DelimitedText",

@@ -1,9 +1,12 @@
 {
-	"name": "DestinationDataset_c5p",
+	"name": "sinkDataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "adlsStageData",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "chapter2"
 		},
 		"annotations": [],
 		"type": "Parquet",

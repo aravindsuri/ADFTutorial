@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_c5p",
+				"name": "cpIngestSourceData",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -54,7 +54,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_c5p",
+						"referenceName": "sourceDataset",
 						"type": "DatasetReference",
 						"parameters": {
 							"pSourceFileName": {
@@ -66,7 +66,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_c5p",
+						"referenceName": "sinkDataset",
 						"type": "DatasetReference"
 					}
 				]
