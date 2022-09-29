@@ -2,17 +2,24 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0" ,
     "parameters": {
-        "storageaccount1": {
-            "type": "string"
-            
+      
+        "storageSku": {
+
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS"
+            ]
         },
+
         "datafactoryname1": {
             "type": "string"
             
         },
-        "storageaccount2": {
-            "type": "string"
-        },
+      
         "sqlserver1": {
             "type": "string",
             "metadata": {
@@ -39,40 +46,36 @@
          "sqlDatabase": {
             "serverName": "[parameters('sqlserver1')]",
             "databaseName": "[concat(parameters('sqlserver1'),'db')]"
-        }
-    },
-    "resources": [
-        {
-            "name": "[parameters('storageaccount1')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2021-09-01",
-            "tags": {
-                "displayName": "stVinoWorld"
-            },
-            "location": "[resourceGroup().location]",
-            "kind": "StorageV2",  
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "properties": {}
         },
 
+        "storageAccountName": "adlsvinoworlddev"
+
+    },
+    "resources": [
+        
         {
-            "name": "[parameters('storageaccount2')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-09-01",
-            "tags": {
-                "displayName": "stVinoWorld"
-            },
             "location": "[resourceGroup().location]",
-            "kind": "BlobStorage",
+            "name": "[variables('storageAccountName')]",
+            "kind": "StorageV2",
             "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
+                "name": "[parameters('storageSku')]"
             },
             "properties": {
-                "accessTier": "Hot"
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "isHnsEnabled": true,
+                "supportsHttpsTrafficOnly": true
             }
         },
 
@@ -104,7 +107,9 @@
                 "location": "[resourceGroup().location]",
                 "apiVersion": "2021-11-01-preview",
                 "sku": {
-                        "capacity": ""
+                        "name": "Basic",
+                        "tier": "Basic",
+                        "family": ""
                 },
                 "dependsOn": [
                     "[variables('sqlDatabase').serverName]"                
