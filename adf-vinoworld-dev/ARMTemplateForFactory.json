@@ -1,0 +1,663 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-vinoworld-dev"
+		},
+		"LSstWineStore001_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LSstWineStore001'"
+		},
+		"adlsSourceData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsSourceData'"
+		},
+		"adlsStageData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsStageData'"
+		},
+		"ls_Sql_WineStoreDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_Sql_WineStoreDB'"
+		},
+		"adlsSourceData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"adlsStageData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().pSourceFile"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-VinoWorld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopySourceFiles')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "LoadStagingProducts",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"ImportStagingProducts": {},
+									"LoadStagingProducts": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_IngestSourceData')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "cpIngestSourceData",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "sourcedata//"
+							},
+							{
+								"name": "Destination",
+								"value": "stagedata//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": {
+										"value": "@pipeline().parameters.pSourceFile",
+										"type": "Expression"
+									},
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "MergeFiles"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "sourceDataset",
+								"type": "DatasetReference",
+								"parameters": {
+									"pSourceFileName": {
+										"value": "@pipeline().parameters.pSourceFile",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "sinkDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"pSourceFile": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-09-29T07:59:28Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/sourceDataset')]",
+				"[concat(variables('factoryId'), '/datasets/sinkDataset')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_arancioneproducts')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LSstWineStore001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter1"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Arancione_Products.csv",
+						"container": "stagingdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LSstWineStore001')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/asql_stage_product')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_Sql_WineStoreDB",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter1"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ProductNo",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Country",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Description",
+						"type": "nchar"
+					},
+					{
+						"name": "Designation",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Score",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Price",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Province",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Region_1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Region_2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Varietal",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Taster",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Twitter",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Vintage",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Variety",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Winery",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "Product"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_Sql_WineStoreDB')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sinkDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlsStageData",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "stagedata"
+					},
+					"compressionCodec": "snappy",
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/adlsStageData')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sourceDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlsSourceData",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"pSourceFileName": {
+						"type": "string"
+					}
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().pSourceFileName",
+							"type": "Expression"
+						},
+						"fileSystem": "sourcedata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/adlsSourceData')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LSstWineStore001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LSstWineStore001_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adlsSourceData')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('adlsSourceData_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('adlsSourceData_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adlsStageData')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('adlsStageData_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('adlsStageData_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_Sql_WineStoreDB')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_Sql_WineStoreDB_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_IngestSourceData",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"pSourceFile": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/sourcedata/blobs/",
+					"ignoreEmptyBlobs": false,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_IngestSourceData')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_arancioneproducts",
+								"type": "DatasetReference"
+							},
+							"name": "ImportStagingProducts"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "asql_stage_product",
+								"type": "DatasetReference"
+							},
+							"name": "LoadStagingProducts"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          {_c0} as string,",
+						"          ProductId as string,",
+						"          country as string,",
+						"          description as string,",
+						"          designation as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          province as string,",
+						"          region_1 as string,",
+						"          region_2 as string,",
+						"          taster_ProductName as string,",
+						"          taster_twitter_handle as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Winery as string,",
+						"          Year as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> ImportStagingProducts",
+						"ImportStagingProducts sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          ProductNo as string,",
+						"          Country as string,",
+						"          Description as string,",
+						"          Designation as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          Province as string,",
+						"          Region_1 as string,",
+						"          Region_2 as string,",
+						"          Varietal as string,",
+						"          Taster as string,",
+						"          Twitter as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Winery as string",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     truncate:true,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          ProductNo = ProductId,",
+						"          Country = country,",
+						"          Description = description,",
+						"          Designation = designation,",
+						"          Score,",
+						"          Price,",
+						"          Province = province,",
+						"          Region_1 = region_1,",
+						"          Region_2 = region_2,",
+						"          Varietal = Variety,",
+						"          Taster = taster_ProductName,",
+						"          Twitter = taster_twitter_handle,",
+						"          Title,",
+						"          Vintage,",
+						"          Winery",
+						"     )) ~> LoadStagingProducts"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/abs_csv_arancioneproducts')]",
+				"[concat(variables('factoryId'), '/datasets/asql_stage_product')]"
+			]
+		}
+	]
+}

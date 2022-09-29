@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-vinoworld-dev"
+		},
+		"LSstWineStore001_connectionString": {
+			"value": ""
+		},
+		"adlsSourceData_accountKey": {
+			"value": ""
+		},
+		"adlsStageData_accountKey": {
+			"value": ""
+		},
+		"ls_Sql_WineStoreDB_connectionString": {
+			"value": ""
+		},
+		"adlsSourceData_properties_typeProperties_url": {
+			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"adlsStageData_properties_typeProperties_url": {
+			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+			"value": "@triggerBody().pSourceFile"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-VinoWorld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

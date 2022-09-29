@@ -1,0 +1,98 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-vinoworld-dev"
+		},
+		"LSstWineStore001_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LSstWineStore001'"
+		},
+		"adlsSourceData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsSourceData'"
+		},
+		"adlsStageData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsStageData'"
+		},
+		"ls_Sql_WineStoreDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_Sql_WineStoreDB'"
+		},
+		"adlsSourceData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"adlsStageData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().pSourceFile"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-VinoWorld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-vinoworld-dev_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LSstWineStore001_connectionString": {
+						"value": "[parameters('LSstWineStore001_connectionString')]"
+					},
+					"adlsSourceData_accountKey": {
+						"value": "[parameters('adlsSourceData_accountKey')]"
+					},
+					"adlsStageData_accountKey": {
+						"value": "[parameters('adlsStageData_accountKey')]"
+					},
+					"ls_Sql_WineStoreDB_connectionString": {
+						"value": "[parameters('ls_Sql_WineStoreDB_connectionString')]"
+					},
+					"adlsSourceData_properties_typeProperties_url": {
+						"value": "[parameters('adlsSourceData_properties_typeProperties_url')]"
+					},
+					"adlsStageData_properties_typeProperties_url": {
+						"value": "[parameters('adlsStageData_properties_typeProperties_url')]"
+					},
+					"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+						"value": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
