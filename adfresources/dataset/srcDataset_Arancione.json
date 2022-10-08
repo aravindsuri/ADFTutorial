@@ -1,0 +1,19 @@
+{
+	"name": "srcDataset_Arancione",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlstestdev001",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Arancione",
+				"fileSystem": "sourcedata"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

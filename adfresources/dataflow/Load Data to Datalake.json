@@ -1,0 +1,83 @@
+{
+	"name": "Load Data to Datalake",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "rawData_Arancione",
+						"type": "DatasetReference"
+					},
+					"name": "GetDataArancione"
+				},
+				{
+					"dataset": {
+						"referenceName": "rawData_Verde",
+						"type": "DatasetReference"
+					},
+					"name": "GetDataVerde"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "stagingDataset",
+						"type": "DatasetReference"
+					},
+					"name": "LoadToDataLake"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivePartitionColumns"
+				},
+				{
+					"name": "UnionSalesData"
+				}
+			],
+			"scriptLines": [
+				"parameters{",
+				"     parameter1 as string ('ara')",
+				"}",
+				"source(output(",
+				"          RowId as string,",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          Title as string,",
+				"          Vintage as string,",
+				"          Variety as string,",
+				"          Score as string,",
+				"          Price as string,",
+				"          Quantity as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     wildcardPaths:['salesdata/Ara*.csv']) ~> GetDataArancione",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     wildcardPaths:['salesdata/Verde*.csv']) ~> GetDataVerde",
+				"UnionSalesData derive(year = substring(SalesMonth, 1, 4),",
+				"          month = substring(SalesMonth, 6, 2)) ~> DerivePartitionColumns",
+				"GetDataArancione, GetDataVerde union(byName: true)~> UnionSalesData",
+				"DerivePartitionColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('key',",
+				"          0,",
+				"          OnlineRetailer,",
+				"          year,",
+				"          month",
+				"     )) ~> LoadToDataLake"
+			]
+		}
+	}
+}
