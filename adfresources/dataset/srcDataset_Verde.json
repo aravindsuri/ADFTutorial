@@ -1,0 +1,19 @@
+{
+	"name": "srcDataset_Verde",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlstestdev001",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Verde",
+				"fileSystem": "sourcedata"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

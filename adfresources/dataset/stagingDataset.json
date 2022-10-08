@@ -1,0 +1,20 @@
+{
+	"name": "stagingDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlstestdev001",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "stagingdata"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
