@@ -67,8 +67,8 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFileName": {
-											"value": "@activity('Get Metadata1').output.itemName",
+										"wildcardFolderPath": {
+											"value": "@item().itemName",
 											"type": "Expression"
 										},
 										"enablePartitionDiscovery": false
