@@ -5,6 +5,9 @@
 			"referenceName": "ls_adlstestdev001",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Misc"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

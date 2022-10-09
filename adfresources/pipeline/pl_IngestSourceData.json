@@ -78,6 +78,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "Misc"
+		},
 		"annotations": [],
 		"lastPublishTime": "2022-09-29T07:59:28Z"
 	},

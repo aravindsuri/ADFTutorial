@@ -149,6 +149,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "Misc"
+		},
 		"annotations": []
 	}
 }
