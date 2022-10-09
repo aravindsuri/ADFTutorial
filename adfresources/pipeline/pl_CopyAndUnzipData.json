@@ -1,9 +1,9 @@
 {
-	"name": "copy_SourceDataFiles",
+	"name": "pl_CopyAndUnzipData",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_tiw",
+				"name": "Copy and UnzipData",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,18 +49,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_tiw",
+						"referenceName": "abs_zip_source",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_tiw",
+						"referenceName": "abs_zip_destination",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "chapter1"
+		},
 		"annotations": []
 	}
 }

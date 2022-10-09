@@ -1,9 +1,12 @@
 {
-	"name": "SourceDataset_tiw",
+	"name": "abs_zip_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "chapter1"
 		},
 		"annotations": [],
 		"type": "Binary",
