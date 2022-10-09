@@ -137,13 +137,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_ffb",
+						"referenceName": "abs_csv_raw_Verde",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_ffb",
+						"referenceName": "abs_json_test_Verde",
 						"type": "DatasetReference"
 					}
 				]

@@ -1,5 +1,5 @@
 {
-	"name": "dataflow2",
+	"name": "df_CSVtoJSON",
 	"properties": {
 		"folder": {
 			"name": "Misc"
@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "SourceDataset_ffb",
+						"referenceName": "abs_csv_raw_Verde",
 						"type": "DatasetReference"
 					},
 					"name": "GetCSV"
@@ -18,15 +18,15 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DestinationDataset_ffb",
+						"referenceName": "abs_json_test_Verde",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "StoreAsJSON"
 				}
 			],
 			"transformations": [
 				{
-					"name": "derivedColumn1"
+					"name": "MakeHierarchy"
 				}
 			],
 			"scriptLines": [
@@ -51,8 +51,8 @@
 				"          Variety=Variety,",
 				"          Score=Score,",
 				"          SalesPrice=Price,",
-				"          SalesQty=Quantity)) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"          SalesQty=Quantity)) ~> MakeHierarchy",
+				"MakeHierarchy sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
@@ -63,7 +63,7 @@
 				"          YearMonth,",
 				"          StoreName,",
 				"          Sales",
-				"     )) ~> sink1"
+				"     )) ~> StoreAsJSON"
 			]
 		}
 	}

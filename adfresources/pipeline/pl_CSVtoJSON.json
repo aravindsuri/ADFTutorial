@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "pl_CSVtoJSON",
 	"properties": {
 		"activities": [
 			{
-				"name": "dataflow2",
+				"name": "Data Flow CSV to JSON",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow2",
+						"referenceName": "df_CSVtoJSON",
 						"type": "DataFlowReference"
 					},
 					"compute": {
