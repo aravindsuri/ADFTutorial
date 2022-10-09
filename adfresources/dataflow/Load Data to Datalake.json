@@ -1,6 +1,9 @@
 {
 	"name": "Load Data to Datalake",
 	"properties": {
+		"folder": {
+			"name": "Misc"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
