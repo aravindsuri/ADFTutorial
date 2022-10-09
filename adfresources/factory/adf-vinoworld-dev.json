@@ -1,9 +1,9 @@
 {
 	"name": "adf-vinoworld-dev",
-	"location": "eastus",
+	"location": "centralus",
 	"identity": {
 		"type": "SystemAssigned",
-		"principalId": "9aa9409f-034d-4eee-b31d-db20fab53dc3",
+		"principalId": "d4f00db2-eaea-4ec1-80a4-a5697ddaf972",
 		"tenantId": "5da37119-9dac-4a5a-8242-984a3c927e96"
 	}
 }
