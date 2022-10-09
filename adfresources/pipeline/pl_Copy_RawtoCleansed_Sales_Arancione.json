@@ -1,9 +1,9 @@
 {
-	"name": "CopyPipeline_v88",
+	"name": "pl_Copy_RawtoCleansed_Sales_Arancione",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_v88",
+				"name": "Copy Raw to Cleansed Sales Arancione",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -53,18 +53,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_v88",
+						"referenceName": "abs_csv_raw_Arancione",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_v88",
+						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "chapter2"
+		},
 		"annotations": []
 	}
 }

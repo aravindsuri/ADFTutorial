@@ -1,9 +1,12 @@
 {
-	"name": "DestinationDataset_v88",
+	"name": "abs_csv_cleansed_sales",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "chapter2"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
