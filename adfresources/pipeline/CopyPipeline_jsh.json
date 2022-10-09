@@ -1,0 +1,138 @@
+{
+	"name": "CopyPipeline_jsh",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_jsh",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "raw/Verde/"
+					},
+					{
+						"name": "Destination",
+						"value": "cleansed/salesdata/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['YearMonth']"
+								},
+								"sink": {
+									"name": "SalesMonth"
+								}
+							},
+							{
+								"source": {
+									"path": "$['StoreName']"
+								},
+								"sink": {
+									"name": "OnlineRetailer"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['Product']"
+								},
+								"sink": {
+									"name": "Title"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['Vintage']"
+								},
+								"sink": {
+									"name": "Vintage"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['Variety']"
+								},
+								"sink": {
+									"name": "Variety"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['Score']"
+								},
+								"sink": {
+									"name": "Score"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['SalesPrice']"
+								},
+								"sink": {
+									"name": "Price"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales']['SalesQty']"
+								},
+								"sink": {
+									"name": "Quantity"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_jsh",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_jsh",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
