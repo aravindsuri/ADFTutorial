@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "zippeddata"
+				"fileSystem": "landing"
 			},
 			"compression": {
 				"type": "ZipDeflate"
