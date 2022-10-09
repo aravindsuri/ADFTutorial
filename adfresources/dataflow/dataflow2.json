@@ -63,10 +63,6 @@
 				"          YearMonth,",
 				"          StoreName,",
 				"          Sales",
-				"     ),",
-				"     partitionBy('key',",
-				"          0,",
-				"          YearMonth",
 				"     )) ~> sink1"
 			]
 		}
