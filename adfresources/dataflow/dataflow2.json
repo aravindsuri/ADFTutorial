@@ -58,7 +58,16 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          YearMonth,",
+				"          StoreName,",
+				"          Sales",
+				"     ),",
+				"     partitionBy('key',",
+				"          0,",
+				"          YearMonth",
+				"     )) ~> sink1"
 			]
 		}
 	}
