@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "SourceDataset_jsh",
+						"referenceName": "abs_json_raw_Verde",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output.itemName",
+						"value": "@activity('Get Metadata1').output.childItems",
 						"type": "Expression"
 					},
 					"activities": [
@@ -67,10 +67,6 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFileName": {
-											"value": "@item()",
-											"type": "Expression"
-										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -175,7 +171,13 @@
 							"outputs": [
 								{
 									"referenceName": "DestinationDataset_jsh",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"destfilename": {
+											"value": "@item().itemName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
