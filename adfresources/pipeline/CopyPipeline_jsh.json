@@ -68,7 +68,7 @@
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
 										"wildcardFileName": {
-											"value": "@item()",
+											"value": "@activity('Get Metadata1').output.itemName",
 											"type": "Expression"
 										},
 										"enablePartitionDiscovery": false
