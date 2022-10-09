@@ -1,0 +1,18 @@
+{
+	"name": "DestinationDataset_ffb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsvinoworld_dev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "test"
+			}
+		},
+		"schema": {}
+	}
+}
