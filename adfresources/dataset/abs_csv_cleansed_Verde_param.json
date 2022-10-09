@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_jsh",
+	"name": "abs_csv_cleansed_Verde_param",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
@@ -9,6 +9,9 @@
 			"destfilename": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "chapter2"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
