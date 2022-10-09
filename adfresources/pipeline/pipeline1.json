@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "dataflow1",
+				"name": "dataflow2",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,16 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Load Data to Datalake",
-						"type": "DataFlowReference",
-						"parameters": {
-							"parameter1": "'ara'"
-						},
-						"datasetParameters": {
-							"GetDataArancione": {
-								"test": "*ara*.csv"
-							}
-						}
+						"referenceName": "dataflow2",
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
