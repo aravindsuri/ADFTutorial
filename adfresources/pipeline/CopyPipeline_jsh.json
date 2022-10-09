@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
+						"value": "@activity('Get Metadata1').output.itemName",
 						"type": "Expression"
 					},
 					"activities": [
@@ -163,7 +163,13 @@
 							"inputs": [
 								{
 									"referenceName": "SourceDataset_jsh",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().itemName",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
