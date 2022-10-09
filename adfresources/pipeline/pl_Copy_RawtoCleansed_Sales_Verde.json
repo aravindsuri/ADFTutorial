@@ -174,7 +174,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"destfilename": {
-											"value": "@concat(substring(item().name, 0, sub(length(item().name),3)), '*.csv')",
+											"value": "@concat(substring(item().name, 0, sub(length(item().name),5)), '.csv')",
 											"type": "Expression"
 										}
 									}
