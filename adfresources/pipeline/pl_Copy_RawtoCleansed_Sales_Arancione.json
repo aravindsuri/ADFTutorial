@@ -59,7 +59,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText1",
+						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					}
 				]
