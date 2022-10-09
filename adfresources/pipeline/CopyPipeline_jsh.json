@@ -162,7 +162,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@item().itemName",
+											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
@@ -174,7 +174,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"destfilename": {
-											"value": "@item().itemName",
+											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
