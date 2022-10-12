@@ -1,7 +1,7 @@
 #-------Powershell commands-----------------------------------------------------------
 #-----Create Resource Group----------------------------------------
 
-New-AzResourceGroup -Name rg-vinoworld-dev -Location "Central US"
+New-AzResourceGroup -Name rg-vinoworld-dev -Location "Germany West Central"
 
 #-------Powershell commands-----------------------------------------------------------
 #-----Create Resources from ARM Temlplate with Parameters File------------------------
