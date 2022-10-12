@@ -10,10 +10,10 @@
             "value": "sql-vinoworld-dev" // TODO: Fill in parameter value
         },
         "sqlAdminLogin": {
-            "value": "sqlVinoAdmin" // TODO: Fill in parameter value
+            "value": "vinoworldadmin" // TODO: Fill in parameter value
         },
         "sqlAdminPassword": {
-            "value": "lightYear2019!" // TODO: Fill in parameter value
+            "value": "FarNiente!" // TODO: Fill in parameter value
         }
     }
 }

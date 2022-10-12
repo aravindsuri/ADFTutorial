@@ -1,4 +1,4 @@
 #-----------------------------------------------------------------
 #------------Delete Resource Group--------------------------------
 
-Get-AzResourceGroup -Name "rg-VinoWorld" | Remove-AzResourceGroup -Verbose -Force
+Get-AzResourceGroup -Name "rg-vinoworld-dev" | Remove-AzResourceGroup -Verbose -Force
