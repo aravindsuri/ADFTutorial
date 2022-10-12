@@ -1,22 +1,23 @@
 {
-	"name": "srcDataset_Verde",
+	"name": "abs_zip_source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adlstestdev001",
+			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "Misc"
+			"name": "chapter1"
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Verde",
-				"fileSystem": "sourcedata"
+				"fileSystem": "landing"
+			},
+			"compression": {
+				"type": "ZipDeflate"
 			}
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

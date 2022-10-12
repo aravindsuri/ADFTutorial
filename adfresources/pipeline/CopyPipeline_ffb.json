@@ -1,0 +1,157 @@
+{
+	"name": "CopyPipeline_ffb",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_ffb",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "raw/Verde/"
+					},
+					{
+						"name": "Destination",
+						"value": "test//"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "RowId",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['RowId']"
+								}
+							},
+							{
+								"source": {
+									"name": "OnlineRetailer",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['OnlineRetailer']"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesMonth",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['SalesMonth']"
+								}
+							},
+							{
+								"source": {
+									"name": "Title",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Title']"
+								}
+							},
+							{
+								"source": {
+									"name": "Vintage",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Vintage']"
+								}
+							},
+							{
+								"source": {
+									"name": "Variety",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Variety']"
+								}
+							},
+							{
+								"source": {
+									"name": "Score",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Score']"
+								}
+							},
+							{
+								"source": {
+									"name": "Price",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Price']"
+								}
+							},
+							{
+								"source": {
+									"name": "Quantity",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Quantity']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "abs_csv_raw_Verde",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "abs_json_test_Verde",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": []
+	}
+}

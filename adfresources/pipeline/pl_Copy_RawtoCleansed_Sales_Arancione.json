@@ -1,9 +1,9 @@
 {
-	"name": "pl_IngestSourceData",
+	"name": "pl_Copy_RawtoCleansed_Sales_Arancione",
 	"properties": {
 		"activities": [
 			{
-				"name": "cpIngestSourceData",
+				"name": "Copy Raw to Cleansed Sales Arancione",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,11 +16,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "sourcedata//"
+						"value": "raw/Arancione/"
 					},
 					{
 						"name": "Destination",
-						"value": "stagedata//"
+						"value": "cleansed/salesdata/"
 					}
 				],
 				"typeProperties": {
@@ -29,10 +29,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFileName": {
-								"value": "@pipeline().parameters.pSourceFile",
-								"type": "Expression"
-							},
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -41,13 +38,14 @@
 						}
 					},
 					"sink": {
-						"type": "ParquetSink",
+						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "MergeFiles"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
-							"type": "ParquetWriteSettings"
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -55,34 +53,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sourceDataset",
-						"type": "DatasetReference",
-						"parameters": {
-							"pSourceFileName": {
-								"value": "@pipeline().parameters.pSourceFile",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "abs_csv_raw_Arancione",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "sinkDataset",
+						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
-		"parameters": {
-			"pSourceFile": {
-				"type": "string"
-			}
-		},
 		"folder": {
-			"name": "Misc"
+			"name": "chapter2"
 		},
-		"annotations": [],
-		"lastPublishTime": "2022-09-29T07:59:28Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }

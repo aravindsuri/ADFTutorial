@@ -11,6 +11,9 @@
 				"defaultValue": "*ara*.csv"
 			}
 		},
+		"folder": {
+			"name": "Misc"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

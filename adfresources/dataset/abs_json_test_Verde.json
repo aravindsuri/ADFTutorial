@@ -1,22 +1,21 @@
 {
-	"name": "srcDataset_Verde",
+	"name": "abs_json_test_Verde",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adlstestdev001",
+			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
 			"name": "Misc"
 		},
 		"annotations": [],
-		"type": "Binary",
+		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Verde",
-				"fileSystem": "sourcedata"
+				"fileSystem": "test"
 			}
-		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+		},
+		"schema": {}
+	}
 }

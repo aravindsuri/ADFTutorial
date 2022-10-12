@@ -1,14 +1,9 @@
 {
-	"name": "sourceDataset",
+	"name": "abs_csv_raw_Verde",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "adlsSourceData",
+			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"pSourceFileName": {
-				"type": "string"
-			}
 		},
 		"folder": {
 			"name": "Misc"
@@ -18,11 +13,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().pSourceFileName",
-					"type": "Expression"
-				},
-				"fileSystem": "sourcedata"
+				"folderPath": "Verde",
+				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -31,7 +23,7 @@
 		},
 		"schema": [
 			{
-				"name": "Prop_0",
+				"name": "RowId",
 				"type": "String"
 			},
 			{
@@ -67,6 +59,5 @@
 				"type": "String"
 			}
 		]
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
