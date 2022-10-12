@@ -94,7 +94,7 @@
         "type": "Microsoft.Sql/servers",
         "apiVersion": "2021-11-01-preview",
         "name": "[parameters('sqlserver1')]",
-        "location": "[resourceGroup().location]",
+        "location": "West Europe",
         "properties": {
                 
             "administratorLogin": "[parameters('sqlAdminLogin')]",
@@ -104,7 +104,7 @@
             {
                 "type": "databases",
                 "name": "[variables('sqlDatabase').databaseName]",
-                "location": "[resourceGroup().location]",
+                "location": "West Europe",
                 "apiVersion": "2021-11-01-preview",
                 "sku": {
                         "name": "Basic",
