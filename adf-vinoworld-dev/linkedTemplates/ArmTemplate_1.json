@@ -1,0 +1,1414 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-vinoworld-dev"
+		},
+		"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().pSourceFile"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-VinoWorld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/sinkDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlsStageData",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "stagedata"
+					},
+					"compressionCodec": "snappy",
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sourceDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlsSourceData",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"pSourceFileName": {
+						"type": "string"
+					}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().pSourceFileName",
+							"type": "Expression"
+						},
+						"fileSystem": "sourcedata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/srcDataset_Arancione')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Arancione",
+						"fileSystem": "sourcedata"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/srcDataset_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Verde",
+						"fileSystem": "sourcedata"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stagingDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "stagingdata"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_ffb')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_ffb",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "raw/Verde/"
+							},
+							{
+								"name": "Destination",
+								"value": "test//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "RowId",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['RowId']"
+										}
+									},
+									{
+										"source": {
+											"name": "OnlineRetailer",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['OnlineRetailer']"
+										}
+									},
+									{
+										"source": {
+											"name": "SalesMonth",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['SalesMonth']"
+										}
+									},
+									{
+										"source": {
+											"name": "Title",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Title']"
+										}
+									},
+									{
+										"source": {
+											"name": "Vintage",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Vintage']"
+										}
+									},
+									{
+										"source": {
+											"name": "Variety",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Variety']"
+										}
+									},
+									{
+										"source": {
+											"name": "Score",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Score']"
+										}
+									},
+									{
+										"source": {
+											"name": "Price",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Price']"
+										}
+									},
+									{
+										"source": {
+											"name": "Quantity",
+											"type": "String"
+										},
+										"sink": {
+											"path": "$['Quantity']"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_csv_raw_Verde",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_json_test_Verde",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_LandingtoRaw')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy and UnzipData",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "sourcedata//"
+							},
+							{
+								"name": "Destination",
+								"value": "sourcedata//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*"
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings",
+									"compressionProperties": {
+										"type": "ZipDeflateReadSettings",
+										"preserveZipFileNameAsFolder": false
+									}
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_zip_source",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_zip_destination",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "chapter1"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Arancione')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Raw to Cleansed Sales Arancione",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "raw/Arancione/"
+							},
+							{
+								"name": "Destination",
+								"value": "cleansed/salesdata/"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".csv"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_csv_raw_Arancione",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Verde')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "GetFileList",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "abs_json_raw_Verde",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"fieldList": [
+								"childItems"
+							],
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							},
+							"formatSettings": {
+								"type": "JsonReadSettings"
+							}
+						}
+					},
+					{
+						"name": "Process Each File",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "GetFileList",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('GetFileList').output.childItems",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Copy JSON to CSV Verde",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "JsonSource",
+											"storeSettings": {
+												"type": "AzureBlobFSReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											},
+											"formatSettings": {
+												"type": "JsonReadSettings"
+											}
+										},
+										"sink": {
+											"type": "DelimitedTextSink",
+											"storeSettings": {
+												"type": "AzureBlobFSWriteSettings",
+												"copyBehavior": "FlattenHierarchy"
+											},
+											"formatSettings": {
+												"type": "DelimitedTextWriteSettings",
+												"quoteAllText": true,
+												"fileExtension": ".csv"
+											}
+										},
+										"enableStaging": false,
+										"translator": {
+											"type": "TabularTranslator",
+											"mappings": [
+												{
+													"source": {
+														"path": "$['YearMonth']"
+													},
+													"sink": {
+														"name": "SalesMonth"
+													}
+												},
+												{
+													"source": {
+														"path": "$['StoreName']"
+													},
+													"sink": {
+														"name": "OnlineRetailer"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['Product']"
+													},
+													"sink": {
+														"name": "Title"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['Vintage']"
+													},
+													"sink": {
+														"name": "Vintage"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['Variety']"
+													},
+													"sink": {
+														"name": "Variety"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['Score']"
+													},
+													"sink": {
+														"name": "Score"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['SalesPrice']"
+													},
+													"sink": {
+														"name": "Price"
+													}
+												},
+												{
+													"source": {
+														"path": "$['Sales']['SalesQty']"
+													},
+													"sink": {
+														"name": "Quantity"
+													}
+												}
+											]
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "abs_json_raw_Verde_param",
+											"type": "DatasetReference",
+											"parameters": {
+												"filename": {
+													"value": "@item().name",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "abs_csv_cleansed_Verde_param",
+											"type": "DatasetReference",
+											"parameters": {
+												"destfilename": {
+													"value": "@concat(substring(item().name, 0, sub(length(item().name),5)), '.csv')",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_IngestSourceData')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "cpIngestSourceData",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "sourcedata//"
+							},
+							{
+								"name": "Destination",
+								"value": "stagedata//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": {
+										"value": "@pipeline().parameters.pSourceFile",
+										"type": "Expression"
+									},
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "MergeFiles"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false
+						},
+						"inputs": [
+							{
+								"referenceName": "sourceDataset",
+								"type": "DatasetReference",
+								"parameters": {
+									"pSourceFileName": {
+										"value": "@pipeline().parameters.pSourceFile",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "sinkDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"pSourceFile": {
+						"type": "string"
+					}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-09-29T07:59:28Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/sourceDataset')]",
+				"[concat(variables('factoryId'), '/datasets/sinkDataset')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Load Data to Datalake')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Misc"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "rawData_Arancione",
+								"type": "DatasetReference"
+							},
+							"name": "GetDataArancione"
+						},
+						{
+							"dataset": {
+								"referenceName": "rawData_Verde",
+								"type": "DatasetReference"
+							},
+							"name": "GetDataVerde"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "stagingDataset",
+								"type": "DatasetReference"
+							},
+							"name": "LoadToDataLake"
+						}
+					],
+					"transformations": [
+						{
+							"name": "DerivePartitionColumns"
+						},
+						{
+							"name": "UnionSalesData"
+						}
+					],
+					"scriptLines": [
+						"parameters{",
+						"     parameter1 as string ('ara')",
+						"}",
+						"source(output(",
+						"          RowId as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false,",
+						"     wildcardPaths:['salesdata/Ara*.csv']) ~> GetDataArancione",
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false,",
+						"     wildcardPaths:['salesdata/Verde*.csv']) ~> GetDataVerde",
+						"UnionSalesData derive(year = substring(SalesMonth, 1, 4),",
+						"          month = substring(SalesMonth, 6, 2)) ~> DerivePartitionColumns",
+						"GetDataArancione, GetDataVerde union(byName: true)~> UnionSalesData",
+						"DerivePartitionColumns sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     format: 'parquet',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('key',",
+						"          0,",
+						"          OnlineRetailer,",
+						"          year,",
+						"          month",
+						"     )) ~> LoadToDataLake"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/stagingDataset')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Misc"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_arancioneproducts",
+								"type": "DatasetReference"
+							},
+							"name": "ImportStagingProducts"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "asql_stage_product",
+								"type": "DatasetReference"
+							},
+							"name": "LoadStagingProducts"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          {_c0} as string,",
+						"          ProductId as string,",
+						"          country as string,",
+						"          description as string,",
+						"          designation as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          province as string,",
+						"          region_1 as string,",
+						"          region_2 as string,",
+						"          taster_ProductName as string,",
+						"          taster_twitter_handle as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Winery as string,",
+						"          Year as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> ImportStagingProducts",
+						"ImportStagingProducts sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          ProductNo as string,",
+						"          Country as string,",
+						"          Description as string,",
+						"          Designation as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          Province as string,",
+						"          Region_1 as string,",
+						"          Region_2 as string,",
+						"          Varietal as string,",
+						"          Taster as string,",
+						"          Twitter as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Winery as string",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     truncate:true,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          ProductNo = ProductId,",
+						"          Country = country,",
+						"          Description = description,",
+						"          Designation = designation,",
+						"          Score,",
+						"          Price,",
+						"          Province = province,",
+						"          Region_1 = region_1,",
+						"          Region_2 = region_2,",
+						"          Varietal = Variety,",
+						"          Taster = taster_ProductName,",
+						"          Twitter = taster_twitter_handle,",
+						"          Title,",
+						"          Vintage,",
+						"          Winery",
+						"     )) ~> LoadStagingProducts"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_CSVtoJSON')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Misc"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Verde",
+								"type": "DatasetReference"
+							},
+							"name": "GetCSV"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_json_test_Verde",
+								"type": "DatasetReference"
+							},
+							"name": "StoreAsJSON"
+						}
+					],
+					"transformations": [
+						{
+							"name": "MakeHierarchy"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          RowId as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          Price as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> GetCSV",
+						"GetCSV derive(YearMonth = SalesMonth,",
+						"          StoreName = OnlineRetailer,",
+						"          Sales = @(Product=Title,",
+						"          Vintage=Vintage,",
+						"          Variety=Variety,",
+						"          Score=Score,",
+						"          SalesPrice=Price,",
+						"          SalesQty=Quantity)) ~> MakeHierarchy",
+						"MakeHierarchy sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     mapColumn(",
+						"          YearMonth,",
+						"          StoreName,",
+						"          Sales",
+						"     )) ~> StoreAsJSON"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CSVtoJSON')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Data Flow CSV to JSON",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_CSVtoJSON",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"GetCSV": {},
+									"StoreAsJSON": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-10-08T19:34:24Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_CSVtoJSON')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopySourceData')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "source to raw - Arancione",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "sourcedata//sampledata.zip"
+							},
+							{
+								"name": "Destination",
+								"value": "rawdata//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"deleteFilesAfterCompletion": false
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "srcDataset_Arancione",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "rawDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "source to raw - Verde",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "srcDataset_Verde",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "rawDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Load Data to Datalake",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Wait1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "Load Data to Datalake",
+								"type": "DataFlowReference",
+								"parameters": {
+									"parameter1": "'ara'"
+								},
+								"datasetParameters": {
+									"GetDataArancione": {
+										"test": "*ara*.csv"
+									},
+									"GetDataVerde": {},
+									"LoadToDataLake": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [
+							{
+								"activity": "source to raw - Arancione",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "source to raw - Verde",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-10-08T19:34:24Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/srcDataset_Arancione')]",
+				"[concat(variables('factoryId'), '/datasets/srcDataset_Verde')]",
+				"[concat(variables('factoryId'), '/dataflows/Load Data to Datalake')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopySourceFiles')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "LoadStagingProducts",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"ImportStagingProducts": {},
+									"LoadStagingProducts": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_IngestSourceData",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"pSourceFile": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/sourcedata/blobs/",
+					"ignoreEmptyBlobs": false,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_IngestSourceData')]"
+			]
+		}
+	]
+}

@@ -23,11 +23,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_Sql_WineStoreDB'"
 		},
+		"ls_adlstestdev001_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlstestdev001'"
+		},
+		"ls_adlsvinoworld_dev_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlsvinoworld_dev'"
+		},
 		"adlsSourceData_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
 		"adlsStageData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"ls_adlstestdev001_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlstestdev001.dfs.core.windows.net/"
+		},
+		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
@@ -78,11 +94,41 @@
 					"ls_Sql_WineStoreDB_connectionString": {
 						"value": "[parameters('ls_Sql_WineStoreDB_connectionString')]"
 					},
+					"ls_adlstestdev001_accountKey": {
+						"value": "[parameters('ls_adlstestdev001_accountKey')]"
+					},
+					"ls_adlsvinoworld_dev_accountKey": {
+						"value": "[parameters('ls_adlsvinoworld_dev_accountKey')]"
+					},
 					"adlsSourceData_properties_typeProperties_url": {
 						"value": "[parameters('adlsSourceData_properties_typeProperties_url')]"
 					},
 					"adlsStageData_properties_typeProperties_url": {
 						"value": "[parameters('adlsStageData_properties_typeProperties_url')]"
+					},
+					"ls_adlstestdev001_properties_typeProperties_url": {
+						"value": "[parameters('ls_adlstestdev001_properties_typeProperties_url')]"
+					},
+					"ls_adlsvinoworld_dev_properties_typeProperties_url": {
+						"value": "[parameters('ls_adlsvinoworld_dev_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-vinoworld-dev_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
 						"value": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
@@ -92,7 +138,9 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-vinoworld-dev_ArmTemplate_0')]"
+			]
 		}
 	]
 }

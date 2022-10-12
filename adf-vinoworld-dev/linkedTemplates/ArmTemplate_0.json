@@ -23,6 +23,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_Sql_WineStoreDB'"
 		},
+		"ls_adlstestdev001_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlstestdev001'"
+		},
+		"ls_adlsvinoworld_dev_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlsvinoworld_dev'"
+		},
 		"adlsSourceData_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
@@ -31,13 +39,13 @@
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
-		"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+		"ls_adlstestdev001_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "@triggerBody().pSourceFile"
+			"defaultValue": "https://adlstestdev001.dfs.core.windows.net/"
 		},
-		"trigger1_properties_typeProperties_scope": {
+		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-VinoWorld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
+			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -105,6 +113,41 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_adlstestdev001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_adlstestdev001_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adlstestdev001_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_adlsvinoworld_dev')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Linked Service to ADLS Gen2 Storage",
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_adlsvinoworld_dev_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adlsvinoworld_dev_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/abs_csv_arancioneproducts')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -114,7 +157,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "chapter1"
+					"name": "Misc"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -188,6 +231,420 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Verde_param')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"destfilename": {
+						"type": "String"
+					}
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().destfilename",
+							"type": "Expression"
+						},
+						"folderPath": "salesdata",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_sales')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "salesdata",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Arancione')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Arancione",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "RowId",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Verde",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "RowId",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_json_raw_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Verde",
+						"fileSystem": "raw"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"YearMonth": {
+							"type": "string"
+						},
+						"StoreName": {
+							"type": "string"
+						},
+						"Sales": {
+							"type": "object",
+							"properties": {
+								"Product": {
+									"type": "string"
+								},
+								"Vintage": {
+									"type": "string"
+								},
+								"Variety": {
+									"type": "string"
+								},
+								"Score": {
+									"type": "string"
+								},
+								"SalesPrice": {
+									"type": "string"
+								},
+								"SalesQty": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_json_raw_Verde_param')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"filename": {
+						"type": "String"
+					}
+				},
+				"folder": {
+					"name": "chapter2"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().filename",
+							"type": "Expression"
+						},
+						"folderPath": "Verde",
+						"fileSystem": "raw"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"YearMonth": {
+							"type": "string"
+						},
+						"StoreName": {
+							"type": "string"
+						},
+						"Sales": {
+							"type": "object",
+							"properties": {
+								"Product": {
+									"type": "string"
+								},
+								"Vintage": {
+									"type": "string"
+								},
+								"Variety": {
+									"type": "string"
+								},
+								"Score": {
+									"type": "string"
+								},
+								"SalesPrice": {
+									"type": "string"
+								},
+								"SalesQty": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_json_test_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "test"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_zip_destination')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter1"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "raw"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_zip_source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter1"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "landing"
+					},
+					"compression": {
+						"type": "ZipDeflate"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/asql_stage_product')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -197,7 +654,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "chapter1"
+					"name": "Misc"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -277,62 +734,29 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/sinkDataset')]",
+			"name": "[concat(parameters('factoryName'), '/rawData_Arancione')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "adlsStageData",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "chapter2"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "stagedata"
-					},
-					"compressionCodec": "snappy",
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/adlsStageData')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/sourceDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "adlsSourceData",
+					"referenceName": "ls_adlstestdev001",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"pSourceFileName": {
-						"type": "string"
+					"test": {
+						"type": "String",
+						"defaultValue": "*ara*.csv"
 					}
 				},
 				"folder": {
-					"name": "chapter2"
+					"name": "Misc"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().pSourceFileName",
-							"type": "Expression"
-						},
-						"fileSystem": "sourcedata"
+						"fileSystem": "rawdata"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -341,7 +765,7 @@
 				},
 				"schema": [
 					{
-						"name": "Prop_0",
+						"name": "RowId",
 						"type": "String"
 					},
 					{
@@ -379,284 +803,64 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/adlsSourceData')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlstestdev001')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_IngestSourceData')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/rawData_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
-					{
-						"name": "cpIngestSourceData",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "sourcedata//"
-							},
-							{
-								"name": "Destination",
-								"value": "stagedata//"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"wildcardFileName": {
-										"value": "@pipeline().parameters.pSourceFile",
-										"type": "Expression"
-									},
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 0
-								}
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings",
-									"copyBehavior": "MergeFiles"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"validateDataConsistency": false
-						},
-						"inputs": [
-							{
-								"referenceName": "sourceDataset",
-								"type": "DatasetReference",
-								"parameters": {
-									"pSourceFileName": {
-										"value": "@pipeline().parameters.pSourceFile",
-										"type": "Expression"
-									}
-								}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "sinkDataset",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"pSourceFile": {
-						"type": "string"
-					}
+				"folder": {
+					"name": "Misc"
 				},
 				"annotations": [],
-				"lastPublishTime": "2022-09-29T07:59:28Z"
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "salesdata",
+						"fileSystem": "rawdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/sourceDataset')]",
-				"[concat(variables('factoryId'), '/datasets/sinkDataset')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlstestdev001')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
+			"name": "[concat(parameters('factoryName'), '/rawDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"type": "MappingDataFlow",
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Binary",
 				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "abs_csv_arancioneproducts",
-								"type": "DatasetReference"
-							},
-							"name": "ImportStagingProducts"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "asql_stage_product",
-								"type": "DatasetReference"
-							},
-							"name": "LoadStagingProducts"
-						}
-					],
-					"transformations": [],
-					"scriptLines": [
-						"source(output(",
-						"          {_c0} as string,",
-						"          ProductId as string,",
-						"          country as string,",
-						"          description as string,",
-						"          designation as string,",
-						"          Score as string,",
-						"          Price as string,",
-						"          province as string,",
-						"          region_1 as string,",
-						"          region_2 as string,",
-						"          taster_ProductName as string,",
-						"          taster_twitter_handle as string,",
-						"          Title as string,",
-						"          Vintage as string,",
-						"          Variety as string,",
-						"          Winery as string,",
-						"          Year as string",
-						"     ),",
-						"     allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false) ~> ImportStagingProducts",
-						"ImportStagingProducts sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     input(",
-						"          ProductNo as string,",
-						"          Country as string,",
-						"          Description as string,",
-						"          Designation as string,",
-						"          Score as string,",
-						"          Price as string,",
-						"          Province as string,",
-						"          Region_1 as string,",
-						"          Region_2 as string,",
-						"          Varietal as string,",
-						"          Taster as string,",
-						"          Twitter as string,",
-						"          Title as string,",
-						"          Vintage as string,",
-						"          Variety as string,",
-						"          Winery as string",
-						"     ),",
-						"     deletable:false,",
-						"     insertable:true,",
-						"     updateable:false,",
-						"     upsertable:false,",
-						"     truncate:true,",
-						"     format: 'table',",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     errorHandlingOption: 'stopOnFirstError',",
-						"     mapColumn(",
-						"          ProductNo = ProductId,",
-						"          Country = country,",
-						"          Description = description,",
-						"          Designation = designation,",
-						"          Score,",
-						"          Price,",
-						"          Province = province,",
-						"          Region_1 = region_1,",
-						"          Region_2 = region_2,",
-						"          Varietal = Variety,",
-						"          Taster = taster_ProductName,",
-						"          Twitter = taster_twitter_handle,",
-						"          Title,",
-						"          Vintage,",
-						"          Winery",
-						"     )) ~> LoadStagingProducts"
-					]
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "salesdata",
+						"fileSystem": "rawdata"
+					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/abs_csv_arancioneproducts')]",
-				"[concat(variables('factoryId'), '/datasets/asql_stage_product')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_CopySourceFiles')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "LoadStagingProducts",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "dataflow1",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"ImportStagingProducts": {},
-									"LoadStagingProducts": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pl_IngestSourceData",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"pSourceFile": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
-						}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/sourcedata/blobs/",
-					"ignoreEmptyBlobs": false,
-					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_IngestSourceData')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlstestdev001')]"
 			]
 		}
 	]
