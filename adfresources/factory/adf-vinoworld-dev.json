@@ -1,9 +1,9 @@
 {
 	"name": "adf-vinoworld-dev",
-	"location": "centralus",
+	"location": "germanywestcentral",
 	"identity": {
 		"type": "SystemAssigned",
-		"principalId": "d4f00db2-eaea-4ec1-80a4-a5697ddaf972",
+		"principalId": "77eb0a98-26ad-4aa8-9ba9-7f8698c056b8",
 		"tenantId": "5da37119-9dac-4a5a-8242-984a3c927e96"
 	}
 }
