@@ -64,7 +64,7 @@
 				"          Variety,",
 				"          Score,",
 				"          ListPrice),",
-				"     Quantity = sum(Quantity)) ~> AggregateDailySales",
+				"     Quantity = ERROR_FUNCTION('')) ~> AggregateDailySales",
 				"AggregateDailySales sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
