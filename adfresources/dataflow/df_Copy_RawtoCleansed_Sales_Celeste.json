@@ -27,6 +27,9 @@
 			"transformations": [
 				{
 					"name": "filterSummaryLine"
+				},
+				{
+					"name": "addFileNameColumn"
 				}
 			],
 			"scriptLines": [
@@ -47,10 +50,11 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
-				"SourceCSVCeleste filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
 				"filterSummaryLine sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:'SalesMonth',",
+				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
