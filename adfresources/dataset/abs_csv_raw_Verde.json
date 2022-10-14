@@ -23,10 +23,6 @@
 		},
 		"schema": [
 			{
-				"name": "RowId",
-				"type": "String"
-			},
-			{
 				"name": "OnlineRetailer",
 				"type": "String"
 			},
@@ -51,7 +47,7 @@
 				"type": "String"
 			},
 			{
-				"name": "Price",
+				"name": "ListPrice",
 				"type": "String"
 			},
 			{
