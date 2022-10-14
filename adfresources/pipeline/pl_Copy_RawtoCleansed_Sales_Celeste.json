@@ -4,7 +4,7 @@
 		"description": "Copy Raw to Cleansed Celeste Data",
 		"activities": [
 			{
-				"name": "df_Copy_RawtoCleansed_Celeste",
+				"name": "Data Flow Copy Raw to Cleansed Celeste",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
