@@ -53,6 +53,7 @@
 				"          SalesQty=Quantity)) ~> MakeHierarchy",
 				"MakeHierarchy sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     rowUrlColumn:'SalesMonth',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
