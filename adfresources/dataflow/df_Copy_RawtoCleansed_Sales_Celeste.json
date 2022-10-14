@@ -12,11 +12,15 @@
 						"referenceName": "abs_csv_raw_Celeste",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "SourceCSVCeleste"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "filterSummaryLine"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          TransactionId as string,",
@@ -34,7 +38,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+				"SourceCSVCeleste filter(left(Title, 21) != 'Total Sales Quantity:' ) ~> filterSummaryLine"
 			]
 		}
 	}
