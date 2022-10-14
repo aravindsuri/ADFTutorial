@@ -386,7 +386,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "Verde",
-						"fileSystem": "raw"
+						"fileSystem": "test"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -394,10 +394,6 @@
 					"quoteChar": "\""
 				},
 				"schema": [
-					{
-						"name": "RowId",
-						"type": "String"
-					},
 					{
 						"name": "OnlineRetailer",
 						"type": "String"
@@ -423,7 +419,71 @@
 						"type": "String"
 					},
 					{
-						"name": "Price",
+						"name": "ListPrice",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_test_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Verde",
+						"fileSystem": "test"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "ListPrice",
 						"type": "String"
 					},
 					{
@@ -581,8 +641,7 @@
 				"type": "Json",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "test"
+						"type": "AzureBlobFSLocation"
 					}
 				},
 				"schema": {}
@@ -832,32 +891,6 @@
 					"quoteChar": "\""
 				},
 				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adlstestdev001')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/rawDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adlstestdev001",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Misc"
-				},
-				"annotations": [],
-				"type": "Binary",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "salesdata",
-						"fileSystem": "rawdata"
-					}
-				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_adlstestdev001')]"

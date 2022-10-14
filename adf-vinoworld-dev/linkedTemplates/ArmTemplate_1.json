@@ -21,6 +21,30 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/rawDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlstestdev001",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "salesdata",
+						"fileSystem": "rawdata"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/sinkDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1028,7 +1052,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Verde",
+								"referenceName": "abs_csv_test_Verde",
 								"type": "DatasetReference"
 							},
 							"name": "GetCSV"
@@ -1050,14 +1074,13 @@
 					],
 					"scriptLines": [
 						"source(output(",
-						"          RowId as string,",
 						"          OnlineRetailer as string,",
 						"          SalesMonth as string,",
 						"          Title as string,",
 						"          Vintage as string,",
 						"          Variety as string,",
 						"          Score as string,",
-						"          Price as string,",
+						"          ListPrice as string,",
 						"          Quantity as string",
 						"     ),",
 						"     allowSchemaDrift: true,",
@@ -1069,10 +1092,11 @@
 						"          Vintage=Vintage,",
 						"          Variety=Variety,",
 						"          Score=Score,",
-						"          SalesPrice=Price,",
+						"          SalesPrice=ListPrice,",
 						"          SalesQty=Quantity)) ~> MakeHierarchy",
 						"MakeHierarchy sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     rowUrlColumn:'SalesMonth',",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
@@ -1324,6 +1348,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/srcDataset_Arancione')]",
+				"[concat(variables('factoryId'), '/datasets/rawDataset')]",
 				"[concat(variables('factoryId'), '/datasets/srcDataset_Verde')]",
 				"[concat(variables('factoryId'), '/dataflows/Load Data to Datalake')]"
 			]

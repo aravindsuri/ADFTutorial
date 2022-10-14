@@ -1229,7 +1229,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "Verde",
-						"fileSystem": "raw"
+						"fileSystem": "test"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -1237,10 +1237,6 @@
 					"quoteChar": "\""
 				},
 				"schema": [
-					{
-						"name": "RowId",
-						"type": "String"
-					},
 					{
 						"name": "OnlineRetailer",
 						"type": "String"
@@ -1266,7 +1262,71 @@
 						"type": "String"
 					},
 					{
-						"name": "Price",
+						"name": "ListPrice",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_test_Verde')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Verde",
+						"fileSystem": "test"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "ListPrice",
 						"type": "String"
 					},
 					{
@@ -1424,8 +1484,7 @@
 				"type": "Json",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "test"
+						"type": "AzureBlobFSLocation"
 					}
 				},
 				"schema": {}
@@ -2230,7 +2289,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Verde",
+								"referenceName": "abs_csv_test_Verde",
 								"type": "DatasetReference"
 							},
 							"name": "GetCSV"
@@ -2252,14 +2311,13 @@
 					],
 					"scriptLines": [
 						"source(output(",
-						"          RowId as string,",
 						"          OnlineRetailer as string,",
 						"          SalesMonth as string,",
 						"          Title as string,",
 						"          Vintage as string,",
 						"          Variety as string,",
 						"          Score as string,",
-						"          Price as string,",
+						"          ListPrice as string,",
 						"          Quantity as string",
 						"     ),",
 						"     allowSchemaDrift: true,",
@@ -2271,10 +2329,11 @@
 						"          Vintage=Vintage,",
 						"          Variety=Variety,",
 						"          Score=Score,",
-						"          SalesPrice=Price,",
+						"          SalesPrice=ListPrice,",
 						"          SalesQty=Quantity)) ~> MakeHierarchy",
 						"MakeHierarchy sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     rowUrlColumn:'SalesMonth',",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
@@ -2289,7 +2348,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Verde')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Verde')]",
 				"[concat(variables('factoryId'), '/datasets/abs_json_test_Verde')]"
 			]
 		}
