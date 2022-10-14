@@ -30,6 +30,9 @@
 				},
 				{
 					"name": "addFileNameColumn"
+				},
+				{
+					"name": "AggregateDailySales"
 				}
 			],
 			"scriptLines": [
@@ -52,7 +55,17 @@
 				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
 				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
 				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
-				"filterSummaryLine sink(allowSchemaDrift: true,",
+				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice),",
+				"     Quantity = sum(Quantity)) ~> AggregateDailySales",
+				"AggregateDailySales sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",
