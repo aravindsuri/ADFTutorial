@@ -1,121 +1,121 @@
-RowId,OnlineRetailer,SalesMonth,Title,Vintage,Variety,Score,Price,Quantity
-0,Arancione,2022-03,Nino Negri 2013 5 Stelle  (Sforzato di Valtellina),2013,Nebbiolo,95,82,172
-1,Arancione,2022-03,Canalicchio di Sopra 2010 Riserva  (Brunello di Montalcino),2010,Sangiovese,96,130,183
-2,Arancione,2022-03,Siro Pacenti 2006 Riserva  (Brunello di Montalcino),2006,Sangiovese Grosso,95,120,166
-3,Arancione,2022-03,Tenuta dell'Ornellaia 2004 Masseto Merlot (Toscana),2004,Merlot,99,250,45
-4,Arancione,2022-03,Arpepe 2007 Sassella Vigna Regina Riserva  (Valtellina Superiore),2007,Nebbiolo,96,105,178
-5,Arancione,2022-03,Sobrero 2013 Ciabot Tanasio  (Barolo),2013,Nebbiolo,95,52,105
-6,Arancione,2022-03,Livio Felluga 2007 Picolit Picolit (Colli Orientali del Friuli),2007,Picolit,97,90,181
-7,Arancione,2022-03,Cordero di Montezemolo 2007 Bricco Gattera  (Barolo),2007,Nebbiolo,96,80,70
-8,Arancione,2022-03,Ceretto 2013 Prap√≤  (Barolo),2013,Nebbiolo,96,130,34
-9,Arancione,2022-03,Tenuta dell'Ornellaia 2005 Masseto Merlot (Toscana),2005,Merlot,95,460,117
-10,Arancione,2022-03,Rivetto 2010 Briccolina  (Barolo),2010,Nebbiolo,96,149,102
-11,Arancione,2022-03,Attilio Ghisolfi 2011 Bussia Bricco Visette  (Barolo),2011,Nebbiolo,96,79,198
-12,Arancione,2022-03,Lazzeretti 2010 Riserva  (Brunello di Montalcino),2010,Sangiovese,95,120,161
-13,Arancione,2022-03,Propriet√† Sperino 2011  Lessona,2011,Nebbiolo,96,72,155
-14,Arancione,2022-03,Eugenio Bocchino 2006 La Serra  (Barolo),2006,Nebbiolo,95,100,72
-15,Arancione,2022-03,Livio Sassetti 2010 Pertimali Riserva  (Brunello di Montalcino),2010,Sangiovese,95,110,170
-16,Arancione,2022-03,Fattoria Petrolo 2006 Galatrona Merlot (Toscana),2006,Merlot,95,120,151
-17,Arancione,2022-03,Felsina 2010 Fontalloro Sangiovese (Toscana),2010,Sangiovese,95,62,165
-18,Arancione,2022-03,Avignonesi 1997 375ml  (Vin Santo di Montepulciano),1997,White Blend,97,170,112
-19,Arancione,2022-03,Fattoria Petrolo 2008 Galatrona Merlot (Toscana),2008,Merlot,97,134,1
-20,Arancione,2022-03,Giuseppe Rinaldi 2011 Tre Tine  (Barolo),2011,Nebbiolo,95,125,141
-21,Arancione,2022-03,Brovia 2011 Brea Vigna Ca' Mia  (Barolo),2011,Nebbiolo,95,95,13
-22,Arancione,2022-03,Baricci 2012  Brunello di Montalcino,2012,Sangiovese,96,50,5
-23,Arancione,2022-03,Isole e Olena 2010  Chianti Classico,2010,Red Blend,96,27,6
-24,Arancione,2022-03,Abbazia di Novacella 2015 Praepositus Kerner (Alto Adige),2015,Kerner,95,25,34
-25,Arancione,2022-03,Poggio Antico 2007 Madre Red (Toscana),2007,Red Blend,95,30,157
-26,Arancione,2022-03,Gaja 2006 Conteisa Nebbiolo (Langhe),2006,Nebbiolo,97,215,145
-27,Arancione,2022-03,Il Colle 2010  Brunello di Montalcino,2010,Sangiovese,95,46,66
-28,Arancione,2022-03,Ornellaia 2010  Bolgheri Superiore,2010,Red Blend,97,240,160
-29,Arancione,2022-03,Le Macchiole 2004 Paleo Cabernet Franc (Toscana),2004,Cabernet Franc,96,105,106
-30,Arancione,2022-03,Col d'Orcia 2006 Poggio al Vento Riserva  (Brunello di Montalcino),2006,Sangiovese,95,150,89
-31,Arancione,2022-03,Cantina Fratelli Pardi 2010 Sacrantino  (Montefalco Sagrantino),2010,Sagrantino,95,60,113
-32,Arancione,2022-03,Albino Rocca 2014 Angelo  (Barbaresco),2014,Nebbiolo,96,98,110
-33,Arancione,2022-03,Conti Costanti 2012  Brunello di Montalcino,2012,Sangiovese,98,95,13
-34,Arancione,2022-03,Conti Costanti 2011  Brunello di Montalcino,2011,Sangiovese,95,74,175
-35,Arancione,2022-03,Marchesi di Barolo 2007 Cannubi  (Barolo),2007,Nebbiolo,95,135,9
-36,Arancione,2022-03,Paolo Scavino 2009 Bric d√´l Fiasc  (Barolo),2009,Nebbiolo,95,118,30
-37,Arancione,2022-03,Schiavenza 2013 Prap√≤  (Barolo),2013,Nebbiolo,96,70,161
-38,Arancione,2022-03,Oddero 2010 Brunate  (Barolo),2010,Nebbiolo,95,123,123
-39,Arancione,2022-03,Cavallotto 2007 Vignolo Riserva  (Barolo),2007,Nebbiolo,97,98,169
-40,Arancione,2022-03,Il Marroneto 2012  Brunello di Montalcino,2012,Sangiovese,95,80,71
-41,Arancione,2022-03,Gianni Voerzio 2007 La Serra  (Barolo),2007,Nebbiolo,96,125,173
-42,Arancione,2022-03,Abbadia Ardenga 2012 Vigna Piaggia  (Brunello di Montalcino),2012,Sangiovese,95,65,23
-43,Arancione,2022-03,Marchesi di Barolo 2006 Coste di Rose  (Barolo),2006,Nebbiolo,95,30,142
-44,Arancione,2022-03,Castello dei Rampolla 2011 D'Alceo Red (Toscana),2011,Red Blend,95,260,181
-45,Arancione,2022-03,Massolino 2013 Serralunga d'Alba  (Barolo),2013,Nebbiolo,95,52,82
-46,Arancione,2022-03,Tenuta di Biserno 2009 Biserno Red (Toscana),2009,Red Blend,95,180,133
-47,Arancione,2022-03,Pieropan 2011 La Rocca  (Soave Classico),2011,Garganega,95,31,134
-48,Arancione,2022-03,Gaja 2006 Sperss Nebbiolo (Langhe),2006,Nebbiolo,98,255,4
-49,Arancione,2022-03,Paolo Scavino 2013 Monvigliero  (Barolo),2013,Nebbiolo,95,69,91
-50,Arancione,2022-03,Biondi 2014 Contrada Monte San Nicol√≤  (Etna),2014,Red Blend,95,30,123
-51,Arancione,2022-03,Rivetto 2008 Briccolina  (Barolo),2008,Nebbiolo,95,169,176
-52,Arancione,2022-03,Gigi Rosso 2009 Arione  (Barolo),2009,Nebbiolo,95,49,172
-53,Arancione,2022-03,Marchesi de' Frescobaldi 2003 Castello di Pomino Vendemmia Tardiva White (Tuscany),2003,White Blend,95,30,186
-54,Arancione,2022-03,Tenuta San Guido 2010 Sassicaia  (Bolgheri Sassicaia),2010,Red Blend,97,227,146
-55,Arancione,2022-03,Paolo Scavino 2009 Cannubi  (Barolo),2009,Nebbiolo,96,118,129
-56,Arancione,2022-03,Paolo Scavino 2013 Bricco Ambrogio  (Barolo),2013,Nebbiolo,95,61,20
-57,Arancione,2022-03,Tenuta Sette Ponti 2005 Oreno Red (Toscana),2005,Red Blend,95,93,152
-58,Arancione,2022-03,Petra 1998 Riserva Cabernet Sauvignon-Merlot (Toscana),1998,Cabernet Sauvignon-Merlot,95,50,26
-59,Arancione,2022-03,Cavallotto 2009 Vignolo Riserva  (Barolo),2009,Nebbiolo,95,100,159
-60,Arancione,2022-03,Donnafugata 2008 Ben Ry√©  (Passito di Pantelleria),2008,Zibibbo,95,40,167
-61,Arancione,2022-03,Colombera & Garella 2013 Pizzaguerra  (Lessona),2013,Nebbiolo,96,35,185
-62,Arancione,2022-03,Contucci 2010 Mulinvecchio  (Vino Nobile di Montepulciano),2010,Red Blend,95,50,193
-63,Arancione,2022-03,Massolino 2012 Parafada  (Barolo),2012,Nebbiolo,95,96,53
-64,Arancione,2022-03,Le Ragnaie 2012 VV  (Brunello di Montalcino),2012,Sangiovese,95,125,186
-65,Arancione,2022-03,Gaja 2007 Sor√¨ San Lorenzo Nebbiolo (Langhe),2007,Nebbiolo,99,440,156
-66,Arancione,2022-03,Brezza 2013 Cannubi  (Barolo),2013,Nebbiolo,98,60,48
-67,Arancione,2022-03,Masseto 2010 Merlot (Toscana),2010,Merlot,97,550,146
-68,Arancione,2022-03,Gianni Brunelli 2011  Brunello di Montalcino,2011,Sangiovese,95,56,113
-69,Arancione,2022-03,Bel Colle 2012 Simposio  (Barolo),2012,Nebbiolo,95,60,73
-70,Arancione,2022-03,Foradori 2012 Morei Teroldego (Vigneti delle Dolomiti),2012,Teroldego,95,50,193
-71,Arancione,2022-03,Fratelli Alessandria 2013 Monvigliero  (Barolo),2013,Nebbiolo,95,78,135
-72,Arancione,2022-03,Isole e Olena 2012 Cepparello Sangiovese (Toscana),2012,Sangiovese,95,80,190
-73,Arancione,2022-03,Castello del Terriccio 2004 Castello del Terriccio Red (Toscana),2004,Red Blend,95,140,186
-74,Arancione,2022-03,Azelia 2006 San Rocco  (Barolo),2006,Nebbiolo,95,30,68
-75,Arancione,2022-03,Antinori 1999 Guado Al Tasso  (Bolgheri),1999,Red Blend,95,80,142
-76,Arancione,2022-03,Biondi Santi 2011 Riserva  (Brunello di Montalcino),2011,Sangiovese,96,540,119
-77,Arancione,2022-03,Giacomo Fenocchio 2013 Castellero  (Barolo),2013,Nebbiolo,95,55,166
-78,Arancione,2022-03,Aldo Conterno 2013 Bussia Cicala  (Barolo),2013,Nebbiolo,96,150,49
-79,Arancione,2022-03,Tua Rita 2005 Giusto di Notri Red (Toscana),2005,Red Blend,95,100,7
-80,Arancione,2022-03,Brovia 2013 Brea Vigna C√† Mia  (Barolo),2013,Nebbiolo,97,96,128
-81,Arancione,2022-03,Benanti 2010 Pietramarina Bianco Superiore  (Etna),2010,Carricante,95,45,106
-82,Arancione,2022-03,Elvio Cogno 2007 Cascina Nuova  (Barolo),2007,Nebbiolo,95,50,77
-83,Arancione,2022-03,San Giusto a Rentennano 2004 Percarlo Sangiovese (Toscana),2004,Sangiovese,95,70,95
-84,Arancione,2022-03,Le Macchiole 2010 Messorio Merlot (Toscana),2010,Merlot,96,315,73
-85,Arancione,2022-03,Il Poggione 2007 Vigna Paganelli Riserva  (Brunello di Montalcino),2007,Sangiovese Grosso,95,115,131
-86,Arancione,2022-03,Elvio Cogno 2011 Ravera  (Barolo),2011,Nebbiolo,95,76,81
-87,Arancione,2022-03,Eugenio Bocchino 2007 La Serra  (Barolo),2007,Nebbiolo,95,30,139
-88,Arancione,2022-03,Comm. G. B. Burlotto 2013 Acclivi  (Barolo),2013,Nebbiolo,96,60,118
-89,Arancione,2022-03,Gaja 2006 Costa Russi Nebbiolo (Langhe),2006,Nebbiolo,95,420,18
-90,Arancione,2022-03,Monteraponi 2010 Il Campitello Riserva  (Chianti Classico),2010,Red Blend,95,55,99
-91,Arancione,2022-03,Pio Cesare 2007  Barolo,2007,Nebbiolo,95,65,57
-92,Arancione,2022-03,Conti Costanti 2010 Riserva  (Brunello di Montalcino),2010,Sangiovese,98,190,41
-93,Arancione,2022-03,Giuseppe Rinaldi 2012 Brunate  (Barolo),2012,Nebbiolo,96,146,8
-94,Arancione,2022-03,Cantina Produttori San Michele Appiano 2015 Sanct Valentin Sauvignon (Alto Adige),2015,Sauvignon,95,40,21
-95,Arancione,2022-03,Bruno Giacosa 2012 Asili  (Barbaresco),2012,Nebbiolo,95,200,90
-96,Arancione,2022-03,Ciacci Piccolomini d'Aragona 2012 Vigna di Pianrosso  (Brunello di Montalcino),2012,Sangiovese,95,90,132
-97,Arancione,2022-03,Massolino 2011 Parafada  (Barolo),2011,Nebbiolo,95,99,122
-98,Arancione,2022-03,Bibi Graetz 2004 Testamatta Sangiovese (Toscana),2004,Sangiovese,96,98,83
-99,Arancione,2022-03,Biondi Santi 2008  Brunello di Montalcino,2008,Sangiovese,95,200,174
-100,Arancione,2022-03,Mascarello Giuseppe e Figlio 2012 Monprivato  (Barolo),2012,Nebbiolo,95,163,46
-101,Arancione,2022-03,Travaglini 2010 Riserva  (Gattinara),2010,Nebbiolo,95,60,154
-102,Arancione,2022-03,Ferrando 2010 Black Label  (Carema),2010,Nebbiolo,95,90,31
-103,Arancione,2022-03,Tenuta Sette Ponti 2007 Oreno Red (Toscana),2007,Red Blend,96,100,74
-104,Arancione,2022-03,Dal Forno Romano 2004 Vigneto di Monte Lodoletta  (Amarone della Valpolicella),2004,"Corvina, Rondinella, Molinara",95,500,148
-105,Arancione,2022-03,Giacomo Fenocchio 2010 Villero  (Barolo),2010,Nebbiolo,95,60,28
-106,Arancione,2022-03,Brovia 2013 Garbl√®t Su√®  (Barolo),2013,Nebbiolo,98,83,42
-107,Arancione,2022-03,Castello di Ama 2010 San Lorenzo Gran Selezione  (Chianti Classico),2010,Red Blend,95,52,52
-108,Arancione,2022-03,Comm. G. B. Burlotto 2012 Acclivi  (Barolo),2012,Nebbiolo,95,55,19
-109,Arancione,2022-03,Massolino 2013 Margheria  (Barolo),2013,Nebbiolo,96,97,80
-110,Arancione,2022-03,Tenuta San Guido 2009 Sassicaia  (Bolgheri Sassicaia),2009,Red Blend,96,227,112
-111,Arancione,2022-03,Sordo 2010 Gabutti  (Barolo),2010,Nebbiolo,95,55,133
-112,Arancione,2022-03,San Felice 2011 Il Grigio Gran Selezione  (Chianti Classico),2011,Red Blend,95,44,198
-113,Arancione,2022-03,Giuseppe Rinaldi 2011 Brunate  (Barolo),2011,Nebbiolo,95,135,120
-114,Arancione,2022-03,Falesco 2007 Passir√≤ White (Lazio),2007,White Blend,95,30,164
-115,Arancione,2022-03,Gaja 2013 Costa Russi  (Barbaresco),2013,Nebbiolo,95,450,184
-116,Arancione,2022-03,Produttori del Barbaresco 2009 Ovello Riserva  (Barbaresco),2009,Nebbiolo,95,65,131
-117,Arancione,2022-03,Tenuta San Guido 2012 Sassicaia  (Bolgheri Sassicaia),2012,Red Blend,99,235,15
-118,Arancione,2022-03,Talenti 1997  Brunello di Montalcino,1997,Sangiovese,95,30,71
-119,Arancione,2022-03,Fontodi 2013 Dino Sangiovese (Colli della Toscana Centrale),2013,Sangiovese,95,70,1
+OnlineRetailer,SalesMonth,Title,Vintage,Variety,Score,ListPrice,Quantity
+Arancione,2022-03,Le Potazzine 2011  Brunello di Montalcino,2011,Sangiovese,97,70.0,12
+Arancione,2022-03,Le Macchiole 2012 Paleo Rosso Cabernet Franc (Toscana),2012,Cabernet Franc,95,110.0,2
+Arancione,2022-03,Biondi Santi 2008  Brunello di Montalcino,2008,Sangiovese,95,200.0,8
+Arancione,2022-03,San Giusto a Rentennano 2004 Percarlo Sangiovese (Toscana),2004,Sangiovese,95,70.0,18
+Arancione,2022-03,Tenimenti Angelini 2007 Val di Suga  (Brunello di Montalcino),2007,Sangiovese Grosso,95,61.0,1
+Arancione,2022-03,Guastaferro 2006 Primum Riserva  (Taurasi),2006,Aglianico,97,90.0,7
+Arancione,2022-03,Poggio di Sotto 2011 Riserva  (Brunello di Montalcino),2011,Sangiovese,95,550.0,5
+Arancione,2022-03,Le Macchiole 2008 Paleo Cabernet Franc (Toscana),2008,Cabernet Franc,95,130.0,0
+Arancione,2022-03,Arnaldo Caprai 2010 25 Anni  (Montefalco Sagrantino),2010,Sagrantino,95,100.0,15
+Arancione,2022-03,Baricci 2012  Brunello di Montalcino,2012,Sangiovese,96,50.0,1
+Arancione,2022-03,Isole e Olena 2010  Chianti Classico,2010,Red Blend,96,27.0,7
+Arancione,2022-03,Poggio di Sotto 2010  Brunello di Montalcino,2010,Sangiovese,97,290.0,14
+Arancione,2022-03,Poderi Aldo Conterno 2010 Bussia Cicala  (Barolo),2010,Nebbiolo,95,130.0,10
+Arancione,2022-03,Mocali 2007 Riserva  (Brunello di Montalcino),2007,Sangiovese Grosso,96,73.0,19
+Arancione,2022-03,Uccelliera 2010 Riserva  (Brunello di Montalcino),2010,Sangiovese,95,130.0,12
+Arancione,2022-03,Tenuta San Guido 2008 Sassicaia  (Bolgheri Sassicaia),2008,Red Blend,97,220.0,18
+Arancione,2022-03,Tenuta dell'Ornellaia 2006 Ornellaia  (Bolgheri Superiore),2006,Red Blend,97,200.0,13
+Arancione,2022-03,Tenuta dell'Ornellaia 2004 Masseto Merlot (Toscana),2004,Merlot,99,250.0,10
+Arancione,2022-03,Giacomo Fenocchio 2008 Bussia 90 DÏ  (Barolo),2008,Nebbiolo,97,80.0,9
+Arancione,2022-03,Col d'Orcia 2004 Olmaia Cabernet Sauvignon (Sant'Antimo),2004,Cabernet Sauvignon,95,75.0,9
+Arancione,2022-03,Ciacci Piccolomini d'Aragona 2012 Vigna di Pianrosso  (Brunello di Montalcino),2012,Sangiovese,95,90.0,12
+Arancione,2022-03,Guido Porro 2011 Vigna S. Caterina  (Barolo),2011,Nebbiolo,95,47.0,6
+Arancione,2022-03,Fontodi 2013 Dino Sangiovese (Colli della Toscana Centrale),2013,Sangiovese,95,70.0,11
+Arancione,2022-03,Petra 1998 Riserva Cabernet Sauvignon-Merlot (Toscana),1998,Cabernet Sauvignon-Merlot,95,50.0,10
+Arancione,2022-03,Biondi 2014 Outis Rosso  (Etna),2014,Red Blend,95,40.0,13
+Arancione,2022-03,Le Chiuse 2004 Riserva  (Brunello di Montalcino),2004,Sangiovese Grosso,95,120.0,5
+Arancione,2022-03,Giuseppe Rinaldi 2013 Tre Tine  (Barolo),2013,Nebbiolo,97,375.0,3
+Arancione,2022-03,Tenuta dell'Ornellaia 2004 Ornellaia  (Bolgheri Superiore),2004,Red Blend,98,175.0,5
+Arancione,2022-03,Marchesi Antinori 2012 Solaia Red (Toscana),2012,Red Blend,97,325.0,14
+Arancione,2022-03,Passopisciaro 2012 Contrada R Nerello Mascalese (Terre Siciliane),2012,Nerello Mascalese,95,60.0,0
+Arancione,2022-03,Lazzeretti 2010 Riserva  (Brunello di Montalcino),2010,Sangiovese,95,120.0,18
+Arancione,2022-03,Arnaldo Caprai 2007 25 Anni  (Sagrantino di Montefalco),2007,Sagrantino,95,100.0,9
+Arancione,2022-03,Avignonesi 2004 Desiderio Red (Cortona),2004,Red Blend,95,50.0,13
+Arancione,2022-03,Conti Costanti 2012  Brunello di Montalcino,2012,Sangiovese,98,95.0,2
+Arancione,2022-03,Fattoria Petrolo 2004 Galatrona Merlot (Toscana),2004,Merlot,97,100.0,4
+Arancione,2022-03,Elvio Cogno 2013 Ravera  (Barolo),2013,Nebbiolo,97,82.0,16
+Arancione,2022-03,Il Colle 2011  Brunello di Montalcino,2011,Sangiovese,96,45.0,1
+Arancione,2022-03,Lisini 2011  Brunello di Montalcino,2011,Sangiovese,95,80.0,4
+Arancione,2022-03,Vallana 2006  Gattinara,2006,Nebbiolo,95,32.0,2
+Arancione,2022-03,Cavallotto 2013 Bricco Boschis  (Barolo),2013,Nebbiolo,96,90.0,18
+Arancione,2022-03,Mastroberardino 2006 Radici Riserva  (Taurasi),2006,Aglianico,95,75.0,7
+Arancione,2022-03,Luciano Sandrone 2007 Cannubi Boschis  (Barolo),2007,Nebbiolo,96,165.0,15
+Arancione,2022-03,Cavallotto 2009 Vignolo Riserva  (Barolo),2009,Nebbiolo,95,100.0,3
+Arancione,2022-03,Albino Rocca 2014 Ronchi  (Barbaresco),2014,Nebbiolo,96,55.0,15
+Arancione,2022-03,Marchesi Antinori 2012 Tignanello Red (Toscana),2012,Red Blend,95,105.0,0
+Arancione,2022-03,Castello di Verduno 2011 Massara  (Barolo),2011,Nebbiolo,95,85.0,11
+Arancione,2022-03,Marchesi Antinori 2004 Solaia Red (Toscana),2004,Red Blend,96,170.0,14
+Arancione,2022-03,Zenato 2006 Sergio Zenato Riserva  (Amarone della Valpolicella Classico),2006,"Corvina, Rondinella, Molinara",95,125.0,5
+Arancione,2022-03,Cerbaiona 2011  Brunello di Montalcino,2011,Sangiovese,95,119.0,4
+Arancione,2022-03,Bruno Giacosa 2011 Albesani Vigna Santo Stefano  (Barbaresco),2011,Nebbiolo,95,200.0,6
+Arancione,2022-03,Ridolfi 2012 Mercatale  (Brunello di Montalcino),2012,Sangiovese,95,120.0,16
+Arancione,2022-03,Propriet‡ Sperino 2011  Lessona,2011,Nebbiolo,96,72.0,13
+Arancione,2022-03,Gaja 2007 SorÏ San Lorenzo Nebbiolo (Langhe),2007,Nebbiolo,99,440.0,12
+Arancione,2022-03,Eugenio Bocchino 2006 La Serra  (Barolo),2006,Nebbiolo,95,100.0,5
+Arancione,2022-03,Massolino 2006 Parafada  (Barolo),2006,Nebbiolo,95,94.0,4
+Arancione,2022-03,Elvio Cogno 2007 Cascina Nuova  (Barolo),2007,Nebbiolo,95,50.0,7
+Arancione,2022-03,Podere Sapaio 2004 Sapaio  (Bolgheri Superiore),2004,Red Blend,95,66.0,11
+Arancione,2022-03,Attilio Ghisolfi 2011 Bussia Bricco Visette  (Barolo),2011,Nebbiolo,96,79.0,19
+Arancione,2022-03,Cafaggio 2010 Basilica SolatÏo Riserva  (Chianti Classico),2010,Sangiovese,95,40.0,14
+Arancione,2022-03,Castello Banfi 2006 Poggio all'Oro Riserva  (Brunello di Montalcino),2006,Sangiovese Grosso,95,150.0,8
+Arancione,2022-03,Gaja 2006 Costa Russi Nebbiolo (Langhe),2006,Nebbiolo,95,420.0,15
+Arancione,2022-03,Massolino 2011 Vigna Rionda Riserva  (Barolo),2011,Nebbiolo,98,151.0,2
+Arancione,2022-03,Livio Felluga 2004 Picolit Picolit (Colli Orientali del Friuli),2004,Picolit,95,100.0,16
+Arancione,2022-03,Le Macchiole 2007 Messorio Merlot (Toscana),2007,Merlot,99,320.0,15
+Arancione,2022-03,Albino Rocca 2014 Angelo  (Barbaresco),2014,Nebbiolo,96,98.0,1
+Arancione,2022-03,Rizzi 2014 Nervo  (Barbaresco),2014,Nebbiolo,95,59.0,2
+Arancione,2022-03,Cantina Bartolo Mascarello 2005  Barolo,2005,Nebbiolo,95,119.0,17
+Arancione,2022-03,Il Paradiso di Manfredi 2007 Riserva  (Brunello di Montalcino),2007,Sangiovese,95,144.0,12
+Arancione,2022-03,Marchesi Antinori 2008 Guado al Tasso  (Bolgheri Superiore),2008,Red Blend,98,102.0,4
+Arancione,2022-03,Livio Sassetti 2010 Pertimali Riserva  (Brunello di Montalcino),2010,Sangiovese,95,110.0,2
+Arancione,2022-03,Mauro Molino 2005 Vigna Conca  (Barolo),2005,Nebbiolo,95,119.0,14
+Arancione,2022-03,Biondi 2014 Contrada Monte San NicolÚ  (Etna),2014,Red Blend,95,30.0,7
+Arancione,2022-03,Il Marroneto 2011 Madonna delle Grazie  (Brunello di Montalcino),2011,Sangiovese,95,150.0,12
+Arancione,2022-03,Rivetto 2010 Briccolina Riserva  (Barolo),2010,Nebbiolo,96,210.0,5
+Arancione,2022-03,Amantis 2007 Riserva  (Montecucco),2007,Sangiovese,95,75.0,13
+Arancione,2022-03,Aldo Conterno 2013 Bussia Cicala  (Barolo),2013,Nebbiolo,96,150.0,18
+Arancione,2022-03,L'Aietta 2012  Brunello di Montalcino,2012,Sangiovese,95,75.0,4
+Arancione,2022-03,Mauro Veglio 2013 Rocche dell'Annunziata  (Barolo),2013,Nebbiolo,95,75.0,1
+Arancione,2022-03,Rizzi 2009 Boito Riserva  (Barbaresco),2009,Nebbiolo,95,59.0,0
+Arancione,2022-03,Verbena 2006 Riserva  (Brunello di Montalcino),2006,Sangiovese Grosso,95,75.0,14
+Arancione,2022-03,Falesco 2007 PassirÚ White (Lazio),2007,White Blend,95,119.0,19
+Arancione,2022-03,Sesta di Sopra 2006  Brunello di Montalcino,2006,Sangiovese Grosso,95,60.0,17
+Arancione,2022-03,Pieropan 2011 La Rocca  (Soave Classico),2011,Garganega,95,31.0,18
+Arancione,2022-03,Sandrone 2009 Le Vigne  (Barolo),2009,Nebbiolo,95,90.0,2
+Arancione,2022-03,Tenuta Argentiera 2008 Argentiera  (Bolgheri Superiore),2008,Red Blend,96,75.0,5
+Arancione,2022-03,Tenuta Sette Ponti 2007 Oreno Red (Toscana),2007,Red Blend,96,100.0,14
+Arancione,2022-03,Giuseppe Rinaldi 2012 Brunate  (Barolo),2012,Nebbiolo,96,146.0,2
+Arancione,2022-03,Paolo Scavino 2013 Cannubi  (Barolo),2013,Nebbiolo,95,90.0,7
+Arancione,2022-03,Le Chiuse 2012  Brunello di Montalcino,2012,Sangiovese,96,65.0,9
+Arancione,2022-03,Gaja 2008 Conteisa Nebbiolo (Langhe),2008,Nebbiolo,95,240.0,1
+Arancione,2022-03,Giuseppe Rinaldi 2011 Tre Tine  (Barolo),2011,Nebbiolo,95,125.0,12
+Arancione,2022-03,Sordo 2010 Monvigliero  (Barolo),2010,Nebbiolo,95,65.0,15
+Arancione,2022-03,Sordo 2010 Gabutti  (Barolo),2010,Nebbiolo,95,55.0,5
+Arancione,2022-03,Ciacci Piccolomini d'Aragona 2012  Brunello di Montalcino,2012,Sangiovese,95,70.0,12
+Arancione,2022-03,Marchesi di Barolo 2007 Cannubi  (Barolo),2007,Nebbiolo,95,135.0,11
+Arancione,2022-03,Elvio Cogno 2010 Ravera  (Barolo),2010,Nebbiolo,95,75.0,9
+Arancione,2022-03,Tenuta San Guido 2013  Bolgheri Sassicaia,2013,Red Blend,98,235.0,8
+Arancione,2022-03,Isole e Olena 2012 Cepparello Sangiovese (Toscana),2012,Sangiovese,95,80.0,18
+Arancione,2022-03,Fattoria Petrolo 2006 Galatrona Merlot (Toscana),2006,Merlot,95,120.0,0
+Arancione,2022-03,Moccagatta 2007 Basarin  (Barbaresco),2007,Nebbiolo,95,119.0,8
+Arancione,2022-03,Azelia 2006 San Rocco  (Barolo),2006,Nebbiolo,95,119.0,5
+Arancione,2022-03,Mastroberardino 2008 Radici Antonio Riserva  (Taurasi),2008,Aglianico,95,80.0,6
+Arancione,2022-03,Luciano Sandrone 2005 Cannubi Boschis  (Barolo),2005,Nebbiolo,95,165.0,1
+Arancione,2022-03,Gaja 2010  Barbaresco,2010,Nebbiolo,95,255.0,3
+Arancione,2022-03,Donnafugata 2008 Ben RyÈ  (Passito di Pantelleria),2008,Zibibbo,95,40.0,8
+Arancione,2022-03,Talenti 1997  Brunello di Montalcino,1997,Sangiovese,95,119.0,1
+Arancione,2022-03,Mascarello Giuseppe e Figlio 2012 Perno  (Barolo),2012,Nebbiolo,95,113.0,9
+Arancione,2022-03,Produttori del Barbaresco 2009 Ovello Riserva  (Barbaresco),2009,Nebbiolo,95,65.0,9
+Arancione,2022-03,Marchesi Antinori 2010 Solaia Red (Toscana),2010,Red Blend,97,325.0,7
+Arancione,2022-03,Antinori 1999 Guado Al Tasso  (Bolgheri),1999,Red Blend,95,80.0,17
+Arancione,2022-03,Monteverro 2008 Red (Toscana),2008,Red Blend,95,175.0,4
+Arancione,2022-03,Benanti 2009  Etna,2009,Nerello Mascalese,95,50.0,19
+Arancione,2022-03,Massolino 2010 Vigna Rionda Riserva  (Barolo),2010,Nebbiolo,96,150.0,7
+Arancione,2022-03,Monteraponi 2011 Baron' Ugo Riserva  (Chianti Classico),2011,Red Blend,95,82.0,17
+Arancione,2022-03,Giovanni Rosso 2010 Cerretta  (Barolo),2010,Nebbiolo,95,96.0,4
+Arancione,2022-03,Gaja 2013 Costa Russi  (Barbaresco),2013,Nebbiolo,95,450.0,12
+Arancione,2022-03,Tenuta Argentiera 2007 Argentiera  (Bolgheri Superiore),2007,Red Blend,95,60.0,9
+Arancione,2022-03,Milziade Antano 2010 Colleallodole  (Montefalco Sagrantino),2010,Sagrantino,96,80.0,0
+Arancione,2022-03,Mascarello Giuseppe e Figlio 2012 Monprivato  (Barolo),2012,Nebbiolo,95,163.0,16
+Arancione,2022-03,Gaja 2013  Barbaresco,2013,Nebbiolo,96,200.0,14
