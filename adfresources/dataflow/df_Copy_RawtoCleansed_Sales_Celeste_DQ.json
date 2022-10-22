@@ -33,6 +33,13 @@
 				},
 				{
 					"name": "AggregateDailySales"
+				},
+				{
+					"name": "flowlet1",
+					"flowlet": {
+						"referenceName": "fl_RemoveZeroValues",
+						"type": "DataFlowReference"
+					}
 				}
 			],
 			"scriptLines": [
@@ -66,7 +73,22 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"AggregateDailySales sink(allowSchemaDrift: true,",
+				"AggregateDailySales compose(mapColumn(",
+				"          TransactionId = OnlineRetailer,",
+				"          TransactionDate = OnlineRetailer,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          Quantity",
+				"     ),",
+				"     composition: 'fl_RemoveZeroValues') ~> flowlet1@(outputCSVCleansedCeleste)",
+				"flowlet1@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",

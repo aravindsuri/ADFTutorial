@@ -10,6 +10,9 @@
 					"name": "RemoveZeroValues"
 				},
 				{
+					"name": "derivedColumn1"
+				},
+				{
 					"name": "SourceCSVCeleste"
 				},
 				{
@@ -33,7 +36,8 @@
 				"     ),",
 				"     order: 0) ~> SourceCSVCeleste",
 				"SourceCSVCeleste filter(toInteger(Quantity)!=0) ~> RemoveZeroValues",
-				"RemoveZeroValues output() ~> outputCSVCleansedCeleste"
+				"RemoveZeroValues derive(Quantity = toInteger(Quantity)) ~> derivedColumn1",
+				"derivedColumn1 output() ~> outputCSVCleansedCeleste"
 			]
 		}
 	}
