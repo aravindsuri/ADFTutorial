@@ -29,6 +29,7 @@
 				"          Variety as string,",
 				"          Score as string,",
 				"          ListPrice as string,",
+				"          Filename as string,",
 				"          Quantity as long",
 				"     ),",
 				"     order: 0) ~> SourceCSVCeleste",
