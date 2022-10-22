@@ -10,9 +10,6 @@
 					"name": "FilterZeroes"
 				},
 				{
-					"name": "SetToInt"
-				},
-				{
 					"name": "SourceCSVCeleste"
 				},
 				{
@@ -32,14 +29,10 @@
 				"          Variety as string,",
 				"          Score as string,",
 				"          ListPrice as string,",
-				"          Quantity as string",
-				"     ),",
-				"     order: 0) ~> SourceCSVCeleste",
-				"SetToInt filter(Quantity!=0) ~> FilterZeroes",
-				"SourceCSVCeleste cast(output(",
 				"          Quantity as long",
 				"     ),",
-				"     errors: true) ~> SetToInt",
+				"     order: 0) ~> SourceCSVCeleste",
+				"SourceCSVCeleste filter(Quantity!=0) ~> FilterZeroes",
 				"FilterZeroes output() ~> outputCSVCleansedCeleste"
 			]
 		}
