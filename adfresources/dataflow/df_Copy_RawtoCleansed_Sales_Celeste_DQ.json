@@ -26,6 +26,13 @@
 			],
 			"transformations": [
 				{
+					"name": "RemoveZeroValues",
+					"flowlet": {
+						"referenceName": "fl_RemoveZeroValues",
+						"type": "DataFlowReference"
+					}
+				},
+				{
 					"name": "filterSummaryLine"
 				},
 				{
@@ -33,13 +40,6 @@
 				},
 				{
 					"name": "AggregateDailySales"
-				},
-				{
-					"name": "RemoveZeroValues",
-					"flowlet": {
-						"referenceName": "fl_RemoveZeroValues",
-						"type": "DataFlowReference"
-					}
 				}
 			],
 			"scriptLines": [
@@ -60,19 +60,6 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
-				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
-				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
-				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName),",
-				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
 				"AggregateDailySales compose(mapColumn(",
 				"          OnlineRetailer,",
 				"          SalesMonth,",
@@ -87,6 +74,19 @@
 				"          Quantity",
 				"     ),",
 				"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName),",
+				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
 				"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
