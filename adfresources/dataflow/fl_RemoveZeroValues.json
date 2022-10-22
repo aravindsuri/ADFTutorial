@@ -1,9 +1,6 @@
 {
 	"name": "fl_RemoveZeroValues",
 	"properties": {
-		"folder": {
-			"name": "Chapter4"
-		},
 		"type": "Flowlet",
 		"typeProperties": {
 			"sources": [],
