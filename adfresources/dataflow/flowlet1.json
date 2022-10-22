@@ -1,0 +1,29 @@
+{
+	"name": "flowlet1",
+	"properties": {
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "FilterZeroValues"
+				},
+				{
+					"name": "RemoveZeroValues"
+				},
+				{
+					"name": "OutputNonZeroValues"
+				}
+			],
+			"scriptLines": [
+				"input(output(",
+				"          Quantity as long",
+				"     ),",
+				"     order: 0) ~> RemoveZeroValues",
+				"RemoveZeroValues filter(Quantity!=0) ~> FilterZeroValues",
+				"FilterZeroValues output() ~> OutputNonZeroValues"
+			]
+		}
+	}
+}
