@@ -1,5 +1,5 @@
 {
-	"name": "abs_csv_raw_Celeste",
+	"name": "abs_csv_raw_Celeste_onefile",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",

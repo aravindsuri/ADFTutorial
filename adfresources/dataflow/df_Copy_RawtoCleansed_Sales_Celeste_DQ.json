@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste",
+						"referenceName": "abs_csv_raw_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
@@ -35,7 +35,11 @@
 					"name": "AggregateDailySales"
 				},
 				{
-					"name": "RemoveZeroValues"
+					"name": "RemoveZeroValues",
+					"flowlet": {
+						"referenceName": "fl_RemoveZeroValues",
+						"type": "DataFlowReference"
+					}
 				}
 			],
 			"scriptLines": [
@@ -69,8 +73,21 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"AggregateDailySales filter(Quantity!=0) ~> RemoveZeroValues",
-				"RemoveZeroValues sink(allowSchemaDrift: true,",
+				"AggregateDailySales compose(mapColumn(",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName,",
+				"          Quantity",
+				"     ),",
+				"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+				"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",
