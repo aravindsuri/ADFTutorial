@@ -33,6 +33,9 @@
 				},
 				{
 					"name": "AggregateDailySales"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -66,7 +69,8 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"AggregateDailySales sink(allowSchemaDrift: true,",
+				"AggregateDailySales filter(Quantity!=0) ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",
