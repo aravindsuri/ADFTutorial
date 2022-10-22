@@ -1,0 +1,39 @@
+{
+	"name": "fl_RemoveZeroValues",
+	"properties": {
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "RemoveZeroValues"
+				},
+				{
+					"name": "SourceCSVCeleste"
+				},
+				{
+					"name": "outputCSVCleansedCeleste"
+				}
+			],
+			"scriptLines": [
+				"input(output(",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          SalesRegion as string,",
+				"          SalesCurrency as string,",
+				"          Title as string,",
+				"          Vintage as string,",
+				"          Variety as string,",
+				"          Score as string,",
+				"          ListPrice as string,",
+				"          Filename as string,",
+				"          Quantity as long",
+				"     ),",
+				"     order: 0) ~> SourceCSVCeleste",
+				"SourceCSVCeleste filter(Quantity!=0) ~> RemoveZeroValues",
+				"RemoveZeroValues output() ~> outputCSVCleansedCeleste"
+			]
+		}
+	}
+}
