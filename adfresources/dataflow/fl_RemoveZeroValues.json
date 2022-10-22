@@ -1,5 +1,5 @@
 {
-	"name": "flowlet1",
+	"name": "fl_RemoveZeroValues",
 	"properties": {
 		"type": "Flowlet",
 		"typeProperties": {
