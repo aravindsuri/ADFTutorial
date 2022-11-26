@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ",
+						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
 						"type": "DataFlowReference"
 					},
 					"compute": {
