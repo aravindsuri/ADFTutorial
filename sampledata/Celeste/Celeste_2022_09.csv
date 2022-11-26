@@ -1,0 +1,26 @@
+TransactionId,TransactionDate,OnlineRetailer,SalesMonth,SalesRegion,SalesCurrency,Title,Vintage,Variety,Score,ListPrice,Quantity
+501efed3-3fe3-4502-b319-3fda69b55f34,8/30/2022,Celeste,2022-08,EU,EUR,Curto 2014 Nero d'Avola (Eloro),2014,Nero d'Avola,89,15,23
+e46440f9-9353-4cd9-b22b-78402eccf0b9,8/30/2022,Celeste,2022-08,EU,EUR,Gemma 2013 Colarej  (Barolo),2013,Nebbiolo,87,10,21
+e9a3c860-fdbc-45ff-bc08-53c5a3104e67,8/30/2022,Celeste,2022-08,EU,EUR,Tabarrini 2006 Campo alla Cerqua  (Montefalco Sagrantino),2006,Sagrantino,88,10,17
+250e58ff-d657-4b19-88ed-f190d8bfdc7f,8/30/2022,Celeste,2022-08,EU,EUR,Le Due Terre 2000 Sacrisassi Bianco White (Colli Orientali del Friuli),2000,White Blend,88,42,20
+9f45cf08-459a-4e6f-829d-2b53b2fd27b5,8/30/2022,Celeste,2022-08,,XX,Lamoretti 2008 Vigna del Guasto Red (Emilia-Romagna),2008,Red Blend,87,19,15
+f6912af3-9dbd-4a00-80d4-067c02682a30,8/30/2022,Celeste,2022-08,EU,EUR,Vite Colte 2011 del Comune di Serralunga d'Alba  (Barolo),2011,Nebbiolo,89,70,23
+85d96e68-7f9a-4cf1-a2e7-618c0c5b7fd7,8/30/2022,Celeste,2022-08,EU,EUR,Giacosa Fratelli 2007  Nebbiolo d'Alba,2007,Nebbiolo,87,16,17
+c4a990e5-ff81-419c-a89e-be7b0088537d,8/30/2022,Celeste,2022-08,EU,EUR,Veglio 2007  Dolcetto d'Alba,2007,Dolcetto,86,9,17
+f8236f1d-1134-4436-866e-d4666be6ae39,8/30/2022,Celeste,2022-08,EU,EUR,Pieropan 1999  Soave Classico Superiore,1999,White Blend,88,15,20
+e018b6ed-fe58-450d-ae4d-b63d50f10104,8/30/2022,Celeste,2022-08,XY,EUR,Bersano 2011 Generala  (Barbera d'Asti Superiore Nizza),2011,Barbera,89,40,19
+1decd44b-8581-47cd-88b1-70d81c0f91ee,8/30/2022,Celeste,2022-08,EU,EUR,Castello del Poggio 2005 Masaréj  (Barbera d'Asti),2005,Barbera,87,10,15
+ed1419e9-30d0-4daa-9993-84a276e7285f,8/30/2022,Celeste,2022-08,XY,EUR,Cavalier Bartolomeo 2006 Solanotto Altenasso  (Barolo),2006,Nebbiolo,89,10,17
+2a7995eb-3c51-487a-98c8-a1ac7e33a1d5,8/30/2022,Celeste,2022-08,EU,EUR,La Spinetta 2014 Starderi  (Barbaresco),2014,Nebbiolo,86,130,15
+8f23d124-9ccc-438c-86b6-f5523060c267,8/30/2022,Celeste,2022-08,EU,EUR,Viberti 2001 Riserva La Volta  (Barolo),2001,Nebbiolo,87,70,19
+10a39289-207b-425a-abd3-ed57ea99e34a,8/31/2022,Celeste,2022-08,EU,EUR,Abbazia di Novacella 2013 Veltliner (Alto Adige Valle Isarco),2013,Veltliner,88,20,21
+b1971069-5603-4f3f-9b7c-e7cc8224b209,8/31/2022,Celeste,2022-08,XX,EUR,La Serena 2008  Brunello di Montalcino,2008,Sangiovese Grosso,88,62,20
+b5bf4ab9-bdd4-4740-b89f-35979f8f67cd,8/31/2022,Celeste,2022-08,EU,EUR,La Collina dei Ciliegi 2010 Il Valpolicella Ripasso  (Valpolicella Ripasso),2010,"Corvina, Rondinella, Molinara",87,25,17
+f3dd4d5a-e9b7-4ba2-9580-4ef410ed7cc8,8/31/2022,Celeste,2022-08,UK,GBP,Principi di Spadafora 2006 Don Pietro White (Sicilia),2006,White Blend,87,16,16
+15f481ad-9ac1-4bb7-8598-2c81eff0c752,8/31/2022,Celeste,2022-08,EU,EUR,Viticcio 2008 Prunaio Sangiovese (Toscana),2008,Sangiovese,88,55,23
+ef7b2589-c916-42fd-8dc0-7885935b6f07,8/31/2022,Celeste,2022-08,EU,EUR,Rocca del Dragone 2012 Aglianico (Campania),2012,Aglianico,87,14,15
+f9ec6121-930d-4865-80df-792222b7f948,8/31/2022,Celeste,2022-08,UK,GBP,St. Pauls 2007 Passion Pinot Bianco (Alto Adige),2007,Pinot Bianco,87,10,24
+11d15a23-9049-48fd-bfef-79249cd094a7,8/31/2022,Celeste,2022-08,EU,EUR,Còlpetrone 2007 Passito  (Montefalco Sagrantino),2007,Sagrantino,88,49,22
+b6abe7d0-561b-46ce-8ac3-5f255c0a5eeb,8/31/2022,Celeste,2022-08,EU,EUR,Baricci 2014  Rosso di Montalcino,2014,Sangiovese,89,20,24
+9b7772e1-0984-43fc-b9c1-39d95dc378bf,8/31/2022,Celeste,2022-08,EU,EUR,Benanti 2007 Bianco di Caselle  (Etna),2007,Carricante,87,25,24
+,Total Sales Quantity: 11212,,,,,,,,,,
