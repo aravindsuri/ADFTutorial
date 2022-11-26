@@ -98,13 +98,15 @@
 				"checkSalesRegion sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
+				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     outputAssertFailedRows: true,",
-				"     assertFailure_fileSystem: 'cleansed') ~> sinkCSVCleansedCeleste"
+				"     assertFailure_fileSystem: 'cleansed',",
+				"     assertFailure_folderPath: 'salesdata') ~> sinkCSVCleansedCeleste"
 			]
 		}
 	}
