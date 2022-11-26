@@ -6,14 +6,14 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "chapter3"
+			"name": "Chapter5"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Celeste_2022_01.csv",
+				"fileName": "Celeste_2022_08.csv",
 				"folderPath": "Celeste",
 				"fileSystem": "raw"
 			},

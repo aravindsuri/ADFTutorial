@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste",
+						"referenceName": "abs_csv_raw_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
