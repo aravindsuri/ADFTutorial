@@ -114,7 +114,20 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     outputAssertFailedRows: true,",
 				"     assertFailure_fileSystem: 'cleansed',",
-				"     assertFailure_folderPath: 'salesdata') ~> sinkCSVCleansedCeleste"
+				"     assertFailure_folderPath: 'salesdata',",
+				"     mapColumn(",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName,",
+				"          Quantity",
+				"     )) ~> sinkCSVCleansedCeleste"
 			]
 		}
 	}
