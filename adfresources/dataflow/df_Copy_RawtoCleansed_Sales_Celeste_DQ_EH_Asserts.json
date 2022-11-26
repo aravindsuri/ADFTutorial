@@ -47,6 +47,12 @@
 				},
 				{
 					"name": "checkSalesRegion"
+				},
+				{
+					"name": "AddErrorRow"
+				},
+				{
+					"name": "filterErrorRows"
 				}
 			],
 			"scriptLines": [
@@ -95,7 +101,9 @@
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
 				"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion')) ~> checkSalesRegion",
-				"checkSalesRegion sink(allowSchemaDrift: true,",
+				"checkSalesRegion derive(IsErrorRow = isError()) ~> AddErrorRow",
+				"AddErrorRow filter(IsErrorRow == false()) ~> filterErrorRows",
+				"filterErrorRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
