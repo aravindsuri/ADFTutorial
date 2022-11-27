@@ -56,6 +56,9 @@
 				},
 				{
 					"name": "split1"
+				},
+				{
+					"name": "addErrorFileName"
 				}
 			],
 			"scriptLines": [
@@ -108,6 +111,7 @@
 				"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
 				"AddErrorRow split(IsErrorRow == false(),",
 				"     disjoint: false) ~> split1@(CleanRows, ErrorRows)",
+				"split1@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
 				"split1@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
@@ -131,9 +135,9 @@
 				"          FileName,",
 				"          Quantity",
 				"     )) ~> sinkCSVCleansedCeleste",
-				"split1@ErrorRows sink(allowSchemaDrift: true,",
+				"addErrorFileName sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:(concat(\"Error_\", columnNames('sinkErrorLog')[9])),",
+				"     rowUrlColumn:'ErrorFileName',",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
