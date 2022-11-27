@@ -26,6 +26,13 @@
 						"referenceName": "ls_adlsvinoworld_dev",
 						"type": "LinkedServiceReference"
 					}
+				},
+				{
+					"dataset": {
+						"referenceName": "abs_csv_cleansed_sales",
+						"type": "DatasetReference"
+					},
+					"name": "ErrorLog"
 				}
 			],
 			"transformations": [
@@ -52,7 +59,7 @@
 					"name": "AddErrorRow"
 				},
 				{
-					"name": "filterErrorRows"
+					"name": "split1"
 				}
 			],
 			"scriptLines": [
@@ -100,10 +107,12 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion')) ~> checkSalesRegion",
-				"checkSalesRegion derive(IsErrorRow = isError()) ~> AddErrorRow",
-				"AddErrorRow filter(IsErrorRow == false()) ~> filterErrorRows",
-				"filterErrorRows sink(allowSchemaDrift: true,",
+				"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion', null, \"Sales region not EU or UK\")) ~> checkSalesRegion",
+				"checkSalesRegion derive(IsErrorRow = isError(),",
+				"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
+				"AddErrorRow split(IsErrorRow == false(),",
+				"     disjoint: false) ~> split1@(CleanRows, ErrorRows)",
+				"split1@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
@@ -115,6 +124,7 @@
 				"     outputAssertFailedRows: true,",
 				"     assertFailure_fileSystem: 'cleansed',",
 				"     assertFailure_folderPath: 'salesdata',",
+				"     ignoreAssertFailedRows: true,",
 				"     mapColumn(",
 				"          OnlineRetailer,",
 				"          SalesMonth,",
@@ -127,7 +137,15 @@
 				"          ListPrice,",
 				"          FileName,",
 				"          Quantity",
-				"     )) ~> sinkCSVCleansedCeleste"
+				"     )) ~> sinkCSVCleansedCeleste",
+				"split1@ErrorRows sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ErrorLog"
 			]
 		}
 	}
