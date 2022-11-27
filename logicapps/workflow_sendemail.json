@@ -1,0 +1,55 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Send_an_email_(V2)": {
+                "inputs": {
+                    "body": {
+                        "Body": "<p>Pipeline Name: @{triggerBody()?['Pipeline Name']}<br>\nError Message: @{triggerBody()?['Error Message']}<br>\nData Factory Name: @{triggerBody()?['DataFactory Name']}<br>\nRun Id: @{triggerBody()?['RunId']}</p>",
+                        "Importance": "Normal",
+                        "Subject": "ADF Pipeline Run Notification",
+                        "To": "aravind.suri@gmail.com"
+                    },
+                    "host": {
+                        "connection": {
+                            "referenceName": "outlook"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "method": "POST",
+                    "schema": {
+                        "properties": {
+                            "DataFactory Name": {
+                                "type": "string"
+                            },
+                            "Error Message": {
+                                "type": "string"
+                            },
+                            "Pipeline Name": {
+                                "type": "string"
+                            },
+                            "RunId": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "kind": "Stateless"
+}
