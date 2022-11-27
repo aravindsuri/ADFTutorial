@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "test",
 				"folderPath": "salesdata",
 				"fileSystem": "cleansed"
 			},
