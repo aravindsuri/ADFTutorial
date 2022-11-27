@@ -55,7 +55,7 @@
 					"name": "AddErrorRow"
 				},
 				{
-					"name": "split1"
+					"name": "splitCleanandErrorRows"
 				},
 				{
 					"name": "addErrorFileName"
@@ -110,9 +110,9 @@
 				"checkSalesRegion derive(IsErrorRow = isError(),",
 				"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
 				"AddErrorRow split(IsErrorRow == false(),",
-				"     disjoint: false) ~> split1@(CleanRows, ErrorRows)",
-				"split1@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
-				"split1@CleanRows sink(allowSchemaDrift: true,",
+				"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
+				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
+				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
