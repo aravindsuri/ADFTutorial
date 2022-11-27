@@ -133,12 +133,28 @@
 				"     )) ~> sinkCSVCleansedCeleste",
 				"split1@ErrorRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     rowUrlColumn:(concat(\"Error_\", columnNames('sinkErrorLog')[9])),",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName,",
+				"          Quantity,",
+				"          IsErrorRow,",
+				"          hasErrorRow",
+				"     )) ~> sinkErrorLog"
 			]
 		}
 	}
