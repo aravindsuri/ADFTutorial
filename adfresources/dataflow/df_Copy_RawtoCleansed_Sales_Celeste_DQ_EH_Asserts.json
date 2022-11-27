@@ -21,18 +21,14 @@
 						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					},
-					"name": "sinkCSVCleansedCeleste",
-					"rejectedDataLinkedService": {
-						"referenceName": "ls_adlsvinoworld_dev",
-						"type": "LinkedServiceReference"
-					}
+					"name": "sinkCSVCleansedCeleste"
 				},
 				{
 					"dataset": {
 						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					},
-					"name": "ErrorLog"
+					"name": "sinkErrorLog"
 				}
 			],
 			"transformations": [
@@ -121,9 +117,6 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     outputAssertFailedRows: true,",
-				"     assertFailure_fileSystem: 'cleansed',",
-				"     assertFailure_folderPath: 'salesdata',",
 				"     ignoreAssertFailedRows: true,",
 				"     mapColumn(",
 				"          OnlineRetailer,",
@@ -145,7 +138,7 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> ErrorLog"
+				"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
 			]
 		}
 	}
