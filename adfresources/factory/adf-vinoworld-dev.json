@@ -3,7 +3,7 @@
 	"location": "germanywestcentral",
 	"identity": {
 		"type": "SystemAssigned",
-		"principalId": "0db25022-7226-40e3-b2f8-6d440038c8ad",
+		"principalId": "8bb4a4a5-8b7a-4b0d-9378-5dba9fa6cf60",
 		"tenantId": "5da37119-9dac-4a5a-8242-984a3c927e96"
 	}
 }
