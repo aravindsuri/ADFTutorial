@@ -10,7 +10,7 @@ GO
 
 CREATE TABLE [dbo].[dimCurrency](
 	[CurrencyId] [smallint] NOT NULL,
-	[CurrencyCode] [nvarchar](3) NULL,
+	[CurrencyCode] [nvarchar](3) NOT NULL,
 	[CurrencyName] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO

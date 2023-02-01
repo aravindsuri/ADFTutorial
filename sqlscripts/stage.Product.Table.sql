@@ -14,9 +14,9 @@ CREATE TABLE [stage].[Product](
 	[Description] [nchar](1000) NULL,
     [Designation] [nvarchar](100) NULL,
 	[Score] [nvarchar] (50) NULL,
-    [DealerPrice] [nvarchar] (50) NULL,
-    [Markup] [nvarchar] (50) NULL,
-    [ListPrice] [nvarchar] (50) NULL,
+    [DealerPrice] [int] NULL,
+    [Markup] [float]  NULL,
+    [ListPrice] [int]  NULL,
     [Province] [nvarchar] (50) NULL,
     [Region_1] [nvarchar] (50) NULL,
     [Region_2] [nvarchar] (50) NULL,
@@ -24,7 +24,7 @@ CREATE TABLE [stage].[Product](
     [Taster] [nvarchar] (100) NULL,
     [Twitter] [nvarchar] (1000) NULL,
     [Title]  [nvarchar] (255) NULL,
-    [Vintage] [nvarchar] (50) NULL,
+    [Vintage] [smallint] NULL,
 	[Winery] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
