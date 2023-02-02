@@ -72,7 +72,7 @@
 											"type": "Expression"
 										},
 										"wildcardFileName": {
-											"value": "@item().FileName",
+											"value": "@item().SourceName",
 											"type": "Expression"
 										},
 										"enablePartitionDiscovery": false
@@ -110,8 +110,8 @@
 											"value": "@item().FolderName",
 											"type": "Expression"
 										},
-										"FileName": {
-											"value": "@item().FileName",
+										"SourceName": {
+											"value": "@item().SourceName",
 											"type": "Expression"
 										}
 									}
