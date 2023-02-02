@@ -81,7 +81,7 @@
 								"sink": {
 									"type": "AzureSqlSink",
 									"preCopyScript": {
-										"value": "TRUNCATE TABLE @{item().SinkName}",
+										"value": "TRUNCATE TABLE stage.@{item().SinkName}",
 										"type": "Expression"
 									},
 									"writeBehavior": "insert",
@@ -116,7 +116,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
-											"value": "@item().SinkName",
+											"value": "stage.@item().SinkName",
 											"type": "Expression"
 										}
 									}
