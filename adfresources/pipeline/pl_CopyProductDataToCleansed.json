@@ -1,5 +1,5 @@
 {
-	"name": "pl_CopyMasterDataToCleansed",
+	"name": "pl_CopyProductDataToCleansed",
 	"properties": {
 		"activities": [
 			{
