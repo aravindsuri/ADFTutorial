@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Master Data",
+				"name": "Copy Product Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,7 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "masterdata",
+							"wildcardFolderPath": "productdata",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
@@ -36,7 +36,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -51,13 +51,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_ProductData",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_cleansed_masterdata",
 						"type": "DatasetReference"
 					}
 				]
