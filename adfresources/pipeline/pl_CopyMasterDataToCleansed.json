@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Master Data",
+				"name": "Copy Master Data To Cleansed",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
