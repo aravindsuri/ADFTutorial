@@ -20,6 +20,8 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "masterdata",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -34,7 +36,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -55,7 +57,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_cleansed_masterdata",
 						"type": "DatasetReference"
 					}
 				]
