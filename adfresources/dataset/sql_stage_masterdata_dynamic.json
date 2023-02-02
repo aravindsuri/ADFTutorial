@@ -1,0 +1,24 @@
+{
+	"name": "sql_stage_masterdata_dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stage",
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
+		}
+	}
+}
