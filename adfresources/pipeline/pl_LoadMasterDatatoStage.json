@@ -116,7 +116,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
-											"value": "stage.@item().SinkName",
+											"value": "@item().SinkName",
 											"type": "Expression"
 										}
 									}
