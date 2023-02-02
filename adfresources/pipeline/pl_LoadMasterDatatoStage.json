@@ -71,7 +71,10 @@
 											"value": "@item().FolderName",
 											"type": "Expression"
 										},
-										"wildcardFileName": "*.csv",
+										"wildcardFileName": {
+											"value": "@item().FileName",
+											"type": "Expression"
+										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -105,6 +108,10 @@
 									"parameters": {
 										"FolderName": {
 											"value": "@item().FolderName",
+											"type": "Expression"
+										},
+										"FileName": {
+											"value": "@item().FileName",
 											"type": "Expression"
 										}
 									}
