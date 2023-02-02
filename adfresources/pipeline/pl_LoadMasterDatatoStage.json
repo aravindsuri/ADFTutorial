@@ -3,30 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Load Master Data",
-				"type": "ExecuteDataFlow",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"dataflow": {
-						"referenceName": "df_LoadMasterData",
-						"type": "DataFlowReference"
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
-				}
-			},
-			{
 				"name": "GetMetadata",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -105,7 +81,7 @@
 								"sink": {
 									"type": "AzureSqlSink",
 									"preCopyScript": {
-										"value": "TRUNCATE TABLE @{item().TableName}",
+										"value": "TRUNCATE TABLE @{item().SinkName}",
 										"type": "Expression"
 									},
 									"writeBehavior": "insert",
@@ -140,7 +116,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
-											"value": "@item().TableName",
+											"value": "@item().SinkName",
 											"type": "Expression"
 										}
 									}
