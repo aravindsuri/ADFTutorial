@@ -1,0 +1,54 @@
+{
+	"name": "df_LoadMasterData",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "abs_csv_Master_Currency",
+						"type": "DatasetReference"
+					},
+					"name": "SourceCurrency"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "ls_sql_vinoworld",
+						"type": "LinkedServiceReference"
+					},
+					"name": "stageCurrency"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          CurrencyCode as string,",
+				"          CurrencyName as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SourceCurrency",
+				"SourceCurrency sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'stage',",
+				"     tableName: 'Currency',",
+				"     insertable: true,",
+				"     updateable: false,",
+				"     deletable: false,",
+				"     upsertable: false,",
+				"     truncate: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          CurrencyCode,",
+				"          CurrencyName",
+				"     )) ~> stageCurrency"
+			]
+		}
+	}
+}
