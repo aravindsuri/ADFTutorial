@@ -104,6 +104,10 @@
 										"FileName": {
 											"value": "@item().FileName",
 											"type": "Expression"
+										},
+										"Delimiter": {
+											"value": "@item().Delimiter",
+											"type": "Expression"
 										}
 									}
 								}
