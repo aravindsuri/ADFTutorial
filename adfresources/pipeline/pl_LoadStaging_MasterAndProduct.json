@@ -76,7 +76,7 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"preCopyScript": "TRUNCATE TABLE stage.@{item().SQLTable}",
+									"preCopyScript": "TRUNCATE TABLE stage.@{item().TableName}",
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false,
 									"disableMetricsCollection": false
