@@ -1,9 +1,10 @@
 USE [WineStoreDW]
 GO
-/****** Object:  Schema [stage]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Schema [stage]    Script Date: 03.02.2023 14:32:18 ******/
 CREATE SCHEMA [stage]
 GO
-/****** Object:  Table [stage].[Currency]    Script Date: 02.02.2023 12:44:24 ******/
+
+/****** Object:  Table [stage].[Currency]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13,7 +14,7 @@ CREATE TABLE [stage].[Currency](
 	[CurrencyName] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [stage].[Dates]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Table [stage].[Dates]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -27,7 +28,7 @@ CREATE TABLE [stage].[Dates](
 	[Season] [nvarchar](50) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [stage].[Product]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Table [stage].[Product]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -52,7 +53,7 @@ CREATE TABLE [stage].[Product](
 	[Winery] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [stage].[Sales]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Table [stage].[Sales]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -71,7 +72,7 @@ CREATE TABLE [stage].[Sales](
 	[Quantity] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [stage].[Store]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Table [stage].[Store]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +83,7 @@ CREATE TABLE [stage].[Store](
 	[Description] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [stage].[Territory]    Script Date: 02.02.2023 12:44:24 ******/
+/****** Object:  Table [stage].[Territory]    Script Date: 03.02.2023 14:32:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -92,5 +93,85 @@ CREATE TABLE [stage].[Territory](
 	[TerritoryName] [nvarchar](50) NOT NULL,
 	[TradeRegion] [nvarchar](10) NOT NULL,
 	[Continent] [nvarchar](20) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [stage].[Arancione_Products]    Script Date: 03.02.2023 14:32:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [stage].[Arancione_Products](
+	[ProductNo] [nvarchar](50) NOT NULL,
+	[Country] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](1000) NOT NULL,
+	[Designation] [nvarchar](100) NULL,
+	[Score] [tinyint] NOT NULL,
+	[DealerPrice] [smallint] NOT NULL,
+	[Markup] [float] NOT NULL,
+	[ListPrice] [float] NOT NULL,
+	[Province] [nvarchar](50) NOT NULL,
+	[Region_1] [nvarchar](100) NOT NULL,
+	[Region_2] [nvarchar](1) NULL,
+	[Taster_ProductName] [nvarchar](50) NULL,
+	[Taster_twitter_handle] [nvarchar](50) NULL,
+	[Title] [nvarchar](150) NOT NULL,
+	[Vintage] [smallint] NULL,
+	[Variety] [nvarchar](50) NOT NULL,
+	[Winery] [nvarchar](50) NOT NULL,
+	[Year] [smallint] NOT NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [stage].[Verde_Products]    Script Date: 03.02.2023 14:32:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [stage].[Verde_Products](
+	[ProductNo] [nvarchar](50) NOT NULL,
+	[Country] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](1000) NOT NULL,
+	[Designation] [nvarchar](100) NULL,
+	[Score] [tinyint] NOT NULL,
+	[DealerPrice] [smallint] NOT NULL,
+	[Markup] [float] NOT NULL,
+	[ListPrice] [float] NOT NULL,
+	[Province] [nvarchar](50) NOT NULL,
+	[Region_1] [nvarchar](100) NOT NULL,
+	[Region_2] [nvarchar](1) NULL,
+	[Taster_ProductName] [nvarchar](50) NULL,
+	[Taster_twitter_handle] [nvarchar](50) NULL,
+	[Title] [nvarchar](150) NOT NULL,
+	[Vintage] [smallint] NULL,
+	[Variety] [nvarchar](50) NOT NULL,
+	[Winery] [nvarchar](50) NOT NULL,
+	[Year] [smallint] NOT NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [stage].[Celeste_Products]    Script Date: 03.02.2023 14:32:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [stage].[Celeste_Products](
+	[ProductNo] [nvarchar](50) NOT NULL,
+	[Country] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](1000) NOT NULL,
+	[Designation] [nvarchar](100) NULL,
+	[Score] [tinyint] NOT NULL,
+	[DealerPrice] [smallint] NOT NULL,
+	[Markup] [float] NOT NULL,
+	[ListPrice] [float] NOT NULL,
+	[Province] [nvarchar](50) NOT NULL,
+	[Region_1] [nvarchar](100) NOT NULL,
+	[Region_2] [nvarchar](1) NULL,
+	[Taster_ProductName] [nvarchar](50) NULL,
+	[Taster_twitter_handle] [nvarchar](50) NULL,
+	[Title] [nvarchar](150) NOT NULL,
+	[Vintage] [smallint] NULL,
+	[Variety] [nvarchar](50) NOT NULL,
+	[Winery] [nvarchar](50) NOT NULL,
+	[Year] [smallint] NOT NULL
 ) ON [PRIMARY]
 GO
