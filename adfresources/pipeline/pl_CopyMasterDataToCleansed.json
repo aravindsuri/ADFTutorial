@@ -51,7 +51,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_landing_masterdata",
 						"type": "DatasetReference"
 					}
 				],
