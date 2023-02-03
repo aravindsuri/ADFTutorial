@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adlsvinoworld_dev'"
 		},
+		"ls_sql_vinoworld_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_vinoworld'"
+		},
 		"adlsSourceData_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
@@ -278,6 +282,159 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/df_CSVtoJSON')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopyMasterDataToCleansed')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Master Data To Cleansed",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFolderPath": "masterdata",
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".csv"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_csv_landing_masterdata",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_csv_cleansed_masterdata",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/abs_csv_landing_masterdata')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_masterdata')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopyProductDataToCleansed')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Product Data To Cleansed",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFolderPath": "productdata",
+									"wildcardFileName": "*.csv",
+									"deleteFilesAfterCompletion": false
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_binary_landing_productdata",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_binary_cleansed_productdata",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/abs_binary_landing_productdata')]",
+				"[concat(variables('factoryId'), '/datasets/abs_binary_cleansed_productdata')]"
 			]
 		},
 		{
@@ -687,6 +844,261 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "chapter3"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Chapter4"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_EH')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Chapter5"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {},
+									"sinkErrorLog": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
+						"name": "failPipeline",
+						"description": "Fail Pipeline on Error",
+						"type": "Fail",
+						"dependsOn": [
+							{
+								"activity": "SendEmail",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"message": {
+								"value": "@activity('Data Flow Copy Raw to Cleansed Celeste').error.message",
+								"type": "Expression"
+							},
+							"errorCode": "1234"
+						}
+					},
+					{
+						"name": "SendEmail",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Data Flow Copy Raw to Cleansed Celeste",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://lg-vinoworld-emailalert.azurewebsites.net:443/api/SendEmail/triggers/manual/invoke?api-version=2022-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fc1p12fXl9BRI_18XRaLHBdUIFQlU7ggSNdyUXF3iE8",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n   \"Pipeline Name\":  \"@{pipeline().Pipeline}\",\n   \"Error Message\":  \"@{string(replace(activity('Data Flow Copy Raw to Cleansed Celeste').Error.Message, '\"',''''))}\",\n   \"DataFactory Name\":  \"@{pipeline().DataFactory}\",\n   \"RunId\":  \"@{pipeline().RunId}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Chapter6"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Verde')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -991,6 +1403,242 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pl_LoadStaging_MasterAndProduct')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "GetMetadata",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"sqlReaderQuery": " SELECT *\n  FROM [dbo].[ADF_Metadata]",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "sql_stage_dynamic",
+								"type": "DatasetReference",
+								"parameters": {
+									"TableName": "_notSet"
+								}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "Loop over Metadata",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "GetMetadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('GetMetadata').output.value",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "LoadDataToSql",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "DelimitedTextSource",
+											"storeSettings": {
+												"type": "AzureBlobFSReadSettings",
+												"recursive": true,
+												"wildcardFolderPath": {
+													"value": "@item().FolderName",
+													"type": "Expression"
+												},
+												"wildcardFileName": {
+													"value": "@item().FileName",
+													"type": "Expression"
+												},
+												"enablePartitionDiscovery": false
+											},
+											"formatSettings": {
+												"type": "DelimitedTextReadSettings"
+											}
+										},
+										"sink": {
+											"type": "AzureSqlSink",
+											"preCopyScript": {
+												"value": "TRUNCATE TABLE stage.@{item().TableName}",
+												"type": "Expression"
+											},
+											"writeBehavior": "insert",
+											"sqlWriterUseTableLock": false,
+											"disableMetricsCollection": false
+										},
+										"enableStaging": false,
+										"translator": {
+											"type": "TabularTranslator",
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "abs_csv_cleansed_stage_dynamic",
+											"type": "DatasetReference",
+											"parameters": {
+												"FolderName": {
+													"value": "@item().FolderName",
+													"type": "Expression"
+												},
+												"FileName": {
+													"value": "@item().FileName",
+													"type": "Expression"
+												},
+												"Delimiter": {
+													"value": "@item().Delimiter",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "sql_stage_dynamic",
+											"type": "DatasetReference",
+											"parameters": {
+												"TableName": {
+													"value": "@item().TableName",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/sql_stage_dynamic')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_stage_dynamic')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_binary_cleansed_productdata')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "productdata",
+						"fileSystem": "cleansed"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_binary_landing_productdata')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "productdata",
+						"fileSystem": "landing"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_Master_Currency')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Currency.csv",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "CurrencyCode",
+						"type": "String"
+					},
+					{
+						"name": "CurrencyName",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/abs_csv_arancioneproducts')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1114,6 +1762,33 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_masterdata')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "masterdata",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_sales')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1139,6 +1814,89 @@
 					"quoteChar": "\""
 				},
 				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_stage_dynamic')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FolderName": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					},
+					"Delimiter": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().FolderName",
+							"type": "Expression"
+						},
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": {
+						"value": "@dataset().Delimiter",
+						"type": "Expression"
+					},
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_landing_masterdata')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "masterdata",
+						"fileSystem": "landing"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
@@ -1200,6 +1958,168 @@
 					},
 					{
 						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Chapter5"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Celeste_2022_09.csv",
+						"folderPath": "Celeste",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "TransactionId",
+						"type": "String"
+					},
+					{
+						"name": "TransactionDate",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "SalesRegion",
+						"type": "String"
+					},
+					{
+						"name": "SalesCurrency",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "ListPrice",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste_onefile')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "chapter3"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Celeste_2022_01.csv",
+						"folderPath": "Celeste",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "TransactionId",
+						"type": "String"
+					},
+					{
+						"name": "TransactionDate",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "SalesRegion",
+						"type": "String"
+					},
+					{
+						"name": "SalesCurrency",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "ListPrice",
 						"type": "String"
 					},
 					{
@@ -1873,6 +2793,35 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/sql_stage_dynamic')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sql_vinoworld",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": {
+						"value": "@dataset().TableName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sql_vinoworld')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/srcDataset_Arancione')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2042,6 +2991,19 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_adlsvinoworld_dev_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sql_vinoworld')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_sql_vinoworld_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -2354,57 +3316,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Copy Raw to Cleansed Celeste Data",
-				"activities": [
-					{
-						"name": "Data Flow Copy Raw to Cleansed Celeste",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SourceCSVCeleste": {},
-									"sinkCSVCleansedCeleste": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "chapter3"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
@@ -2417,7 +3328,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Celeste",
+								"referenceName": "abs_csv_raw_Celeste_onefile",
 								"type": "DatasetReference"
 							},
 							"name": "SourceCSVCeleste"
@@ -2486,90 +3397,503 @@
 				}
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_onefile')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_sales')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Chapter4"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Celeste_onefile",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCSVCeleste"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference"
+							},
+							"name": "sinkCSVCleansedCeleste"
+						}
+					],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues",
+							"flowlet": {
+								"referenceName": "fl_RemoveZeroValues",
+								"type": "DataFlowReference",
+								"parameters": {}
+							}
+						},
+						{
+							"name": "filterSummaryLine"
+						},
+						{
+							"name": "addFileNameColumn"
+						},
+						{
+							"name": "AggregateDailySales"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          TransactionId as string,",
+						"          TransactionDate as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+						"AggregateDailySales compose(mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     ),",
+						"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+						"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+						"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+						"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName),",
+						"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+						"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'FileName',",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sinkCSVCleansedCeleste"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_onefile')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_sales')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "Chapter5"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Celeste",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCSVCeleste"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference"
+							},
+							"name": "sinkCSVCleansedCeleste"
+						}
+					],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues",
+							"flowlet": {
+								"referenceName": "fl_RemoveZeroValues",
+								"type": "DataFlowReference",
+								"parameters": {}
+							}
+						},
+						{
+							"name": "filterSummaryLine"
+						},
+						{
+							"name": "addFileNameColumn"
+						},
+						{
+							"name": "AggregateDailySales"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          TransactionId as string,",
+						"          TransactionDate as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+						"AggregateDailySales compose(mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     ),",
+						"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+						"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+						"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+						"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName),",
+						"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+						"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'FileName',",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sinkCSVCleansedCeleste"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
 				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste')]",
 				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_sales')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adlsvinoworld_dev",
-					"type": "LinkedServiceReference"
-				},
 				"folder": {
-					"name": "chapter3"
+					"name": "Chapter6"
 				},
-				"annotations": [],
-				"type": "DelimitedText",
+				"type": "MappingDataFlow",
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Celeste_2022_01.csv",
-						"folderPath": "Celeste",
-						"fileSystem": "raw"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "TransactionId",
-						"type": "String"
-					},
-					{
-						"name": "TransactionDate",
-						"type": "String"
-					},
-					{
-						"name": "OnlineRetailer",
-						"type": "String"
-					},
-					{
-						"name": "SalesMonth",
-						"type": "String"
-					},
-					{
-						"name": "SalesRegion",
-						"type": "String"
-					},
-					{
-						"name": "SalesCurrency",
-						"type": "String"
-					},
-					{
-						"name": "Title",
-						"type": "String"
-					},
-					{
-						"name": "Vintage",
-						"type": "String"
-					},
-					{
-						"name": "Variety",
-						"type": "String"
-					},
-					{
-						"name": "Score",
-						"type": "String"
-					},
-					{
-						"name": "ListPrice",
-						"type": "String"
-					},
-					{
-						"name": "Quantity",
-						"type": "String"
-					}
-				]
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Celeste",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCSVCeleste"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference"
+							},
+							"name": "sinkCSVCleansedCeleste"
+						},
+						{
+							"dataset": {
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference"
+							},
+							"name": "sinkErrorLog"
+						}
+					],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues",
+							"flowlet": {
+								"referenceName": "fl_RemoveZeroValues",
+								"type": "DataFlowReference",
+								"parameters": {}
+							}
+						},
+						{
+							"name": "filterSummaryLine"
+						},
+						{
+							"name": "addFileNameColumn"
+						},
+						{
+							"name": "AggregateDailySales"
+						},
+						{
+							"name": "checkSalesRegion"
+						},
+						{
+							"name": "AddErrorRow"
+						},
+						{
+							"name": "splitCleanandErrorRows"
+						},
+						{
+							"name": "addErrorFileName"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          TransactionId as string,",
+						"          TransactionDate as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+						"AggregateDailySales compose(mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     ),",
+						"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+						"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+						"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+						"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName),",
+						"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+						"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion', null, \"Sales region not EU or UK\")) ~> checkSalesRegion",
+						"checkSalesRegion derive(IsErrorRow = isError(),",
+						"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
+						"AddErrorRow split(IsErrorRow == false(),",
+						"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
+						"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
+						"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'FileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     ignoreAssertFailedRows: true,",
+						"     mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     )) ~> sinkCSVCleansedCeleste",
+						"addErrorFileName sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'ErrorFileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity,",
+						"          IsErrorRow,",
+						"          hasErrorRow",
+						"     )) ~> sinkErrorLog"
+					]
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_sales')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_LoadMasterData')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_Master_Currency",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCurrency"
+						}
+					],
+					"sinks": [
+						{
+							"linkedService": {
+								"referenceName": "ls_sql_vinoworld",
+								"type": "LinkedServiceReference"
+							},
+							"name": "stageCurrency"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          CurrencyCode as string,",
+						"          CurrencyName as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCurrency",
+						"SourceCurrency sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     format: 'table',",
+						"     store: 'sqlserver',",
+						"     schemaName: 'stage',",
+						"     tableName: 'Currency',",
+						"     insertable: true,",
+						"     updateable: false,",
+						"     deletable: false,",
+						"     upsertable: false,",
+						"     truncate: true,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          CurrencyCode,",
+						"          CurrencyName",
+						"     )) ~> stageCurrency"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/abs_csv_Master_Currency')]",
+				"[concat(variables('factoryId'), '/linkedServices/ls_sql_vinoworld')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/fl_RemoveZeroValues')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Flowlet",
+				"typeProperties": {
+					"sources": [],
+					"sinks": [],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues"
+						},
+						{
+							"name": "SourceCSVCeleste"
+						},
+						{
+							"name": "outputCSVCleansedCeleste"
+						}
+					],
+					"scriptLines": [
+						"input(output(",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          FileName as string,",
+						"          Quantity as long",
+						"     ),",
+						"     order: 0,",
+						"     allowSchemaDrift: true) ~> SourceCSVCeleste",
+						"SourceCSVCeleste filter(Quantity!=0) ~> RemoveZeroValues",
+						"RemoveZeroValues output() ~> outputCSVCleansedCeleste"
+					]
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }
