@@ -1,9 +1,9 @@
 {
-	"name": "pl_CopyMasterData",
+	"name": "pl_CopyMasterDataToCleansed",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Master Data",
+				"name": "Copy Master Data To Cleansed",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -36,7 +36,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -51,47 +51,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_landing_masterdata",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "abs_csv_MasterData",
+						"referenceName": "abs_csv_cleansed_masterdata",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Load Master Data",
-				"type": "ExecuteDataFlow",
-				"dependsOn": [
-					{
-						"activity": "Copy Master Data",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"dataflow": {
-						"referenceName": "df_LoadMasterData",
-						"type": "DataFlowReference"
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
-				}
 			}
 		],
 		"folder": {
