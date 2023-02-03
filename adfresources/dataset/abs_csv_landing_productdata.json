@@ -1,5 +1,5 @@
 {
-	"name": "abs_csv_ProductData",
+	"name": "abs_csv_landing_productdata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
