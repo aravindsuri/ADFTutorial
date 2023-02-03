@@ -57,7 +57,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "abs_csv_cleansed_masterdata",
+						"referenceName": "abs_csv_cleansed_productdata",
 						"type": "DatasetReference"
 					}
 				]
