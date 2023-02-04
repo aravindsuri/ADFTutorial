@@ -25,10 +25,14 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
+						"referenceName": "abs_csv_test_Celeste_ErrorRows",
 						"type": "DatasetReference"
 					},
-					"name": "sinkErrorLog"
+					"name": "sinkErrorLog",
+					"rejectedDataLinkedService": {
+						"referenceName": "ls_adlsvinoworld_dev",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
