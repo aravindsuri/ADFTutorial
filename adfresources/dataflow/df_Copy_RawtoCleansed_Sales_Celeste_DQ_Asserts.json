@@ -17,9 +17,9 @@
 			],
 			"sinks": [
 				{
-					"linkedService": {
-						"referenceName": "ls_adlsvinoworld_dev",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "abs_csv_test_Celeste_onefile",
+						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
 				},
@@ -117,14 +117,8 @@
 				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
 				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     format: 'delimited',",
-				"     fileSystem: 'cleansed',",
-				"     folderPath: 'test',",
+				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
