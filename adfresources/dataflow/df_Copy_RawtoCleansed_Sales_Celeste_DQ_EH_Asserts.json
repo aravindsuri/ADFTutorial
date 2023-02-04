@@ -66,6 +66,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     Filename as string (FileName)",
+				"}",
 				"source(output(",
 				"          TransactionId as string,",
 				"          TransactionDate as string,",
@@ -118,7 +121,7 @@
 				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
 				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:'FileName',",
+				"     partitionFileNames:[($Filename)],",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
@@ -129,7 +132,7 @@
 				"     partitionBy('hash', 1)) ~> sinkCSVCleansedCeleste",
 				"addErrorFileName sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:'ErrorFileName',",
+				"     partitionFileNames:[(concat('Error_' , $Filename))],",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
