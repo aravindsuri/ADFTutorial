@@ -1,5 +1,5 @@
 {
-	"name": "abs_csv_landing_masterdata",
+	"name": "abs_csv_raw_masterdata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
