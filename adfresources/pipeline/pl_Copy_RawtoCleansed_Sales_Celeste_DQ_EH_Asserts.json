@@ -17,8 +17,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
-						"type": "DataFlowReference"
+						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_copy1",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sinkErrorLog": {
+								"Error_FileName": "Error_Celeste_2022-09"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
