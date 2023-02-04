@@ -62,6 +62,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     DF_FileName as string",
+				"}",
 				"source(output(",
 				"          TransactionId as string,",
 				"          TransactionDate as string,",
@@ -122,7 +125,7 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: false,",
-				"     rowUrlColumn:'FileName',",
+				"     partitionFileNames:[''],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
