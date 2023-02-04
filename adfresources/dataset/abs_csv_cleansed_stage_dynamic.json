@@ -16,6 +16,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "09-Exercise"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

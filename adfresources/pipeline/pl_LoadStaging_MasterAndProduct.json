@@ -67,8 +67,14 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFolderPath": "@item().FolderName",
-										"wildcardFileName": "@item().FileName",
+										"wildcardFolderPath": {
+											"value": "@item().FolderName",
+											"type": "Expression"
+										},
+										"wildcardFileName": {
+											"value": "@item().FileName",
+											"type": "Expression"
+										},
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -77,7 +83,10 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"preCopyScript": "TRUNCATE TABLE stage.@{item().TableName}",
+									"preCopyScript": {
+										"value": "TRUNCATE TABLE stage.@{item().TableName}",
+										"type": "Expression"
+									},
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false,
 									"disableMetricsCollection": false
@@ -129,6 +138,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "09-Exercise"
+		},
 		"annotations": []
 	}
 }
