@@ -59,6 +59,9 @@
 				},
 				{
 					"name": "addErrorFileName"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -112,7 +115,22 @@
 				"AddErrorRow split(IsErrorRow == false(),",
 				"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
 				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
-				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
+				"splitCleanandErrorRows@CleanRows select(mapColumn(",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName,",
+				"          Quantity",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
