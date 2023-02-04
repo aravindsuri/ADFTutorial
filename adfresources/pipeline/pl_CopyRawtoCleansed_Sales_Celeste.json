@@ -126,6 +126,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "07-Exercise"
+		},
 		"annotations": []
 	}
 }

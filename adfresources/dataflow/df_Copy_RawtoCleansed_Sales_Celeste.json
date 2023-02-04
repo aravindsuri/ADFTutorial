@@ -2,7 +2,7 @@
 	"name": "df_Copy_RawtoCleansed_Sales_Celeste",
 	"properties": {
 		"folder": {
-			"name": "Chapter6"
+			"name": "07-Exercise"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
