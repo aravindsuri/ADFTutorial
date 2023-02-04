@@ -5,9 +5,6 @@
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "02-Exercise"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
