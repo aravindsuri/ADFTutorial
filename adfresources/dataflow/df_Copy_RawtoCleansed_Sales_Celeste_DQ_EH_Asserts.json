@@ -67,7 +67,7 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     DF_InputFileName as string",
+				"     DF_InputFileName as string (\"Celeste_2022_09.csv\")",
 				"}",
 				"source(useSchema: false,",
 				"     allowSchemaDrift: true,",
