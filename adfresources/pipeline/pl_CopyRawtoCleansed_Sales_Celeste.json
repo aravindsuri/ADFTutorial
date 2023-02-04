@@ -82,7 +82,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
+						"referenceName": "abs_csv_cleansed_Celeste",
 						"type": "DatasetReference"
 					},
 					"logStorageSettings": {
