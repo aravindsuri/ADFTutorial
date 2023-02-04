@@ -2,14 +2,14 @@
 	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
 	"properties": {
 		"folder": {
-			"name": "Chapter5"
+			"name": "05-Exercise"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste",
+						"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
