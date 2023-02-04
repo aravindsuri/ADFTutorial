@@ -5,12 +5,6 @@
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Error_FileName": {
-				"type": "string",
-				"defaultValue": "Error_Celeste_2022-09"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
