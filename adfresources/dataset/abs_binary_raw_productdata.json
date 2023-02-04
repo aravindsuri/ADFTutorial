@@ -1,5 +1,5 @@
 {
-	"name": "abs_binary_landing_productdata",
+	"name": "abs_binary_raw_productdata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
