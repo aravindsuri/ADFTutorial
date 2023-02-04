@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "productdata",
-				"fileSystem": "landing"
+				"fileSystem": "raw"
 			}
 		}
 	}
