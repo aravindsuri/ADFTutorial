@@ -66,9 +66,6 @@
 				}
 			],
 			"scriptLines": [
-				"parameters{",
-				"     Filename as string ($Filename)",
-				"}",
 				"source(output(",
 				"          TransactionId as string,",
 				"          TransactionDate as string,",
