@@ -1,0 +1,85 @@
+{
+	"name": "pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+	"properties": {
+		"description": "Copy Raw to Cleansed Celeste Data",
+		"activities": [
+			{
+				"name": "Data Flow Copy Raw to Cleansed Celeste",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "failPipeline",
+				"description": "Fail Pipeline on Error",
+				"type": "Fail",
+				"dependsOn": [
+					{
+						"activity": "SendEmail",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"message": {
+						"value": "@activity('Data Flow Copy Raw to Cleansed Celeste').error.message",
+						"type": "Expression"
+					},
+					"errorCode": "1234"
+				}
+			},
+			{
+				"name": "SendEmail",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Data Flow Copy Raw to Cleansed Celeste",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://lg-vinoworld-emailalert.azurewebsites.net:443/api/SendEmail/triggers/manual/invoke?api-version=2022-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fc1p12fXl9BRI_18XRaLHBdUIFQlU7ggSNdyUXF3iE8",
+					"method": "POST",
+					"body": {
+						"value": "{\n   \"Pipeline Name\":  \"@{pipeline().Pipeline}\",\n   \"Error Message\":  \"@{string(replace(activity('Data Flow Copy Raw to Cleansed Celeste').Error.Message, '\"',''''))}\",\n   \"DataFactory Name\":  \"@{pipeline().DataFactory}\",\n   \"RunId\":  \"@{pipeline().RunId}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "05-Exercise"
+		},
+		"annotations": []
+	}
+}
