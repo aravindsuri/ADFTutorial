@@ -150,7 +150,8 @@
 				"          Quantity,",
 				"          IsErrorRow,",
 				"          hasErrorRow",
-				"     )) ~> sinkErrorLog"
+				"     ),",
+				"     partitionBy('hash', 1)) ~> sinkErrorLog"
 			]
 		}
 	}
