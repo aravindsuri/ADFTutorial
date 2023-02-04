@@ -17,16 +17,16 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "ls_adlsvinoworld_dev",
+						"type": "LinkedServiceReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
 				},
 				{
-					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "ls_adlsvinoworld_dev",
+						"type": "LinkedServiceReference"
 					},
 					"name": "sinkErrorLog"
 				}
@@ -114,51 +114,37 @@
 				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
 				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:'FileName',",
+				"     format: 'delimited',",
+				"     fileSystem: 'cleansed',",
+				"     folderPath: 'test',",
 				"     truncate: true,",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: false,",
+				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     ignoreAssertFailedRows: true,",
-				"     mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity",
-				"     )) ~> sinkCSVCleansedCeleste",
+				"     ignoreAssertFailedRows: true) ~> sinkCSVCleansedCeleste",
 				"addErrorFileName sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     rowUrlColumn:'ErrorFileName',",
+				"     format: 'delimited',",
+				"     fileSystem: 'cleansed',",
+				"     folderPath: 'test',",
 				"     truncate: true,",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
+				"     rowUrlColumn:'ErrorFileName',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity,",
-				"          IsErrorRow,",
-				"          hasErrorRow",
-				"     )) ~> sinkErrorLog"
+				"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
 			]
 		}
 	}
