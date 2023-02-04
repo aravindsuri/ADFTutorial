@@ -28,12 +28,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"InputFileName": {
-				"type": "string",
-				"defaultValue": "\"Celeste_2022_09.csv\""
-			}
-		},
 		"folder": {
 			"name": "05-Exercise"
 		},
