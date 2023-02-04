@@ -86,7 +86,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     wildcardPaths:[($DF_InputFileName)]) ~> SourceCSVCeleste",
+				"     wildcardPaths:[(concat('raw/Celeste/', $DF_InputFileName))]) ~> SourceCSVCeleste",
 				"AggregateDailySales compose(mapColumn(",
 				"          OnlineRetailer,",
 				"          SalesMonth,",
