@@ -8,9 +8,9 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"linkedService": {
-						"referenceName": "ls_adlsvinoworld_dev",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
 				}
@@ -66,35 +66,24 @@
 				}
 			],
 			"scriptLines": [
-				"parameters{",
-				"     DF_InputFileName as string (\"Celeste_2022_09.csv\")",
-				"}",
 				"source(output(",
-				"          {_col0_} as string,",
-				"          {_col1_} as string,",
-				"          {_col2_} as string,",
-				"          {_col3_} as string,",
-				"          {_col4_} as string,",
-				"          {_col5_} as string,",
-				"          {_col6_} as string,",
-				"          {_col7_} as string,",
-				"          {_col8_} as string,",
-				"          {_col9_} as string,",
-				"          {_col10_} as string,",
-				"          {_col11_} as string",
+				"          TransactionId as string,",
+				"          TransactionDate as string,",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          SalesRegion as string,",
+				"          SalesCurrency as string,",
+				"          Title as string,",
+				"          Vintage as string,",
+				"          Variety as string,",
+				"          Score as string,",
+				"          ListPrice as string,",
+				"          Quantity as string",
 				"     ),",
-				"     useSchema: false,",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     format: 'delimited',",
-				"     fileSystem: 'raw',",
-				"     folderPath: 'Celeste',",
-				"     fileName: ($DF_InputFileName),",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: false) ~> SourceCSVCeleste",
+				"     wildcardPaths:[(concat('/Celeste/', $DF_InputFileName))]) ~> SourceCSVCeleste",
 				"AggregateDailySales compose(mapColumn(",
 				"          OnlineRetailer,",
 				"          SalesMonth,",

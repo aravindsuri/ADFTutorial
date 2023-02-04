@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "Celeste_2022_09.csv",
 				"folderPath": "Celeste",
 				"fileSystem": "raw"
 			},
