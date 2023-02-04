@@ -66,6 +66,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     DF_InputFileName as string",
+				"}",
 				"source(output(",
 				"          TransactionId as string,",
 				"          TransactionDate as string,",
