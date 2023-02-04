@@ -1,8 +1,8 @@
 {
-	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ",
+	"name": "df_Copy_RawToTest_Sales_Celeste",
 	"properties": {
 		"folder": {
-			"name": "Chapter4"
+			"name": "03-Exercise"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -18,20 +18,13 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
+						"referenceName": "abs_csv_test_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
 				}
 			],
 			"transformations": [
-				{
-					"name": "RemoveZeroValues",
-					"flowlet": {
-						"referenceName": "fl_RemoveZeroValues",
-						"type": "DataFlowReference"
-					}
-				},
 				{
 					"name": "filterSummaryLine"
 				},
@@ -60,20 +53,6 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
-				"AggregateDailySales compose(mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity",
-				"     ),",
-				"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
 				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
 				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
 				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
@@ -87,7 +66,7 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
+				"AggregateDailySales sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     umask: 0022,",

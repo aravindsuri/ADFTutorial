@@ -1,15 +1,15 @@
 {
-	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
+	"name": "df_Copy_RawToTest_Sales_Celeste_DQ",
 	"properties": {
 		"folder": {
-			"name": "Chapter6"
+			"name": "04-Exercise"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste",
+						"referenceName": "abs_csv_raw_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
@@ -18,17 +18,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
+						"referenceName": "abs_csv_test_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
-				},
-				{
-					"dataset": {
-						"referenceName": "abs_csv_cleansed_sales",
-						"type": "DatasetReference"
-					},
-					"name": "sinkErrorLog"
 				}
 			],
 			"transformations": [
@@ -47,18 +40,6 @@
 				},
 				{
 					"name": "AggregateDailySales"
-				},
-				{
-					"name": "checkSalesRegion"
-				},
-				{
-					"name": "AddErrorRow"
-				},
-				{
-					"name": "splitCleanandErrorRows"
-				},
-				{
-					"name": "addErrorFileName"
 				}
 			],
 			"scriptLines": [
@@ -106,59 +87,14 @@
 				"          ListPrice,",
 				"          FileName),",
 				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
-				"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion', null, \"Sales region not EU or UK\")) ~> checkSalesRegion",
-				"checkSalesRegion derive(IsErrorRow = isError(),",
-				"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
-				"AddErrorRow split(IsErrorRow == false(),",
-				"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
-				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
-				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
+				"RemoveZeroValues@outputCSVCleansedCeleste sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
-				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     ignoreAssertFailedRows: true,",
-				"     mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity",
-				"     )) ~> sinkCSVCleansedCeleste",
-				"addErrorFileName sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     rowUrlColumn:'ErrorFileName',",
-				"     truncate: true,",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity,",
-				"          IsErrorRow,",
-				"          hasErrorRow",
-				"     )) ~> sinkErrorLog"
+				"     skipDuplicateMapOutputs: true) ~> sinkCSVCleansedCeleste"
 			]
 		}
 	}

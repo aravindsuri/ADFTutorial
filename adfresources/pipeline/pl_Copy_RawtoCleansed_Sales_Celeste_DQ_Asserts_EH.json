@@ -1,5 +1,5 @@
 {
-	"name": "pl_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
+	"name": "pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH",
 	"properties": {
 		"description": "Copy Raw to Cleansed Celeste Data",
 		"activities": [
@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
+						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH",
 						"type": "DataFlowReference"
 					},
 					"compute": {
@@ -78,7 +78,7 @@
 			}
 		],
 		"folder": {
-			"name": "Chapter6"
+			"name": "06-Exercise"
 		},
 		"annotations": []
 	}

@@ -38,7 +38,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "abs_binary_landing_productdata",
+						"referenceName": "abs_binary_raw_productdata",
 						"type": "DatasetReference"
 					}
 				],
@@ -51,7 +51,7 @@
 			}
 		],
 		"folder": {
-			"name": "Misc"
+			"name": "08-Exercise"
 		},
 		"annotations": []
 	}

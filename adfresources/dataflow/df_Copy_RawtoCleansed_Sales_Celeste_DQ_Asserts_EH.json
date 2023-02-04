@@ -1,15 +1,15 @@
 {
-	"name": "df_Copy_RawtoCleansed_Sales_Celeste",
+	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH",
 	"properties": {
 		"folder": {
-			"name": "07-Exercise"
+			"name": "06-Exercise"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste",
+						"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_Celeste",
+						"referenceName": "abs_csv_test_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
@@ -59,9 +59,6 @@
 				},
 				{
 					"name": "addErrorFileName"
-				},
-				{
-					"name": "select"
 				}
 			],
 			"scriptLines": [
@@ -97,7 +94,7 @@
 				"     ),",
 				"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
 				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
-				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2), '.csv')) ~> addFileNameColumn",
+				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
 				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
 				"          SalesMonth,",
 				"          SalesRegion,",
@@ -115,22 +112,7 @@
 				"AddErrorRow split(IsErrorRow == false(),",
 				"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
 				"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
-				"splitCleanandErrorRows@CleanRows select(mapColumn(",
-				"          OnlineRetailer,",
-				"          SalesMonth,",
-				"          SalesRegion,",
-				"          SalesCurrency,",
-				"          Title,",
-				"          Vintage,",
-				"          Variety,",
-				"          Score,",
-				"          ListPrice,",
-				"          FileName,",
-				"          Quantity",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select",
-				"select sink(allowSchemaDrift: true,",
+				"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",

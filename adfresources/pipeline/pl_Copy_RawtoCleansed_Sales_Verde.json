@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -186,7 +187,7 @@
 			}
 		],
 		"folder": {
-			"name": "chapter2"
+			"name": "02-Exercise"
 		},
 		"annotations": []
 	}

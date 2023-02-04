@@ -1,9 +1,12 @@
 {
-	"name": "abs_binary_landing_productdata",
+	"name": "abs_binary_raw_productdata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "08-Exercise"
 		},
 		"annotations": [],
 		"type": "Binary",
@@ -11,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "productdata",
-				"fileSystem": "landing"
+				"fileSystem": "raw"
 			}
 		}
 	}
