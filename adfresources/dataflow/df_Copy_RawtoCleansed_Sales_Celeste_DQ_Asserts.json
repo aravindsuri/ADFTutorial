@@ -125,7 +125,7 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: false,",
-				"     partitionFileNames:[($DF_FileName)],",
+				"     rowFolderUrlColumn:'\\'test\\'',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
