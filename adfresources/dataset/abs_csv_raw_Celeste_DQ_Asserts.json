@@ -18,10 +18,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().InputFileName",
-					"type": "Expression"
-				},
 				"folderPath": "Celeste",
 				"fileSystem": "raw"
 			},
