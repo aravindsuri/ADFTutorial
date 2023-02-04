@@ -24,9 +24,9 @@
 					"name": "sinkCSVCleansedCeleste"
 				},
 				{
-					"linkedService": {
-						"referenceName": "ls_adlsvinoworld_dev",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "abs_csv_test_Celeste_ErrorRows",
+						"type": "DatasetReference"
 					},
 					"name": "sinkErrorLog"
 				}
@@ -127,21 +127,13 @@
 				"     ignoreAssertFailedRows: true) ~> sinkCSVCleansedCeleste",
 				"addErrorFileName sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     format: 'delimited',",
-				"     fileSystem: 'cleansed',",
-				"     folderPath: 'test',",
+				"     rowUrlColumn:'ErrorFileName',",
 				"     truncate: true,",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: true,",
-				"     partitionFileNames:[(concat('Error_', $DF_FileName))],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sinkErrorLog"
+				"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
 			]
 		}
 	}
