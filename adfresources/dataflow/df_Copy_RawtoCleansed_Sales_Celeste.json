@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+						"referenceName": "abs_csv_raw_Celeste",
 						"type": "DatasetReference"
 					},
 					"name": "SourceCSVCeleste"
