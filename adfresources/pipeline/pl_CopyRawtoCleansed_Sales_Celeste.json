@@ -85,14 +85,7 @@
 						"referenceName": "abs_csv_cleansed_Celeste",
 						"type": "DatasetReference"
 					},
-					"logStorageSettings": {
-						"linkedServiceName": {
-							"referenceName": "ls_adlsvinoworld_dev",
-							"type": "LinkedServiceReference"
-						},
-						"path": "cleansed/test"
-					},
-					"enableLogging": true,
+					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": false,
