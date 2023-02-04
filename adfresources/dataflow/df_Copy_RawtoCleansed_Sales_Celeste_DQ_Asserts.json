@@ -125,7 +125,6 @@
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: false,",
-				"     rowFolderUrlColumn:'\\'test\\'',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
