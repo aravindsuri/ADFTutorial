@@ -5,6 +5,11 @@
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"InputFileName": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "05-Exercise"
 		},
@@ -13,7 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Celeste_2022_09.csv",
+				"fileName": {
+					"value": "@dataset().InputFileName",
+					"type": "Expression"
+				},
 				"folderPath": "Celeste",
 				"fileSystem": "raw"
 			},
