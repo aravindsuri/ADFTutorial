@@ -5,7 +5,14 @@
 			{
 				"name": "Move to salesdata folder",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "df_Copy_RawtoCleansed_Sales_Celeste",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
