@@ -18,7 +18,13 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"parameters": {
+							"DF_FileName": {
+								"value": "'@{pipeline().parameters.PL_FileName}'",
+								"type": "Expression"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
