@@ -18,13 +18,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
-						"type": "DataFlowReference",
-						"parameters": {
-							"DF_FileName": {
-								"value": "'@{pipeline().parameters.PL_FileName}'",
-								"type": "Expression"
-							}
-						}
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
@@ -34,12 +28,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"PL_FileName": {
-				"type": "string",
-				"defaultValue": "Celeste_2022-09.csv"
-			}
-		},
 		"folder": {
 			"name": "05-Exercise"
 		},
