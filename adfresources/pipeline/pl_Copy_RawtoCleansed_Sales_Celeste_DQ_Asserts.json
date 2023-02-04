@@ -37,7 +37,7 @@
 		"parameters": {
 			"PL_FileName": {
 				"type": "string",
-				"defaultValue": "\"Celeste_2022-09.csv\""
+				"defaultValue": "Celeste_2022-09.csv"
 			}
 		},
 		"folder": {
