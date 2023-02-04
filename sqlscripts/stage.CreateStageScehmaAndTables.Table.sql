@@ -103,22 +103,18 @@ GO
 CREATE TABLE [stage].[Arancione_Products](
 	[ProductNo] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](1000) NOT NULL,
-	[Designation] [nvarchar](100) NULL,
-	[Score] [tinyint] NOT NULL,
-	[DealerPrice] [smallint] NOT NULL,
-	[Markup] [float] NOT NULL,
-	[ListPrice] [float] NOT NULL,
-	[Province] [nvarchar](50) NOT NULL,
-	[Region_1] [nvarchar](100) NOT NULL,
+	[Score] [tinyint] NULL,
+	[DealerPrice] [smallint] NULL,
+	[Markup] [float] NULL,
+	[ListPrice] [float] NULL,
+	[Province] [nvarchar](50) NULL,
+	[Region_1] [nvarchar](100) NULL,
 	[Region_2] [nvarchar](1) NULL,
-	[Taster_ProductName] [nvarchar](50) NULL,
-	[Taster_twitter_handle] [nvarchar](50) NULL,
-	[Title] [nvarchar](150) NOT NULL,
+	[Title] [nvarchar](150) NULL,
 	[Vintage] [smallint] NULL,
-	[Variety] [nvarchar](50) NOT NULL,
-	[Winery] [nvarchar](50) NOT NULL,
-	[Year] [smallint] NOT NULL
+	[Variety] [nvarchar](50) NULL,
+	[Winery] [nvarchar](50) NULL,
+	[Year] [smallint] NULL
 ) ON [PRIMARY]
 GO
 
@@ -130,22 +126,18 @@ GO
 CREATE TABLE [stage].[Verde_Products](
 	[ProductNo] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](1000) NOT NULL,
-	[Designation] [nvarchar](100) NULL,
-	[Score] [tinyint] NOT NULL,
-	[DealerPrice] [smallint] NOT NULL,
-	[Markup] [float] NOT NULL,
-	[ListPrice] [float] NOT NULL,
-	[Province] [nvarchar](50) NOT NULL,
-	[Region_1] [nvarchar](100) NOT NULL,
+	[Score] [tinyint] NULL,
+	[DealerPrice] [smallint] NULL,
+	[Markup] [float] NULL,
+	[ListPrice] [float] NULL,
+	[Province] [nvarchar](50) NULL,
+	[Region_1] [nvarchar](100) NULL,
 	[Region_2] [nvarchar](1) NULL,
-	[Taster_ProductName] [nvarchar](50) NULL,
-	[Taster_twitter_handle] [nvarchar](50) NULL,
-	[Title] [nvarchar](150) NOT NULL,
+	[Title] [nvarchar](150) NULL,
 	[Vintage] [smallint] NULL,
-	[Variety] [nvarchar](50) NOT NULL,
-	[Winery] [nvarchar](50) NOT NULL,
-	[Year] [smallint] NOT NULL
+	[Variety] [nvarchar](50) NULL,
+	[Winery] [nvarchar](50) NULL,
+	[Year] [smallint] NULL
 ) ON [PRIMARY]
 GO
 
@@ -157,21 +149,17 @@ GO
 CREATE TABLE [stage].[Celeste_Products](
 	[ProductNo] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
-	[Description] [nvarchar](1000) NOT NULL,
-	[Designation] [nvarchar](100) NULL,
-	[Score] [tinyint] NOT NULL,
-	[DealerPrice] [smallint] NOT NULL,
-	[Markup] [float] NOT NULL,
-	[ListPrice] [float] NOT NULL,
-	[Province] [nvarchar](50) NOT NULL,
-	[Region_1] [nvarchar](100) NOT NULL,
+	[Score] [tinyint] NULL,
+	[DealerPrice] [smallint] NULL,
+	[Markup] [float] NULL,
+	[ListPrice] [float] NULL,
+	[Province] [nvarchar](50) NULL,
+	[Region_1] [nvarchar](100) NULL,
 	[Region_2] [nvarchar](1) NULL,
-	[Taster_ProductName] [nvarchar](50) NULL,
-	[Taster_twitter_handle] [nvarchar](50) NULL,
-	[Title] [nvarchar](150) NOT NULL,
+	[Title] [nvarchar](150) NULL,
 	[Vintage] [smallint] NULL,
-	[Variety] [nvarchar](50) NOT NULL,
-	[Winery] [nvarchar](50) NOT NULL,
-	[Year] [smallint] NOT NULL
+	[Variety] [nvarchar](50) NULL,
+	[Winery] [nvarchar](50) NULL,
+	[Year] [smallint] NULL
 ) ON [PRIMARY]
 GO
