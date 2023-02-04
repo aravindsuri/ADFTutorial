@@ -85,6 +85,13 @@
 						"referenceName": "abs_csv_cleansed_sales",
 						"type": "DatasetReference"
 					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "ls_adlsvinoworld_dev",
+							"type": "LinkedServiceReference"
+						},
+						"path": "cleansed/test"
+					},
 					"enableLogging": true,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
