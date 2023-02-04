@@ -1,8 +1,8 @@
 {
-	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_copy1",
+	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_EH_Asserts",
 	"properties": {
 		"folder": {
-			"name": "05-Exercise"
+			"name": "Chapter6"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
