@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "salesdata",
+				"folderPath": "test",
 				"fileSystem": "cleansed"
 			},
 			"columnDelimiter": ",",
