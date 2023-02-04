@@ -131,7 +131,8 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     ignoreAssertFailedRows: true) ~> sinkCSVCleansedCeleste",
+				"     ignoreAssertFailedRows: true,",
+				"     partitionBy('hash', 1)) ~> sinkCSVCleansedCeleste",
 				"addErrorFileName sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'delimited',",
@@ -147,7 +148,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkErrorLog"
 			]
 		}
 	}
