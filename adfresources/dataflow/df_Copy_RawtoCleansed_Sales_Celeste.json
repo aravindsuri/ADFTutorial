@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_test_Celeste_onefile",
+						"referenceName": "abs_csv_cleansed_Celeste",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
@@ -61,7 +61,7 @@
 					"name": "addErrorFileName"
 				},
 				{
-					"name": "select1"
+					"name": "select"
 				}
 			],
 			"scriptLines": [
@@ -129,8 +129,8 @@
 				"          Quantity",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"     skipDuplicateMapOutputs: true) ~> select",
+				"select sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     rowUrlColumn:'FileName',",
 				"     truncate: true,",
