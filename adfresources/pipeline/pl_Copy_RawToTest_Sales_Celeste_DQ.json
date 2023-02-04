@@ -1,5 +1,5 @@
 {
-	"name": "pl_Copy_RawtoCleansed_Sales_Celeste_DQ_EH",
+	"name": "pl_Copy_RawToTest_Sales_Celeste_DQ",
 	"properties": {
 		"description": "Copy Raw to Cleansed Celeste Data",
 		"activities": [
@@ -29,7 +29,7 @@
 			}
 		],
 		"folder": {
-			"name": "05-Exercise"
+			"name": "04-Exercise"
 		},
 		"annotations": []
 	}
