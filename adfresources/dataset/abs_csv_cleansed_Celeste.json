@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "*.csv",
 				"fileSystem": "cleansed"
 			},
 			"columnDelimiter": ",",
