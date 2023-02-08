@@ -27,7 +27,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": false,
-							"wildcardFileName": "*.csv",
+							"wildcardFileName": "Cel*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
