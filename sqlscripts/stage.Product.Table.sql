@@ -11,20 +11,15 @@ GO
 CREATE TABLE [stage].[Product](
 	[ProductNo] [nvarchar] (50) NULL,
 	[Country] [nvarchar](50) NULL,
-	[Description] [nchar](1000) NULL,
-    [Designation] [nvarchar](100) NULL,
 	[Score] [nvarchar] (50) NULL,
     [DealerPrice] [int] NULL,
     [Markup] [float]  NULL,
     [ListPrice] [int]  NULL,
     [Province] [nvarchar] (50) NULL,
-    [Region_1] [nvarchar] (50) NULL,
-    [Region_2] [nvarchar] (50) NULL,
-    [Varietal] [nvarchar](50) NULL,
-    [Taster] [nvarchar] (100) NULL,
-    [Twitter] [nvarchar] (1000) NULL,
-    [Title]  [nvarchar] (255) NULL,
+    [Region_1] [nvarchar] (100) NULL,
+    [Title]  [nvarchar] (150) NULL,
     [Vintage] [smallint] NULL,
+    [Varietal] [nvarchar](50) NULL,
 	[Winery] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
