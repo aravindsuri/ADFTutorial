@@ -1,11 +1,18 @@
 {
-	"name": "pl_LoadStaging_MasterAndProduct",
+	"name": "pl_LoadStaging_Transactions",
 	"properties": {
 		"activities": [
 			{
 				"name": "GetMetadata",
 				"type": "Lookup",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Truncate Stage Sales",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -17,7 +24,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": " SELECT *\n  FROM [dbo].[ADF_Metadata] WHERE FolderName IN ('masterdata', 'productdata')",
+						"sqlReaderQuery": " SELECT *\n  FROM [dbo].[ADF_Metadata] WHERE FolderName IN ('salesdata')",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -83,10 +90,6 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"preCopyScript": {
-										"value": "TRUNCATE TABLE stage.@{item().TableName}",
-										"type": "Expression"
-									},
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false,
 									"disableMetricsCollection": false
@@ -135,6 +138,34 @@
 							]
 						}
 					]
+				}
+			},
+			{
+				"name": "Truncate Stage Sales",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "TRUNCATE TABLE stage.Arancione_Sales\nTRUNCATE TABLE stage.Verde_Sales\nTRUNCATE TABLE stage.Celeste_Sales\nSELECT count(*) FROM stage.Arancione_Sales",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "sql_stage_dynamic",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "_notSet"
+						}
+					}
 				}
 			}
 		],
