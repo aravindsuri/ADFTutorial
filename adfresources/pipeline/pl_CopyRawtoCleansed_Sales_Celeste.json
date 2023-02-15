@@ -26,8 +26,8 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"wildcardFileName": "*.csv",
+							"recursive": false,
+							"wildcardFileName": "Cel*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
