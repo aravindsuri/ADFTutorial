@@ -96,7 +96,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [stage].[Arancione_Products](
-	[ProductNo] [nvarchar](50) NOT NULL,
+	[ProductId] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
 	[Score] [tinyint] NULL,
 	[DealerPrice] [smallint] NULL,
@@ -119,7 +119,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [stage].[Verde_Products](
-	[ProductNo] [nvarchar](50) NOT NULL,
+	[ProductId] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
 	[Score] [tinyint] NULL,
 	[DealerPrice] [smallint] NULL,
@@ -142,7 +142,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [stage].[Celeste_Products](
-	[ProductNo] [nvarchar](50) NOT NULL,
+	[ProductId] [nvarchar](50) NOT NULL,
 	[Country] [nvarchar](50) NOT NULL,
 	[Score] [tinyint] NULL,
 	[DealerPrice] [smallint] NULL,
