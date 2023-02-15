@@ -155,7 +155,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "TRUNCATE TABLE stage.Arancione_Sales\nTRUNCATE TABLE stage.Verde_Sales\nTRUNCATE TABLE stage.Celeste_Sales\nSELECT count(*) FROM stage.Sales",
+						"sqlReaderQuery": "TRUNCATE TABLE stage.Arancione_Sales\nTRUNCATE TABLE stage.Verde_Sales\nTRUNCATE TABLE stage.Celeste_Sales\nSELECT count(*) FROM stage.Arancione_Sales",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
