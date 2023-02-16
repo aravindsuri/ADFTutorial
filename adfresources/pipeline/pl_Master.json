@@ -94,6 +94,86 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "pl_LoadStaging_MasterAndProduct",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_CopyProductDataToCleansed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_MasterAndProduct",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_Transactions",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_MasterAndProduct",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_Transactions",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_stageProduct",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_Transactions",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_stageProduct",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_stageSales",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_stageProduct",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_stageSales",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
