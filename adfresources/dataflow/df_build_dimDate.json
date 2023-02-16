@@ -50,7 +50,15 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dimDate"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          DateYear,",
+				"          DateMonth,",
+				"          YearMonth,",
+				"          LastDayOfMonth,",
+				"          Quarter,",
+				"          Season",
+				"     )) ~> dimDate"
 			]
 		}
 	}
