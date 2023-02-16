@@ -1,9 +1,9 @@
 {
-	"name": "pl_build_dimStore",
+	"name": "pl_build_dimDate",
 	"properties": {
 		"activities": [
 			{
-				"name": "Build Store Dimension",
+				"name": "Build Dim Date",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_build_dimStore",
+						"referenceName": "df_build_dimDate",
 						"type": "DataFlowReference"
 					},
 					"compute": {

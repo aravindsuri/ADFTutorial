@@ -5,6 +5,9 @@
 			"referenceName": "ls_sql_vinoworld",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "11-Exercise"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
