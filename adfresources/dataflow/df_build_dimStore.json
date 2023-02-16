@@ -36,7 +36,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> stageStore",
-				"stageStore alterRow() ~> UpdateOrInsert",
+				"stageStore alterRow(upsertIf(true())) ~> UpdateOrInsert",
 				"UpdateOrInsert sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
