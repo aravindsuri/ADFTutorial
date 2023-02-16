@@ -1,0 +1,65 @@
+{
+	"name": "df_build_dimDate",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sql_stage_date",
+						"type": "DatasetReference"
+					},
+					"name": "stageDate"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sql_dim_date",
+						"type": "DatasetReference"
+					},
+					"name": "dimDate"
+				}
+			],
+			"transformations": [
+				{
+					"name": "UpdateOrInsert"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          DateYear as integer,",
+				"          DateMonth as integer,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as date,",
+				"          Quarter as integer,",
+				"          Season as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> stageDate",
+				"stageDate alterRow(upsertIf(true())) ~> UpdateOrInsert",
+				"UpdateOrInsert sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['YearMonth'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          DateYear,",
+				"          DateMonth,",
+				"          YearMonth,",
+				"          LastDayOfMonth,",
+				"          Quarter,",
+				"          Season",
+				"     )) ~> dimDate"
+			]
+		}
+	}
+}
