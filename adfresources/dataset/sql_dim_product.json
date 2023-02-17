@@ -1,0 +1,101 @@
+{
+	"name": "sql_dim_product",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductNo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Province",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Designation",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Winery",
+				"type": "nchar"
+			},
+			{
+				"name": "Varietal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vintage",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "Score",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "DealerPrice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Markup",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ListPrice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UpdatedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "IsRowCurrent",
+				"type": "bit"
+			},
+			{
+				"name": "EffectiveDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "EndDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dimProduct"
+		}
+	}
+}

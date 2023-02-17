@@ -1,0 +1,79 @@
+{
+	"name": "df_build_dimProduct",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sql_stage_product",
+						"type": "DatasetReference"
+					},
+					"name": "stageProduct"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_product",
+						"type": "DatasetReference"
+					},
+					"name": "SourcedimProduct"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductNo as string,",
+				"          Country as string,",
+				"          Score as string,",
+				"          DealerPrice as integer,",
+				"          Markup as double,",
+				"          ListPrice as integer,",
+				"          Province as string,",
+				"          Region_1 as string,",
+				"          Title as string,",
+				"          Vintage as integer,",
+				"          Varietal as string,",
+				"          Winery as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> stageProduct",
+				"source(output(",
+				"          ProductId as integer,",
+				"          ProductNo as string,",
+				"          ProductName as string,",
+				"          Province as string,",
+				"          Region as string,",
+				"          Type as string,",
+				"          Designation as string,",
+				"          Winery as string,",
+				"          Varietal as string,",
+				"          Vintage as integer,",
+				"          Score as integer,",
+				"          DealerPrice as integer,",
+				"          Markup as double,",
+				"          ListPrice as integer,",
+				"          UpdatedDate as timestamp,",
+				"          IsRowCurrent as boolean,",
+				"          EffectiveDate as timestamp,",
+				"          EndDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> SourcedimProduct",
+				"stageProduct join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
+			]
+		}
+	}
+}
