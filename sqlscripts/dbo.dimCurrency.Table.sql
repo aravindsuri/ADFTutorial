@@ -9,9 +9,11 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[dimCurrency](
-	[CurrencyId] [smallint] NOT NULL,
+	[CurrencyId] [smallint] IDENTITY(1,1) NOT NULL,
 	[CurrencyCode] [nvarchar](3) NOT NULL,
-	[CurrencyName] [nvarchar](50) NULL
+	[CurrencyName] [nvarchar](50) NULL,
+	[InsertedDate] [timestamp] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL
 ) ON [PRIMARY]
 GO
 
