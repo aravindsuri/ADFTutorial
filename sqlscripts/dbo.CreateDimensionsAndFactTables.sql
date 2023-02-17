@@ -9,6 +9,8 @@ CREATE TABLE [dbo].[dimCurrency](
 	[CurrencyId] [smallint] IDENTITY(1,1) NOT NULL,
 	[CurrencyCode] [nvarchar](3) NOT NULL,
 	[CurrencyName] [nvarchar](50) NULL,
+	[InsertedDate] [timestamp] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL
  CONSTRAINT [PK_dimCurrency] PRIMARY KEY CLUSTERED 
 (
 	[CurrencyId] ASC
@@ -28,6 +30,9 @@ CREATE TABLE [dbo].[dimDate](
 	[LastDayOfMonth] [datetime] NULL,
 	[Quarter] [tinyint] NOT NULL,
 	[Season] [nvarchar](12) NULL,
+	[InsertedDate] [timestamp] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL,
+
  CONSTRAINT [PK_dimDate] PRIMARY KEY CLUSTERED 
 (
 	[DateId] ASC
@@ -54,6 +59,8 @@ CREATE TABLE [dbo].[dimProduct](
 	[DealerPrice] [int] NOT NULL,
 	[Markup] [float] NOT NULL,
 	[ListPrice] [int] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL,
+	[IsRowCurrent] [bit] NOT NULL,
 	[EffectiveDate] [datetime] NOT NULL,
 	[EndDate] [datetime] NOT NULL,
  CONSTRAINT [PK_dimProduct] PRIMARY KEY CLUSTERED 
@@ -72,6 +79,8 @@ CREATE TABLE [dbo].[dimStore](
 	[StoreName] [nvarchar](20) NOT NULL,
 	[StoreType] [nvarchar](10) NOT NULL,
 	[Description] [nvarchar](255) NULL,
+	[InsertedDate] [timestamp] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL,
  CONSTRAINT [PK_dimStore] PRIMARY KEY CLUSTERED 
 (
 	[StoreId] ASC
@@ -89,6 +98,8 @@ CREATE TABLE [dbo].[dimTerritory](
 	[TerritoryName] [nvarchar](50) NOT NULL,
 	[TradeRegion] [nvarchar](10) NOT NULL,
 	[Continent] [nvarchar](20) NULL,
+	[InsertedDate] [timestamp] NOT NULL,
+	[UpdatedDate] [timestamp] NOT NULL,
  CONSTRAINT [PK_dimTerritory] PRIMARY KEY CLUSTERED 
 (
 	[TerritoryId] ASC
