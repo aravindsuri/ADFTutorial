@@ -1,5 +1,5 @@
 {
-	"name": "df_build_dimProduct",
+	"name": "pl_build_dimProduct",
 	"properties": {
 		"activities": [
 			{
@@ -15,6 +15,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_build_dimProduct",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
