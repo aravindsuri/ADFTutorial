@@ -73,8 +73,7 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> DateExists",
-				"DateExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
-				"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
+				"DateExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate)) ~> setInsertUpdateDates",
 				"UpdateOrInsert sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
@@ -93,8 +92,7 @@
 				"          LastDayOfMonth = stageDate@LastDayOfMonth,",
 				"          Quarter = stageDate@Quarter,",
 				"          Season = stageDate@Season,",
-				"          InsertedDate,",
-				"          UpdatedDate",
+				"          InsertedDate",
 				"     )) ~> dimDate"
 			]
 		}
