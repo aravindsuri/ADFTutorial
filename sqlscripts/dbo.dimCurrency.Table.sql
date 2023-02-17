@@ -12,8 +12,8 @@ CREATE TABLE [dbo].[dimCurrency](
 	[CurrencyId] [smallint] IDENTITY(1,1) NOT NULL,
 	[CurrencyCode] [nvarchar](3) NOT NULL,
 	[CurrencyName] [nvarchar](50) NULL,
-	[InsertedDate] [timestamp] NOT NULL,
-	[UpdatedDate] [timestamp] NOT NULL
+	[InsertedDate] [datetime] NOT NULL,
+	[UpdatedDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
 
