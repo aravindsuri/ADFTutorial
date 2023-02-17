@@ -33,7 +33,10 @@
 					"name": "UpdateOrInsert"
 				},
 				{
-					"name": "join1"
+					"name": "DateExists"
+				},
+				{
+					"name": "setInsertUpdateDates"
 				}
 			],
 			"scriptLines": [
@@ -49,16 +52,29 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> stageDate",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          DateId as integer,",
+				"          DateYear as short,",
+				"          DateMonth as short,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as timestamp,",
+				"          Quarter as integer,",
+				"          Season as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as binary",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> SourcedimDate",
-				"join1 alterRow(upsertIf(true())) ~> UpdateOrInsert",
-				"stageDate, SourcedimDate join(YearMonth == ERROR_FUNCTION(''),",
+				"setInsertUpdateDates alterRow(upsertIf(true())) ~> UpdateOrInsert",
+				"stageDate, SourcedimDate join(stageDate@YearMonth == SourcedimDate@YearMonth,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1",
+				"     broadcast: 'auto')~> DateExists",
+				"DateExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
+				"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
 				"UpdateOrInsert sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
@@ -71,12 +87,14 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          DateYear,",
-				"          DateMonth,",
-				"          YearMonth,",
-				"          LastDayOfMonth,",
-				"          Quarter,",
-				"          Season",
+				"          DateYear = stageDate@DateYear,",
+				"          DateMonth = stageDate@DateMonth,",
+				"          YearMonth = stageDate@YearMonth,",
+				"          LastDayOfMonth = stageDate@LastDayOfMonth,",
+				"          Quarter = stageDate@Quarter,",
+				"          Season = stageDate@Season,",
+				"          InsertedDate,",
+				"          UpdatedDate",
 				"     )) ~> dimDate"
 			]
 		}
