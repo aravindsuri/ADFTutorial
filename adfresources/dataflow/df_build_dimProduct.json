@@ -21,11 +21,14 @@
 			],
 			"sinks": [
 				{
+					"name": "ActiveProduct"
+				},
+				{
 					"dataset": {
 						"referenceName": "sql_dim_product",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "InactiveProduct"
 				}
 			],
 			"transformations": [
@@ -49,6 +52,9 @@
 				},
 				{
 					"name": "setInactiveRowUpdates"
+				},
+				{
+					"name": "flagUpdates"
 				}
 			],
 			"scriptLines": [
@@ -117,7 +123,12 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> setInactiveRowUpdates",
-				"setInactiveRowUpdates sink(allowSchemaDrift: true,",
+				"setInactiveRowUpdates alterRow(updateIf(true())) ~> flagUpdates",
+				"SetActiveRow sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ActiveProduct",
+				"flagUpdates sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ProductId as integer,",
@@ -147,7 +158,12 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ProductNo,",
+				"          IsRowCurrent,",
+				"          EndDate",
+				"     )) ~> InactiveProduct"
 			]
 		}
 	}
