@@ -34,10 +34,6 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "Designation",
-				"type": "nvarchar"
-			},
-			{
 				"name": "Winery",
 				"type": "nchar"
 			},
