@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "df_build_dimProduct",
+				"name": "Build Dim Product",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
