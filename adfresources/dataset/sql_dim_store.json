@@ -5,9 +5,6 @@
 			"referenceName": "ls_sql_vinoworld",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "11-Exercise"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -27,6 +24,18 @@
 			{
 				"name": "Description",
 				"type": "nvarchar"
+			},
+			{
+				"name": "InsertedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdatedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
 			}
 		],
 		"typeProperties": {

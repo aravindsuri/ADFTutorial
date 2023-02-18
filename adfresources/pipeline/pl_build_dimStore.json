@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Build Store Dimension",
+				"name": "Build Dim Store",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {

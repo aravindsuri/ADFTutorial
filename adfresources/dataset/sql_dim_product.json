@@ -34,16 +34,8 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "Designation",
-				"type": "nvarchar"
-			},
-			{
 				"name": "Winery",
 				"type": "nchar"
-			},
-			{
-				"name": "Varietal",
-				"type": "nvarchar"
 			},
 			{
 				"name": "Vintage",
@@ -78,7 +70,8 @@
 			},
 			{
 				"name": "IsRowCurrent",
-				"type": "bit"
+				"type": "tinyint",
+				"precision": 3
 			},
 			{
 				"name": "EffectiveDate",

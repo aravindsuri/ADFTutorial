@@ -1,9 +1,6 @@
 {
 	"name": "df_build_dimStore",
 	"properties": {
-		"folder": {
-			"name": "11-Exercise"
-		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
@@ -13,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "stageStore"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_store",
+						"type": "DatasetReference"
+					},
+					"name": "sourceDimStore"
 				}
 			],
 			"sinks": [
@@ -26,7 +30,13 @@
 			],
 			"transformations": [
 				{
-					"name": "UpdateOrInsert"
+					"name": "checkStoreExists"
+				},
+				{
+					"name": "setInsertUpdateDates"
+				},
+				{
+					"name": "UpdateOInsert"
 				}
 			],
 			"scriptLines": [
@@ -39,14 +49,33 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> stageStore",
-				"stageStore alterRow(upsertIf(true())) ~> UpdateOrInsert",
-				"UpdateOrInsert sink(allowSchemaDrift: true,",
+				"source(output(",
+				"          StoreId as integer,",
+				"          StoreName as string,",
+				"          StoreType as string,",
+				"          Description as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> sourceDimStore",
+				"stageStore, sourceDimStore lookup(stageStore@StoreName == sourceDimStore@StoreName,",
+				"     multiple: true,",
+				"     broadcast: 'auto')~> checkStoreExists",
+				"checkStoreExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
+				"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
+				"setInsertUpdateDates alterRow(upsertIf(true())) ~> UpdateOInsert",
+				"UpdateOInsert sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          StoreId as integer,",
 				"          StoreName as string,",
 				"          StoreType as string,",
-				"          Description as string",
+				"          Description as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:false,",
@@ -56,7 +85,14 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dimStore"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          StoreName = stageStore@StoreName,",
+				"          StoreType = stageStore@StoreType,",
+				"          Description = stageStore@Description,",
+				"          InsertedDate,",
+				"          UpdatedDate",
+				"     )) ~> dimStore"
 			]
 		}
 	}
