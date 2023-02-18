@@ -23,6 +23,9 @@
 			"transformations": [
 				{
 					"name": "join1"
+				},
+				{
+					"name": "filterActiveRecords"
 				}
 			],
 			"scriptLines": [
@@ -60,7 +63,7 @@
 				"          Markup as double,",
 				"          ListPrice as integer,",
 				"          UpdatedDate as timestamp,",
-				"          IsRowCurrent as boolean,",
+				"          IsRowCurrent as integer,",
 				"          EffectiveDate as timestamp,",
 				"          EndDate as timestamp",
 				"     ),",
@@ -72,7 +75,8 @@
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> join1",
+				"SourcedimProduct filter(IsRowCurrent == 1) ~> filterActiveRecords"
 			]
 		}
 	}
