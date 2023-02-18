@@ -252,7 +252,7 @@
 				"          ProductName = Title,",
 				"          Province = NewProducts@NewProducts@Province,",
 				"          Region = Region_1,",
-				"          Type = NewProducts@NewProducts@Varietal,",
+				"          Type = Varietal,",
 				"          Winery = NewProducts@NewProducts@Winery,",
 				"          Vintage = NewProducts@NewProducts@Vintage,",
 				"          Score = NewProducts@NewProducts@Score,",
