@@ -66,6 +66,9 @@
 				},
 				{
 					"name": "flagUpdates"
+				},
+				{
+					"name": "setNewRecordFields"
 				}
 			],
 			"scriptLines": [
@@ -134,6 +137,10 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> setInactiveRowUpdates",
 				"setInactiveRowUpdates alterRow(updateIf(true())) ~> flagUpdates",
+				"NewProducts@NewProducts derive(UpdatedDate = currentTimestamp(),",
+				"          IsRowCurrent = 1,",
+				"          EffectiveDate = currentTimestamp(),",
+				"          EndDate = toDate('2099-12-31')) ~> setNewRecordFields",
 				"SetActiveRow sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -216,7 +223,7 @@
 				"          IsRowCurrent,",
 				"          EndDate",
 				"     )) ~> InactiveProduct",
-				"NewProducts@NewProducts sink(allowSchemaDrift: true,",
+				"setNewRecordFields sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ProductId as integer,",
