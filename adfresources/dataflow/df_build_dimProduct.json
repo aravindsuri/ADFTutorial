@@ -252,7 +252,6 @@
 				"          Province = NewProducts@NewProducts@Province,",
 				"          Region = Region_1,",
 				"          Type = NewProducts@NewProducts@Varietal,",
-				"          Designation,",
 				"          Winery = NewProducts@NewProducts@Winery,",
 				"          Varietal = NewProducts@NewProducts@Varietal,",
 				"          Vintage = NewProducts@NewProducts@Vintage,",
