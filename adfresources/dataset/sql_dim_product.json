@@ -38,10 +38,6 @@
 				"type": "nchar"
 			},
 			{
-				"name": "Varietal",
-				"type": "nvarchar"
-			},
-			{
 				"name": "Vintage",
 				"type": "smallint",
 				"precision": 5
