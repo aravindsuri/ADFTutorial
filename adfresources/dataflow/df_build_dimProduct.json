@@ -215,7 +215,6 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          ProductNo,",
 				"          IsRowCurrent,",
 				"          EndDate",
 				"     )) ~> InactiveProduct",
