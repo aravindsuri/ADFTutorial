@@ -252,7 +252,6 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          ProductId,",
 				"          ProductNo = NewProducts@NewProducts@ProductNo,",
 				"          ProductName,",
 				"          Province = NewProducts@NewProducts@Province,",
