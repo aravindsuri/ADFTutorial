@@ -175,7 +175,6 @@
 				"          Region,",
 				"          Type,",
 				"          Winery = NewProducts@ExistingProducts@Winery,",
-				"          Varietal = NewProducts@ExistingProducts@Varietal,",
 				"          Vintage = NewProducts@ExistingProducts@Vintage,",
 				"          Score = NewProducts@ExistingProducts@Score,",
 				"          DealerPrice = NewProducts@ExistingProducts@DealerPrice,",
