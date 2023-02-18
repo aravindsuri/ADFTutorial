@@ -33,6 +33,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "InactiveProduct"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_product",
+						"type": "DatasetReference"
+					},
+					"name": "InsertNewProducts"
 				}
 			],
 			"transformations": [
@@ -213,7 +220,57 @@
 				"          ProductNo,",
 				"          IsRowCurrent,",
 				"          EndDate",
-				"     )) ~> InactiveProduct"
+				"     )) ~> InactiveProduct",
+				"NewProducts@NewProducts sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ProductId as integer,",
+				"          ProductNo as string,",
+				"          ProductName as string,",
+				"          Province as string,",
+				"          Region as string,",
+				"          Type as string,",
+				"          Designation as string,",
+				"          Winery as string,",
+				"          Varietal as string,",
+				"          Vintage as integer,",
+				"          Score as integer,",
+				"          DealerPrice as integer,",
+				"          Markup as double,",
+				"          ListPrice as integer,",
+				"          UpdatedDate as timestamp,",
+				"          IsRowCurrent as integer,",
+				"          EffectiveDate as timestamp,",
+				"          EndDate as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ProductId,",
+				"          ProductNo = NewProducts@NewProducts@ProductNo,",
+				"          ProductName,",
+				"          Province = NewProducts@NewProducts@Province,",
+				"          Region,",
+				"          Type,",
+				"          Designation,",
+				"          Winery = NewProducts@NewProducts@Winery,",
+				"          Varietal = NewProducts@NewProducts@Varietal,",
+				"          Vintage = NewProducts@NewProducts@Vintage,",
+				"          Score = NewProducts@NewProducts@Score,",
+				"          DealerPrice = NewProducts@NewProducts@DealerPrice,",
+				"          Markup = NewProducts@NewProducts@Markup,",
+				"          ListPrice = NewProducts@NewProducts@ListPrice,",
+				"          UpdatedDate,",
+				"          IsRowCurrent,",
+				"          EffectiveDate,",
+				"          EndDate",
+				"     )) ~> InsertNewProducts"
 			]
 		}
 	}
