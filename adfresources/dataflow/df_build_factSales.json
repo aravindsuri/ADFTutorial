@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ds_stage_sales",
+						"referenceName": "sql_stage_sales",
 						"type": "DatasetReference"
 					},
 					"name": "stageSales"
@@ -17,6 +17,27 @@
 						"type": "DatasetReference"
 					},
 					"name": "dimStore"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_territory",
+						"type": "DatasetReference"
+					},
+					"name": "dimTerritory"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_product",
+						"type": "DatasetReference"
+					},
+					"name": "dimProduct"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_date",
+						"type": "DatasetReference"
+					},
+					"name": "dimDate"
 				}
 			],
 			"sinks": [],
@@ -55,6 +76,56 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> dimStore",
+				"source(output(",
+				"          TerritoryId as integer,",
+				"          TerritoryCode as string,",
+				"          TerritoryName as string,",
+				"          TradeRegion as string,",
+				"          Continent as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimTerritory",
+				"source(output(",
+				"          ProductId as integer,",
+				"          ProductNo as string,",
+				"          ProductName as string,",
+				"          Province as string,",
+				"          Region as string,",
+				"          Type as string,",
+				"          Winery as string,",
+				"          Vintage as integer,",
+				"          Score as integer,",
+				"          DealerPrice as integer,",
+				"          Markup as double,",
+				"          ListPrice as integer,",
+				"          UpdatedDate as timestamp,",
+				"          IsRowCurrent as integer,",
+				"          EffectiveDate as timestamp,",
+				"          EndDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimProduct",
+				"source(output(",
+				"          DateId as integer,",
+				"          DateYear as integer,",
+				"          DateMonth as integer,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as timestamp,",
+				"          Quarter as integer,",
+				"          Season as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimDate",
 				"stageSales join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
