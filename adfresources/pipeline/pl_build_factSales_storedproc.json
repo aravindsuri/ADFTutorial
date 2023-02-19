@@ -1,0 +1,9 @@
+{
+	"name": "pl_build_factSales_storedproc",
+	"properties": {
+		"folder": {
+			"name": "11-Exercise"
+		},
+		"annotations": []
+	}
+}
