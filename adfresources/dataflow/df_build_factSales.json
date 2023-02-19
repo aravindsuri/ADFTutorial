@@ -1,0 +1,66 @@
+{
+	"name": "df_build_factSales",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_stage_sales",
+						"type": "DatasetReference"
+					},
+					"name": "stageSales"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_store",
+						"type": "DatasetReference"
+					},
+					"name": "dimStore"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductNo as string,",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          SalesTerritory as string,",
+				"          SalesCurrency as string,",
+				"          Title as string,",
+				"          Vintage as integer,",
+				"          Variety as string,",
+				"          Score as integer,",
+				"          ListPrice as integer,",
+				"          Quantity as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> stageSales",
+				"source(output(",
+				"          StoreId as integer,",
+				"          StoreName as string,",
+				"          StoreType as string,",
+				"          Description as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimStore",
+				"stageSales join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
+			]
+		}
+	}
+}

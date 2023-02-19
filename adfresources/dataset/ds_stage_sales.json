@@ -1,0 +1,65 @@
+{
+	"name": "ds_stage_sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductNo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OnlineRetailer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SalesMonth",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SalesTerritory",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SalesCurrency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vintage",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Variety",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ListPrice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Quantity",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "stage",
+			"table": "Sales"
+		}
+	}
+}
