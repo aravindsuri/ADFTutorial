@@ -54,7 +54,15 @@
 					"name": "ExchangeRates"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sql_fact_sales",
+						"type": "DatasetReference"
+					},
+					"name": "factSales"
+				}
+			],
 			"transformations": [
 				{
 					"name": "joinStore"
@@ -90,7 +98,16 @@
 					"name": "selectCurrencyId"
 				},
 				{
-					"name": "join1"
+					"name": "joinExchangeRates"
+				},
+				{
+					"name": "ConvertedCurrency"
+				},
+				{
+					"name": "calculateMeasures"
+				},
+				{
+					"name": "calculateMargin"
 				}
 			],
 			"scriptLines": [
@@ -317,11 +334,50 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> selectCurrencyId",
-				"selectCurrencyId join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"selectCurrencyId, ExchangeRates join(SalesCurrency == FromCurrency",
+				"     && SalesMonth == YearMonth,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> joinExchangeRates",
+				"joinExchangeRates derive(ConvertedListPrice = round(multiply(ListPrice, iifNull(ExchangeRate, 1, ExchangeRate)), 2)) ~> ConvertedCurrency",
+				"ConvertedCurrency derive(SalesAmount = multiply(Quantity, ConvertedListPrice),",
+				"          CostAmount = multiply(Quantity, DealerPrice)) ~> calculateMeasures",
+				"calculateMeasures derive(Margin = minus(SalesAmount, CostAmount)) ~> calculateMargin",
+				"calculateMargin sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          StoreId as integer,",
+				"          TerritoryId as integer,",
+				"          ProductId as integer,",
+				"          DateId as integer,",
+				"          CurrencyId as integer,",
+				"          SalesQty as integer,",
+				"          SalesAmount as integer,",
+				"          CostAmount as integer,",
+				"          MarginAmount as integer,",
+				"          InsertDate as timestamp,",
+				"          BatchId as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          StoreId,",
+				"          TerritoryId,",
+				"          ProductId,",
+				"          DateId,",
+				"          CurrencyId,",
+				"          SalesQty = Quantity,",
+				"          SalesAmount,",
+				"          CostAmount,",
+				"          MarginAmount = Margin",
+				"     )) ~> factSales"
 			]
 		}
 	}
