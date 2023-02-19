@@ -336,7 +336,7 @@
 				"     skipDuplicateMapOutputs: true) ~> selectCurrencyId",
 				"selectCurrencyId, ExchangeRates join(SalesCurrency == FromCurrency",
 				"     && SalesMonth == YearMonth,",
-				"     joinType:'inner',",
+				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> joinExchangeRates",
