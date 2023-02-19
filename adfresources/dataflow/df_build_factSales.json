@@ -343,7 +343,9 @@
 				"joinExchangeRates derive(ConvertedListPrice = round(multiply(ListPrice, iifNull(ExchangeRate, 1, ExchangeRate)), 2)) ~> ConvertedCurrency",
 				"ConvertedCurrency derive(SalesAmount = multiply(Quantity, ConvertedListPrice),",
 				"          CostAmount = multiply(Quantity, DealerPrice)) ~> calculateMeasures",
-				"calculateMeasures derive(Margin = minus(SalesAmount, CostAmount)) ~> calculateMargin",
+				"calculateMeasures derive(Margin = minus(SalesAmount, CostAmount),",
+				"          InsertedDate = currentTimestamp(),",
+				"          BatchId = -1) ~> calculateMargin",
 				"calculateMargin sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -376,7 +378,9 @@
 				"          SalesQty = Quantity,",
 				"          SalesAmount,",
 				"          CostAmount,",
-				"          MarginAmount = Margin",
+				"          MarginAmount = Margin,",
+				"          InsertDate = InsertedDate,",
+				"          BatchId",
 				"     )) ~> factSales"
 			]
 		}
