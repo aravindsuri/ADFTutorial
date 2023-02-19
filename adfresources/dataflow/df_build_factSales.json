@@ -38,6 +38,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "dimDate"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_currency",
+						"type": "DatasetReference"
+					},
+					"name": "dimCurrency"
 				}
 			],
 			"sinks": [],
@@ -126,6 +133,17 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> dimDate",
+				"source(output(",
+				"          CurrencyId as integer,",
+				"          CurrencyCode as string,",
+				"          CurrencyName as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimCurrency",
 				"stageSales join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
