@@ -1,5 +1,5 @@
 {
-	"name": "sql_dim_date",
+	"name": "sql_dim_territory",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sql_vinoworld",
@@ -9,37 +9,24 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "DateId",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "DateYear",
+				"name": "TerritoryId",
 				"type": "smallint",
 				"precision": 5
 			},
 			{
-				"name": "DateMonth",
-				"type": "smallint",
-				"precision": 5
-			},
-			{
-				"name": "YearMonth",
+				"name": "TerritoryCode",
 				"type": "nvarchar"
 			},
 			{
-				"name": "LastDayOfMonth",
-				"type": "datetime",
-				"precision": 23,
-				"scale": 3
+				"name": "TerritoryName",
+				"type": "nvarchar"
 			},
 			{
-				"name": "Quarter",
-				"type": "tinyint",
-				"precision": 3
+				"name": "TradeRegion",
+				"type": "nvarchar"
 			},
 			{
-				"name": "Season",
+				"name": "Continent",
 				"type": "nvarchar"
 			},
 			{
@@ -57,7 +44,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "dimDate"
+			"table": "dimTerritory"
 		}
 	}
 }

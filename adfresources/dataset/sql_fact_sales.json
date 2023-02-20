@@ -1,0 +1,73 @@
+{
+	"name": "sql_fact_sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "StoreId",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "TerritoryId",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "ProductId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DateId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CurrencyId",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "SalesQty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SalesAmount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CostAmount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MarginAmount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "InsertDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "BatchId",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "factSales"
+		}
+	}
+}

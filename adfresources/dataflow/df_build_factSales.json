@@ -1,0 +1,388 @@
+{
+	"name": "df_build_factSales",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sql_stage_sales",
+						"type": "DatasetReference"
+					},
+					"name": "stageSales"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_store",
+						"type": "DatasetReference"
+					},
+					"name": "dimStore"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_territory",
+						"type": "DatasetReference"
+					},
+					"name": "dimTerritory"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_product",
+						"type": "DatasetReference"
+					},
+					"name": "dimProduct"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_date",
+						"type": "DatasetReference"
+					},
+					"name": "dimDate"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_currency",
+						"type": "DatasetReference"
+					},
+					"name": "dimCurrency"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dbo_exchangerates",
+						"type": "DatasetReference"
+					},
+					"name": "ExchangeRates"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sql_fact_sales",
+						"type": "DatasetReference"
+					},
+					"name": "factSales"
+				}
+			],
+			"transformations": [
+				{
+					"name": "joinStore"
+				},
+				{
+					"name": "selectStoreId"
+				},
+				{
+					"name": "joinTerritory"
+				},
+				{
+					"name": "selectTerritoryId"
+				},
+				{
+					"name": "joinProduct"
+				},
+				{
+					"name": "selectProductId"
+				},
+				{
+					"name": "ActiveProduct"
+				},
+				{
+					"name": "joinDate"
+				},
+				{
+					"name": "selectDateId"
+				},
+				{
+					"name": "joinCurrency"
+				},
+				{
+					"name": "selectCurrencyId"
+				},
+				{
+					"name": "joinExchangeRates"
+				},
+				{
+					"name": "ConvertedCurrency"
+				},
+				{
+					"name": "calculateMeasures"
+				},
+				{
+					"name": "calculateMargin"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductNo as string,",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          SalesTerritory as string,",
+				"          SalesCurrency as string,",
+				"          Title as string,",
+				"          Vintage as integer,",
+				"          Variety as string,",
+				"          Score as integer,",
+				"          ListPrice as integer,",
+				"          Quantity as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> stageSales",
+				"source(output(",
+				"          StoreId as integer,",
+				"          StoreName as string,",
+				"          StoreType as string,",
+				"          Description as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimStore",
+				"source(output(",
+				"          TerritoryId as integer,",
+				"          TerritoryCode as string,",
+				"          TerritoryName as string,",
+				"          TradeRegion as string,",
+				"          Continent as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimTerritory",
+				"source(output(",
+				"          ProductId as integer,",
+				"          ProductNo as string,",
+				"          ProductName as string,",
+				"          Province as string,",
+				"          Region as string,",
+				"          Type as string,",
+				"          Winery as string,",
+				"          Vintage as integer,",
+				"          Score as integer,",
+				"          DealerPrice as integer,",
+				"          Markup as double,",
+				"          ListPrice as integer,",
+				"          UpdatedDate as timestamp,",
+				"          IsRowCurrent as integer,",
+				"          EffectiveDate as timestamp,",
+				"          EndDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimProduct",
+				"source(output(",
+				"          DateId as integer,",
+				"          DateYear as integer,",
+				"          DateMonth as integer,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as timestamp,",
+				"          Quarter as integer,",
+				"          Season as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimDate",
+				"source(output(",
+				"          CurrencyId as integer,",
+				"          CurrencyCode as string,",
+				"          CurrencyName as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimCurrency",
+				"source(output(",
+				"          FromCurrency as string,",
+				"          ToCurrency as string,",
+				"          Date as timestamp,",
+				"          YearMonth as string,",
+				"          ExchangeRate as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> ExchangeRates",
+				"stageSales, dimStore join(OnlineRetailer == StoreName,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinStore",
+				"joinStore select(mapColumn(",
+				"          ProductNo,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesTerritory,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          Quantity,",
+				"          StoreId",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectStoreId",
+				"selectStoreId, dimTerritory join(SalesTerritory == TerritoryCode,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinTerritory",
+				"joinTerritory select(mapColumn(",
+				"          ProductNo,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesTerritory,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          Quantity,",
+				"          StoreId,",
+				"          TerritoryId",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectTerritoryId",
+				"selectTerritoryId, ActiveProduct join(selectTerritoryId@ProductNo == dimProduct@ProductNo,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinProduct",
+				"joinProduct select(mapColumn(",
+				"          ProductNo = selectTerritoryId@ProductNo,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesTerritory,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage = selectTerritoryId@Vintage,",
+				"          Variety,",
+				"          Score = selectTerritoryId@Score,",
+				"          ListPrice = selectTerritoryId@ListPrice,",
+				"          Quantity,",
+				"          StoreId,",
+				"          TerritoryId,",
+				"          ProductId,",
+				"          DealerPrice,",
+				"          Markup",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectProductId",
+				"dimProduct filter(IsRowCurrent == 1) ~> ActiveProduct",
+				"selectProductId, dimDate join(SalesMonth == YearMonth,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinDate",
+				"joinDate select(mapColumn(",
+				"          ProductNo,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesTerritory,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          Quantity,",
+				"          StoreId,",
+				"          TerritoryId,",
+				"          ProductId,",
+				"          DealerPrice,",
+				"          Markup,",
+				"          DateId",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectDateId",
+				"selectDateId, dimCurrency join(SalesCurrency == CurrencyCode,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinCurrency",
+				"joinCurrency select(mapColumn(",
+				"          ProductNo,",
+				"          OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesTerritory,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          Quantity,",
+				"          StoreId,",
+				"          TerritoryId,",
+				"          ProductId,",
+				"          DealerPrice,",
+				"          Markup,",
+				"          DateId,",
+				"          CurrencyId",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectCurrencyId",
+				"selectCurrencyId, ExchangeRates join(SalesCurrency == FromCurrency",
+				"     && SalesMonth == YearMonth,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinExchangeRates",
+				"joinExchangeRates derive(ConvertedListPrice = round(multiply(ListPrice, iifNull(ExchangeRate, 1, ExchangeRate)), 2)) ~> ConvertedCurrency",
+				"ConvertedCurrency derive(SalesAmount = multiply(Quantity, ConvertedListPrice),",
+				"          CostAmount = multiply(Quantity, DealerPrice)) ~> calculateMeasures",
+				"calculateMeasures derive(Margin = minus(SalesAmount, CostAmount),",
+				"          InsertedDate = currentTimestamp(),",
+				"          BatchId = -1) ~> calculateMargin",
+				"calculateMargin sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          StoreId as integer,",
+				"          TerritoryId as integer,",
+				"          ProductId as integer,",
+				"          DateId as integer,",
+				"          CurrencyId as integer,",
+				"          SalesQty as integer,",
+				"          SalesAmount as integer,",
+				"          CostAmount as integer,",
+				"          MarginAmount as integer,",
+				"          InsertDate as timestamp,",
+				"          BatchId as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          StoreId,",
+				"          TerritoryId,",
+				"          ProductId,",
+				"          DateId,",
+				"          CurrencyId,",
+				"          SalesQty = Quantity,",
+				"          SalesAmount,",
+				"          CostAmount,",
+				"          MarginAmount = Margin,",
+				"          InsertDate = InsertedDate,",
+				"          BatchId",
+				"     )) ~> factSales"
+			]
+		}
+	}
+}

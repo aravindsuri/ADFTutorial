@@ -1,5 +1,5 @@
 {
-	"name": "sql_dim_date",
+	"name": "sql_dim_currency",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sql_vinoworld",
@@ -9,37 +9,16 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "DateId",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "DateYear",
+				"name": "CurrencyId",
 				"type": "smallint",
 				"precision": 5
 			},
 			{
-				"name": "DateMonth",
-				"type": "smallint",
-				"precision": 5
-			},
-			{
-				"name": "YearMonth",
+				"name": "CurrencyCode",
 				"type": "nvarchar"
 			},
 			{
-				"name": "LastDayOfMonth",
-				"type": "datetime",
-				"precision": 23,
-				"scale": 3
-			},
-			{
-				"name": "Quarter",
-				"type": "tinyint",
-				"precision": 3
-			},
-			{
-				"name": "Season",
+				"name": "CurrencyName",
 				"type": "nvarchar"
 			},
 			{
@@ -57,7 +36,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "dimDate"
+			"table": "dimCurrency"
 		}
 	}
 }
