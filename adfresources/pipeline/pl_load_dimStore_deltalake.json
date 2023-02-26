@@ -1,0 +1,28 @@
+{
+	"name": "pl_load_dimStore_deltalake",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load dimStore DeltaTable",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/vinoworld/elt/load_dimStore"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_dbr_vinoworld",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
