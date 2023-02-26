@@ -1,18 +1,17 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC ## Mount the following data lake storage gen2 containers
-# MAGIC 1. raw
-# MAGIC 2. processed
-# MAGIC 3. lookup
+# MAGIC ## Mount the following azure data lake storage gen2 containers
+# MAGIC 1. cleansed
+# MAGIC 2. curated
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Set-up the configs
-# MAGIC #### Please update the following 
-# MAGIC - application-id
-# MAGIC - service-credential
-# MAGIC - directory-id
+# MAGIC ### Setup the config values
+# MAGIC #### following config values need to be updated in the script
+# MAGIC - <application-id>
+# MAGIC - <service-credential>
+# MAGIC - <directory-id>
 
 # COMMAND ----------
 
@@ -25,38 +24,35 @@ configs = {"fs.azure.account.auth.type": "OAuth",
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Mount the raw container
-# MAGIC #### Update the storage account name before executing
+# MAGIC ### Mount the cleansed container
+# MAGIC #### Update the <storage account name> before executing
 
 # COMMAND ----------
 
 dbutils.fs.mount(
-  source = "abfss://raw@<storage account name>.dfs.core.windows.net/",
-  mount_point = "/mnt/<storage account name>/raw",
+  source = "abfss://cleansed@<storage account name>.dfs.core.windows.net/",
+  mount_point = "/mnt/<storage account name>/cleansed",
   extra_configs = configs)
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Mount the processed container
-# MAGIC #### Update the storage account name before executing
+# MAGIC ### Mount the curated container
+# MAGIC #### Update the <storage account name> before executing
 
 # COMMAND ----------
 
 dbutils.fs.mount(
-  source = "abfss://processed@<storage account name>.dfs.core.windows.net/",
-  mount_point = "/mnt/<storage account name>/processed",
+  source = "abfss://curated@<storage account name>.dfs.core.windows.net/",
+  mount_point = "/mnt/<storage account name>/curated",
   extra_configs = configs)
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ### Mount the lookup container
-# MAGIC #### Update the storage account name before executing
+# MAGIC ### Check that the storage accounts have been properly mounted
+# MAGIC #### List the contents of the storage account
 
 # COMMAND ----------
 
-dbutils.fs.mount(
-  source = "abfss://lookup@<storage account name>.dfs.core.windows.net/",
-  mount_point = "/mnt/<storage account name>/lookup",
-  extra_configs = configs)
+dbutils.fs.ls('/mnt/adlsvinoworlddev/cleansed')
