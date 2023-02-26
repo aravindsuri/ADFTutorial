@@ -24,6 +24,12 @@ from pyspark.sql.functions import *
 # MAGIC %md
 # MAGIC ### Connect to Azure Sql DB
 # MAGIC ### Replace Sql Config values with the relevant config values. 
+# MAGIC ### 
+# MAGIC ### <sql username> 	  replace with your sql username
+# MAGIC ### <sql servername>	replace with your sql server name
+# MAGIC ### <sql dbname>	    replace with the sql database name
+# MAGIC ### <password>		    replace with the password for the sql database
+
 # COMMAND ----------
 
 
@@ -149,7 +155,39 @@ DESCRIBE HISTORY dimStore;
 
 # COMMAND ----------
 
-
 %sql
 SELECT * FROM dimStore VERSION AS OF 2
 
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### Optimize a Table
+# MAGIC ### Several changes implies several files in ADLS. Use OPTIMIZE to collapse small files into larger ones to improve query speed
+
+# COMMAND ----------
+
+%sql
+OPTIMIZE dimStore
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### Z-Order by Columns
+# MAGIC ### Read performance within a file can be improved using Z-Order. Specify the columns to order in the Z-Order clause
+
+# COMMAND ----------
+
+%sql
+OPTIMIZE dimStore
+ZORDER BY (StoreName)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### Cleanup Snapshots with VACUUM
+# MAGIC ### Important to cleanup old snapshots. Can be done by running the VACUUM command
+
+# COMMAND ----------
+
+%sql
+VACUUM dimStore
