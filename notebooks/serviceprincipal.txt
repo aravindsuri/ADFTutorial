@@ -3,3 +3,6 @@ Application (client) Id: 99551770-01b8-43c7-9515-25aecdce6571
 Directory (tenant) Id: 5da37119-9dac-4a5a-8242-984a3c927e96
 
 secret:  DuS8Q~FtULCMoPn1N3NTTnbG6sZHWI0MbJGv3cqo
+
+
+Databricks Access Token:  dapi6eeba0e622b41a2cd0027b2c95b8fc85
