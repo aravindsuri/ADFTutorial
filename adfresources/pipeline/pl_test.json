@@ -1,0 +1,24 @@
+{
+	"name": "pl_test",
+	"properties": {
+		"activities": [
+			{
+				"name": "test feature branch",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false
+				}
+			}
+		],
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": []
+	}
+}
