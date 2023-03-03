@@ -1,0 +1,2163 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-vinoworld-dev"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "05-Exercise"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCSVCeleste"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_test_Celeste_onefile",
+								"type": "DatasetReference"
+							},
+							"name": "sinkCSVCleansedCeleste"
+						},
+						{
+							"dataset": {
+								"referenceName": "abs_csv_test_Celeste_ErrorRows",
+								"type": "DatasetReference"
+							},
+							"name": "sinkErrorLog"
+						}
+					],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues",
+							"flowlet": {
+								"referenceName": "fl_RemoveZeroValues",
+								"type": "DataFlowReference",
+								"parameters": {}
+							}
+						},
+						{
+							"name": "filterSummaryLine"
+						},
+						{
+							"name": "addFileNameColumn"
+						},
+						{
+							"name": "AggregateDailySales"
+						},
+						{
+							"name": "checkSalesRegion"
+						},
+						{
+							"name": "AddErrorRow"
+						},
+						{
+							"name": "splitCleanandErrorRows"
+						},
+						{
+							"name": "addErrorFileName"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          TransactionId as string,",
+						"          TransactionDate as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+						"AggregateDailySales compose(mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     ),",
+						"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+						"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+						"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+						"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName),",
+						"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+						"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion', null, \"Sales region not EU or UK\")) ~> checkSalesRegion",
+						"checkSalesRegion derive(IsErrorRow = isError(),",
+						"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
+						"AddErrorRow split(IsErrorRow == false(),",
+						"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
+						"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
+						"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'FileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     ignoreAssertFailedRows: true) ~> sinkCSVCleansedCeleste",
+						"addErrorFileName sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'ErrorFileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"folder": {
+					"name": "06-Exercise"
+				},
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCSVCeleste"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_test_Celeste_onefile",
+								"type": "DatasetReference"
+							},
+							"name": "sinkCSVCleansedCeleste"
+						},
+						{
+							"dataset": {
+								"referenceName": "abs_csv_test_Celeste_ErrorRows",
+								"type": "DatasetReference"
+							},
+							"name": "sinkErrorLog"
+						}
+					],
+					"transformations": [
+						{
+							"name": "RemoveZeroValues",
+							"flowlet": {
+								"referenceName": "fl_RemoveZeroValues",
+								"type": "DataFlowReference",
+								"parameters": {}
+							}
+						},
+						{
+							"name": "filterSummaryLine"
+						},
+						{
+							"name": "addFileNameColumn"
+						},
+						{
+							"name": "AggregateDailySales"
+						},
+						{
+							"name": "checkSalesRegion"
+						},
+						{
+							"name": "AddErrorRow"
+						},
+						{
+							"name": "splitCleanandErrorRows"
+						},
+						{
+							"name": "addErrorFileName"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          TransactionId as string,",
+						"          TransactionDate as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesRegion as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as string,",
+						"          Variety as string,",
+						"          Score as string,",
+						"          ListPrice as string,",
+						"          Quantity as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+						"AggregateDailySales compose(mapColumn(",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName,",
+						"          Quantity",
+						"     ),",
+						"     composition: 'fl_RemoveZeroValues') ~> RemoveZeroValues@(outputCSVCleansedCeleste)",
+						"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+						"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+						"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesRegion,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          FileName),",
+						"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+						"RemoveZeroValues@outputCSVCleansedCeleste assert(expectTrue(or (SalesRegion == \"EU\", SalesRegion == \"UK\"), false, 'assertSalesRegion', null, \"Sales region not EU or UK\")) ~> checkSalesRegion",
+						"checkSalesRegion derive(IsErrorRow = isError(),",
+						"          hasErrorRow = hasError('assertSalesRegion')) ~> AddErrorRow",
+						"AddErrorRow split(IsErrorRow == false(),",
+						"     disjoint: false) ~> splitCleanandErrorRows@(CleanRows, ErrorRows)",
+						"splitCleanandErrorRows@ErrorRows derive(ErrorFileName = concat(\"Error_\", FileName)) ~> addErrorFileName",
+						"splitCleanandErrorRows@CleanRows sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'FileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     ignoreAssertFailedRows: true) ~> sinkCSVCleansedCeleste",
+						"addErrorFileName sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     rowUrlColumn:'ErrorFileName',",
+						"     truncate: true,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sinkErrorLog"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_LoadMasterData')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "abs_csv_Master_Currency",
+								"type": "DatasetReference"
+							},
+							"name": "SourceCurrency"
+						}
+					],
+					"sinks": [
+						{
+							"linkedService": {
+								"referenceName": "ls_sql_vinoworld",
+								"type": "LinkedServiceReference"
+							},
+							"name": "stageCurrency"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          CurrencyCode as string,",
+						"          CurrencyName as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> SourceCurrency",
+						"SourceCurrency sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     format: 'table',",
+						"     store: 'sqlserver',",
+						"     schemaName: 'stage',",
+						"     tableName: 'Currency',",
+						"     insertable: true,",
+						"     updateable: false,",
+						"     deletable: false,",
+						"     upsertable: false,",
+						"     truncate: true,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          CurrencyCode,",
+						"          CurrencyName",
+						"     )) ~> stageCurrency"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_build_dimDate')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "sql_stage_date",
+								"type": "DatasetReference"
+							},
+							"name": "stageDate"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_date",
+								"type": "DatasetReference"
+							},
+							"name": "SourcedimDate"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "sql_dim_date",
+								"type": "DatasetReference"
+							},
+							"name": "dimDate"
+						}
+					],
+					"transformations": [
+						{
+							"name": "UpdateOrInsert"
+						},
+						{
+							"name": "DateExists"
+						},
+						{
+							"name": "setInsertUpdateDates"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          DateYear as integer,",
+						"          DateMonth as integer,",
+						"          YearMonth as string,",
+						"          LastDayOfMonth as date,",
+						"          Quarter as integer,",
+						"          Season as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> stageDate",
+						"source(output(",
+						"          DateId as integer,",
+						"          DateYear as short,",
+						"          DateMonth as short,",
+						"          YearMonth as string,",
+						"          LastDayOfMonth as timestamp,",
+						"          Quarter as integer,",
+						"          Season as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as binary",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> SourcedimDate",
+						"setInsertUpdateDates alterRow(upsertIf(true())) ~> UpdateOrInsert",
+						"stageDate, SourcedimDate join(stageDate@YearMonth == SourcedimDate@YearMonth,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> DateExists",
+						"DateExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
+						"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
+						"UpdateOrInsert sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          DateId as integer,",
+						"          DateYear as integer,",
+						"          DateMonth as integer,",
+						"          YearMonth as string,",
+						"          LastDayOfMonth as timestamp,",
+						"          Quarter as integer,",
+						"          Season as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:false,",
+						"     updateable:false,",
+						"     upsertable:true,",
+						"     keys:['YearMonth'],",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          DateYear = stageDate@DateYear,",
+						"          DateMonth = stageDate@DateMonth,",
+						"          YearMonth = stageDate@YearMonth,",
+						"          LastDayOfMonth = stageDate@LastDayOfMonth,",
+						"          Quarter = stageDate@Quarter,",
+						"          Season = stageDate@Season,",
+						"          InsertedDate,",
+						"          UpdatedDate",
+						"     )) ~> dimDate"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_build_dimProduct')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "sql_stage_product",
+								"type": "DatasetReference"
+							},
+							"name": "stageProduct"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_product",
+								"type": "DatasetReference"
+							},
+							"name": "SourcedimProduct"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "sql_dim_product",
+								"type": "DatasetReference"
+							},
+							"name": "ActiveProduct"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_product",
+								"type": "DatasetReference"
+							},
+							"name": "InsertNewProducts"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_product",
+								"type": "DatasetReference"
+							},
+							"name": "setInactiveProduct"
+						}
+					],
+					"transformations": [
+						{
+							"name": "NewAndOldProducts"
+						},
+						{
+							"name": "activeDimProduct"
+						},
+						{
+							"name": "NewProducts"
+						},
+						{
+							"name": "Type2ChangesExist"
+						},
+						{
+							"name": "SetActiveRow"
+						},
+						{
+							"name": "setInactiveRow"
+						},
+						{
+							"name": "setInactiveRowUpdates"
+						},
+						{
+							"name": "flagUpdates"
+						},
+						{
+							"name": "setNewRecordFields"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          ProductNo as string,",
+						"          Country as string,",
+						"          Score as string,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          Province as string,",
+						"          Region_1 as string,",
+						"          Title as string,",
+						"          Vintage as integer,",
+						"          Varietal as string,",
+						"          Winery as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> stageProduct",
+						"source(output(",
+						"          ProductId as integer,",
+						"          ProductNo as string,",
+						"          ProductName as string,",
+						"          Province as string,",
+						"          Region as string,",
+						"          Type as string,",
+						"          Winery as string,",
+						"          Vintage as integer,",
+						"          Score as integer,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          UpdatedDate as timestamp,",
+						"          IsRowCurrent as integer,",
+						"          EffectiveDate as timestamp,",
+						"          EndDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> SourcedimProduct",
+						"stageProduct, activeDimProduct join(stageProduct@ProductNo == SourcedimProduct@ProductNo,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> NewAndOldProducts",
+						"SourcedimProduct filter(IsRowCurrent == 1) ~> activeDimProduct",
+						"NewAndOldProducts split(isNull(SourcedimProduct@ProductNo),",
+						"     disjoint: false) ~> NewProducts@(NewProducts, ExistingProducts)",
+						"NewProducts@ExistingProducts, activeDimProduct exists(equals(NewProducts@ExistingProducts@ProductNo, SourcedimProduct@ProductNo) && (toInteger(NewProducts@ExistingProducts@Score) != SourcedimProduct@Score),",
+						"     negate:false,",
+						"     broadcast: 'auto')~> Type2ChangesExist",
+						"Type2ChangesExist derive(IsRowCurrent = 1,",
+						"          EffectiveDate = currentTimestamp(),",
+						"          UpdatedDate = currentTimestamp()) ~> SetActiveRow",
+						"Type2ChangesExist derive(IsRowCurrent = 0,",
+						"          EndDate = currentTimestamp(),",
+						"          ProductId = ProductId) ~> setInactiveRow",
+						"setInactiveRow select(mapColumn(",
+						"          ProductId,",
+						"          IsRowCurrent,",
+						"          EndDate",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> setInactiveRowUpdates",
+						"setInactiveRowUpdates alterRow(updateIf(true())) ~> flagUpdates",
+						"NewProducts@NewProducts derive(UpdatedDate = currentTimestamp(),",
+						"          IsRowCurrent = 1,",
+						"          EffectiveDate = currentTimestamp(),",
+						"          EndDate = toDate('2099-12-31')) ~> setNewRecordFields",
+						"SetActiveRow sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          ProductId as integer,",
+						"          ProductNo as string,",
+						"          ProductName as string,",
+						"          Province as string,",
+						"          Region as string,",
+						"          Type as string,",
+						"          Winery as string,",
+						"          Vintage as integer,",
+						"          Score as integer,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          UpdatedDate as timestamp,",
+						"          IsRowCurrent as integer,",
+						"          EffectiveDate as timestamp,",
+						"          EndDate as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          ProductNo = NewProducts@ExistingProducts@ProductNo,",
+						"          ProductName = Title,",
+						"          Province = NewProducts@ExistingProducts@Province,",
+						"          Region,",
+						"          Type,",
+						"          Winery = NewProducts@ExistingProducts@Winery,",
+						"          Vintage = NewProducts@ExistingProducts@Vintage,",
+						"          Score = NewProducts@ExistingProducts@Score,",
+						"          DealerPrice = NewProducts@ExistingProducts@DealerPrice,",
+						"          Markup = NewProducts@ExistingProducts@Markup,",
+						"          ListPrice = NewProducts@ExistingProducts@ListPrice,",
+						"          UpdatedDate,",
+						"          IsRowCurrent,",
+						"          EffectiveDate,",
+						"          EndDate",
+						"     )) ~> ActiveProduct",
+						"setNewRecordFields sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          ProductId as integer,",
+						"          ProductNo as string,",
+						"          ProductName as string,",
+						"          Province as string,",
+						"          Region as string,",
+						"          Type as string,",
+						"          Winery as string,",
+						"          Vintage as integer,",
+						"          Score as integer,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          UpdatedDate as timestamp,",
+						"          IsRowCurrent as integer,",
+						"          EffectiveDate as timestamp,",
+						"          EndDate as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          ProductNo = NewProducts@NewProducts@ProductNo,",
+						"          ProductName = Title,",
+						"          Province = NewProducts@NewProducts@Province,",
+						"          Region = Region_1,",
+						"          Type = Varietal,",
+						"          Winery = NewProducts@NewProducts@Winery,",
+						"          Vintage = NewProducts@NewProducts@Vintage,",
+						"          Score = NewProducts@NewProducts@Score,",
+						"          DealerPrice = NewProducts@NewProducts@DealerPrice,",
+						"          Markup = NewProducts@NewProducts@Markup,",
+						"          ListPrice = NewProducts@NewProducts@ListPrice,",
+						"          UpdatedDate,",
+						"          IsRowCurrent,",
+						"          EffectiveDate,",
+						"          EndDate",
+						"     )) ~> InsertNewProducts",
+						"flagUpdates sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          ProductId as integer,",
+						"          ProductNo as string,",
+						"          ProductName as string,",
+						"          Province as string,",
+						"          Region as string,",
+						"          Type as string,",
+						"          Winery as string,",
+						"          Vintage as integer,",
+						"          Score as integer,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          UpdatedDate as timestamp,",
+						"          IsRowCurrent as integer,",
+						"          EffectiveDate as timestamp,",
+						"          EndDate as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:false,",
+						"     updateable:true,",
+						"     upsertable:false,",
+						"     keys:['ProductId'],",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          ProductId,",
+						"          IsRowCurrent,",
+						"          EndDate",
+						"     )) ~> setInactiveProduct"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_build_dimStore')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "sql_stage_store",
+								"type": "DatasetReference"
+							},
+							"name": "stageStore"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_store",
+								"type": "DatasetReference"
+							},
+							"name": "sourceDimStore"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "sql_dim_store",
+								"type": "DatasetReference"
+							},
+							"name": "dimStore"
+						}
+					],
+					"transformations": [
+						{
+							"name": "checkStoreExists"
+						},
+						{
+							"name": "setInsertUpdateDates"
+						},
+						{
+							"name": "UpdateOInsert"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          StoreName as string,",
+						"          StoreType as string,",
+						"          Description as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> stageStore",
+						"source(output(",
+						"          StoreId as integer,",
+						"          StoreName as string,",
+						"          StoreType as string,",
+						"          Description as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> sourceDimStore",
+						"stageStore, sourceDimStore lookup(stageStore@StoreName == sourceDimStore@StoreName,",
+						"     multiple: true,",
+						"     broadcast: 'auto')~> checkStoreExists",
+						"checkStoreExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
+						"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
+						"setInsertUpdateDates alterRow(upsertIf(true())) ~> UpdateOInsert",
+						"UpdateOInsert sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          StoreId as integer,",
+						"          StoreName as string,",
+						"          StoreType as string,",
+						"          Description as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:false,",
+						"     updateable:false,",
+						"     upsertable:true,",
+						"     keys:['StoreName'],",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          StoreName = stageStore@StoreName,",
+						"          StoreType = stageStore@StoreType,",
+						"          Description = stageStore@Description,",
+						"          InsertedDate,",
+						"          UpdatedDate",
+						"     )) ~> dimStore"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_build_factSales')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "sql_stage_sales",
+								"type": "DatasetReference"
+							},
+							"name": "stageSales"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_store",
+								"type": "DatasetReference"
+							},
+							"name": "dimStore"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_territory",
+								"type": "DatasetReference"
+							},
+							"name": "dimTerritory"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_product",
+								"type": "DatasetReference"
+							},
+							"name": "dimProduct"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_date",
+								"type": "DatasetReference"
+							},
+							"name": "dimDate"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dim_currency",
+								"type": "DatasetReference"
+							},
+							"name": "dimCurrency"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dbo_exchangerates",
+								"type": "DatasetReference"
+							},
+							"name": "ExchangeRates"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "sql_fact_sales",
+								"type": "DatasetReference"
+							},
+							"name": "factSales"
+						}
+					],
+					"transformations": [
+						{
+							"name": "joinStore"
+						},
+						{
+							"name": "selectStoreId"
+						},
+						{
+							"name": "joinTerritory"
+						},
+						{
+							"name": "selectTerritoryId"
+						},
+						{
+							"name": "joinProduct"
+						},
+						{
+							"name": "selectProductId"
+						},
+						{
+							"name": "ActiveProduct"
+						},
+						{
+							"name": "joinDate"
+						},
+						{
+							"name": "selectDateId"
+						},
+						{
+							"name": "joinCurrency"
+						},
+						{
+							"name": "selectCurrencyId"
+						},
+						{
+							"name": "joinExchangeRates"
+						},
+						{
+							"name": "ConvertedCurrency"
+						},
+						{
+							"name": "calculateMeasures"
+						},
+						{
+							"name": "calculateMargin"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          ProductNo as string,",
+						"          OnlineRetailer as string,",
+						"          SalesMonth as string,",
+						"          SalesTerritory as string,",
+						"          SalesCurrency as string,",
+						"          Title as string,",
+						"          Vintage as integer,",
+						"          Variety as string,",
+						"          Score as integer,",
+						"          ListPrice as integer,",
+						"          Quantity as integer",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> stageSales",
+						"source(output(",
+						"          StoreId as integer,",
+						"          StoreName as string,",
+						"          StoreType as string,",
+						"          Description as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> dimStore",
+						"source(output(",
+						"          TerritoryId as integer,",
+						"          TerritoryCode as string,",
+						"          TerritoryName as string,",
+						"          TradeRegion as string,",
+						"          Continent as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> dimTerritory",
+						"source(output(",
+						"          ProductId as integer,",
+						"          ProductNo as string,",
+						"          ProductName as string,",
+						"          Province as string,",
+						"          Region as string,",
+						"          Type as string,",
+						"          Winery as string,",
+						"          Vintage as integer,",
+						"          Score as integer,",
+						"          DealerPrice as integer,",
+						"          Markup as double,",
+						"          ListPrice as integer,",
+						"          UpdatedDate as timestamp,",
+						"          IsRowCurrent as integer,",
+						"          EffectiveDate as timestamp,",
+						"          EndDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> dimProduct",
+						"source(output(",
+						"          DateId as integer,",
+						"          DateYear as integer,",
+						"          DateMonth as integer,",
+						"          YearMonth as string,",
+						"          LastDayOfMonth as timestamp,",
+						"          Quarter as integer,",
+						"          Season as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> dimDate",
+						"source(output(",
+						"          CurrencyId as integer,",
+						"          CurrencyCode as string,",
+						"          CurrencyName as string,",
+						"          InsertedDate as timestamp,",
+						"          UpdatedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> dimCurrency",
+						"source(output(",
+						"          FromCurrency as string,",
+						"          ToCurrency as string,",
+						"          Date as timestamp,",
+						"          YearMonth as string,",
+						"          ExchangeRate as double",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> ExchangeRates",
+						"stageSales, dimStore join(OnlineRetailer == StoreName,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinStore",
+						"joinStore select(mapColumn(",
+						"          ProductNo,",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesTerritory,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          Quantity,",
+						"          StoreId",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectStoreId",
+						"selectStoreId, dimTerritory join(SalesTerritory == TerritoryCode,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinTerritory",
+						"joinTerritory select(mapColumn(",
+						"          ProductNo,",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesTerritory,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          Quantity,",
+						"          StoreId,",
+						"          TerritoryId",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectTerritoryId",
+						"selectTerritoryId, ActiveProduct join(selectTerritoryId@ProductNo == dimProduct@ProductNo,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinProduct",
+						"joinProduct select(mapColumn(",
+						"          ProductNo = selectTerritoryId@ProductNo,",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesTerritory,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage = selectTerritoryId@Vintage,",
+						"          Variety,",
+						"          Score = selectTerritoryId@Score,",
+						"          ListPrice = selectTerritoryId@ListPrice,",
+						"          Quantity,",
+						"          StoreId,",
+						"          TerritoryId,",
+						"          ProductId,",
+						"          DealerPrice,",
+						"          Markup",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectProductId",
+						"dimProduct filter(IsRowCurrent == 1) ~> ActiveProduct",
+						"selectProductId, dimDate join(SalesMonth == YearMonth,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinDate",
+						"joinDate select(mapColumn(",
+						"          ProductNo,",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesTerritory,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          Quantity,",
+						"          StoreId,",
+						"          TerritoryId,",
+						"          ProductId,",
+						"          DealerPrice,",
+						"          Markup,",
+						"          DateId",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectDateId",
+						"selectDateId, dimCurrency join(SalesCurrency == CurrencyCode,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinCurrency",
+						"joinCurrency select(mapColumn(",
+						"          ProductNo,",
+						"          OnlineRetailer,",
+						"          SalesMonth,",
+						"          SalesTerritory,",
+						"          SalesCurrency,",
+						"          Title,",
+						"          Vintage,",
+						"          Variety,",
+						"          Score,",
+						"          ListPrice,",
+						"          Quantity,",
+						"          StoreId,",
+						"          TerritoryId,",
+						"          ProductId,",
+						"          DealerPrice,",
+						"          Markup,",
+						"          DateId,",
+						"          CurrencyId",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectCurrencyId",
+						"selectCurrencyId, ExchangeRates join(SalesCurrency == FromCurrency",
+						"     && SalesMonth == YearMonth,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinExchangeRates",
+						"joinExchangeRates derive(ConvertedListPrice = round(multiply(ListPrice, iifNull(ExchangeRate, 1, ExchangeRate)), 2)) ~> ConvertedCurrency",
+						"ConvertedCurrency derive(SalesAmount = multiply(Quantity, ConvertedListPrice),",
+						"          CostAmount = multiply(Quantity, DealerPrice)) ~> calculateMeasures",
+						"calculateMeasures derive(Margin = minus(SalesAmount, CostAmount),",
+						"          InsertedDate = currentTimestamp(),",
+						"          BatchId = -1) ~> calculateMargin",
+						"calculateMargin sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          StoreId as integer,",
+						"          TerritoryId as integer,",
+						"          ProductId as integer,",
+						"          DateId as integer,",
+						"          CurrencyId as integer,",
+						"          SalesQty as integer,",
+						"          SalesAmount as integer,",
+						"          CostAmount as integer,",
+						"          MarginAmount as integer,",
+						"          InsertDate as timestamp,",
+						"          BatchId as integer",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          StoreId,",
+						"          TerritoryId,",
+						"          ProductId,",
+						"          DateId,",
+						"          CurrencyId,",
+						"          SalesQty = Quantity,",
+						"          SalesAmount,",
+						"          CostAmount,",
+						"          MarginAmount = Margin,",
+						"          InsertDate = InsertedDate,",
+						"          BatchId",
+						"     )) ~> factSales"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CSVtoJSON')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Data Flow CSV to JSON",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_CSVtoJSON",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"GetCSV": {},
+									"StoreAsJSON": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-10-08T19:34:24Z"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopyRawtoCleansed_Sales_Celeste')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Move to salesdata folder",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "df_Copy_RawtoCleansed_Sales_Celeste",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": false,
+									"wildcardFileName": "Cel*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".csv"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "abs_csv_cleansed_Celeste",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "abs_csv_cleansed_sales",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Delete1",
+						"type": "Delete",
+						"dependsOn": [
+							{
+								"activity": "Move to salesdata folder",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "abs_csv_cleansed_Celeste",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": false,
+								"wildcardFileName": "*.csv",
+								"enablePartitionDiscovery": false
+							}
+						}
+					},
+					{
+						"name": "df_Copy_RawtoCleansed_Sales_Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {},
+									"sinkErrorLog": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "07-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopySourceData')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "source to raw - Arancione",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "sourcedata//sampledata.zip"
+							},
+							{
+								"name": "Destination",
+								"value": "rawdata//"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"deleteFilesAfterCompletion": false
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "srcDataset_Arancione",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "rawDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "source to raw - Verde",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "srcDataset_Verde",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "rawDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Load Data to Datalake",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Wait1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "Load Data to Datalake",
+								"type": "DataFlowReference",
+								"parameters": {
+									"parameter1": "'ara'"
+								},
+								"datasetParameters": {
+									"GetDataArancione": {
+										"test": "*ara*.csv"
+									},
+									"GetDataVerde": {},
+									"LoadToDataLake": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [
+							{
+								"activity": "source to raw - Arancione",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "source to raw - Verde",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": [],
+				"lastPublishTime": "2022-10-08T19:34:24Z"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_CopySourceFiles')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "LoadStagingProducts",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"ImportStagingProducts": {},
+									"LoadStagingProducts": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToTest_Sales_Celeste')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawToTest_Sales_Celeste",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "03-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToTest_Sales_Celeste_DQ')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawToTest_Sales_Celeste_DQ",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "04-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {},
+									"sinkErrorLog": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "05-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy Raw to Cleansed Celeste Data",
+				"activities": [
+					{
+						"name": "Data Flow Copy Raw to Cleansed Celeste",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"SourceCSVCeleste": {},
+									"sinkCSVCleansedCeleste": {},
+									"sinkErrorLog": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
+						"name": "failPipeline",
+						"description": "Fail Pipeline on Error",
+						"type": "Fail",
+						"dependsOn": [
+							{
+								"activity": "SendEmail",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"message": {
+								"value": "@activity('Data Flow Copy Raw to Cleansed Celeste').error.message",
+								"type": "Expression"
+							},
+							"errorCode": "1234"
+						}
+					},
+					{
+						"name": "SendEmail",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Data Flow Copy Raw to Cleansed Celeste",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://lg-vinoworld-emailalert.azurewebsites.net:443/api/SendEmail/triggers/manual/invoke?api-version=2022-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fc1p12fXl9BRI_18XRaLHBdUIFQlU7ggSNdyUXF3iE8",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n   \"Pipeline Name\":  \"@{pipeline().Pipeline}\",\n   \"Error Message\":  \"@{string(replace(activity('Data Flow Copy Raw to Cleansed Celeste').Error.Message, '\"',''''))}\",\n   \"DataFactory Name\":  \"@{pipeline().DataFactory}\",\n   \"RunId\":  \"@{pipeline().RunId}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "06-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_Sales')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Store Sales to Cleansed",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Load Cleansed Sales to Staging",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Copy Store Sales to Cleansed",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_LoadStaging_Transactions",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_Schedule')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Raw to Cleansed Arancione",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_build_dimDate')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Build Dim Date",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_build_dimDate",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"stageDate": {},
+									"SourcedimDate": {},
+									"dimDate": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "11-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_build_dimDate')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_build_dimProduct')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Build Dim Product",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_build_dimProduct",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"stageProduct": {},
+									"SourcedimProduct": {},
+									"ActiveProduct": {},
+									"InsertNewProducts": {},
+									"setInactiveProduct": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "11-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_build_dimProduct')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_build_dimStore')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Build Dim Store",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_build_dimStore",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"stageStore": {},
+									"sourceDimStore": {},
+									"dimStore": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "11-Exercise"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_build_dimStore')]"
+			]
+		}
+	]
+}
