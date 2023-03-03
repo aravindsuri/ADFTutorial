@@ -14,6 +14,26 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "Load Cleansed Sales to Staging",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Copy Store Sales to Cleansed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_Transactions",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
