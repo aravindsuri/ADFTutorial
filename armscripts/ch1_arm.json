@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0" ,
+    "parameters": {
+        "storageaccount1": {
+            "type": "string"
+            
+        },
+        "datafactoryname1": {
+            "type": "string"
+            
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [{
+        "name": "[parameters('storageaccount1')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2021-04-01",
+        "tags": {
+            "displayName": "stWineStore"
+        },
+        "location": "[resourceGroup().location]",
+        "kind": "StorageV2",  
+        "sku": {
+            "name": "Standard_LRS",
+            "tier": "Standard"
+        }
+    },
+    {
+      "type": "Microsoft.DataFactory/factories",
+      "apiVersion": "2018-06-01",
+      "name": "[parameters('dataFactoryName1')]",
+      "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {} 
+    }
+    
+    ],
+    "outputs": {}
+}

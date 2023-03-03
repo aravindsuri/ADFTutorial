@@ -1,0 +1,577 @@
+TransactionId,TransactionDate,OnlineRetailer,SalesMonth,SalesRegion,SalesCurrency,Title,Vintage,Variety,Score,ListPrice,Quantity
+6fc8caf3-672f-4d11-9fd3-035272b1d54b,2022-08-01,Celeste,2022-08,EU,EUR,Foss Marai 2015 Nadin Dry  (Valdobbiadene Prosecco Superiore),2015,Glera,89,31.0,18
+259a947f-8491-42b2-ab51-61caa59ea7c3,2022-08-01,Celeste,2022-08,EU,EUR,Corte Lenguin 2007  Valpolicella Classico Superiore Ripasso,2007,"Corvina, Rondinella, Molinara",87,20.0,16
+99826914-7bcb-4010-b0df-734fe9c8d649,2022-08-01,Celeste,2022-08,EU,EUR,Tenuta Buon Tempo 2012  Brunello di Montalcino,2012,Sangiovese,89,60.0,19
+62bdba89-1a39-408d-aac3-ade8f0979a58,2022-08-01,Celeste,2022-08,EU,EUR,Bocelli NV Extra Dry  (Prosecco),,Glera,85,19.0,22
+77760a3b-3e17-47b1-9512-6e013268bf7a,2022-08-01,Celeste,2022-08,EU,EUR,Paolo Cal� 2013 Violino Nero d'Avola (Vittoria),2013,Nero d'Avola,89,20.0,22
+83d1693a-17bc-4a54-ae36-b2f149982844,2022-08-01,Celeste,2022-08,EU,EUR,Gualdo del Re 2008 I'Rennero Merlot (Val di Cornia Suvereto),2008,Merlot,85,75.0,21
+9f3ea821-f521-4f6b-9670-1878c2fec958,2022-08-01,Celeste,2022-08,EU,EUR,Abbazia di Novacella 2010 Praepositus Riserva Pinot Nero (Alto Adige),2010,Pinot Nero,89,45.0,20
+05253b36-2493-44e8-a909-31845fc3cd00,2022-08-01,Celeste,2022-08,EU,EUR,Antonutti 2013 Sauvignon (Friuli Grave),2013,Sauvignon,87,17.0,24
+1213b141-c05f-4827-b387-ffe9cda208fb,2022-08-01,Celeste,2022-08,EU,EUR,Principi di Spadafora 2009 Schietto Nero d'Avola (Sicilia),2009,Nero d'Avola,87,19.0,20
+27f4694d-645a-471b-99a3-006d3e9e6008,2022-08-01,Celeste,2022-08,EU,EUR,Massimiliano Vivalda 2006 'l Clumb�  (Barbera d'Asti),2006,Barbera,87,18.0,22
+8d8b5110-9a94-4550-acca-70b4589baa1e,2022-08-01,Celeste,2022-08,EU,EUR,Broglia 2012 Il Doge  (Cortese di Gavi),2012,Cortese,86,12.0,15
+6b543ceb-68ab-4b7d-a039-3f9172889e49,2022-08-02,Celeste,2022-08,EU,EUR,Fratelli Casetta 2007 Riserva  (Roero),2007,Nebbiolo,86,10.0,16
+9ffce347-3e3c-4834-989e-5df888db6d6f,2022-08-02,Celeste,2022-08,EU,EUR,Terenzi 2011 Bramaluce  (Maremma Toscana),2011,Red Blend,89,23.0,24
+031e2509-7701-46a9-98f5-636bb8d44862,2022-08-02,Celeste,2022-08,EU,EUR,Cottanera 2011 Rosso  (Etna),2011,Red Blend,89,49.0,23
+3e0ee373-ceab-487d-a7ff-d8f7a335ab08,2022-08-02,Celeste,2022-08,EU,EUR,Il Conventino 2011  Rosso di Montepulciano,2011,Red Blend,88,19.0,20
+502cdd2e-79d3-445a-992e-80cf5ad67c0e,2022-08-02,Celeste,2022-08,EU,EUR,Cantine Astroni 2015 Colle Rotondella Piedirosso (Campi Flegrei),2015,Piedirosso,86,10.0,20
+f46d3cc7-3e25-4da6-b0e6-fc8a7b7e8109,2022-08-02,Celeste,2022-08,EU,EUR,Donatella Cinelli Colombini 2010  Brunello di Montalcino,2010,Sangiovese,87,70.0,17
+c4a33d4c-71e2-4b92-8dd1-b31a308ace0d,2022-08-02,Celeste,2022-08,EU,EUR,Cantina Santadi 2011 Villa Solais  (Vermentino di Sardegna),2011,Vermentino,87,10.0,24
+881d3e76-786a-4cbd-821f-3888184c77f5,2022-08-02,Celeste,2022-08,EU,EUR,Tringali Casanuova 2013 Renzo  (Bolgheri),2013,Red Blend,89,60.0,23
+f3791238-a9ca-4acb-bfd5-d2c170c84d19,2022-08-02,Celeste,2022-08,EU,EUR,Aquila del Torre 2006 Riesling Riesling (Colli Orientali del Friuli),2006,Riesling,85,22.0,19
+862b9fc8-15e0-496f-9675-fb065f4cb35b,2022-08-02,Celeste,2022-08,EU,EUR,Malavasi Daniele 2012  Lugana,2012,Turbiana,88,20.0,20
+e648ef57-8e9c-49af-b756-f356a5760f28,2022-08-02,Celeste,2022-08,EU,EUR,Gattavecchi 2015  Rosso di Montepulciano,2015,Red Blend,89,17.0,18
+fd989d0a-24ab-4701-bf9b-ee7fcdd0b817,2022-08-02,Celeste,2022-08,EU,EUR,Il Borro 2005 Pian di Nova Red (Toscana),2005,Red Blend,88,20.0,20
+eef173a6-9373-44ba-8a7b-b902edcc8c96,2022-08-02,Celeste,2022-08,EU,EUR,Barone Ricasoli 2011 Brolio  (Chianti Classico),2011,Red Blend,87,29.0,21
+c8a758c7-9fb5-40e0-845e-9b6721baa48c,2022-08-02,Celeste,2022-08,EU,EUR,Monchiero Carbone 2012 Mon Birone  (Barbera d'Alba),2012,Barbera,88,50.0,24
+81c8ac71-7626-432d-a7d0-ca03b874ed23,2022-08-02,Celeste,2022-08,EU,EUR,Buglioni 2009  Amarone della Valpolicella Classico,2009,Red Blend,88,75.0,22
+fb61c8b6-5d42-4f2c-bd02-38fcbe73a62e,2022-08-02,Celeste,2022-08,EU,EUR,Avignonesi 2008  Rosso di Montepulciano,2008,Prugnolo Gentile,87,19.0,21
+4bdbdec2-e13a-4316-abb9-8061b6379215,2022-08-02,Celeste,2022-08,EU,EUR,Montaribaldi 2010  Barbaresco,2010,Nebbiolo,85,55.0,21
+6e3f6a65-51c4-4d75-ab96-a97d439c6925,2022-08-02,Celeste,2022-08,EU,EUR,Castello Monta�to 2008  Vernaccia di San Gimignano,2008,White Blend,87,20.0,24
+8a85be6d-89b0-4b4d-8677-deba4fe6ea44,2022-08-02,Celeste,2022-08,EU,EUR,Serra dei Fiori 2015 La Regina Nascetta (Langhe),2015,Nascetta,87,10.0,15
+35fb6847-a584-4e39-bcee-b6e763db1fab,2022-08-02,Celeste,2022-08,EU,EUR,Apollonio 2010 Terragnolo Negroamaro (Salento),2010,Negroamaro,87,20.0,24
+abccd361-bcf9-4517-bf8f-4168d71d3f1b,2022-08-02,Celeste,2022-08,EU,EUR,Cantina Terre del Barolo 2006  Barolo,2006,Nebbiolo,89,10.0,23
+06c5c8d9-8898-4648-a10a-fa60ee6abc00,2022-08-02,Celeste,2022-08,EU,EUR,Peter Zemmer 2014 Punggl Pinot Bianco (Alto Adige),2014,Pinot Bianco,88,17.0,24
+abd1d084-850b-4ed5-a5b0-13412f4980a0,2022-08-02,Celeste,2022-08,EU,EUR,Andriano 2015 Pinot Nero (Alto Adige),2015,Pinot Nero,89,28.0,21
+68452eee-9ecd-44ef-a57f-5307a2ecccd3,2022-08-02,Celeste,2022-08,EU,EUR,Valle dell'Acate 2011 Case Ibidini Insolia (Sicilia),2011,Insolia,86,15.0,22
+7f6183d8-fb07-4637-b436-a849e95129dc,2022-08-03,Celeste,2022-08,EU,EUR,Il Conventino 2014  Rosso di Montepulciano,2014,Red Blend,86,22.0,16
+b3ba583e-8e49-4550-befe-8159cdc2db06,2022-08-03,Celeste,2022-08,EU,EUR,Ambrogio e Giovanni Folonari 2015 Campo al Mare  (Bolgheri),2015,Red Blend,88,32.0,15
+7b477f7c-e37e-4a28-b4b9-efc2f2b6a719,2022-08-03,Celeste,2022-08,EU,EUR,Nottola 2013  Rosso di Montepulciano,2013,Red Blend,88,18.0,19
+d299198b-2845-4c1f-9076-0a6a1684da04,2022-08-03,Celeste,2022-08,EU,EUR,Ruggeri & C. 2010 Vecchie Viti Brut  (Conegliano Valdobbiadene Prosecco Superiore),2010,Glera,88,10.0,22
+d410f88d-5208-4bad-8bab-c81c48c37c3a,2022-08-03,Celeste,2022-08,EU,EUR,Parmoleto 2011  Montecucco,2011,Sangiovese,86,25.0,24
+7e711e88-4c25-4399-b30c-bee6693f294b,2022-08-03,Celeste,2022-08,EU,EUR,St. Michael-Eppan 2000 Sanct Valentin Sauvignon Blanc (Alto Adige),2000,Sauvignon Blanc,87,28.0,22
+969884c6-1710-4a94-a85a-791f520bd9af,2022-08-03,Celeste,2022-08,EU,EUR,La Canosa 2009 Pek� Pecorino (Marche),2009,Pecorino,87,10.0,15
+9818e4d8-2548-4d14-962b-dc8d8d8afc6d,2022-08-03,Celeste,2022-08,EU,EUR,Alberto Longo 2007 Le Fossette Falanghina (Puglia),2007,Falanghina,87,18.0,22
+051fb90e-0af2-4b5b-b844-982d458efc23,2022-08-03,Celeste,2022-08,EU,EUR,Barberani 2010 Luigi e Giovanni  (Orvieto Classico Superiore),2010,White Blend,88,50.0,16
+f265a5fa-0de9-4993-b944-61169409573e,2022-08-03,Celeste,2022-08,EU,EUR,C� del V�nt NV Brut Chardonnay (Franciacorta),,Chardonnay,87,20.0,18
+09fed489-8532-41c3-b9f7-d367d36899bc,2022-08-03,Celeste,2022-08,EU,EUR,Palazzone 2014 Terre Vineate  (Orvieto Classico Superiore),2014,White Blend,87,13.0,15
+c89d6193-e9a3-4774-8d1d-5ebd71eb610c,2022-08-04,Celeste,2022-08,EU,EUR,Biondi Santi 2008  Rosso di Montalcino,2008,Sangiovese Grosso,88,75.0,24
+f71928f9-945f-4599-9416-5c72f0257914,2022-08-04,Celeste,2022-08,EU,EUR,Cantina Produttori San Michele Appiano 2015 Lahn Sauvignon (Alto Adige),2015,Sauvignon,89,26.0,16
+bd7089c5-2aa9-45c3-ab70-611be7702db6,2022-08-04,Celeste,2022-08,EU,EUR,Ca' del Baio 2012 Asili  (Barbaresco),2012,Nebbiolo,87,10.0,21
+32651f1e-89b0-43b9-831e-9b293e9de963,2022-08-04,Celeste,2022-08,EU,EUR,Le Colture NV Fagher Brut  (Valdobbiadene Prosecco Superiore),,Glera,89,18.0,21
+e792fa43-f0cd-407e-9d0b-e32042594c4a,2022-08-04,Celeste,2022-08,EU,EUR,Ascheri 2012  Barolo,2012,Nebbiolo,89,50.0,23
+88d6c6ad-8608-4c47-ba74-e56c46f9aa09,2022-08-04,Celeste,2022-08,EU,EUR,Bixio 2008  Amarone della Valpolicella Classico,2008,"Corvina, Rondinella, Molinara",88,10.0,17
+f0831b63-1aa6-4958-9787-22acf872a5ef,2022-08-04,Celeste,2022-08,EU,EUR,Ceuso 2013 Scurati Nero d'Avola (Terre Siciliane),2013,Nero d'Avola,88,16.0,18
+f6b35cb0-866b-485c-867f-3a85b57c11e2,2022-08-04,Celeste,2022-08,EU,EUR,Cantine San Silvestro 2009 Primaio  (Dolcetto d'Alba),2009,Dolcetto,86,14.0,19
+733c571c-5d1f-4850-b3c8-faabde5bf441,2022-08-04,Celeste,2022-08,EU,EUR,Giorgio Meletti Cavallari 2013 Borgeri  (Bolgheri),2013,Red Blend,88,28.0,19
+859ab398-0b55-4ad9-aeb3-08325037c9fd,2022-08-04,Celeste,2022-08,EU,EUR,Ruffino 2005 Riserva Santedame  (Chianti Classico),2005,Sangiovese,88,10.0,16
+8bb37eb3-653e-41c2-a470-4f72b8872db2,2022-08-04,Celeste,2022-08,EU,EUR,Gradis'ciutta 2014 Friulano (Collio),2014,Friulano,89,22.0,15
+0f289909-abd8-4f65-af0c-33212b45132b,2022-08-04,Celeste,2022-08,EU,EUR,Tenuta La Badiola 2013 642� Il Canapone  (Maremma Toscana),2013,Red Blend,88,18.0,16
+42859f54-5709-422e-90d3-4e988a9cfd5b,2022-08-04,Celeste,2022-08,EU,EUR,Ada Nada 2011 Valeirano  (Barbaresco),2011,Nebbiolo,87,41.0,20
+50f20e55-a9bd-40b4-bf92-3c1f6b125b79,2022-08-04,Celeste,2022-08,EU,EUR,C�Maiol 2015  Lugana,2015,Turbiana,87,26.0,18
+c3cada15-fbf0-4817-a715-e31501d9e14c,2022-08-04,Celeste,2022-08,EU,EUR,Pratesi 2013 Il Circo Rosso Riserva  (Carmignano),2013,Red Blend,89,30.0,21
+72c3bf8d-9028-414b-81af-07d478578ec5,2022-08-04,Celeste,2022-08,EU,EUR,Terre di Giurfo 2012 Kuntari Nero d'Avola (Sicilia),2012,Nero d'Avola,88,19.0,18
+d113718a-d2ce-4a6b-823f-b35be4906eaf,2022-08-05,Celeste,2022-08,EU,EUR,Tenimenti Famiglia Cavallero 2009 La Fenice  (Barolo),2009,Nebbiolo,88,45.0,24
+f3da9a4f-dcd7-4f42-ae93-11d0cbb55ddf,2022-08-05,Celeste,2022-08,EU,EUR,Cesari 2009 Cento Filari  (Lugana),2009,White Blend,88,22.0,23
+77f64020-9fe5-4f8d-85bb-820c966aff32,2022-08-05,Celeste,2022-08,EU,EUR,Zym� 2008  Valpolicella Classico Superiore,2008,"Corvina, Rondinella, Molinara",89,46.0,21
+22c6c125-2891-41f8-b509-78fe272bafee,2022-08-05,Celeste,2022-08,EU,EUR,Poggio al Chiuso 2014 Voltaccia 49 Merlot (Toscana),2014,Merlot,85,25.0,18
+ada12e50-11eb-47f4-bcb2-33a26d41de30,2022-08-05,Celeste,2022-08,EU,EUR,Travaglini 2012 Nebbiolo (Coste della Sesia),2012,Nebbiolo,89,23.0,23
+0f00dd20-590d-47eb-8ea6-5839ada249ba,2022-08-05,Celeste,2022-08,EU,EUR,Panzanello 2006  Chianti Classico,2006,Sangiovese,88,10.0,22
+33c47f8c-4875-4c48-8ea8-7f2741dd1ec4,2022-08-05,Celeste,2022-08,EU,EUR,Villa Mottura 2012 Negroamaro (Salento),2012,Negroamaro,86,17.0,22
+4fff6d29-53f1-467b-821f-5bcee21b7f5a,2022-08-05,Celeste,2022-08,EU,EUR,Aia Vecchia 2012 Lagone Red (Toscana),2012,Red Blend,85,15.0,21
+c8124336-f00f-4fb0-9d3b-717fc040de28,2022-08-05,Celeste,2022-08,EU,EUR,Ricci Curbastro NV Brut Sparkling (Franciacorta),,Sparkling Blend,87,10.0,24
+ada9d5ac-4435-44bb-ae2f-269576e87618,2022-08-05,Celeste,2022-08,EU,EUR,Terre di San Venanzio Fortunato NV Extra Dry  (Conegliano Valdobbiadene Prosecco Superiore),,Glera,85,15.0,18
+807c6a92-d0a3-4df8-9bb3-8a3bebf2f2e6,2022-08-05,Celeste,2022-08,EU,EUR,La Colombina 2005  Brunello di Montalcino,2005,Sangiovese Grosso,89,40.0,18
+0f815734-62bf-4400-b7f2-ee32d3e0fe2b,2022-08-06,Celeste,2022-08,EU,EUR,Le Casalte 2014  Rosso di Montepulciano,2014,Red Blend,87,18.0,15
+628494ba-4074-42d6-b74d-f0c2c69bcc66,2022-08-06,Celeste,2022-08,EU,EUR,Antichi Vinai 1877 2013 Pietralava Red (Etna),1877,Red Blend,88,10.0,24
+0a335006-08f0-424d-8873-0d9c8f6d14c6,2022-08-06,Celeste,2022-08,EU,EUR,Corte alla Flora 2011  Vino Nobile di Montepulciano,2011,Red Blend,87,16.0,18
+ecb9ae28-1e30-4b3b-a5e5-a0259593a34b,2022-08-06,Celeste,2022-08,EU,EUR,Cantina Sociale Cooperativa di Copertino 2001 Riserva Negroamaro (Copertino),2001,Negroamaro,87,15.0,23
+541d547a-a578-47c5-90bc-7fac4d91ff40,2022-08-06,Celeste,2022-08,EU,EUR,Cantina Produttori San Michele Appiano 2012 Pinot Grigio (Alto Adige),2012,Pinot Grigio,89,17.0,20
+b420d9ae-34d1-4bb3-a26c-a609957e6f4f,2022-08-06,Celeste,2022-08,EU,EUR,Cantina del Taburno 2007 Fiano (Beneventano),2007,Fiano,86,22.0,21
+e4dc8b33-5f97-4e56-b8ad-8081d5ef46fb,2022-08-06,Celeste,2022-08,EU,EUR,Canneto 2006  Vino Nobile di Montepulciano,2006,Prugnolo Gentile,88,19.0,15
+e0c7877a-9f34-45a3-8aa5-bc9bedccfa1f,2022-08-06,Celeste,2022-08,EU,EUR,Villa Rubini 2007 Chardonnay (Colli Orientali del Friuli),2007,Chardonnay,85,15.0,21
+b121ac6e-1ecf-4e1a-8b9c-eaeb6e2f0260,2022-08-06,Celeste,2022-08,EU,EUR,Novaia 2010 Vigneto I Cantoni  (Valpolicella Classico Superiore),2010,Red Blend,88,25.0,20
+d9e77df7-d462-45ba-9756-4be305c6f24b,2022-08-06,Celeste,2022-08,EU,EUR,Feudo Arancio 2014 Tinchit� Ros� (Terre Siciliane),2014,Ros�,88,13.0,23
+2639668d-f7ef-4c3f-80bf-0bd1df6c2eb4,2022-08-06,Celeste,2022-08,EU,EUR,Murgo 2012 Rosso  (Etna),2012,Nerello Mascalese,88,10.0,24
+d79c8b23-9338-4a8e-85cb-74b518a445f7,2022-08-06,Celeste,2022-08,EU,EUR,Saladini Pilastri 2010 Montetinello  (Rosso Piceno),2010,Red Blend,86,10.0,20
+2b63d4d8-7c59-454a-91e4-459c9c3d9e47,2022-08-06,Celeste,2022-08,EU,EUR,Corte Sermana 2015 Cromalgo  (Lugana),2015,Turbiana,87,19.0,18
+c92d4db7-0877-4816-a6ab-6b4a19ac0fe7,2022-08-06,Celeste,2022-08,EU,EUR,Il Paradiso di Manfredi 2014  Rosso di Montalcino,2014,Sangiovese,89,48.0,21
+5b0b89ce-a406-4241-97ef-a05371388967,2022-08-06,Celeste,2022-08,EU,EUR,Sergio Mottura 2013 Secco  (Orvieto),2013,White Blend,86,15.0,20
+9d366d30-4472-4d38-8dd4-8876be656a2e,2022-08-06,Celeste,2022-08,EU,EUR,Cantina del Barone 2012 Particella 928  (Fiano di Avellino),2012,Fiano,86,10.0,20
+dee9596e-9992-4807-8982-376aabbe8550,2022-08-06,Celeste,2022-08,EU,EUR,Settesoli 2011 Seligo Red (Sicilia),2011,Red Blend,87,30.0,20
+b7fde457-a661-4526-b9d8-5977d3e4f054,2022-08-06,Celeste,2022-08,EU,EUR,Lamberti NV Extra Dry  (Prosecco),,Glera,85,15.0,15
+6a2c435b-5745-4915-9e28-98b1c21ffa04,2022-08-07,Celeste,2022-08,EU,EUR,Feudi del Pisciotto 2010 Carolina Marengo Frappato (Sicilia),2010,Frappato,87,21.0,21
+e248360e-9119-4624-a624-b482264871d5,2022-08-07,Celeste,2022-08,EU,EUR,Ocone 2006  Aglianico del Taburno,2006,Aglianico,86,13.0,15
+2c5e4542-358d-4157-b3c7-857532c48826,2022-08-07,Celeste,2022-08,EU,EUR,Castellari Bergaglio 2013 Rovereto Vignavecchia  (Gavi),2013,Cortese,89,32.0,20
+097b9c5f-46c5-4131-a3ec-7abc0eb5d1bc,2022-08-07,Celeste,2022-08,EU,EUR,Volpaia 2005 Riserva Coltassala  (Chianti Classico),2005,Sangiovese,88,54.0,15
+d9c0a9db-c983-443a-891a-302d5f2690e3,2022-08-07,Celeste,2022-08,EU,EUR,Oddero 2013 Gallina  (Barbaresco),2013,Nebbiolo,88,60.0,20
+73214d6f-6844-467f-94d8-daa6336aa6f8,2022-08-07,Celeste,2022-08,EU,EUR,Villa Matilde 2007 Tenuta Rocca dei Leoni Aglianico (Campania),2007,Aglianico,87,10.0,15
+0709d1c2-cfde-46a6-b91b-0a0bce658d92,2022-08-07,Celeste,2022-08,EU,EUR,Beccarello 2008 Oro Cason Brus� Vino Passito Friulano (Lison-Pramaggiore),2008,Friulano,88,45.0,21
+76cb614f-8b15-4839-8bca-1a1bf3823adc,2022-08-07,Celeste,2022-08,EU,EUR,Mastroberardino 2009 Falanghina (Sannio),2009,Falanghina,87,10.0,16
+476611be-f1e2-4592-a8e0-1602609247ac,2022-08-07,Celeste,2022-08,EU,EUR,Feudi di Terra d'Otranto 2007 Passerose Ros� (Puglia),2007,Ros�,85,15.0,23
+959d954d-492f-4f7d-a37a-6b8901f14fde,2022-08-07,Celeste,2022-08,EU,EUR,Drusian NV Extra Dry  (Valdobbiadene Prosecco Superiore),,Glera,87,18.0,20
+a757a56d-1b97-4993-afbc-48bee6fea7a1,2022-08-07,Celeste,2022-08,EU,EUR,Farina 2011 Montecorna  (Valpolicella Classico Superiore Ripasso),2011,Red Blend,89,20.0,17
+441fd9d4-2b3e-4a32-a7f3-ddcb07f75277,2022-08-07,Celeste,2022-08,EU,EUR,Fattoria La Vialla 2015 Casa Conforto  (Chianti Superiore),2015,Red Blend,89,17.0,16
+8d49a5f7-e49b-4289-8d25-5b5a6a937019,2022-08-07,Celeste,2022-08,EU,EUR,Fattoria Zerbina 2009 Il 500  (Sangiovese di Romagna),2009,Sangiovese,88,11.0,24
+17a5d37d-b87a-4b7c-9971-1fe2fba82638,2022-08-07,Celeste,2022-08,EU,EUR,Collelungo 2006 Riserva  (Chianti Classico),2006,Sangiovese,87,10.0,18
+c4565dea-db81-43b5-89d3-3dc2f7985be0,2022-08-07,Celeste,2022-08,EU,EUR,Bindi Sergardi 2013 Al Canapo  (Chianti Colli Senesi),2013,Sangiovese,86,15.0,24
+345388db-73ac-4666-8c97-5a5e6b1a7a1b,2022-08-07,Celeste,2022-08,EU,EUR,Rotari NV Ros� Sparkling (Trento),,Sparkling Blend,89,13.0,16
+39ab2fbc-13c8-48ab-9d27-4f9029f802a7,2022-08-07,Celeste,2022-08,EU,EUR,Villa Girardi 2012  Amarone della Valpolicella Classico,2012,Red Blend,86,65.0,19
+34d47cf8-7e02-40f9-9bc8-9d2f3fc3fb88,2022-08-07,Celeste,2022-08,EU,EUR,Vignavecchia 2010 Riserva  (Chianti Classico),2010,Red Blend,89,45.0,22
+e48943d1-fc58-469f-9172-5e9a9be5ce30,2022-08-07,Celeste,2022-08,EU,EUR,Giordano 2007 Alberello Cinquanta  (Primitivo di Manduria),2007,Primitivo,87,18.0,19
+050261c4-5140-4073-bca8-47123070eace,2022-08-07,Celeste,2022-08,EU,EUR,Bucci 2015  Verdicchio dei Castelli di Jesi Classico Superiore,2015,Verdicchio,88,21.0,23
+2bfaea5c-ab9d-475e-944c-a669f9abe529,2022-08-08,Celeste,2022-08,EU,EUR,Giuseppe Cortese 2005 Rabaj�  (Barbaresco),2005,Nebbiolo,88,55.0,15
+e63eb93c-077c-409e-87fe-a2d404d5acde,2022-08-08,Celeste,2022-08,EU,EUR,San Simone 2010 Perlae Naonis Brut Millesimato  (Prosecco),2010,Glera,86,14.0,24
+f8578055-8efa-4121-a557-f1bcb130e50d,2022-08-08,Celeste,2022-08,EU,EUR,Caiarossa 2011 Oro di Caiarossa Petit Manseng (Toscana),2011,Petit Manseng,88,50.0,20
+750c50b7-33e9-468a-82d6-eb6432a11c2a,2022-08-08,Celeste,2022-08,EU,EUR,Le Vigne di Alice 2008 Millesimato Extra Dry  (Prosecco di Conegliano e Valdobbiadene),2008,Prosecco,85,15.0,23
+29548747-7ab8-4612-852d-1bcfcf14324b,2022-08-08,Celeste,2022-08,EU,EUR,Rinaldini NV Vecchio Moro  (Lambrusco dell'Emilia),,Lambrusco,86,10.0,22
+cb6c882c-ab55-4f07-bd23-21ab5d2c200b,2022-08-08,Celeste,2022-08,EU,EUR,Montesel NV Vigna del Paradiso Extra Dry  (Prosecco di Conegliano e Valdobbiadene),,Prosecco,85,20.0,23
+3e7f19c6-4690-490f-ba88-0f39cc53c4ee,2022-08-08,Celeste,2022-08,EU,EUR,Castello di San Donato in Perano 2005 Riserva  (Chianti Classico),2005,Sangiovese,88,10.0,15
+060fe2ec-ded7-4a21-a585-23fef084c45b,2022-08-08,Celeste,2022-08,EU,EUR,Tenuta di Castellaro 2011 Nero Ossidiana Red (Sicilia),2011,Red Blend,88,30.0,18
+8037557c-1bb2-407e-9121-ecf8d535c19f,2022-08-08,Celeste,2022-08,EU,EUR,Corvo 2010 Rosso Red (Sicilia),2010,Red Blend,85,10.0,20
+87d67afc-3418-45c4-8f8d-5b2e4d045175,2022-08-08,Celeste,2022-08,EU,EUR,Luigi Righetti 2010 Campolieti  (Valpolicella Classico Superiore Ripasso),2010,"Corvina, Rondinella, Molinara",87,17.0,15
+60a7c14d-1144-42a0-b05d-be3a4ef7a8ac,2022-08-08,Celeste,2022-08,EU,EUR,Montesole 2014 Vigna Breccia  (Greco di Tufo),2014,Greco,88,26.0,24
+f07c34e8-8184-4cd7-89a6-5defb97a93a3,2022-08-08,Celeste,2022-08,EU,EUR,Tedeschi 2011 Lucchine  (Valpolicella Classico),2011,"Corvina, Rondinella, Molinara",87,14.0,18
+5698b0d3-fec0-48e7-8e50-2a7e3c0f52b1,2022-08-08,Celeste,2022-08,EU,EUR,Monzio Compagnoni 2010 Sat�n Brut Chardonnay (Franciacorta),2010,Chardonnay,88,26.0,16
+1a15aea0-f6eb-4c75-ad50-c864eb34753e,2022-08-08,Celeste,2022-08,EU,EUR,Bottega Vinai 2013 Pinot Nero (Trentino),2013,Pinot Nero,88,18.0,19
+fa417bc1-e18b-4772-8dbc-3fcb62115785,2022-08-08,Celeste,2022-08,EU,EUR,Fattoria di Montemaggio 2009 Riserva  (Chianti Classico),2009,Red Blend,89,35.0,15
+ba936e0f-1afd-49f9-9182-675eeed131ec,2022-08-08,Celeste,2022-08,EU,EUR,Bonacchi 2008 Casalino  (Brunello di Montalcino),2008,Sangiovese Grosso,89,10.0,24
+6ed9809c-6de7-4e04-a7bc-675360f98011,2022-08-08,Celeste,2022-08,EU,EUR,Fornacina 2014  Rosso di Montalcino,2014,Sangiovese,85,24.0,16
+805c0715-88d0-49af-9492-9e68d4d827c1,2022-08-08,Celeste,2022-08,EU,EUR,Fabio Motta 2012 Pievi  (Bolgheri),2012,Red Blend,88,20.0,20
+c36ec350-5d1f-4bcd-a1e7-7d21be5caa6a,2022-08-08,Celeste,2022-08,EU,EUR,Casa Belfi NV Bianco White (Delle Venezie),,White Blend,89,10.0,19
+18a95f5c-4d86-4a66-b764-31c159379e07,2022-08-08,Celeste,2022-08,EU,EUR,Fazio 2015 Aegades Grillo (Erice),2015,Grillo,87,25.0,16
+7ba7c80d-5356-492d-840d-9b98a1118a8b,2022-08-08,Celeste,2022-08,EU,EUR,Bolla 2007 Le Poiane  (Valpolicella Classico Superiore Ripasso),2007,"Corvina, Rondinella, Molinara",87,14.0,21
+cfcf9e41-0758-43d4-aaac-598fe1a6313a,2022-08-08,Celeste,2022-08,EU,EUR,Fattoria di Grignano 2012 Poggio Gualtieri Riserva  (Chianti Rufina),2012,Red Blend,89,25.0,18
+e5fd58a0-946c-42ee-8ca0-739d3a312c8d,2022-08-08,Celeste,2022-08,EU,EUR,Sirch 2013 Ribolla Gialla (Colli Orientali del Friuli),2013,Ribolla Gialla,87,20.0,19
+ae656509-9833-4506-9b3c-72146387e0cb,2022-08-08,Celeste,2022-08,EU,EUR,Tenuta La Badiola 2013 642� Il Canapone  (Maremma Toscana),2013,Red Blend,88,18.0,15
+a1603dc2-bec2-46b9-b972-f8805ee8c149,2022-08-08,Celeste,2022-08,EU,EUR,Valle dell'Acate 2009 Case Ibidini Syrah (Sicilia),2009,Syrah,87,14.0,23
+4e35f5d6-18fd-47c1-b9aa-018470e3a14a,2022-08-08,Celeste,2022-08,EU,EUR,Montresor 2010 Capitel della Crosara  (Valpolicella Ripasso),2010,"Corvina, Rondinella, Molinara",87,16.0,19
+41158869-b81c-479c-bf2b-6d5796a523cc,2022-08-08,Celeste,2022-08,EU,EUR,Gianni Voerzio 2009 Rochettevino  (Dolcetto d'Alba),2009,Dolcetto,88,25.0,15
+e01a547c-ce08-40a8-9d26-bb40d6249eb9,2022-08-09,Celeste,2022-08,EU,EUR,Castel Sallegg 2013 Bischofsleiten Lago di Caldaro Classico Schiava (Alto Adige),2013,Schiava,88,20.0,19
+c62301a7-e429-49fa-80a8-41a4b957ff32,2022-08-09,Celeste,2022-08,EU,EUR,Palagetto 2004 Riserva  (Vernaccia di San Gimignano),2004,Vernaccia,88,30.0,19
+b457dd60-badd-4578-abdf-e56cd94470e9,2022-08-09,Celeste,2022-08,EU,EUR,Tenuta Rapital� 2012 Alto Nero Nero d'Avola (Sicilia),2012,Nero d'Avola,88,23.0,24
+88bd2d36-3080-4c85-850f-7d5a54ab1e1f,2022-08-09,Celeste,2022-08,EU,EUR,Piersanti 2012 Raphael  (Verdicchio dei Castelli di Jesi Classico),2012,Verdicchio,86,10.0,16
+74f5d2f0-88f4-423e-aa97-cc8b67d091c4,2022-08-09,Celeste,2022-08,EU,EUR,Barale Fratelli 2012  Barolo,2012,Nebbiolo,88,49.0,15
+98820327-09b3-449d-b648-a273b7a572b8,2022-08-09,Celeste,2022-08,EU,EUR,Marco Cecchini 2010 Pinot Grigio (Venezia Giulia),2010,Pinot Grigio,86,15.0,22
+10e5705d-3a88-4de1-b0ad-fea799b20b03,2022-08-09,Celeste,2022-08,EU,EUR,Valle dell'Acate 2010 Case Ibidini Insolia (Sicilia),2010,Insolia,86,14.0,16
+cf8f71b5-170f-477b-83ab-0ab040659a4e,2022-08-09,Celeste,2022-08,EU,EUR,Belisario 2012 Terre di Valbona  (Verdicchio di Matelica),2012,Verdicchio,89,14.0,17
+5e7c68cf-f2a5-40cd-ad7a-7826024486d8,2022-08-09,Celeste,2022-08,EU,EUR,Poliziano 2012  Rosso di Montepulciano,2012,Red Blend,88,15.0,15
+968100f2-80b4-4cbf-a2f3-25ed14fe55be,2022-08-09,Celeste,2022-08,EU,EUR,Poggio Verrano 2010 3 Red (Toscana),2010,Red Blend,87,24.0,19
+df56781f-efda-4bcd-aeab-bd0c160f979a,2022-08-09,Celeste,2022-08,EU,EUR,Capezzana 2006 Trefiano  (Carmignano),2006,Red Blend,88,50.0,17
+bb6704fc-e454-4e9d-a22f-753e0e23b5c5,2022-08-09,Celeste,2022-08,EU,EUR,Borgo Magredo NV Extra Dry  (Prosecco),,Glera,87,15.0,24
+3a8c253e-f687-4102-b70e-2eca6690fea8,2022-08-09,Celeste,2022-08,EU,EUR,Bollini 2008 Pinot Grigio (Trentino),2008,Pinot Grigio,86,14.0,24
+0d263592-4adb-4b55-8d77-09cec6aaa8b0,2022-08-09,Celeste,2022-08,EU,EUR,Lornano 2012  Chianti Classico,2012,Sangiovese,86,24.0,23
+61e02f2d-fa4e-43f5-8d95-f8afc29c98b3,2022-08-09,Celeste,2022-08,EU,EUR,Oasi degli Angeli 2009 Kurni Montepulciano (Marche),2009,Montepulciano,85,100.0,20
+274e0293-0039-48d3-be24-8f66cd588011,2022-08-09,Celeste,2022-08,EU,EUR,Montezovo 2009  Valpolicella Superiore Ripasso,2009,"Corvina, Rondinella, Molinara",88,25.0,23
+854176b8-2388-4617-b3fb-919c72471577,2022-08-09,Celeste,2022-08,EU,EUR,Montresor 2014 Capitel Alto  (Soave Classico),2014,Garganega,87,17.0,17
+f3dbe96b-bca6-4f68-84b4-ddf3c3ab4cc9,2022-08-09,Celeste,2022-08,EU,EUR,Vivera 2009 Martinella Rosso  (Etna),2009,Nerello Mascalese,89,35.0,15
+7b7869b5-fab8-4f12-841c-053626836673,2022-08-09,Celeste,2022-08,EU,EUR,Casa Sola 2013  Chianti Classico,2013,Red Blend,87,19.0,18
+7f2952b0-4901-43b9-8562-30cbf9cb63a8,2022-08-09,Celeste,2022-08,EU,EUR,Agricole Vallone 2005 Riserva Vereto Red (Salice Salentino),2005,Red Blend,86,14.0,24
+7fe62dc8-e5c0-43ac-b09b-d561fe171db7,2022-08-09,Celeste,2022-08,EU,EUR,Fattoria Le Pupille 2009 Poggio Valente Riserva  (Morellino di Scansano),2009,Red Blend,89,50.0,16
+670dfa3f-d2ca-4d78-b588-8b432de5f081,2022-08-09,Celeste,2022-08,EU,EUR,Perusini 2006 Ronchi di Gramogliano Ribolla Gialla (Colli Orientali del Friuli),2006,Ribolla Gialla,85,27.0,22
+3b1da2c5-45db-4b36-9476-2c9cc0937702,2022-08-09,Celeste,2022-08,EU,EUR,Maculan 2012 Ferrata Sauvignon (Veneto),2012,Sauvignon,86,15.0,23
+01efea80-92e2-42e2-b64c-19900716fdab,2022-08-09,Celeste,2022-08,EU,EUR,Allegrini 2012  Soave,2012,White Blend,87,17.0,22
+48661abb-ddc7-47bb-aa42-3bc79bc9cc62,2022-08-09,Celeste,2022-08,EU,EUR,Corte Adami 2015  Soave,2015,Garganega,88,10.0,21
+2a79977d-ba95-4480-8e01-6279bfb7207d,2022-08-09,Celeste,2022-08,EU,EUR,Tenuta Carretta 2004 Vigneti in Cannubi  (Barolo),2004,Nebbiolo,89,10.0,24
+ac26b8e6-e6be-4276-b8d2-a2bb3bcf3a06,2022-08-10,Celeste,2022-08,EU,EUR,Tenuta Sant'Antonio 2016 Fontana  (Soave),2016,Garganega,85,12.0,20
+09236a9f-daf1-41a0-bf75-32bb59fd251b,2022-08-10,Celeste,2022-08,EU,EUR,Erste Neue 2011 Prunar Pinot Bianco (Alto Adige),2011,Pinot Bianco,88,19.0,16
+7ba1aad0-12e0-4af1-b2fe-730cec888e88,2022-08-10,Celeste,2022-08,EU,EUR,Taverna 2009 Dry Muscat Moscato Giallo (Basilicata),2009,Moscato Giallo,86,10.0,18
+ecd26a0b-660d-4034-913a-ad73b454b3dc,2022-08-10,Celeste,2022-08,EU,EUR,Cantine Bellini 2013 Mamb-o Dominante Red (Toscana),2013,Red Blend,87,20.0,21
+4c03e98a-3a57-4cd0-9a27-912dd0ace84e,2022-08-10,Celeste,2022-08,EU,EUR,Castello di Razzano 2007 Del Beneficio  (Barbera d'Asti Superiore),2007,Barbera,89,10.0,19
+00c28aec-50f7-487e-b36f-7c7a87ce82dc,2022-08-10,Celeste,2022-08,EU,EUR,Cascina Radice 2015 Roccanera  (Barbera d'Asti Superiore),2015,Barbera,86,16.0,23
+45c1bfa9-3bdc-456c-b738-11f7d59507bf,2022-08-10,Celeste,2022-08,EU,EUR,Colutta NV Brut Ribolla Gialla (Friuli),,Ribolla Gialla,87,18.0,20
+48981cc6-c3a1-458a-a512-d668fcd50e41,2022-08-10,Celeste,2022-08,EU,EUR,Giuseppe Rinaldi 2006 Brunate Le Coste  (Barolo),2006,Nebbiolo,89,95.0,18
+e745d5e8-1aaa-4710-b7e7-a5b38ca0636d,2022-08-10,Celeste,2022-08,EU,EUR,La Togata 2008 Azzurreta Sangiovese (Toscana),2008,Sangiovese,87,10.0,24
+96e2bce1-69e4-4a1f-b35e-9a07bbdaf27d,2022-08-10,Celeste,2022-08,EU,EUR,Borgoluce NV Gaiante Glera,,Glera,88,24.0,24
+a491d7c8-4d28-408e-ab8e-39f0b62b8d0c,2022-08-10,Celeste,2022-08,EU,EUR,Berlucchi NV '61 Ros� Sparkling (Franciacorta),,Sparkling Blend,87,36.0,22
+12901702-049e-44d2-ba78-285d114e9889,2022-08-10,Celeste,2022-08,EU,EUR,Drusian NV Col Fondo  (Prosecco Treviso),,Glera,87,14.0,15
+33bdc913-f421-4d05-83f8-5a19c2aa0bc3,2022-08-10,Celeste,2022-08,EU,EUR,Bonotto delle Tezze 2010 Montesanto Pinot Grigio (Piave),2010,Pinot Grigio,88,15.0,23
+297c23eb-1ef8-46cc-9f94-e4db064c9880,2022-08-10,Celeste,2022-08,EU,EUR,Tenuta Argentiera 2011 Poggio ai Ginepri Rosato (Bolgheri),2011,Rosato,88,17.0,21
+c1485225-5e24-424f-8a7a-667d3251844b,2022-08-10,Celeste,2022-08,EU,EUR,Salviano 2012 Salviano  (Orvieto Classico),2012,White Blend,86,16.0,18
+4388f605-afd7-4ee1-b4e3-5c656daff985,2022-08-11,Celeste,2022-08,EU,EUR,C� Vittoria NV Costa dei Peschi Brut  (Conegliano Valdobbiadene Prosecco Superiore),,Glera,86,17.0,21
+3292cc31-3ed2-467a-8f1f-1fdc8ca4e65f,2022-08-11,Celeste,2022-08,EU,EUR,Valle dell'Acate 2006 Il Frappato Frappato (Sicilia),2006,Frappato,85,17.0,24
+a2fb28e6-c035-4a6e-a13c-14267322c901,2022-08-11,Celeste,2022-08,EU,EUR,Tenuta di Aglaea 2010 N Anticchia Rosso  (Etna),2010,Nerello Mascalese,86,60.0,19
+99a62483-1cca-4192-8dbc-7887a56cb3bc,2022-08-11,Celeste,2022-08,EU,EUR,Casetta 2010 Case Nere  (Barolo),2010,Nebbiolo,88,48.0,18
+90efaa8d-868e-4ae7-b5d8-3fd5414c3599,2022-08-11,Celeste,2022-08,EU,EUR,Perla del Garda 2015 Perla  (Lugana),2015,Turbiana,88,21.0,17
+8895a1ca-51e6-4e84-aaa0-1dfc41eee654,2022-08-11,Celeste,2022-08,EU,EUR,Araldica 2008 Castelvero Barbera (Piedmont),2008,Barbera,85,10.0,24
+6706b9a4-7e43-4582-8b38-8fdc2c49340d,2022-08-11,Celeste,2022-08,EU,EUR,De Stefani NV Zero Gran Cuv�e Extra Dry  (Prosecco Treviso),,Glera,87,25.0,17
+34b41c4f-92b4-4603-8d2b-1f6ab8a1e731,2022-08-11,Celeste,2022-08,EU,EUR,Argiolas 2011 Costamolino  (Vermentino di Sardegna),2011,Vermentino,86,16.0,19
+1146824f-9bcf-4393-8594-9bf92c0dbef5,2022-08-11,Celeste,2022-08,EU,EUR,Andriano 2009 Floreado Sauvignon Blanc (Alto Adige),2009,Sauvignon Blanc,88,22.0,21
+de7b219a-d9d4-4589-8e51-c87284f1b355,2022-08-11,Celeste,2022-08,EU,EUR,Falesco 2012 Vitiano Cabernet (Umbria),2012,Cabernet,88,14.0,17
+a6386a57-08eb-45ef-914e-82e4501e7521,2022-08-11,Celeste,2022-08,EU,EUR,Mosolo Gleni 2006 Pinot Grigio Pinot Grigio (Colli Orientali del Friuli),2006,Pinot Grigio,86,15.0,24
+438bfbec-897a-447d-a4fb-da0bf3073cc9,2022-08-12,Celeste,2022-08,EU,EUR,Antichi Vinai 1877 2011 Brut Metodo Classico  (Etna),1877,Nerello Mascalese,89,45.0,16
+f598208d-fee8-4c6b-8bbf-c6c019cf38f0,2022-08-12,Celeste,2022-08,EU,EUR,Stemmari 2013 Nero d'Avola (Sicilia),2013,Nero d'Avola,87,10.0,17
+16f6b4d7-cb07-4698-a56e-8d86cf202e42,2022-08-12,Celeste,2022-08,EU,EUR,Mauro Sebaste 2011 Parigi  (Nebbiolo d'Alba),2011,Nebbiolo,88,23.0,24
+9f91e406-1b7d-4e33-9f5d-bef13b1c7aea,2022-08-12,Celeste,2022-08,EU,EUR,Rivetto 2010 Zio Nando  (Barbera d'Alba),2010,Barbera,87,46.0,21
+97da246f-b451-4981-9b6a-c380b6b80cf3,2022-08-12,Celeste,2022-08,EU,EUR,Le Buche 2011 Olivi Coreno White (Toscana),2011,White Blend,88,22.0,21
+fe61c7c0-520a-41e1-b46e-7cf258ed4c6d,2022-08-12,Celeste,2022-08,EU,EUR,Masi 2015 Possessioni Serego Alighieri White (Veneto),2015,White Blend,88,25.0,17
+c7650e2d-0e98-4671-bf8f-69eb678cdf13,2022-08-12,Celeste,2022-08,EU,EUR,Colle Spinello 2009 Promemoria Red (Toscana),2009,Red Blend,86,40.0,21
+f683516c-60d9-4bbf-b7f2-262d6efaeaa1,2022-08-12,Celeste,2022-08,EU,EUR,Gino Fasoli 2015 Tasi  (Valpolicella Ripasso),2015,Red Blend,89,45.0,20
+132ec12c-34c3-49d6-8f33-7187475e081f,2022-08-12,Celeste,2022-08,EU,EUR,Castello di Querceto 2013  Chianti Classico,2013,Red Blend,86,10.0,17
+277096fb-7644-4fa0-a08a-45460bf640fa,2022-08-12,Celeste,2022-08,EU,EUR,Le Manzane NV Extra Dry  (Prosecco di Conegliano e Valdobbiadene),,Prosecco,87,12.0,21
+6cb8b905-5a2a-4b42-98e2-1474509b7cb0,2022-08-12,Celeste,2022-08,EU,EUR,Gemin 2012 Brut  (Conegliano Valdobbiadene Prosecco Superiore),2012,Glera,87,15.0,24
+dd55bf30-aa7e-44c4-a037-9db08776981f,2022-08-12,Celeste,2022-08,EU,EUR,Collosorbo 2011  Brunello di Montalcino,2011,Sangiovese,87,50.0,21
+98fdd933-e6fc-4239-834d-9a88b2ee4ef6,2022-08-12,Celeste,2022-08,EU,EUR,Masi 2002 Colbaraca Classico  (Soave),2002,Garganega,87,11.0,17
+abd7dcfe-36ec-4177-8451-c3b63d715432,2022-08-12,Celeste,2022-08,EU,EUR,Giuseppe Lonardi 2009  Valpolicella Classico Superiore Ripasso,2009,"Corvina, Rondinella, Molinara",86,21.0,20
+6c7aa0be-35db-4d8f-9e65-9d6178fd6cf0,2022-08-12,Celeste,2022-08,EU,EUR,Vie di Romans 2001 Flors di Uis White (Friuli Isonzo),2001,White Blend,88,27.0,19
+a01ca2d6-a7d8-44a4-b7a1-5a98db057c41,2022-08-12,Celeste,2022-08,EU,EUR,Celestino Pecci 2011  Brunello di Montalcino,2011,Sangiovese,89,74.0,19
+30b0cbc6-c974-471e-8b1b-619204d0b8dd,2022-08-12,Celeste,2022-08,EU,EUR,Fattori 2010 Runcaris  (Soave Classico),2010,Garganega,86,15.0,23
+873ed780-df1c-4432-a175-6845c636d4e4,2022-08-12,Celeste,2022-08,EU,EUR,Cantine Lupo 2010 Primolupo Merlot (Lazio),2010,Merlot,86,15.0,17
+037de695-4995-485f-97a3-e6b805fed5c4,2022-08-12,Celeste,2022-08,EU,EUR,Loredan Gasparini NV Brut Metodo Classico Sparkling (Vino Spumante),,Sparkling Blend,87,21.0,16
+11b60c07-aead-4600-8595-58781cef77f2,2022-08-12,Celeste,2022-08,EU,EUR,Le Bertille 2014  Rosso di Montepulciano,2014,Red Blend,87,18.0,17
+b0330799-1656-467a-8010-9f03ca2e6497,2022-08-12,Celeste,2022-08,EU,EUR,La Casaccia 2007 Bricco del Bosco  (Barbera del Monferrato),2007,Barbera,87,10.0,16
+3ac22a11-bdc5-4724-918e-06bed5d79965,2022-08-12,Celeste,2022-08,EU,EUR,Abbazia di Novacella 2011 Kerner (Alto Adige),2011,Kerner,88,20.0,22
+3d955a38-dbb2-4b10-b151-4a7471b8c43f,2022-08-12,Celeste,2022-08,EU,EUR,Conte Brandolini 2006 D'Adda Pinot Grigio (Friuli Grave),2006,Pinot Grigio,85,12.0,23
+7e8ac49d-4a86-4064-b517-4861767585e5,2022-08-12,Celeste,2022-08,EU,EUR,Pasquale Pelissero 2006 Bricco San Giuliano  (Barbaresco),2006,Nebbiolo,89,32.0,18
+026dccb9-0ee4-4833-9705-0aee079af74b,2022-08-13,Celeste,2022-08,EU,EUR,Piera Martellozzo 2014 Terre Magre Sauvignon (Friuli Grave),2014,Sauvignon,86,16.0,19
+a867fba9-6eb3-439f-97a9-a3e14e44750a,2022-08-13,Celeste,2022-08,EU,EUR,Massimago 2009  Amarone della Valpolicella,2009,Red Blend,87,50.0,20
+62dcfec5-42fc-4f1d-abb8-be3c20a7e2b5,2022-08-13,Celeste,2022-08,EU,EUR,Tenuta Peter S�lva & S�hne 2014 I Vigneti Pinot Grigio (Vigneti delle Dolomiti),2014,Pinot Grigio,85,20.0,15
+b41b55fc-d992-4d37-9805-75cbdebd4f93,2022-08-13,Celeste,2022-08,EU,EUR,Tenuta Rapital� 2011 Grillo (Sicilia),2011,Grillo,86,13.0,23
+8fc34dc1-4381-4203-a52c-dc597084ea24,2022-08-13,Celeste,2022-08,EU,EUR,Falesco 2010 Vitiano White (Umbria),2010,White Blend,87,10.0,23
+69741533-6453-4d7c-9a02-f09015519d93,2022-08-13,Celeste,2022-08,EU,EUR,Tenuta di Tavignano 2015 Villa Torre  (Verdicchio dei Castelli di Jesi Classico Superiore),2015,Verdicchio,89,14.0,17
+18891fd2-0cf4-437f-bb98-f06ee98f7cd5,2022-08-13,Celeste,2022-08,EU,EUR,Noelia Ricci 2015 Il Sangiovese Sangiovese (Romagna),2015,Sangiovese,87,21.0,22
+fa0139f8-7ec0-4ae9-91eb-8398d2c344a5,2022-08-13,Celeste,2022-08,EU,EUR,Morini 2015 Morale Sangiovese (Romagna),2015,Sangiovese,87,13.0,15
+79e925ad-8aeb-4e77-a289-ad2d8e27e388,2022-08-13,Celeste,2022-08,EU,EUR,Le Salette 2009 Pergole Vece  (Amarone della Valpolicella Classico),2009,Red Blend,87,142.0,18
+16fa0310-0144-4f71-9149-c8f9b756c8c1,2022-08-13,Celeste,2022-08,EU,EUR,Marchesi di Barolo 2009 Riserva  (Barolo),2009,Nebbiolo,85,102.0,20
+e549b505-7b1f-4e3e-b38e-c32a6d0988ce,2022-08-13,Celeste,2022-08,EU,EUR,Tenuta Valdipiatta 2013  Vino Nobile di Montepulciano,2013,Red Blend,89,30.0,16
+d4be3183-547a-45d5-9a46-08fff25fdd7d,2022-08-14,Celeste,2022-08,EU,EUR,Collosorbo 2007  Brunello di Montalcino,2007,Sangiovese Grosso,89,50.0,23
+ec004e8a-142f-471c-9873-52c90b2683f8,2022-08-14,Celeste,2022-08,EU,EUR,Colli di Castelfranci 2012 Grotte  (Greco di Tufo),2012,Greco,89,16.0,15
+f3c2076a-3064-4383-806a-239d741cd5ef,2022-08-14,Celeste,2022-08,EU,EUR,Kettmeir 2014 Pinot Bianco (Alto Adige),2014,Pinot Bianco,87,21.0,20
+d0357cd5-284a-4add-a493-789ebf0397f3,2022-08-14,Celeste,2022-08,EU,EUR,Castello di Querceto 2012  Chianti Classico,2012,Red Blend,86,14.0,24
+8dc90932-7bb0-45a2-b2a2-418091e1c955,2022-08-14,Celeste,2022-08,EU,EUR,Pojer & Sandri 2001 M�ller-Thurgau (Trentino),2001,M�ller-Thurgau,88,16.0,24
+e6e3560a-e5cb-473e-bf8e-631fbcca1ad3,2022-08-14,Celeste,2022-08,EU,EUR,Plozner 2006 Moscabianca Friulano (Venezia Giulia),2006,Friulano,88,26.0,23
+8595f70d-31dd-4106-93ad-89d817861ef3,2022-08-14,Celeste,2022-08,EU,EUR,Torrenera 2005  Brunello di Montalcino,2005,Sangiovese Grosso,89,10.0,24
+13110ed6-535b-4e4c-ac5c-735a9e3f2819,2022-08-14,Celeste,2022-08,EU,EUR,Pala 2011 Silenzi White (Isola dei Nuraghi),2011,White Blend,85,10.0,16
+ed2fb443-94ca-4bb5-8fc7-8ff33a483606,2022-08-14,Celeste,2022-08,EU,EUR,Teanum 2012 Alta Nero di Troia (Puglia),2012,Nero di Troia,86,14.0,18
+96c7647a-f9a9-4427-a144-94e2f6c99bae,2022-08-14,Celeste,2022-08,EU,EUR,Ca'Rom� 2011 Chiaramanti  (Barbaresco),2011,Nebbiolo,87,94.0,18
+314c3ec9-8e0b-4f27-aa5f-0a3679ef94fe,2022-08-14,Celeste,2022-08,EU,EUR,Cantina Terlano 2009 Pinot Nero (Alto Adige),2009,Pinot Nero,88,10.0,23
+5463d891-e2e8-4da1-99e2-a5ecf86975cd,2022-08-14,Celeste,2022-08,EU,EUR,Luiano 2014 Lui Red (Toscana),2014,Red Blend,85,30.0,15
+29175857-1b73-402d-8484-b61bc8f57cb3,2022-08-14,Celeste,2022-08,EU,EUR,Latium di Morini 2010 Campo le Calle  (Soave),2010,Garganega,87,16.0,17
+b99777bc-92b6-4d78-9cbe-e2f995db1284,2022-08-14,Celeste,2022-08,EU,EUR,Poggio alla Sala 2015  Rosso di Montepulciano,2015,Red Blend,88,20.0,22
+8a83c5d8-2bb0-48d5-bc2f-25570d06c441,2022-08-14,Celeste,2022-08,EU,EUR,Kettmeir 2013 M�ller-Thurgau (Alto Adige),2013,M�ller-Thurgau,88,21.0,19
+0df8ae3b-8962-48f2-aa50-0b57183cb11d,2022-08-14,Celeste,2022-08,EU,EUR,San Carlo 2009  Brunello di Montalcino,2009,Sangiovese,86,80.0,19
+b3c0535b-8c79-4d77-b5a6-9bfeb880f894,2022-08-14,Celeste,2022-08,EU,EUR,Marchesi Antinori 2009 Vignaferrovia Riserva  (Brunello di Montalcino),2009,Sangiovese,88,130.0,17
+b6bdf0a0-282e-4000-a294-0cecc927d5d2,2022-08-14,Celeste,2022-08,EU,EUR,Il Molino di Grace 2009 Il Margone Riserva  (Chianti Classico),2009,Sangiovese,88,95.0,21
+cc8251d8-3402-4768-bf9f-7d1a25d015b7,2022-08-14,Celeste,2022-08,EU,EUR,Eredi Enzo Raspi 2013 Bandini Villa Pomona  (Chianti Classico),2013,Sangiovese,89,21.0,17
+44f93726-19c6-4125-83c1-89ae0fc434e8,2022-08-14,Celeste,2022-08,EU,EUR,Valentino Butussi 2007 Sauvignon Corno di Rosazzo Sauvignon (Colli Orientali del Friuli),2007,Sauvignon,86,12.0,19
+a4e09190-f9a6-44a0-9235-b52c843005a8,2022-08-14,Celeste,2022-08,EU,EUR,La Torricella 2011  Barolo,2011,Nebbiolo,89,50.0,16
+497f4212-9d09-4bfd-849b-6a9298c66a27,2022-08-15,Celeste,2022-08,EU,EUR,Monte Tondo 2011 Casette Foscarin  (Soave Classico),2011,Garganega,86,29.0,16
+2f12e38d-62d0-42f5-a1d6-aedcee50674f,2022-08-15,Celeste,2022-08,EU,EUR,Ridolfi 2009  Brunello di Montalcino,2009,Sangiovese,86,36.0,15
+fd588e43-1fda-40fa-948c-4ae6e81d68c4,2022-08-15,Celeste,2022-08,EU,EUR,Cantina Produttori San Michele Appiano 2011 Sanct Valentin Gew�rztraminer (Alto Adige),2011,Gew�rztraminer,88,38.0,21
+3695753f-74c9-41ad-834f-7cfaccbadc95,2022-08-15,Celeste,2022-08,EU,EUR,Ascheri 2012 Sorano  (Barolo),2012,Nebbiolo,86,75.0,21
+2caf05fc-cd7c-4c6a-ac5f-49b1fc9aa3da,2022-08-15,Celeste,2022-08,EU,EUR,Selva Capuzza 2013 Menasasso Riserva  (Lugana),2013,Turbiana,88,19.0,17
+3f87ab02-6c61-4316-98dc-74247d41ffbd,2022-08-15,Celeste,2022-08,EU,EUR,Collis 2015 Scaligeri Decanto  (Soave),2015,Garganega,88,10.0,23
+063d0fc6-87bc-41f9-80fe-464a2aa04fe7,2022-08-15,Celeste,2022-08,EU,EUR,Terra di Briganti 2009 Falanghina (Sannio),2009,Falanghina,86,14.0,21
+8f796357-6d55-465b-936f-5e3f019833c7,2022-08-15,Celeste,2022-08,EU,EUR,Castello di Monsanto 1998 Il Poggio Riserva  (Chianti Classico),1998,Sangiovese Grosso,88,50.0,18
+ce72f481-fcc8-4110-895d-cde4127f285c,2022-08-15,Celeste,2022-08,EU,EUR,Banear 2007 Tentazioni d'Aba Sauvignon (Friuli Grave),2007,Sauvignon,86,10.0,15
+665032dd-1d0f-4037-8d65-615a38b707e0,2022-08-15,Celeste,2022-08,EU,EUR,Gualdo del Re 2007 Valentina Vermentino (Val di Cornia Suvereto),2007,Vermentino,87,29.0,24
+4f8a8a7e-344c-402d-aa1c-8d48fc87d8ea,2022-08-15,Celeste,2022-08,EU,EUR,Mastroberardino 2011  Greco di Tufo,2011,Greco,88,25.0,19
+ef3d013b-39fc-4b86-9e69-94f9623f4687,2022-08-15,Celeste,2022-08,EU,EUR,Morgante 2011 Don Antonio Nero d'Avola (Sicilia),2011,Nero d'Avola,89,42.0,15
+ff7b09eb-00f1-40f6-8266-9946c8e8badd,2022-08-15,Celeste,2022-08,EU,EUR,Mezzacorona 2014 Pinot Grigio (Vigneti delle Dolomiti),2014,Pinot Grigio,87,9.0,23
+afbf11dd-49eb-400a-9a47-c51205fe06e9,2022-08-15,Celeste,2022-08,EU,EUR,Bocale 2010  Montefalco Rosso,2010,Red Blend,86,19.0,17
+9f7635f4-8f5f-4e48-b5bc-b92c6cc27afe,2022-08-15,Celeste,2022-08,EU,EUR,Pietro Beconcini 2015 Fresco di Nero Tempranillo (Toscana),2015,Tempranillo,87,18.0,21
+6be55a25-d1ff-4447-aca0-13d16f0eb086,2022-08-16,Celeste,2022-08,EU,EUR,Giorgio Meletti Cavallari 2009 Borgeri  (Bolgheri),2009,Red Blend,85,30.0,16
+23bc8da5-358f-41a5-8191-6e6813a948f9,2022-08-16,Celeste,2022-08,EU,EUR,Antica Corte 2012  Amarone della Valpolicella Classico,2012,Red Blend,86,52.0,22
+15fff670-7ab4-40cd-a77d-da50a91bcd03,2022-08-16,Celeste,2022-08,EU,EUR,Rocca delle Mac�e 2005 Sasyr Red (Toscana),2005,Red Blend,88,17.0,19
+60fa2e8d-5b18-41ba-8e85-17ddb5911fa5,2022-08-16,Celeste,2022-08,EU,EUR,Feudo di Santa Tresa 2011 Purato Made With Organic Grapes Nero d'Avola (Sicilia),2011,Nero d'Avola,86,12.0,17
+c68b7cd7-7290-46ab-9223-9ba22ec7a819,2022-08-16,Celeste,2022-08,EU,EUR,Fattoria San Felo 2012  Morellino di Scansano,2012,Red Blend,88,15.0,21
+8050b9f4-94bc-4ae8-8c09-1d5f650603dd,2022-08-16,Celeste,2022-08,EU,EUR,La Sibilla 2009 Domus Giulii Falanghina (Campania),2009,Falanghina,87,50.0,21
+fade9fd8-bfd1-4876-a3fa-40a1bb9be551,2022-08-16,Celeste,2022-08,EU,EUR,Cantine Benedetti 2008 Croce del Gal  (Valpolicella Ripasso Classico),2008,Red Blend,88,10.0,21
+f5e86edc-7144-468e-9078-f29b779d639b,2022-08-16,Celeste,2022-08,EU,EUR,Astoria NV Cuv�e Lounge Extra Dry  (Prosecco),,Glera,87,13.0,17
+53c2466d-291e-4f1d-a239-7c80dfa2494b,2022-08-16,Celeste,2022-08,EU,EUR,Rotari NV Brut Chardonnay (Trento),,Chardonnay,89,13.0,24
+7006cdc1-9921-4525-b544-3f85ad6a677c,2022-08-16,Celeste,2022-08,EU,EUR,Tinazzi 2015 C� de' Rocchi  (Soave),2015,Garganega,85,10.0,15
+6ee44f98-e407-4ff4-9d04-57aad792d4c8,2022-08-16,Celeste,2022-08,EU,EUR,Palazzo 2003 Alcineo Red (Toscana),2003,Red Blend,86,50.0,23
+3b324795-9bdb-4fa2-9f51-8c96e23d041f,2022-08-16,Celeste,2022-08,EU,EUR,Palam� 2013 Arcangelo Negroamaro Rosato (Salento),2013,Rosato,89,14.0,15
+1bcb0671-3ff5-4c15-a13c-a96839ff5860,2022-08-17,Celeste,2022-08,EU,EUR,Brunori 2014 Le Gemme  (Verdicchio dei Castelli di Jesi Classico),2014,Verdicchio,87,14.0,20
+67d18096-f153-4385-ab4b-73e1b6f6d9a0,2022-08-17,Celeste,2022-08,EU,EUR,Cescon Italo Storia e Vini 2008 Il Tralcetto Merlot (Piave),2008,Merlot,85,12.0,20
+071d5ff7-9fd5-4f99-ae6a-340959fbfb8f,2022-08-17,Celeste,2022-08,EU,EUR,R�va 2012 Ravera  (Barolo),2012,Nebbiolo,88,80.0,18
+c4f2b3a7-a8e3-4d6e-bd09-fadab7524f01,2022-08-17,Celeste,2022-08,EU,EUR,Volpe Pasini 2002 Zuc de Volpe Pinot Grigio (Colli Orientali del Friuli),2002,Pinot Grigio,88,18.0,19
+36aa51f0-1b43-476e-9617-07c2a1b5b2a4,2022-08-17,Celeste,2022-08,EU,EUR,Morisfarms 2012 Moris  (Morellino di Scansano),2012,Red Blend,89,15.0,17
+ecdf9743-28fa-4bc5-80d3-65f2394c270f,2022-08-17,Celeste,2022-08,EU,EUR,Di Giovanna 2012 Helios Red (Terre Siciliane),2012,Red Blend,86,26.0,16
+c84c7630-16ba-4984-aa26-294461b46f0a,2022-08-17,Celeste,2022-08,EU,EUR,Livon 2015 Soluna Malvasia (Collio),2015,Malvasia,88,35.0,16
+bfc4e7ec-a3aa-4d7e-a7ea-c4e4c2474870,2022-08-17,Celeste,2022-08,EU,EUR,Piccoli 2008 Monte La Parte  (Amarone della Valpolicella),2008,Red Blend,89,47.0,15
+79eff271-1b29-48ab-828d-b10a7f06d25d,2022-08-17,Celeste,2022-08,EU,EUR,Barb�can 2014 Rosso  (Valtellina),2014,Nebbiolo,87,30.0,22
+3c8d91b0-3664-4f6e-80fb-fbeecdd5f852,2022-08-17,Celeste,2022-08,EU,EUR,Gagliole 2007 Rubiolo  (Chianti Classico),2007,Sangiovese,87,10.0,23
+061114eb-aecc-42c9-834c-11f2dc9d9e6b,2022-08-17,Celeste,2022-08,EU,EUR,Furlan 2009 Castelcosa White (Delle Venezie),2009,White Blend,87,16.0,18
+37c74a6c-8cc8-41bd-aa45-e880e9a8c167,2022-08-17,Celeste,2022-08,EU,EUR,Zeni 2011 Marogne  (Valpolicella Superiore Ripasso),2011,Red Blend,87,19.0,18
+dbb63f53-8c2f-47bd-8811-4c01e39d1d33,2022-08-17,Celeste,2022-08,EU,EUR,Vigin 2012 Cott� Nonno Orlando  (Barbaresco),2012,Nebbiolo,87,10.0,20
+55414176-535a-488d-a16e-b46d33c8fc1c,2022-08-17,Celeste,2022-08,EU,EUR,Montaribaldi 2012 Sor� Montaribaldi  (Barbaresco),2012,Nebbiolo,87,10.0,17
+19fda1ef-c8e6-4c37-92ee-eb8fa68c0cd3,2022-08-17,Celeste,2022-08,EU,EUR,Giovanna Madonia 2008 Ombroso Riserva  (Sangiovese di Romagna Superiore),2008,Sangiovese,88,45.0,24
+0ffbd176-14ab-4402-b229-909e1dfae7f5,2022-08-17,Celeste,2022-08,EU,EUR,Piero Mancini 2014 Cucaione Superiore  (Vermentino di Gallura),2014,Vermentino,89,18.0,18
+c1b5e798-f88a-48d6-b3b2-0a6c3170d3dd,2022-08-17,Celeste,2022-08,EU,EUR,Mario Schiopetto 2012 Pinot Bianco (Collio),2012,Pinot Bianco,88,30.0,15
+f7fc3850-abab-4be3-b90c-ee9e39c92207,2022-08-18,Celeste,2022-08,EU,EUR,Coppo 2011 La Rocca  (Gavi),2011,Cortese,88,17.0,24
+01a11bc8-88a0-4056-8923-2ec5bba4e7eb,2022-08-18,Celeste,2022-08,EU,EUR,Monte del Fr� 2006  Soave,2006,Garganega,87,15.0,17
+6ee15f4a-44fc-45c9-8fdb-b2d6bde6e987,2022-08-18,Celeste,2022-08,EU,EUR,Feudi di San Marzano 2011 I Tratturi Primitivo (Puglia),2011,Primitivo,86,11.0,20
+b8c8f65d-3e52-4902-bee0-81c702a7fe4b,2022-08-18,Celeste,2022-08,EU,EUR,Feudi del Pisciotto 2009 Missoni Cabernet Sauvignon (Sicilia),2009,Cabernet Sauvignon,87,21.0,22
+6ab9bc95-55d1-460f-b43f-45a7c0deb547,2022-08-18,Celeste,2022-08,EU,EUR,Mario Schiopetto 2010 Bianco White (Venezia Giulia),2010,White Blend,87,40.0,21
+1d04fafa-4d59-4858-a714-4b7a0a16ae2b,2022-08-18,Celeste,2022-08,EU,EUR,Dessilani 2004  Ghemme,2004,Red Blend,89,52.0,23
+9b45d66a-8f28-4c23-9a0f-5e5f402874cf,2022-08-18,Celeste,2022-08,EU,EUR,Fattoria Bagnolo 2014  Chianti Colli Fiorentini,2014,Red Blend,88,26.0,16
+c9a07dad-0aff-4c91-ac03-b0a00b8d7822,2022-08-18,Celeste,2022-08,EU,EUR,Andriano 2014 Andrius Sauvignon (Alto Adige),2014,Sauvignon,89,51.0,17
+512af904-7f02-4cce-ab39-bac6a73d2276,2022-08-18,Celeste,2022-08,EU,EUR,Maculan 2009 Brentino Red (Veneto),2009,Red Blend,87,18.0,24
+dba58426-051b-4d63-bb2d-df4a6f87d878,2022-08-18,Celeste,2022-08,EU,EUR,Cavit 2011 Pinot Grigio (Delle Venezie),2011,Pinot Grigio,85,10.0,15
+41740847-d5c3-406e-80f3-b7f6318bd866,2022-08-18,Celeste,2022-08,EU,EUR,Brancaia 2013 Riserva  (Chianti Classico),2013,Red Blend,88,40.0,20
+8b617329-2798-4ee8-8693-0bf57a4357ca,2022-08-18,Celeste,2022-08,EU,EUR,Punset 2009 Campo Quadro  (Barbaresco),2009,Nebbiolo,89,10.0,19
+354592ee-ce38-4388-af7e-dea0f77519c6,2022-08-18,Celeste,2022-08,EU,EUR,Tenuta di Fiorano 2011 Fioranello Bianco White (Vino da Tavola),2011,White Blend,88,25.0,22
+b7a505c7-c0b3-4d05-8d52-8c1a0810a1b3,2022-08-18,Celeste,2022-08,EU,EUR,Pecchenino 2012 Le Coste di Monforte  (Barolo),2012,Nebbiolo,87,70.0,17
+de19f1a5-b131-4486-ad56-54b63aa163cb,2022-08-18,Celeste,2022-08,EU,EUR,Gemma 2011 Giblin Riserva  (Barolo),2011,Nebbiolo,86,10.0,18
+bbda0b0f-dc4a-46be-b7bc-6364819d65ad,2022-08-18,Celeste,2022-08,EU,EUR,Il Roncal 2006 Tocai Friulano (Colli Orientali del Friuli),2006,Tocai Friulano,86,21.0,16
+d1fd54c5-75bc-4b65-93eb-1f3df20bc887,2022-08-18,Celeste,2022-08,EU,EUR,Camigliano 2009 Gualto Riserva  (Brunello di Montalcino),2009,Sangiovese,87,55.0,16
+985e6b80-be18-4269-a660-8de5673dd405,2022-08-18,Celeste,2022-08,EU,EUR,Feudi del Pisciotto 2008 Versace Nero d'Avola (Sicilia),2008,Nero d'Avola,87,10.0,21
+ff7de20a-8532-432d-b982-58547685aa6f,2022-08-18,Celeste,2022-08,EU,EUR,Canneto 2011 Riserva  (Vino Nobile di Montepulciano),2011,Red Blend,89,40.0,21
+393a0661-e8cf-4ef9-a1b5-37d82caece19,2022-08-18,Celeste,2022-08,EU,EUR,Ca' del Baio 2012 Asili  (Barbaresco),2012,Nebbiolo,87,10.0,15
+f8fc7a62-2233-4e4a-a04d-9326106deb1e,2022-08-18,Celeste,2022-08,EU,EUR,Erste Neue 2013 Lagrein (Alto Adige),2013,Lagrein,87,15.0,23
+c513c643-26b4-42ce-bb92-9011ae42e51f,2022-08-18,Celeste,2022-08,EU,EUR,Cascina La Ghersa 2009 Sivoy White (Monferrato),2009,White Blend,87,19.0,17
+73fee6ac-8371-43da-8644-76aaa3ed56dd,2022-08-19,Celeste,2022-08,EU,EUR,Fattoria di Valiano 2010 Poggio Teo  (Chianti Classico),2010,Sangiovese,88,25.0,23
+aedcaf02-f6e4-46c3-a9a0-8519c1d81b66,2022-08-19,Celeste,2022-08,EU,EUR,Cecchi 2013 Sangiovese (Toscana),2013,Sangiovese,86,12.0,22
+531b29c0-2fb0-4512-bd21-9f9448879fa5,2022-08-19,Celeste,2022-08,EU,EUR,Tenuta Santo Pietro 2010 Pio II  (Chianti),2010,Sangiovese,87,16.0,24
+b2a67d78-34aa-4e0c-bd8a-4cd2af6b79bd,2022-08-19,Celeste,2022-08,EU,EUR,Tenuta Monte Gorna 2012 Rosso Barrique  (Etna),2012,Red Blend,87,10.0,22
+ade73de3-6511-4e2b-b5f5-11b1dd426697,2022-08-19,Celeste,2022-08,EU,EUR,Varvaglione Vigne & Vini 2013 12 e Mezzo  (Primitivo del Salento),2013,Primitivo,86,20.0,17
+c8d57353-08e9-480b-931d-a67ca4d5d1bc,2022-08-19,Celeste,2022-08,EU,EUR,Setriolo 2009 Riserva  (Chianti Classico),2009,Red Blend,89,42.0,23
+63988c74-5e8e-4d1d-9af4-71fc08d44456,2022-08-19,Celeste,2022-08,EU,EUR,Trabucchi d'Illasi 2007  Amarone della Valpolicella,2007,Red Blend,88,85.0,17
+cb7900be-5300-402e-af98-32189059d412,2022-08-19,Celeste,2022-08,EU,EUR,Pio Cesare 2011 Nebbiolo (Langhe),2011,Nebbiolo,88,35.0,15
+0187c417-e13f-44ca-b640-7c7e5edc255e,2022-08-19,Celeste,2022-08,EU,EUR,Benanti 1999 Serra della Contessa Rosso  (Etna),1999,Red Blend,89,85.0,15
+92219a9f-78d6-4f78-bc2a-d72c9649a214,2022-08-19,Celeste,2022-08,EU,EUR,Marchesi di Barolo 2014 Serragrilli  (Barbaresco),2014,Nebbiolo,89,77.0,16
+b250f7b0-e94e-4c72-afe5-b8954008d1b9,2022-08-19,Celeste,2022-08,EU,EUR,Tosti NV Moscato (Asti),,Moscato,85,12.0,15
+92308ddc-3aa7-4348-a485-1e2795770492,2022-08-19,Celeste,2022-08,EU,EUR,Stroblhof 2012 Pigeno Pinot Nero (Alto Adige),2012,Pinot Nero,89,38.0,21
+9bffeb19-e5e1-46e4-bb12-9fa4c3bfc48a,2022-08-19,Celeste,2022-08,EU,EUR,Tenute Grandi & Gabana 2011 Borgo Crosaris Pinot Grigio (Friuli),2011,Pinot Grigio,86,16.0,16
+c094f391-6a3a-44b9-ac3a-38271e27bd21,2022-08-19,Celeste,2022-08,EU,EUR,Villa Matilde 2015  Fiano di Avellino,2015,Fiano,89,21.0,19
+fc1e2882-73e7-462e-a466-2d4bc4bb3b8f,2022-08-19,Celeste,2022-08,EU,EUR,Castello di Monastero 2004  Chianti Superiore,2004,Sangiovese,86,16.0,24
+1ccb286d-48e8-4458-97b0-b20c47e8682f,2022-08-19,Celeste,2022-08,EU,EUR,Capocroce 2005 Sap�ri White (Sicilia),2005,White Blend,85,11.0,23
+68141884-840c-4010-9c9c-c89953452e60,2022-08-19,Celeste,2022-08,EU,EUR,Marilena Barbera 2013 Nero d'Avola (Sicilia),2013,Nero d'Avola,87,15.0,20
+57c9eaf7-5669-42e6-9719-3c0a3855cccb,2022-08-19,Celeste,2022-08,EU,EUR,Bisceglia 2006 Terra di Vulcano  (Aglianico del Vulture),2006,Aglianico,86,10.0,17
+c63b7648-9e67-4ddc-ab6e-939e954bb348,2022-08-19,Celeste,2022-08,EU,EUR,Barberani 2008 Castagnolo  (Orvieto Classico Superiore),2008,White Blend,88,15.0,19
+fbe3ece3-95c5-4ec1-8acb-beb542bc2a36,2022-08-19,Celeste,2022-08,EU,EUR,Castello di Meleto 2012 Meleto  (Chianti Classico),2012,Red Blend,87,22.0,22
+04eaff7f-0e94-46e6-a2bc-8cb44dc6aabe,2022-08-19,Celeste,2022-08,EU,EUR,Bisceglia 2011 Terra di Vulcano  (Aglianico del Vulture),2011,Aglianico,87,15.0,24
+2d07d3d4-613d-45a7-ae6d-0f9c23ecd844,2022-08-19,Celeste,2022-08,EU,EUR,Le Gode 2007  Brunello di Montalcino,2007,Sangiovese Grosso,89,80.0,16
+02bc4b39-ffce-4a4b-8a0a-a224d246ce1e,2022-08-19,Celeste,2022-08,EU,EUR,Corte Fornello 2016  Bardolino,2016,Red Blend,87,21.0,22
+508615d3-4c07-4719-9d33-2c1c109784e0,2022-08-19,Celeste,2022-08,EU,EUR,Mario Schiopetto 2012 Sauvignon (Collio),2012,Sauvignon,89,30.0,18
+7e0460a7-c5f9-41d3-be28-3712c1b66f1c,2022-08-19,Celeste,2022-08,EU,EUR,Arduini 2011  Valpolicella Classico Superiore Ripasso,2011,Red Blend,89,22.0,20
+5eb6cee2-4ed7-4979-9fd9-046542ce0873,2022-08-19,Celeste,2022-08,EU,EUR,Paniole 2010 L'Artista  (Maremma Toscana),2010,Red Blend,88,25.0,24
+c131758c-fa98-4bd1-978b-6ac16e73738c,2022-08-19,Celeste,2022-08,EU,EUR,Olivini 2007  Lugana,2007,Trebbiano,85,10.0,24
+1748a4bf-7a99-4062-b29c-af44a417713c,2022-08-19,Celeste,2022-08,EU,EUR,Tamburini 2009 Italo Riserva  (Chianti),2009,Sangiovese,87,19.0,21
+1f599b9e-a869-4451-9a67-d8d0d700ba64,2022-08-19,Celeste,2022-08,EU,EUR,Stroppiana 2011 Bussia  (Barolo),2011,Nebbiolo,87,60.0,21
+50fcdd29-9b94-4f46-aee3-311e39e19d41,2022-08-20,Celeste,2022-08,EU,EUR,Ricci Curbastro 2009 Extra Brut Sparkling (Franciacorta),2009,Sparkling Blend,86,47.0,16
+f093b51c-6bc8-4e22-b021-d4b161a5b732,2022-08-20,Celeste,2022-08,EU,EUR,Cantine San Silvestro 2008 Aleramico  (Barbera d'Asti),2008,Barbera,87,15.0,21
+cb673abc-6ff2-4847-8470-405a31c593ad,2022-08-20,Celeste,2022-08,EU,EUR,Viticultori Associati Canicatti 2012 Aquilae Nero d'Avola (Terre Siciliane),2012,Nero d'Avola,88,12.0,16
+c1b39967-2d9e-4d18-89b2-90f208dc8052,2022-08-20,Celeste,2022-08,EU,EUR,Arb�ta 2012  Barbaresco,2012,Nebbiolo,87,30.0,23
+a07e9190-7021-4a25-b941-75ed28dc9a04,2022-08-20,Celeste,2022-08,EU,EUR,Renieri 2008 Mega Red (Toscana),2008,Red Blend,88,45.0,24
+9ada2162-0ef6-4d3a-8798-4624dff65aa1,2022-08-20,Celeste,2022-08,EU,EUR,Tommasi 2016 Fossa Granara  (Bardolino Chiaretto),2016,Rosato,86,10.0,15
+826076f8-66bf-4016-8594-a1574d338445,2022-08-20,Celeste,2022-08,EU,EUR,Tasca d'Almerita 2011 Sallier de la Tour Grillo (Sicilia),2011,Grillo,85,13.0,19
+f78819e5-b4df-4d3a-9af0-f8eebc7ed2f8,2022-08-20,Celeste,2022-08,EU,EUR,Leone de Castris 2003 Donna Lisa Rosso Red (Salice Salentino),2003,Red Blend,88,16.0,21
+dd6f7a87-ce47-438d-a77a-100c0ec5b3d0,2022-08-20,Celeste,2022-08,EU,EUR,Corte Lenguin 2004  Amarone della Valpolicella Classico,2004,"Corvina, Rondinella, Molinara",87,36.0,24
+b86a1be2-27f1-4ef2-ba1f-cb3fc720db96,2022-08-20,Celeste,2022-08,EU,EUR,Zecchini 2008 Vigneto Calandra di Romagnano  (Valpolicella Valpantena Superiore),2008,"Corvina, Rondinella, Molinara",86,10.0,22
+b643d1d3-abd2-4301-bf09-5cf87341b4f2,2022-08-20,Celeste,2022-08,EU,EUR,Aldegheri 2009 Santambrogio  (Valpolicella Classico Superiore Ripasso),2009,"Corvina, Rondinella, Molinara",87,22.0,20
+c2ca6078-ec58-4573-957e-c99f97aa24e5,2022-08-20,Celeste,2022-08,EU,EUR,Cantele 2011 Riserva Negroamaro (Salice Salentino),2011,Negroamaro,89,15.0,20
+1d1f1b08-9311-4322-8a56-ad538d00cad4,2022-08-20,Celeste,2022-08,EU,EUR,Conti di Sn Bonifacio 2012 Docet Red (Toscana),2012,Red Blend,88,35.0,15
+9d648ce6-1d34-4023-b376-415d4f0cd683,2022-08-20,Celeste,2022-08,EU,EUR,Conterno Fantino 2009 Vigna del Gris  (Barolo),2009,Nebbiolo,88,92.0,16
+2c203ddc-bfe5-4da1-b9a5-868a931b8b5b,2022-08-20,Celeste,2022-08,EU,EUR,Le Caniette 2011 Lucrezia  (Offida Passerina),2011,Passerina,86,14.0,16
+7b149a17-c491-4711-b3ba-8f4426788158,2022-08-20,Celeste,2022-08,EU,EUR,Pietracupa 2010  Taurasi,2010,Aglianico,89,45.0,17
+33bbc22f-1351-42db-bd2a-68c5910d403e,2022-08-20,Celeste,2022-08,EU,EUR,L'Arco 2003 500ml  (Recioto della Valpolicella Classico),2003,"Corvina, Rondinella, Molinara",85,99.0,16
+7e48c06b-4547-4ac5-afc3-e50ba15d474e,2022-08-20,Celeste,2022-08,EU,EUR,Sensi 2013 Dal Campo Riserva  (Chianti),2013,Red Blend,87,21.0,16
+b71a28aa-24cf-4108-ac52-57a610a7eed7,2022-08-20,Celeste,2022-08,EU,EUR,La Mannella 2009  Brunello di Montalcino,2009,Sangiovese,87,85.0,19
+27bf04e1-eebb-48ee-a6ed-868a49e9d9a6,2022-08-20,Celeste,2022-08,EU,EUR,Attems 2008 Sauvignon (Collio),2008,Sauvignon,85,19.0,16
+0083df25-2193-4aa3-8d17-2d33241fc133,2022-08-20,Celeste,2022-08,EU,EUR,Manincor 2014 Eichorn Pinot Bianco (Alto Adige Terlano),2014,Pinot Bianco,87,30.0,22
+45f25f6e-9457-4b18-9ed7-bafc43573d4d,2022-08-20,Celeste,2022-08,EU,EUR,Castello di Ama 2013  Chianti Classico,2013,Red Blend,88,23.0,16
+145fedfb-d958-4168-bcb9-b772f089120f,2022-08-20,Celeste,2022-08,EU,EUR,Decugnano dei Barbi 2011 Villa Barbi Rosso Red (Umbria),2011,Red Blend,87,18.0,22
+0f8db648-410f-4981-a0a3-31fb413e9e42,2022-08-20,Celeste,2022-08,EU,EUR,Adami NV Bosco di Gica Brut  (Prosecco di Valdobbiadene),,Prosecco,87,18.0,20
+f9d9e60f-2974-4793-a8e0-3aec936bd699,2022-08-20,Celeste,2022-08,EU,EUR,Zardetto NV Private Cuv�e Brut Sparkling (Veneto),,Sparkling Blend,86,12.0,19
+26078204-bffa-42e6-8dc8-d66985671df3,2022-08-20,Celeste,2022-08,EU,EUR,Pighin 2013 Sauvignon (Friuli Grave),2013,Sauvignon,88,18.0,17
+09c18ab0-f703-426f-8522-93aef3c5b96d,2022-08-20,Celeste,2022-08,EU,EUR,Risata 2010 Pinot Grigio (Friuli),2010,Pinot Grigio,86,14.0,20
+f62e2ea9-83e8-4e15-b03b-3de4a9101b51,2022-08-20,Celeste,2022-08,EU,EUR,Pietro Beconcini 2013 Riserva  (Chianti),2013,Red Blend,89,25.0,15
+60265c5e-e188-476e-9f1c-1197fd1d5422,2022-08-21,Celeste,2022-08,EU,EUR,Il Falchetto 2011 La Rossa  (Barbera d'Alba Superiore),2011,Barbera,89,20.0,21
+c17e429b-e73d-4bcc-b5b3-c893e9c3ffb9,2022-08-21,Celeste,2022-08,EU,EUR,Cantina Valle Isarco 2014 Aristos Pinot Grigio (Alto Adige),2014,Pinot Grigio,87,22.0,18
+0494eb22-fbe3-411f-bb0e-28ac78b1624e,2022-08-21,Celeste,2022-08,EU,EUR,Virna Borgogno 2012 Barolo del Comune di Barolo  (Barolo),2012,Nebbiolo,89,55.0,18
+1b4f46cf-00c5-44b6-8a23-0deaa03a69b2,2022-08-21,Celeste,2022-08,EU,EUR,Pecchenino 2008 San Luigi  (Dolcetto di Dogliani),2008,Dolcetto,87,18.0,22
+d0149fef-3a22-4f56-b8eb-485c144a4b09,2022-08-21,Celeste,2022-08,EU,EUR,Le Guaite 2003 Le Guaite di Giulietta  (Amarone della Valpolicella),2003,"Corvina, Rondinella, Molinara",87,10.0,17
+e9725469-c1d7-4461-a194-0f23a7c4c2d2,2022-08-21,Celeste,2022-08,EU,EUR,Conte Ferdinando Guicciardini 2005 Riserva Massi di Mandorlaia  (Morellino di Scansano),2005,Sangiovese,89,10.0,22
+efeecd82-b095-402c-b1c5-16c0a9ac8d60,2022-08-21,Celeste,2022-08,EU,EUR,Ruffino 2008 Libaio Chardonnay (Toscana),2008,Chardonnay,87,12.0,19
+543a446a-a901-4aef-9f5c-98a901102048,2022-08-21,Celeste,2022-08,EU,EUR,Fattoria Alois 2009 Nadhir Ros� (Campania),2009,Ros�,86,10.0,21
+b06088a0-4df8-41e6-bea5-8a9cc6ffe31d,2022-08-21,Celeste,2022-08,EU,EUR,La Palazzetta 2008  Brunello di Montalcino,2008,Sangiovese Grosso,89,58.0,24
+ae470c0c-a0f8-4be9-8343-52b8d8351b38,2022-08-21,Celeste,2022-08,EU,EUR,Castellare di Castellina 2013  Chianti Classico,2013,Red Blend,89,24.0,17
+6bc78905-0fca-409b-bd3a-352e5146c911,2022-08-21,Celeste,2022-08,EU,EUR,Paternoster 2015  Aglianico del Vulture,2015,Aglianico,89,15.0,17
+d5846766-0207-4f4e-80ce-c195a9e7440d,2022-08-21,Celeste,2022-08,EU,EUR,Velenosi 2012 Villa Angela Pecorino (Falerio),2012,Pecorino,88,15.0,17
+498840a4-4519-4a01-8da1-11a365e8f66a,2022-08-21,Celeste,2022-08,EU,EUR,Camparo 2010 Boiolo  (Barolo),2010,Nebbiolo,88,99.0,18
+47007f3d-6467-464c-8efb-7a49f70dd92a,2022-08-21,Celeste,2022-08,EU,EUR,Le Bertarole 2010 Podere Cariano  (Amarone della Valpolicella Classico),2010,Red Blend,86,35.0,23
+69f07d3c-ca59-4a33-a799-4a197d5dbb95,2022-08-21,Celeste,2022-08,EU,EUR,Caldaro 2014 Vial Pinot Bianco (Alto Adige),2014,Pinot Bianco,88,22.0,17
+e6b8c41e-d300-4d41-9262-f6321fb49831,2022-08-21,Celeste,2022-08,EU,EUR,Zanasi 2012 Pi� Franco Secco  (Lambrusco Grasparossa di Castelvetro),2012,Lambrusco Grasparossa,87,25.0,20
+b546277a-d544-47f8-b674-1eab27e92f1e,2022-08-21,Celeste,2022-08,EU,EUR,Dorigo 2013 Sauvignon (Colli Orientali del Friuli),2013,Sauvignon,87,29.0,19
+4503f7b0-1b0b-4ccd-9115-192a0dcb5991,2022-08-21,Celeste,2022-08,EU,EUR,Cantina della Volta 2010 Metodo Classico Brut  (Lambrusco di Modena),2010,Lambrusco di Sorbara,87,25.0,18
+cd5f66a6-8333-47ea-989a-91f6ce18d11f,2022-08-21,Celeste,2022-08,EU,EUR,Canalicchio Franco Pacenti 2012  Rosso di Montalcino,2012,Sangiovese,89,35.0,19
+b339ad2c-c1fa-4c42-a004-838aa30ec8e2,2022-08-21,Celeste,2022-08,EU,EUR,Pianirossi 2014 Sidus  (Montecucco),2014,Red Blend,86,20.0,15
+cb0060cd-0bad-4fab-8f78-a3edc451a2ee,2022-08-21,Celeste,2022-08,EU,EUR,Podere La Vigna 2011 Riserva  (Brunello di Montalcino),2011,Sangiovese,88,80.0,18
+4fe4ecca-fde7-4233-96dc-18e6f56fff40,2022-08-21,Celeste,2022-08,EU,EUR,Mocavero 2011 Primitivo (Salento),2011,Primitivo,86,30.0,16
+f0d91882-2824-4baa-892c-3a4e49d65ace,2022-08-21,Celeste,2022-08,EU,EUR,Negro Angelo e Figli 2015 Serra Lupini  (Roero),2015,Arneis,88,18.0,20
+dcb0d492-e2d6-43c6-8394-fc1a4bee5ce3,2022-08-21,Celeste,2022-08,EU,EUR,Prinsi 2011 Sandrina Nebbiolo (Langhe),2011,Nebbiolo,85,24.0,21
+368145e1-fde0-4387-af5f-4461df80411b,2022-08-21,Celeste,2022-08,EU,EUR,Girlan 2014 Flora Sauvignon (Alto Adige),2014,Sauvignon,88,45.0,15
+a0f45499-be1c-4ed5-9717-86e77a926097,2022-08-21,Celeste,2022-08,EU,EUR,Tommasi 2013 Poggio al Tufo Vermentino (Toscana),2013,Vermentino,86,15.0,15
+f46e4ed3-48ca-44ad-a69b-7142179631a1,2022-08-21,Celeste,2022-08,EU,EUR,Jorche 2011  Primitivo di Manduria,2011,Primitivo,86,32.0,23
+eed765f0-730b-430f-9764-3cb964655585,2022-08-21,Celeste,2022-08,EU,EUR,Cottanera 2011 Barbazzale  (Etna),2011,Red Blend,88,14.0,24
+4cf19a5e-7f7e-427f-aa10-92540ed46d89,2022-08-22,Celeste,2022-08,EU,EUR,Famiglia Cielo NV  Prosecco,,Glera,86,13.0,21
+0c02c1cf-48c0-4bf0-8d39-01b640a29f0c,2022-08-22,Celeste,2022-08,EU,EUR,Principe Pallavicini 2014 Poggio Verde  (Frascati Superiore),2014,White Blend,87,17.0,24
+7ca37bfd-2407-4394-9886-927af049875d,2022-08-22,Celeste,2022-08,EU,EUR,Fattoria Alois 2009 Nadhir Ros� (Campania),2009,Ros�,86,10.0,22
+4bccfaae-0fc8-448d-a4a2-80057fb04bbe,2022-08-22,Celeste,2022-08,EU,EUR,Tinazzi 2010 Ca' de' Rocchi Monter�  (Valpolicella Superiore Ripasso),2010,"Corvina, Rondinella, Molinara",87,10.0,22
+0059d875-a0d5-4913-b2b4-401103d36ffc,2022-08-22,Celeste,2022-08,EU,EUR,Camigliano 2010 Gualto Riserva  (Brunello di Montalcino),2010,Sangiovese,89,100.0,15
+56629ad2-a40a-4a6d-aae0-7398ef0d1553,2022-08-22,Celeste,2022-08,EU,EUR,Feudo Maccari 2014 Saia Nero d'Avola (Sicilia),2014,Nero d'Avola,89,39.0,17
+daeef86e-bbe6-469e-b233-80bccbc51484,2022-08-22,Celeste,2022-08,EU,EUR,Fattori 2015 Motto Piane  (Soave),2015,Garganega,87,20.0,15
+60f4df63-7e68-454f-a259-553ec262c8d9,2022-08-22,Celeste,2022-08,EU,EUR,Cantina Offida 2012 Passerina (Marche),2012,Passerina,86,13.0,22
+66a2a241-ff2b-4efc-bce8-e365460b0c76,2022-08-22,Celeste,2022-08,EU,EUR,Torlasco 2010  Moscato d'Asti,2010,Moscato,85,10.0,24
+371ba69e-6235-46aa-8a43-634067e385f2,2022-08-22,Celeste,2022-08,EU,EUR,Prunotto 2009  Dolcetto d'Alba,2009,Dolcetto,87,17.0,17
+a2f95f6c-af02-47d9-ad0a-8fb9920b6f6e,2022-08-22,Celeste,2022-08,EU,EUR,Miali 2009 �chore Red (Salento),2009,Red Blend,86,16.0,22
+1658d9d5-84cd-4a3b-b821-926fdea2487e,2022-08-22,Celeste,2022-08,EU,EUR,Boasso 2012 Gabutti  (Barolo),2012,Nebbiolo,88,53.0,23
+0292866d-7cdc-4093-b30e-7e4d33e4f019,2022-08-22,Celeste,2022-08,EU,EUR,Cantalici L'Antica Fornace di Ridolfo 2012 Baruffo  (Chianti Classico),2012,Sangiovese,89,22.0,23
+3db27626-1bcd-4100-9a7c-fe5147900a22,2022-08-22,Celeste,2022-08,EU,EUR,Machiavelli 2013 Solatio del Tani  (Chianti Classico),2013,Red Blend,87,25.0,16
+c2657b09-6ce2-4efc-9282-5463f8018b87,2022-08-22,Celeste,2022-08,EU,EUR,Giovanni Chiappini 2014 Felciaino  (Bolgheri),2014,Red Blend,88,20.0,16
+5b975f1a-604f-4fc0-9da1-8a879349fb4b,2022-08-22,Celeste,2022-08,EU,EUR,Corte Figaretto 2008 Acini Ameni  (Valpolicella Ripasso Valpantena Superiore),2008,"Corvina, Rondinella, Molinara",87,34.0,20
+6c1a48d2-4cfe-4069-a196-eaf92bc337c4,2022-08-23,Celeste,2022-08,EU,EUR,PoderNuovo a Palazzone 2011 Argirio Red (Toscana),2011,Red Blend,87,26.0,15
+fbc3d736-b465-45db-a55c-16d12196134d,2022-08-23,Celeste,2022-08,EU,EUR,Colli di Lapio 2005 Donna Chiara Campi Taurasini Aglianico (Irpinia),2005,Aglianico,88,30.0,20
+7e06f038-cab1-46c3-b093-941c9c44e535,2022-08-23,Celeste,2022-08,EU,EUR,Tenimenti Luigi D'Alessandro 2012 Borgo Syrah (Cortona),2012,Syrah,89,20.0,23
+5c8ba251-0a96-4b4f-a3a9-3a8b5e52a9b1,2022-08-23,Celeste,2022-08,EU,EUR,Machiavelli 2006 Solatio del Tani  (Chianti Classico),2006,Sangiovese,85,10.0,19
+4d9ed659-6256-442e-8c02-d2c3bc9c9ccc,2022-08-23,Celeste,2022-08,EU,EUR,Cantina Terre del Barolo 2012  Barolo,2012,Nebbiolo,87,27.0,24
+d8337e54-8fee-4a8b-9884-673fbcbde950,2022-08-23,Celeste,2022-08,EU,EUR,Tenuta dell'Ugolino 2014 Vigneto del Balluccio  (Verdicchio dei Castelli di Jesi Classico),2014,Verdicchio,88,19.0,15
+b3c0ba2c-93df-476e-9ee0-9eae8ffbd495,2022-08-23,Celeste,2022-08,EU,EUR,Terredora 2015 Loggia della Serra  (Greco di Tufo),2015,Greco,88,23.0,23
+57ecbbec-e334-4f9d-9289-f7a77281e1be,2022-08-23,Celeste,2022-08,EU,EUR,Giuseppe Sedilesu 2012 Sartiu  (Cannonau di Sardegna),2012,Cannonau,88,17.0,15
+debe7efe-7833-47ad-90c2-b16cbd2df7d7,2022-08-23,Celeste,2022-08,EU,EUR,Villa Mangiacane 2004 Merlot (Toscana),2004,Merlot,89,10.0,20
+84ff5782-69a7-45d3-9dd4-6672fa025385,2022-08-23,Celeste,2022-08,EU,EUR,Astoria 2006 Casa Vittorino 20 Anni Dry  (Prosecco di Conegliano e Valdobbiadene),2006,Prosecco,88,20.0,16
+3fb1f952-dfc9-4ee8-b239-e9c96de23dd5,2022-08-23,Celeste,2022-08,EU,EUR,Montresor 2009 Capitel della Crosara  (Valpolicella Ripasso),2009,"Corvina, Rondinella, Molinara",87,17.0,23
+d1cc5f9d-8400-4681-80e6-08c6974163f7,2022-08-23,Celeste,2022-08,EU,EUR,Tenuta Barone Nicol� La Lumia 2003 Signorio Nero d'Avola (Sicilia),2003,Nero d'Avola,88,36.0,20
+42bcb5fe-c132-411b-a28e-962b010b0706,2022-08-23,Celeste,2022-08,EU,EUR,Tenuta di Fraternita 2012 Priore  (Chianti),2012,Red Blend,87,14.0,22
+ccbcd9bb-a533-4b04-9d31-fdfbcfdec647,2022-08-24,Celeste,2022-08,EU,EUR,Il Cascinone 2005 Rive  (Barbera d'Asti),2005,Barbera,87,26.0,21
+6b721673-f6b9-4acb-a206-629d77936b4f,2022-08-24,Celeste,2022-08,EU,EUR,Borgo di Colloredo 2003 Aglianico (Terra degli Osci),2003,Aglianico,87,20.0,21
+80925fa3-fdeb-4c99-af19-b8bb903d1925,2022-08-24,Celeste,2022-08,EU,EUR,Nittardi 2013 Ad Astra Red (Toscana),2013,Red Blend,89,25.0,23
+abd6b999-5a2b-40ae-9af8-01829cbc4ba4,2022-08-24,Celeste,2022-08,EU,EUR,Bera 2010 Riserva  (Barbaresco),2010,Nebbiolo,88,48.0,15
+ea517a99-8a0f-435f-9efd-8217c5a4fe4c,2022-08-24,Celeste,2022-08,EU,EUR,Mario Gagliasso 2009 Torriglione  (Barolo),2009,Nebbiolo,89,60.0,23
+5164fc50-051e-42ce-8998-9cda7c84cb33,2022-08-24,Celeste,2022-08,EU,EUR,Canella NV Extra Dry  (Prosecco),,Glera,86,11.0,21
+18de650e-3449-4dcc-b7a2-637f6cbec1fe,2022-08-24,Celeste,2022-08,EU,EUR,Stefano Berti 2008 Calisto Riserva  (Sangiovese di Romagna Superiore),2008,Sangiovese,88,38.0,23
+38bcb04c-0255-462d-8794-a5d2fb5beddb,2022-08-24,Celeste,2022-08,EU,EUR,Tenute Silvio Nardi 2005 T�ran Red (Sant'Antimo),2005,Red Blend,89,10.0,20
+867c631c-dbf6-49da-be32-ac40743396cc,2022-08-24,Celeste,2022-08,EU,EUR,Leone de Castris 2011 Five Roses Rosato Negroamaro (Salento),2011,Negroamaro,88,17.0,22
+34858834-b0de-4518-a069-83136fae9002,2022-08-24,Celeste,2022-08,EU,EUR,La Mannella 2009  Brunello di Montalcino,2009,Sangiovese,87,85.0,17
+52bd39c9-fdf7-4b57-be7f-00e101526b9f,2022-08-24,Celeste,2022-08,EU,EUR,Tenuta di Vignole 2004 Riserva V�gnole  (Chianti Classico),2004,Sangiovese,89,10.0,18
+58756d5a-c839-47fb-abe8-1ab91dc568c3,2022-08-24,Celeste,2022-08,EU,EUR,Castelli del Grevepesa 2013 Clemente VII Red (Toscana),2013,Red Blend,88,50.0,22
+afa8c999-42f9-4715-9b3f-96b5d2d99617,2022-08-24,Celeste,2022-08,EU,EUR,Cantine Maschio NV Maschio dei Cavalieri Brut Rive di Colbertaldo  (Conegliano Valdobbiadene Prosecco Superiore),,Glera,87,19.0,16
+00c5f62a-dfda-42e6-aa33-37e00180a9f9,2022-08-24,Celeste,2022-08,EU,EUR,Banear 2007 Tentazioni d'Aba Sauvignon (Friuli Grave),2007,Sauvignon,86,10.0,16
+c6ca50dd-627f-49a0-878f-036a88903f7a,2022-08-24,Celeste,2022-08,EU,EUR,Donnafugata 2009 Sed�ra Red (Sicilia),2009,Red Blend,87,15.0,19
+62d77f73-766a-4735-a4ba-9aa91db9509f,2022-08-24,Celeste,2022-08,EU,EUR,Accordini Igino 2011 Le Bessole  (Valpolicella Classico Superiore),2011,Red Blend,88,24.0,21
+44bf70f3-7689-4d7e-982a-7c872e683392,2022-08-24,Celeste,2022-08,EU,EUR,Masseria del Feudo 2014 Il Giglio Nero d'Avola (Sicilia),2014,Nero d'Avola,87,10.0,19
+d6948ab0-8b94-4103-a574-57b59f174f7e,2022-08-24,Celeste,2022-08,EU,EUR,Le Battistelle 2010 Battistelle  (Soave Classico),2010,Garganega,87,18.0,17
+f9adf108-6a67-4fa2-8981-711cf278c341,2022-08-24,Celeste,2022-08,EU,EUR,Castello di Montep� 1997 Montepaone Cabernet Sauvignon (Toscana),1997,Cabernet Sauvignon,89,45.0,17
+34bd1bec-e7c9-4343-a810-9a62153174b9,2022-08-24,Celeste,2022-08,EU,EUR,Grifalco 2013 Daginestra  (Aglianico del Vulture),2013,Aglianico,86,32.0,20
+3465a357-b2bd-46a0-a5e4-271a217b62d7,2022-08-24,Celeste,2022-08,EU,EUR,La Tosa 2009 Luna Selvatica Cabernet Sauvignon (Colli Piacentini),2009,Cabernet Sauvignon,87,39.0,16
+b569572f-6f53-486d-b95d-fce7ef91ec3a,2022-08-25,Celeste,2022-08,EU,EUR,San Lorenzo 2014  Rosso di Montalcino,2014,Sangiovese,87,25.0,20
+9d8c3345-24b6-4650-a95d-1b130edeab95,2022-08-25,Celeste,2022-08,EU,EUR,Colterenzio 2014 Weisshaus Pinot Bianco (Alto Adige),2014,Pinot Bianco,87,23.0,19
+7ec78164-7911-427f-b093-a4bb4760d6c2,2022-08-25,Celeste,2022-08,EU,EUR,Sandro de Bruno 2013 Monte San Piero  (Soave Superiore),2013,White Blend,89,24.0,20
+930bc598-6dce-45bf-ad8c-37adf13de163,2022-08-25,Celeste,2022-08,EU,EUR,Conte Ferdinando Guicciardini 2005 Riserva Massi di Mandorlaia  (Morellino di Scansano),2005,Sangiovese,89,10.0,18
+bb5b25b5-8e61-4c66-a740-c8dc54878112,2022-08-25,Celeste,2022-08,EU,EUR,Cantine De Falco 2011 Bocca della Verit�  (Primitivo del Salento),2011,Primitivo,85,15.0,23
+b71ef0bf-773a-40dd-8624-83dca41dac6e,2022-08-25,Celeste,2022-08,EU,EUR,Sartarelli 2012 Tralivio  (Verdicchio dei Castelli di Jesi Classico Superiore),2012,Verdicchio,89,17.0,24
+fdf0b2ad-8894-4c2d-9f79-a52c7a9c9c24,2022-08-25,Celeste,2022-08,EU,EUR,Cipriana 2011 Paguro White (Bolgheri),2011,White Blend,86,10.0,17
+590da2d6-02d7-46ce-8030-f3b4dec3ee74,2022-08-25,Celeste,2022-08,EU,EUR,Taverna 2010  Aglianico del Vulture,2010,Aglianico,89,20.0,19
+83682dc1-8618-4d6d-9e20-2ea6450632a9,2022-08-25,Celeste,2022-08,EU,EUR,Barone Pizzini 2011 Sat�n Chardonnay (Franciacorta),2011,Chardonnay,89,45.0,24
+8ee92c0a-688b-44ed-a1b0-4f95bb4b66fc,2022-08-25,Celeste,2022-08,EU,EUR,Le Vigne di Zam� 2010 Pinot Grigio (Venezia Giulia),2010,Pinot Grigio,88,24.0,19
+b74af7e6-9e24-4bc6-8e01-e64451392e2e,2022-08-25,Celeste,2022-08,EU,EUR,Gaierhof 2012 Giallo Moscato Giallo (Trentino),2012,Moscato Giallo,85,20.0,24
+37247e5e-16df-4781-b26b-b8fb4f7e0c04,2022-08-25,Celeste,2022-08,EU,EUR,Uccelliera 2008  Rosso di Montalcino,2008,Sangiovese Grosso,87,28.0,16
+1a96764e-4944-4a8e-90ab-d83636be548a,2022-08-25,Celeste,2022-08,EU,EUR,Ferrero 2011  Brunello di Montalcino,2011,Sangiovese,87,55.0,20
+951a65b5-9346-40a1-81d3-1167da78626e,2022-08-25,Celeste,2022-08,EU,EUR,Villa Matilde 2005 Tenuta di Altavilla  (Fiano di Avellino),2005,Fiano,88,25.0,15
+45fefa45-76d5-4725-ac6d-83501c3cdd16,2022-08-25,Celeste,2022-08,EU,EUR,Peter Zemmer 2011 Cortinie Bianco White (Vigneti delle Dolomiti),2011,White Blend,88,25.0,15
+135e30eb-b1e4-4953-aa09-48eb1afe480b,2022-08-25,Celeste,2022-08,EU,EUR,ColleStefano 2010  Verdicchio di Matelica,2010,Verdicchio,87,18.0,21
+8ebabeca-2a8b-45eb-8606-131d30988f27,2022-08-25,Celeste,2022-08,EU,EUR,Plozner 2009 Malpelo Pinot Grigio (Venezia Giulia),2009,Pinot Grigio,88,20.0,22
+93498f2d-fd0b-477a-9db2-730a2acbb402,2022-08-25,Celeste,2022-08,EU,EUR,Casebianche 2012 La Matta Fiano (Vino Spumante),2012,Fiano,88,19.0,19
+905a1419-00e4-43d9-a893-d8fa8ae7b331,2022-08-25,Celeste,2022-08,EU,EUR,Poggio alle Querce 2009 Il Guado  (Bolgheri),2009,Red Blend,86,23.0,17
+74e1e0f2-1526-4ad9-a5d3-92d4d42290f5,2022-08-25,Celeste,2022-08,EU,EUR,Fattoria Corzano e Paterno 2004 Il Corzano Red (Toscana),2004,Red Blend,87,40.0,20
+f38cbbec-875a-4436-ad60-46f78b2d4b44,2022-08-25,Celeste,2022-08,EU,EUR,Rotari NV Brut  (Trento),,Champagne Blend,86,11.0,19
+c614c78d-b621-410f-895f-f97f01f286ef,2022-08-25,Celeste,2022-08,EU,EUR,Piera Martellozzo NV Perle di Piera Blue Pearl  (Prosecco),,Glera,87,20.0,24
+97649ce3-f044-4c25-881a-eea564aae3db,2022-08-25,Celeste,2022-08,EU,EUR,Baglio di Pianetto 2009 Shymer Red (Sicilia),2009,Red Blend,87,17.0,24
+994c0a02-53e7-4a56-a317-36ba54266db2,2022-08-26,Celeste,2022-08,EU,EUR,Demarie 2012  Barolo,2012,Nebbiolo,87,65.0,17
+623b5973-97ec-4cc2-b258-7d9ef817e604,2022-08-26,Celeste,2022-08,EU,EUR,Uggiano 2009 Riserva  (Chianti),2009,Red Blend,87,26.0,16
+82ce8dc9-9a82-49e1-b371-e6ff0732b771,2022-08-26,Celeste,2022-08,EU,EUR,Tosti NV Moscato (Asti),,Moscato,85,12.0,22
+86fa8806-fca8-454e-83eb-89da1ff8a4da,2022-08-26,Celeste,2022-08,EU,EUR,Tenuta Sette Cieli 2012 Noi 4  (Bolgheri),2012,Red Blend,87,42.0,23
+800b9c94-58e1-4543-bdc7-0c2a3a54b8ab,2022-08-26,Celeste,2022-08,EU,EUR,Macarico 2007 Macar�  (Aglianico del Vulture),2007,Aglianico,88,10.0,22
+d4759e1c-8c44-4628-9a8b-a15db308c5ae,2022-08-26,Celeste,2022-08,EU,EUR,Foss Marai NV Strada di Guia 109 Brut  (Valdobbiadene Prosecco Superiore),,Glera,88,25.0,22
+f75216f1-1bd6-476c-b8d2-a63807d04538,2022-08-26,Celeste,2022-08,EU,EUR,Cavit 2011 Pinot Grigio (Delle Venezie),2011,Pinot Grigio,85,10.0,18
+130ec08f-604d-47d9-90d5-004b02ec8c3b,2022-08-26,Celeste,2022-08,EU,EUR,La Castellada 2009 Bianco della Castellada White (Collio),2009,White Blend,89,70.0,24
+5f438dd3-764c-48bd-bbdd-9c40a554202e,2022-08-26,Celeste,2022-08,EU,EUR,Erste Neue 2012 Rifall Riesling (Alto Adige),2012,Riesling,89,21.0,18
+cb1f770f-6eff-4235-b927-48dbee444f44,2022-08-26,Celeste,2022-08,EU,EUR,La Vis 2013 Pinot Grigio (Trentino),2013,Pinot Grigio,86,13.0,15
+3e0c33fc-ac81-4aea-84c5-264147554427,2022-08-26,Celeste,2022-08,EU,EUR,Cascina Radice 2015 Roccanera  (Barbera d'Asti Superiore),2015,Barbera,86,16.0,16
+1e87191a-b9fe-46bf-8679-3345d369769b,2022-08-26,Celeste,2022-08,EU,EUR,Cavit NV Lunetta Prosecco (Italy),,Prosecco,86,11.0,20
+6f1cce84-0d61-4b79-b775-ba67ccb501c4,2022-08-26,Celeste,2022-08,EU,EUR,Firriato 2007 Altavilla della Corte Grillo (Sicilia),2007,Grillo,86,15.0,17
+3cc3beb6-db0b-4f07-b32d-be5c55f6b8e1,2022-08-26,Celeste,2022-08,EU,EUR,Cantina di Soave 2011 Cadis  (Valpolicella Ripasso),2011,Red Blend,86,10.0,20
+e1f91658-07c1-4e0d-b0b5-824a86fac81a,2022-08-26,Celeste,2022-08,EU,EUR,Cesani 2007 Pancole  (Vernaccia di San Gimignano),2007,Vernaccia,87,18.0,17
+3f9b4865-9acb-4861-a347-3f92c6a72938,2022-08-26,Celeste,2022-08,EU,EUR,La Collina dei Lecci 2011 Riserva  (Brunello di Montalcino),2011,Sangiovese,88,52.0,23
+256d6bbc-66ed-4067-a235-ddb93a537b07,2022-08-26,Celeste,2022-08,EU,EUR,Suberli 2012 Riserva  (Morellino di Scansano),2012,Red Blend,89,30.0,17
+34c4076b-4c7d-455c-87a2-f7d28183f00e,2022-08-27,Celeste,2022-08,EU,EUR,Tommasi 2005 Poggio al Tufo Rompicollo  (Maremma),2005,Red Blend,86,16.0,20
+6dde67f6-3a1e-4b9b-bc00-72e100c1ee9a,2022-08-27,Celeste,2022-08,EU,EUR,Le Buche 2007 Le Buche Olivi Cantine Red (Toscana),2007,Red Blend,89,29.0,20
+56d09db8-e3c6-43a1-8fbe-eaef32cc79eb,2022-08-27,Celeste,2022-08,EU,EUR,Tormaresca 2010 Bocca di Lupo Aglianico (Castel del Monte),2010,Aglianico,88,46.0,16
+5e3b8ede-2864-41af-bf94-3a2b1e3f7b75,2022-08-27,Celeste,2022-08,EU,EUR,SassodiSole 2014  Rosso di Montalcino,2014,Sangiovese,86,25.0,23
+e9559670-0972-4e67-9af8-ec8f62fc245f,2022-08-27,Celeste,2022-08,EU,EUR,Fattoria Petriolo 2012  Chianti,2012,Red Blend,85,16.0,21
+bc282663-a683-4d47-87ee-3ab0335bd9d7,2022-08-27,Celeste,2022-08,EU,EUR,Sylla Sebaste 2011 Bussia  (Barolo),2011,Nebbiolo,89,10.0,24
+102938f4-d61e-4ef9-8721-f21b2edbd86d,2022-08-27,Celeste,2022-08,EU,EUR,Ressia 2009 Oro Canova Riserva  (Barbaresco),2009,Nebbiolo,86,10.0,16
+6ff87682-c2a5-4284-a165-7a91505ae5b4,2022-08-27,Celeste,2022-08,EU,EUR,Oscar Bosio 2011 La Bruciata  (Moscato d'Asti),2011,Moscato,87,15.0,16
+d38da3e4-90fd-48ed-b74d-edc7cbdf89a3,2022-08-27,Celeste,2022-08,EU,EUR,Impostino 2011 Viandante Riserva  (Montecucco),2011,Sangiovese,86,27.0,19
+b8be9dd2-e364-4567-805d-b0c41950d450,2022-08-27,Celeste,2022-08,EU,EUR,Marabino 2007 Carmen Nero d'Avola (Sicilia),2007,Nero d'Avola,86,18.0,18
+de266031-bfcf-4f6a-b4e9-32bc9b6ceca3,2022-08-27,Celeste,2022-08,EU,EUR,Pighin 2013 Sauvignon (Friuli Grave),2013,Sauvignon,88,18.0,15
+412bdb51-3d5e-44d3-9de8-b2918bad1f6b,2022-08-27,Celeste,2022-08,EU,EUR,Casetta 2011 Vigna Case Nere  (Barolo),2011,Nebbiolo,89,10.0,20
+bb9aef0c-938c-4b58-8a40-9c18e3f054da,2022-08-27,Celeste,2022-08,EU,EUR,Feudo Arancio 2010 Stemmari Cabernet Sauvignon (Sicilia),2010,Cabernet Sauvignon,87,10.0,20
+483b4039-59f3-4b01-9099-f6f4cfa2af35,2022-08-27,Celeste,2022-08,EU,EUR,Fabiano 2008  Valpolicella Classico Superiore,2008,"Corvina, Rondinella, Molinara",87,10.0,24
+33f43e2c-7b0e-4f78-ae2e-ee901d084235,2022-08-27,Celeste,2022-08,EU,EUR,La Giaretta 2005  Recioto della Valpolicella Classico,2005,"Corvina, Rondinella, Molinara",88,10.0,24
+27ce1068-1bbf-4514-8c98-e35c3e735046,2022-08-27,Celeste,2022-08,EU,EUR,Contini 2015 Elibaria  (Vermentino di Gallura),2015,Vermentino,87,23.0,24
+801ccdd0-67ac-4784-95a6-e97f92a4c1ba,2022-08-27,Celeste,2022-08,EU,EUR,Molino 2013 Ausario  (Barbaresco),2013,Nebbiolo,86,40.0,22
+9b3301ac-9957-4748-8993-54fc09086df4,2022-08-27,Celeste,2022-08,EU,EUR,Poggio Verrano 2010 3 Red (Toscana),2010,Red Blend,87,24.0,16
+f5ae3a2c-e849-42a6-aaf1-919d79200329,2022-08-27,Celeste,2022-08,EU,EUR,Pietracupa 2010  Taurasi,2010,Aglianico,89,45.0,20
+e6a214bc-1da7-477e-a8f4-2290d4423b62,2022-08-27,Celeste,2022-08,EU,EUR,Tiefenbrunner 2010 Gew�rztraminer (Alto Adige),2010,Gew�rztraminer,87,24.0,19
+bc56a3a1-a1fa-441c-8f98-d418e08398f3,2022-08-27,Celeste,2022-08,EU,EUR,Binomio 2013 Superiore  (Cerasuolo d'Abruzzo),2013,Montepulciano,88,20.0,21
+c1f3ccf9-cc98-4513-b87b-20767bd943b5,2022-08-28,Celeste,2022-08,EU,EUR,Castello Vicchiomaggio 2014 San Jacopo  (Chianti Classico),2014,Red Blend,86,15.0,16
+e539a074-19f1-408e-9431-b73dc8461c95,2022-08-28,Celeste,2022-08,EU,EUR,Montaribaldi 2012 Palazzina  (Barbaresco),2012,Nebbiolo,86,10.0,15
+a9d066fe-6218-4015-8549-c5a02a64b93c,2022-08-28,Celeste,2022-08,EU,EUR,Il Poggione 2008 Lo Sbrancato Rosato Ros� (Toscana),2008,Ros�,87,22.0,24
+2f187b66-50a0-415a-982c-61e6f19ba21d,2022-08-28,Celeste,2022-08,EU,EUR,Principiano Ferdinando 2010 Sant'Anna  (Dolcetto d'Alba),2010,Dolcetto,87,18.0,22
+13899fb5-08e4-456e-83bd-971618c92b3b,2022-08-28,Celeste,2022-08,EU,EUR,M�nage � Trois NV Dry  (Prosecco),,Glera,86,15.0,19
+413637de-eeba-448a-bcc3-4a12d1acc880,2022-08-28,Celeste,2022-08,EU,EUR,Novaia 2007  Valpolicella Classico Superiore Ripasso,2007,"Corvina, Rondinella, Molinara",87,10.0,23
+96309ad4-348b-47dc-acff-4166870984a7,2022-08-28,Celeste,2022-08,EU,EUR,Cecchi 2013  Rosso di Montalcino,2013,Sangiovese,87,25.0,23
+f92222f3-e29a-4452-a5d5-3df61adaa7b6,2022-08-28,Celeste,2022-08,EU,EUR,Le Manzane NV Brut  (Conegliano Valdobbiadene Prosecco Superiore),,Glera,87,12.0,15
+00f6c215-0fa9-470d-9aa4-f103a60cca0e,2022-08-28,Celeste,2022-08,EU,EUR,Ferrero 2004  Brunello di Montalcino,2004,Sangiovese Grosso,88,45.0,17
+dc9a8d2d-6e28-4f04-af1b-de2b9f5f5c31,2022-08-28,Celeste,2022-08,EU,EUR,Poderi Alasia 2008  Dolcetto d'Asti,2008,Dolcetto,88,10.0,17
+8c839d1c-b28d-432d-ba68-aec6c47d5a92,2022-08-28,Celeste,2022-08,EU,EUR,Tommasi 2010 Le Volpare  (Soave Classico),2010,Garganega,86,13.0,16
+95b15650-3f87-46cf-bbf0-52047424df9d,2022-08-28,Celeste,2022-08,EU,EUR,Vie di Romans 2011 Dessimis Pinot Grigio (Friuli Isonzo),2011,Pinot Grigio,85,39.0,19
+0dec2e9b-a137-49c5-a9a5-6b2ecb0f8168,2022-08-28,Celeste,2022-08,EU,EUR,Castello d'Albola 2009 Il Solatio Sangiovese (Toscana),2009,Sangiovese,87,10.0,19
+ed9572de-190f-41b0-8d40-a65dd0db5294,2022-08-29,Celeste,2022-08,EU,EUR,Monte Maggio 2010 Gran Selezione  (Chianti Classico),2010,Red Blend,88,10.0,16
+8de8146a-70d4-4c80-8831-08278f44f0d1,2022-08-29,Celeste,2022-08,EU,EUR,Banear 2007 Tentazioni d'Aba Sauvignon (Friuli Grave),2007,Sauvignon,86,10.0,18
+a82d5286-14f0-4d3d-b472-82918f772f55,2022-08-29,Celeste,2022-08,EU,EUR,Botter NV Spago  (Prosecco),,Glera,85,14.0,23
+ccb7337a-1c3b-4f3d-adbd-05167d91ff73,2022-08-29,Celeste,2022-08,EU,EUR,Poggio il Castellare 2014  Rosso di Montalcino,2014,Sangiovese,86,23.0,21
+cf3a897e-9f1c-490b-bff6-62d370fb866d,2022-08-29,Celeste,2022-08,EU,EUR,Moroder 2009 Riserva Dorico  (Conero),2009,Montepulciano,88,50.0,19
+7ab3383b-942d-4d0e-9717-0447e3d0b0e8,2022-08-29,Celeste,2022-08,EU,EUR,Pietro Beconcini 2014 Maurleo Red (Toscana),2014,Red Blend,88,18.0,18
+eaf35d66-5035-4505-8fa1-92cc61df4405,2022-08-29,Celeste,2022-08,EU,EUR,Casisano Colombaio 2011  Rosso di Montalcino,2011,Sangiovese,89,20.0,19
+38d43f55-06e3-453b-8b0e-0dbb148757b8,2022-08-29,Celeste,2022-08,EU,EUR,Vinchio-Vaglio Serra 2012 I Tre Vescovi  (Barbera d'Asti Superiore),2012,Barbera,87,18.0,16
+999dd380-9cdb-4f02-b399-93dfdb47ac4c,2022-08-29,Celeste,2022-08,EU,EUR,Gualdo del Re 2008 Federico Primo Cabernet Sauvignon (Toscana),2008,Cabernet Sauvignon,88,45.0,24
+6bca0c7f-676c-44d2-8441-43a2e5beb235,2022-08-29,Celeste,2022-08,EU,EUR,Renieri 2008 Tenuta di Renieri Riserva  (Chianti Classico),2008,Sangiovese,89,26.0,22
+6d1ab8a0-5857-4216-b6c2-befb2268c0b9,2022-08-29,Celeste,2022-08,EU,EUR,Fortediga 2007 Sodamagri  (Maremma),2007,Syrah,87,10.0,23
+c04d2437-3cea-40a5-9e4b-a15b3016f0e2,2022-08-29,Celeste,2022-08,EU,EUR,Le Bertille 2013  Vino Nobile di Montepulciano,2013,Red Blend,86,33.0,21
+c822d720-9705-4c31-b5cd-1b3f06046d99,2022-08-29,Celeste,2022-08,EU,EUR,Caruso & Minini 2007 Timpune Grillo (Sicilia),2007,Grillo,86,18.0,15
+8f6f7ecf-3b83-4abe-b744-2c1450749e4a,2022-08-29,Celeste,2022-08,EU,EUR,Castello di Monastero 2011  Chianti Classico,2011,Red Blend,87,15.0,21
+69a109ef-4874-4883-951b-2adfd3c9b309,2022-08-29,Celeste,2022-08,EU,EUR,Livio Felluga 2009 Pinot Grigio (Colli Orientali del Friuli),2009,Pinot Grigio,88,24.0,17
+fcbe432e-db12-487f-865a-d1d0472b6972,2022-08-29,Celeste,2022-08,EU,EUR,Castello di Monterinaldi 2013 Campopazzo Riserva  (Chianti Classico),2013,Red Blend,88,27.0,21
+f2631706-955e-4ac4-9cd8-f275b0373a39,2022-08-29,Celeste,2022-08,EU,EUR,Caccia al Piano 1868 2008 Ruith Hora  (Bolgheri),1868,Red Blend,89,10.0,15
+f54f1fd1-a4af-4ab4-9a61-8da0fad4234c,2022-08-29,Celeste,2022-08,EU,EUR,Vinosia 2007  Greco di Tufo,2007,Greco,87,23.0,16
+cf3274cc-5e51-4a6d-a070-4821b0c36ed5,2022-08-29,Celeste,2022-08,EU,EUR,Corte Mainente 2015 Cengelle  (Soave),2015,Garganega,87,10.0,19
+c90335e6-4892-48e7-a6c2-b2fc294d95ec,2022-08-29,Celeste,2022-08,EU,EUR,Suavia 2007 Le Rive  (Soave Classico),2007,Garganega,89,44.0,16
+42821a26-d06e-4776-8f80-f84b4594f2e7,2022-08-29,Celeste,2022-08,EU,EUR,Caposaldo 2015  Chianti,2015,Red Blend,85,11.0,20
+ec9e5501-3aea-4bde-a6d5-716b5dc22a12,2022-08-29,Celeste,2022-08,EU,EUR,La Tunella 2014 Sauvignon (Friuli Colli Orientali),2014,Sauvignon,86,20.0,24
+1f84e660-4622-4a06-a8d6-03fe2e868f16,2022-08-30,Celeste,2022-08,EU,EUR,Fiegl 2013 Leopold White (Collio),2013,White Blend,87,24.0,21
+e1f481b5-6765-4290-98c2-44b6ac4d0bfc,2022-08-30,Celeste,2022-08,EU,EUR,Baglio del Cristo di Campobello 2013 C'D'C' Red (Terre Siciliane),2013,Red Blend,87,18.0,17
+e84c26a9-f1d7-46e2-b15d-a01f84eb3efd,2022-08-30,Celeste,2022-08,EU,EUR,Le Mandolare 2015 Il Roccolo  (Soave Classico),2015,Garganega,89,10.0,20
+b476856d-bf8d-4ab1-87dd-03764f4eb482,2022-08-30,Celeste,2022-08,EU,EUR,Mustilli 2012 Fiano (Sannio),2012,Fiano,86,18.0,16
+02413ea4-9149-4ad0-b92d-c9a0f69ea8c3,2022-08-30,Celeste,2022-08,EU,EUR,Stemmari 2015 Pinot Nero (Sicilia),2015,Pinot Nero,87,10.0,23
+3617ffbb-9509-49ce-aadb-ca76b3a42a0d,2022-08-30,Celeste,2022-08,EU,EUR,Di Meo 2016  Fiano di Avellino,2016,Fiano,88,25.0,22
+d5f28508-1d90-4051-b1c0-20ab6706591d,2022-08-30,Celeste,2022-08,EU,EUR,Rattalino 2012 Quarantadue42  (Barbaresco),2012,Nebbiolo,88,34.0,22
+058206ce-6fd4-4bf9-a20e-4874b3f28dac,2022-08-30,Celeste,2022-08,EU,EUR,Mastroberardino 2011 Aglianico (Campania),2011,Aglianico,89,25.0,17
+501efed3-3fe3-4502-b319-3fda69b55f34,2022-08-30,Celeste,2022-08,EU,EUR,Curto 2014 Nero d'Avola (Eloro),2014,Nero d'Avola,89,15.0,23
+e46440f9-9353-4cd9-b22b-78402eccf0b9,2022-08-30,Celeste,2022-08,EU,EUR,Gemma 2013 Colarej  (Barolo),2013,Nebbiolo,87,10.0,21
+e9a3c860-fdbc-45ff-bc08-53c5a3104e67,2022-08-30,Celeste,2022-08,EU,EUR,Tabarrini 2006 Campo alla Cerqua  (Montefalco Sagrantino),2006,Sagrantino,88,10.0,17
+250e58ff-d657-4b19-88ed-f190d8bfdc7f,2022-08-30,Celeste,2022-08,EU,EUR,Le Due Terre 2000 Sacrisassi Bianco White (Colli Orientali del Friuli),2000,White Blend,88,42.0,20
+9f45cf08-459a-4e6f-829d-2b53b2fd27b5,2022-08-30,Celeste,2022-08,EU,EUR,Lamoretti 2008 Vigna del Guasto Red (Emilia-Romagna),2008,Red Blend,87,19.0,15
+f6912af3-9dbd-4a00-80d4-067c02682a30,2022-08-30,Celeste,2022-08,EU,EUR,Vite Colte 2011 del Comune di Serralunga d'Alba  (Barolo),2011,Nebbiolo,89,70.0,23
+85d96e68-7f9a-4cf1-a2e7-618c0c5b7fd7,2022-08-30,Celeste,2022-08,EU,EUR,Giacosa Fratelli 2007  Nebbiolo d'Alba,2007,Nebbiolo,87,16.0,17
+c4a990e5-ff81-419c-a89e-be7b0088537d,2022-08-30,Celeste,2022-08,EU,EUR,Veglio 2007  Dolcetto d'Alba,2007,Dolcetto,86,9.0,17
+f8236f1d-1134-4436-866e-d4666be6ae39,2022-08-30,Celeste,2022-08,EU,EUR,Pieropan 1999  Soave Classico Superiore,1999,White Blend,88,15.0,20
+e018b6ed-fe58-450d-ae4d-b63d50f10104,2022-08-30,Celeste,2022-08,EU,EUR,Bersano 2011 Generala  (Barbera d'Asti Superiore Nizza),2011,Barbera,89,40.0,19
+1decd44b-8581-47cd-88b1-70d81c0f91ee,2022-08-30,Celeste,2022-08,EU,EUR,Castello del Poggio 2005 Masar�j  (Barbera d'Asti),2005,Barbera,87,10.0,15
+ed1419e9-30d0-4daa-9993-84a276e7285f,2022-08-30,Celeste,2022-08,EU,EUR,Cavalier Bartolomeo 2006 Solanotto Altenasso  (Barolo),2006,Nebbiolo,89,10.0,17
+2a7995eb-3c51-487a-98c8-a1ac7e33a1d5,2022-08-30,Celeste,2022-08,EU,EUR,La Spinetta 2014 Starderi  (Barbaresco),2014,Nebbiolo,86,130.0,15
+8f23d124-9ccc-438c-86b6-f5523060c267,2022-08-30,Celeste,2022-08,EU,EUR,Viberti 2001 Riserva La Volta  (Barolo),2001,Nebbiolo,87,70.0,19
+10a39289-207b-425a-abd3-ed57ea99e34a,2022-08-31,Celeste,2022-08,EU,EUR,Abbazia di Novacella 2013 Veltliner (Alto Adige Valle Isarco),2013,Veltliner,88.0,20.0,21
+b1971069-5603-4f3f-9b7c-e7cc8224b209,2022-08-31,Celeste,2022-08,EU,EUR,La Serena 2008  Brunello di Montalcino,2008,Sangiovese Grosso,88.0,62.0,20
+b5bf4ab9-bdd4-4740-b89f-35979f8f67cd,2022-08-31,Celeste,2022-08,EU,EUR,La Collina dei Ciliegi 2010 Il Valpolicella Ripasso  (Valpolicella Ripasso),2010,"Corvina, Rondinella, Molinara",87.0,25.0,17
+f3dd4d5a-e9b7-4ba2-9580-4ef410ed7cc8,2022-08-31,Celeste,2022-08,EU,EUR,Principi di Spadafora 2006 Don Pietro White (Sicilia),2006,White Blend,87.0,16.0,16
+15f481ad-9ac1-4bb7-8598-2c81eff0c752,2022-08-31,Celeste,2022-08,EU,EUR,Viticcio 2008 Prunaio Sangiovese (Toscana),2008,Sangiovese,88.0,55.0,23
+ef7b2589-c916-42fd-8dc0-7885935b6f07,2022-08-31,Celeste,2022-08,EU,EUR,Rocca del Dragone 2012 Aglianico (Campania),2012,Aglianico,87.0,14.0,15
+f9ec6121-930d-4865-80df-792222b7f948,2022-08-31,Celeste,2022-08,EU,EUR,St. Pauls 2007 Passion Pinot Bianco (Alto Adige),2007,Pinot Bianco,87.0,10.0,24
+11d15a23-9049-48fd-bfef-79249cd094a7,2022-08-31,Celeste,2022-08,EU,EUR,C�lpetrone 2007 Passito  (Montefalco Sagrantino),2007,Sagrantino,88.0,49.0,22
+b6abe7d0-561b-46ce-8ac3-5f255c0a5eeb,2022-08-31,Celeste,2022-08,EU,EUR,Baricci 2014  Rosso di Montalcino,2014,Sangiovese,89.0,20.0,24
+9b7772e1-0984-43fc-b9c1-39d95dc378bf,2022-08-31,Celeste,2022-08,EU,EUR,Benanti 2007 Bianco di Caselle  (Etna),2007,Carricante,87.0,25.0,24
+,Total Sales Quantity: 11212,,,,,,,,,,

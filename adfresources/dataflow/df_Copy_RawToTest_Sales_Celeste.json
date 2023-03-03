@@ -1,0 +1,80 @@
+{
+	"name": "df_Copy_RawToTest_Sales_Celeste",
+	"properties": {
+		"folder": {
+			"name": "03-Exercise"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "abs_csv_raw_Celeste_onefile",
+						"type": "DatasetReference"
+					},
+					"name": "SourceCSVCeleste"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "abs_csv_test_Celeste_onefile",
+						"type": "DatasetReference"
+					},
+					"name": "sinkCSVCleansedCeleste"
+				}
+			],
+			"transformations": [
+				{
+					"name": "filterSummaryLine"
+				},
+				{
+					"name": "addFileNameColumn"
+				},
+				{
+					"name": "AggregateDailySales"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          TransactionId as string,",
+				"          TransactionDate as string,",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          SalesRegion as string,",
+				"          SalesCurrency as string,",
+				"          Title as string,",
+				"          Vintage as string,",
+				"          Variety as string,",
+				"          Score as string,",
+				"          ListPrice as string,",
+				"          Quantity as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SourceCSVCeleste",
+				"addFileNameColumn filter(left(Title, 21) != 'Total Sales Quantity:') ~> filterSummaryLine",
+				"SourceCSVCeleste derive(FileName = concat(OnlineRetailer, '_', substring(SalesMonth, 1, 4), '_', substring(SalesMonth, 6, 2))) ~> addFileNameColumn",
+				"filterSummaryLine aggregate(groupBy(OnlineRetailer,",
+				"          SalesMonth,",
+				"          SalesRegion,",
+				"          SalesCurrency,",
+				"          Title,",
+				"          Vintage,",
+				"          Variety,",
+				"          Score,",
+				"          ListPrice,",
+				"          FileName),",
+				"     Quantity = sum(toInteger(Quantity))) ~> AggregateDailySales",
+				"AggregateDailySales sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     rowUrlColumn:'FileName',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkCSVCleansedCeleste"
+			]
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"name": "sql_dim_date",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DateId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DateYear",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "DateMonth",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "YearMonth",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastDayOfMonth",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Quarter",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "Season",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsertedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdatedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dimDate"
+		}
+	}
+}

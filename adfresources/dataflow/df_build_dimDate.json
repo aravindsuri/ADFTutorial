@@ -1,0 +1,113 @@
+{
+	"name": "df_build_dimDate",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "sql_stage_date",
+						"type": "DatasetReference"
+					},
+					"name": "stageDate"
+				},
+				{
+					"dataset": {
+						"referenceName": "sql_dim_date",
+						"type": "DatasetReference"
+					},
+					"name": "SourcedimDate"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sql_dim_date",
+						"type": "DatasetReference"
+					},
+					"name": "dimDate"
+				}
+			],
+			"transformations": [
+				{
+					"name": "UpdateOrInsert"
+				},
+				{
+					"name": "DateExists"
+				},
+				{
+					"name": "setInsertUpdateDates"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          DateYear as integer,",
+				"          DateMonth as integer,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as date,",
+				"          Quarter as integer,",
+				"          Season as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> stageDate",
+				"source(output(",
+				"          DateId as integer,",
+				"          DateYear as short,",
+				"          DateMonth as short,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as timestamp,",
+				"          Quarter as integer,",
+				"          Season as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as binary",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> SourcedimDate",
+				"setInsertUpdateDates alterRow(upsertIf(true())) ~> UpdateOrInsert",
+				"stageDate, SourcedimDate join(stageDate@YearMonth == SourcedimDate@YearMonth,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> DateExists",
+				"DateExists derive(InsertedDate = iif(isNull(InsertedDate), currentTimestamp(), InsertedDate),",
+				"          UpdatedDate = currentTimestamp()) ~> setInsertUpdateDates",
+				"UpdateOrInsert sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          DateId as integer,",
+				"          DateYear as integer,",
+				"          DateMonth as integer,",
+				"          YearMonth as string,",
+				"          LastDayOfMonth as timestamp,",
+				"          Quarter as integer,",
+				"          Season as string,",
+				"          InsertedDate as timestamp,",
+				"          UpdatedDate as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['YearMonth'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          DateYear = stageDate@DateYear,",
+				"          DateMonth = stageDate@DateMonth,",
+				"          YearMonth = stageDate@YearMonth,",
+				"          LastDayOfMonth = stageDate@LastDayOfMonth,",
+				"          Quarter = stageDate@Quarter,",
+				"          Season = stageDate@Season,",
+				"          InsertedDate,",
+				"          UpdatedDate",
+				"     )) ~> dimDate"
+			]
+		}
+	}
+}

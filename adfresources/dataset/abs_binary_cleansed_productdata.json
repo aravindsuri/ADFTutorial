@@ -1,0 +1,21 @@
+{
+	"name": "abs_binary_cleansed_productdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsvinoworld_dev",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "08-Exercise"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "productdata",
+				"fileSystem": "cleansed"
+			}
+		}
+	}
+}

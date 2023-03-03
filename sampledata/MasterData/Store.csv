@@ -1,0 +1,4 @@
+StoreName,StoreType,Description
+Arancione,Online,Store sells wines with a score >= 95
+Verde,Online,Store sells wines with a score between 90 and 94
+Celeste,Online,Store sells wines with a score between 85 and 89

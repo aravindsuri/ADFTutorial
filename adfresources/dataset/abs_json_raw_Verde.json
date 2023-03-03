@@ -1,0 +1,55 @@
+{
+	"name": "abs_json_raw_Verde",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsvinoworld_dev",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "02-Exercise"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Verde",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"YearMonth": {
+					"type": "string"
+				},
+				"StoreName": {
+					"type": "string"
+				},
+				"Sales": {
+					"type": "object",
+					"properties": {
+						"Product": {
+							"type": "string"
+						},
+						"Vintage": {
+							"type": "string"
+						},
+						"Variety": {
+							"type": "string"
+						},
+						"Score": {
+							"type": "string"
+						},
+						"SalesPrice": {
+							"type": "string"
+						},
+						"SalesQty": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+}

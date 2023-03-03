@@ -1,0 +1,112 @@
+{
+	"name": "pl_build_dimensions_Type1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Load dimStore",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_Load_dimStore]"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_sql_vinoworld",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimCurrency",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load dimStore",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_Load_dimCurrency]"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_sql_vinoworld",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimTerritory",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load dimCurrency",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_Load_dimTerritory]"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_sql_vinoworld",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Load dimDate",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load dimTerritory",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_Load_dimDate]"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_sql_vinoworld",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "11-Exercise"
+		},
+		"annotations": []
+	}
+}

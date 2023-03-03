@@ -1,0 +1,194 @@
+{
+	"name": "pl_Copy_RawtoCleansed_Sales_Verde",
+	"properties": {
+		"activities": [
+			{
+				"name": "GetFileList",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "abs_json_raw_Verde",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "JsonReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Process Each File",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "GetFileList",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('GetFileList').output.childItems",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy JSON to CSV Verde",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "JsonSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "JsonReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings",
+										"copyBehavior": "FlattenHierarchy"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".csv"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"path": "$['YearMonth']"
+											},
+											"sink": {
+												"name": "SalesMonth"
+											}
+										},
+										{
+											"source": {
+												"path": "$['StoreName']"
+											},
+											"sink": {
+												"name": "OnlineRetailer"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['Product']"
+											},
+											"sink": {
+												"name": "Title"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['Vintage']"
+											},
+											"sink": {
+												"name": "Vintage"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['Variety']"
+											},
+											"sink": {
+												"name": "Variety"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['Score']"
+											},
+											"sink": {
+												"name": "Score"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['SalesPrice']"
+											},
+											"sink": {
+												"name": "Price"
+											}
+										},
+										{
+											"source": {
+												"path": "$['Sales']['SalesQty']"
+											},
+											"sink": {
+												"name": "Quantity"
+											}
+										}
+									]
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "abs_json_raw_Verde_param",
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "abs_csv_cleansed_Verde_param",
+									"type": "DatasetReference",
+									"parameters": {
+										"destfilename": {
+											"value": "@concat(substring(item().name, 0, sub(length(item().name),5)), '.csv')",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"folder": {
+			"name": "02-Exercise"
+		},
+		"annotations": []
+	}
+}

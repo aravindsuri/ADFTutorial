@@ -1,0 +1,27 @@
+{
+	"name": "sql_stage_dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "09-Exercise"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stage",
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
+		}
+	}
+}

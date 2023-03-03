@@ -1,0 +1,22 @@
+{
+	"name": "rawDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlstestdev001",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "salesdata",
+				"fileSystem": "rawdata"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

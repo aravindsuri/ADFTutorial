@@ -1,0 +1,26 @@
+{
+	"name": "sinkDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsStageData",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "stagedata"
+			},
+			"compressionCodec": "snappy",
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

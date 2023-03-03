@@ -1,0 +1,347 @@
+ProductId;Country;Score;DealerPrice;Markup;ListPrice;Province;Region_1;Region_2;Title;Vintage;Variety;Winery;Year
+350;Italy;97;115;1.3;150.0;Piedmont;Barolo;;Cavallotto 2010 Vignolo Riserva  (Barolo);2010;Nebbiolo;Cavallotto;2010
+361;Italy;95;42;1.4;60.0;Piedmont;Barolo;;Bel Colle 2012 Simposio  (Barolo);2012;Nebbiolo;Bel Colle;2012
+1561;Italy;98;78;1.3;102.0;Tuscany;Bolgheri Superiore;;Marchesi Antinori 2008 Guado al Tasso  (Bolgheri Superiore);2008;Red Blend;Marchesi Antinori;2008
+1563;Italy;97;169;1.3;220.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2008 Sassicaia  (Bolgheri Sassicaia);2008;Red Blend;Tenuta San Guido;2008
+1564;Italy;97;165;1.3;215.0;Tuscany;Bolgheri Superiore;;Tenuta dell'Ornellaia 2008 Ornellaia  (Bolgheri Superiore);2008;Red Blend;Tenuta dell'Ornellaia;2008
+1570;Italy;96;57;1.3;75.0;Tuscany;Bolgheri Superiore;;Tenuta Argentiera 2008 Argentiera  (Bolgheri Superiore);2008;Red Blend;Tenuta Argentiera;2008
+2509;Italy;95;46;1.4;65.0;Piedmont;Barolo;;Aurelio Settimo 2010 Rocche dell'Annunziata  (Barolo);2010;Nebbiolo;Aurelio Settimo;2010
+2510;Italy;95;42;1.4;60.0;Piedmont;Barolo;;Giacomo Fenocchio 2010 Villero  (Barolo);2010;Nebbiolo;Giacomo Fenocchio;2010
+2511;Italy;95;68;1.4;96.0;Piedmont;Barolo;;Giovanni Rosso 2010 Cerretta  (Barolo);2010;Nebbiolo;Giovanni Rosso;2010
+2512;Italy;95;42;1.4;59.0;Piedmont;Barbaresco;;Rizzi 2009 Boito Riserva  (Barbaresco);2009;Nebbiolo;Rizzi;2009
+4503;Italy;97;46;1.3;60.0;Sicily & Sardinia;Terre Siciliane;;Passopisciaro 2013 Contrada R Nerello Mascalese (Terre Siciliane);2013;Nerello Mascalese;Passopisciaro;2013
+4513;Italy;96;112;1.3;146.0;Piedmont;Barolo;;Giuseppe Rinaldi 2012 Brunate  (Barolo);2012;Nebbiolo;Giuseppe Rinaldi;2012
+4515;Italy;95;68;1.4;96.0;Piedmont;Barolo;;Massolino 2012 Parafada  (Barolo);2012;Nebbiolo;Massolino;2012
+4522;Italy;95;160;1.4;225.0;Piedmont;Barolo;;Giacomo Conterno 2011 Francia  (Barolo);2011;Nebbiolo;Giacomo Conterno;2011
+4523;Italy;95;21;1.4;30.0;Sicily & Sardinia;Etna;;Biondi 2014 Contrada Monte San Nicolò  (Etna);2014;Red Blend;Biondi;2014
+4524;Italy;95;28;1.4;40.0;Sicily & Sardinia;Etna;;Biondi 2014 Outis Rosso  (Etna);2014;Red Blend;Biondi;2014
+4527;Italy;95;21;1.4;30.0;Sicily & Sardinia;Vittoria;;COS 2014 Pithos Rosso Red (Vittoria);2014;Red Blend;COS;2014
+6424;Italy;96;56;1.3;73.0;Tuscany;Brunello di Montalcino;;Mocali 2007 Riserva  (Brunello di Montalcino);2007;Sangiovese Grosso;Mocali;2007
+6436;Italy;95;82;1.4;115.0;Tuscany;Brunello di Montalcino;;Il Poggione 2007 Vigna Paganelli Riserva  (Brunello di Montalcino);2007;Sangiovese Grosso;Il Poggione;2007
+6439;Italy;95;107;1.4;150.0;Tuscany;Brunello di Montalcino;;Castello Banfi 2007 Poggio all'Oro Riserva  (Brunello di Montalcino);2007;Sangiovese Grosso;Castello Banfi;2007
+6445;Italy;95;85;1.4;119.0;Tuscany;Brunello di Montalcino;;Castello Banfi 2007 Poggio alle Mura Riserva  (Brunello di Montalcino);2007;Sangiovese Grosso;Castello Banfi;2007
+7335;Italy;100;155;1.35;210.0;Tuscany;Vin Santo di Montepulciano;;Avignonesi 1995 Occhio di Pernice  (Vin Santo di Montepulciano);1995;Prugnolo Gentile;Avignonesi;1995
+8859;Italy;95;321;1.4;450.0;Piedmont;Barbaresco;;Gaja 2013 Costa Russi  (Barbaresco);2013;Nebbiolo;Gaja;2013
+8865;Italy;95;58;1.4;82.0;Lombardy;Sforzato di Valtellina;;Nino Negri 2013 5 Stelle  (Sforzato di Valtellina);2013;Nebbiolo;Nino Negri;2013
+8883;Italy;95;39;1.4;55.0;Piedmont;Boca;;Le Piane 2009  Boca;2009;Red Blend;Le Piane;2009
+10743;Italy;95;328;1.4;460.0;Tuscany;Toscana;;Tenuta dell'Ornellaia 2005 Masseto Merlot (Toscana);2005;Merlot;Tenuta dell'Ornellaia;2005
+10745;Italy;95;85;1.4;119.0;Tuscany;Toscana;;Poggio Antico 2007 Madre Red (Toscana);2007;Red Blend;Poggio Antico;2007
+11186;Italy;95;35;1.4;50.0;Sicily & Sardinia;Etna;;Benanti 2009  Etna;2009;Nerello Mascalese;Benanti;2009
+15184;Italy;95;185;1.4;260.0;Tuscany;Toscana;;Castello dei Rampolla 2011 D'Alceo Red (Toscana);2011;Red Blend;Castello dei Rampolla;2011
+15190;Italy;95;32;1.4;46.0;Tuscany;Brunello di Montalcino;;Il Colle 2010  Brunello di Montalcino;2010;Sangiovese;Il Colle;2010
+15191;Italy;95;102;1.4;144.0;Tuscany;Brunello di Montalcino;;Il Paradiso di Manfredi 2007 Riserva  (Brunello di Montalcino);2007;Sangiovese;Il Paradiso di Manfredi;2007
+15613;Italy;95;71;1.4;100.0;Northeastern Italy;Colli Orientali del Friuli;;Livio Felluga 2004 Picolit Picolit (Colli Orientali del Friuli);2004;Picolit;Livio Felluga;2004
+15831;Italy;97;96;1.3;125.0;Tuscany;Brunello di Montalcino;;Altesino 2012 Montosoli  (Brunello di Montalcino);2012;Sangiovese;Altesino;2012
+15844;Italy;96;50;1.3;65.0;Tuscany;Brunello di Montalcino;;Le Chiuse 2012  Brunello di Montalcino;2012;Sangiovese;Le Chiuse;2012
+15853;Italy;96;153;1.3;199.0;Tuscany;Brunello di Montalcino;;Biondi Santi 2012  Brunello di Montalcino;2012;Sangiovese;Biondi Santi;2012
+16523;Italy;97;57;1.3;75.0;Piedmont;Barolo;;Germano Ettore 2013 Prapò  (Barolo);2013;Nebbiolo;Germano Ettore;2013
+16526;Italy;96;42;1.3;55.0;Piedmont;Barbaresco;;Albino Rocca 2014 Ronchi  (Barbaresco);2014;Nebbiolo;Albino Rocca;2014
+16527;Italy;96;53;1.3;70.0;Piedmont;Barolo;;Brezza 2013 Sarmassa  (Barolo);2013;Nebbiolo;Brezza;2013
+16530;Italy;96;75;1.3;98.0;Piedmont;Barbaresco;;Albino Rocca 2014 Angelo  (Barbaresco);2014;Nebbiolo;Albino Rocca;2014
+16534;Italy;95;53;1.4;75.0;Piedmont;Barolo;;Germano Ettore 2013 Cerretta  (Barolo);2013;Nebbiolo;Germano Ettore;2013
+16770;Italy;98;46;1.3;60.0;Piedmont;Barolo;;Brezza 2013 Cannubi  (Barolo);2013;Nebbiolo;Brezza;2013
+16771;Italy;98;53;1.3;70.0;Piedmont;Barolo;;Comm. G. B. Burlotto 2013 Monvigliero  (Barolo);2013;Nebbiolo;Comm. G. B. Burlotto;2013
+16772;Italy;98;116;1.3;151.0;Piedmont;Barolo;;Massolino 2011 Vigna Rionda Riserva  (Barolo);2011;Nebbiolo;Massolino;2011
+16773;Italy;98;230;1.3;300.0;Piedmont;Barolo;;Giuseppe Rinaldi 2013 Brunate  (Barolo);2013;Nebbiolo;Giuseppe Rinaldi;2013
+16774;Italy;97;63;1.3;82.0;Piedmont;Barolo;;Elvio Cogno 2013 Ravera  (Barolo);2013;Nebbiolo;Elvio Cogno;2013
+21078;Italy;97;250;1.3;325.0;Tuscany;Toscana;;Marchesi Antinori 2010 Solaia Red (Toscana);2010;Red Blend;Marchesi Antinori;2010
+21081;Italy;96;61;1.3;80.0;Tuscany;Toscana;;Isole e Olena 2010 Cepparello Sangiovese (Toscana);2010;Sangiovese;Isole e Olena;2010
+21087;Italy;95;107;1.4;150.0;Tuscany;Brunello di Montalcino;;Col d'Orcia 2006 Poggio al Vento Riserva  (Brunello di Montalcino);2006;Sangiovese;Col d'Orcia;2006
+21088;Italy;95;44;1.4;62.0;Tuscany;Toscana;;Felsina 2010 Fontalloro Sangiovese (Toscana);2010;Sangiovese;Felsina;2010
+21090;Italy;95;142;1.4;200.0;Tuscany;Brunello di Montalcino;;Biondi Santi 2008  Brunello di Montalcino;2008;Sangiovese;Biondi Santi;2008
+21091;Italy;95;78;1.4;110.0;Piedmont;Barbaresco;;Giuseppe Cortese 2006 Rabajà Riserva  (Barbaresco);2006;Nebbiolo;Giuseppe Cortese;2006
+21093;Italy;95;75;1.4;105.0;Tuscany;Toscana;;Marchesi Antinori 2010 Tignanello Red (Toscana);2010;Red Blend;Marchesi Antinori;2010
+21717;Italy;96;61;1.3;80.0;Piedmont;Barolo;;Cordero di Montezemolo 2007 Bricco Gattera  (Barolo);2007;Nebbiolo;Cordero di Montezemolo;2007
+21724;Italy;95;96;1.4;135.0;Piedmont;Barolo;;Marchesi di Barolo 2007 Cannubi  (Barolo);2007;Nebbiolo;Marchesi di Barolo;2007
+21727;Italy;95;46;1.4;65.0;Piedmont;Barolo;;Pio Cesare 2007  Barolo;2007;Nebbiolo;Pio Cesare;2007
+25327;Italy;95;85;1.4;120.0;Tuscany;Brunello di Montalcino;;Siro Pacenti 2006 Riserva  (Brunello di Montalcino);2006;Sangiovese Grosso;Siro Pacenti;2006
+25328;Italy;95;43;1.4;61.0;Tuscany;Brunello di Montalcino;;Tenimenti Angelini 2007 Val di Suga  (Brunello di Montalcino);2007;Sangiovese Grosso;Tenimenti Angelini;2007
+25329;Italy;95;53;1.4;75.0;Tuscany;Brunello di Montalcino;;Verbena 2006 Riserva  (Brunello di Montalcino);2006;Sangiovese Grosso;Verbena;2006
+25330;Italy;95;35;1.4;50.0;Tuscany;Brunello di Montalcino;;Casanova di Neri 2007  Brunello di Montalcino;2007;Sangiovese Grosso;Casanova di Neri;2007
+25331;Italy;95;53;1.4;75.0;Tuscany;Brunello di Montalcino;;Castelgiocondo 2007  Brunello di Montalcino;2007;Sangiovese Grosso;Castelgiocondo;2007
+25332;Italy;95;107;1.4;150.0;Tuscany;Brunello di Montalcino;;Castello Banfi 2006 Poggio all'Oro Riserva  (Brunello di Montalcino);2006;Sangiovese Grosso;Castello Banfi;2006
+26889;Italy;98;180;1.3;235.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2013  Bolgheri Sassicaia;2013;Red Blend;Tenuta San Guido;2013
+26893;Italy;95;172;1.4;242.0;Tuscany;Toscana;;Castello dei Rampolla 2012 d'Alceo Red (Toscana);2012;Red Blend;Castello dei Rampolla;2012
+26907;Italy;95;85;1.4;119.0;Tuscany;Brunello di Montalcino;;Cerbaiona 2011  Brunello di Montalcino;2011;Sangiovese;Cerbaiona;2011
+27600;Italy;96;34;1.3;45.0;Tuscany;Brunello di Montalcino;;Il Colle 2011  Brunello di Montalcino;2011;Sangiovese;Il Colle;2011
+27601;Italy;96;415;1.3;540.0;Tuscany;Brunello di Montalcino;;Biondi Santi 2011 Riserva  (Brunello di Montalcino);2011;Sangiovese;Biondi Santi;2011
+27604;Italy;95;89;1.4;125.0;Tuscany;Brunello di Montalcino;;Le Ragnaie 2012 VV  (Brunello di Montalcino);2012;Sangiovese;Le Ragnaie;2012
+27608;Italy;95;17;1.4;25.0;Northeastern Italy;Alto Adige;;Abbazia di Novacella 2015 Praepositus Kerner (Alto Adige);2015;Kerner;Abbazia di Novacella;2015
+31998;Italy;95;117;1.4;165.0;Piedmont;Barolo;;Luciano Sandrone 2005 Cannubi Boschis  (Barolo);2005;Nebbiolo;Luciano Sandrone;2005
+32001;Italy;95;53;1.4;75.0;Piedmont;Barolo;;Giacomo Grimaldi 2005 Le Coste  (Barolo);2005;Nebbiolo;Giacomo Grimaldi;2005
+33393;Italy;95;42;1.4;60.0;Sicily & Sardinia;Terre Siciliane;;Passopisciaro 2012 Contrada R Nerello Mascalese (Terre Siciliane);2012;Nerello Mascalese;Passopisciaro;2012
+33402;Italy;95;57;1.4;80.0;Sicily & Sardinia;Terre Siciliane;;Passopisciaro 2012 Contrada P Nerello Mascalese (Terre Siciliane);2012;Nerello Mascalese;Passopisciaro;2012
+33840;Italy;97;91;1.3;119.0;Tuscany;Vin Santo del Chianti Classico;;Principe Corsini Fattoria Le Corti 1997 Sant'Andrea Corsini  (Vin Santo del Chianti Classico);1997;White Blend;Principe Corsini Fattoria Le Corti;1997
+33842;Italy;97;69;1.3;90.0;Northeastern Italy;Colli Orientali del Friuli;;Livio Felluga 2007 Picolit Picolit (Colli Orientali del Friuli);2007;Picolit;Livio Felluga;2007
+33843;Italy;96;69;1.3;90.0;Northeastern Italy;Colli Orientali del Friuli;;Livio Felluga 2006 Picolit Picolit (Colli Orientali del Friuli);2006;Picolit;Livio Felluga;2006
+33853;Italy;95;85;1.4;119.0;Central Italy;Lazio;;Falesco 2007 Passirò White (Lazio);2007;White Blend;Falesco;2007
+33855;Italy;95;62;1.4;88.0;Northeastern Italy;Friuli;;Lis Neris 2007 Tal Lùc White (Friuli);2007;White Blend;Lis Neris;2007
+34508;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Cantina Bartolo Mascarello 2005  Barolo;2005;Nebbiolo;Cantina Bartolo Mascarello;2005
+34509;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Mauro Molino 2005 Vigna Conca  (Barolo);2005;Nebbiolo;Mauro Molino;2005
+35517;Italy;99;174;1.35;235.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2012 Sassicaia  (Bolgheri Sassicaia);2012;Red Blend;Tenuta San Guido;2012
+35519;Italy;97;250;1.3;325.0;Tuscany;Toscana;;Marchesi Antinori 2012 Solaia Red (Toscana);2012;Red Blend;Marchesi Antinori;2012
+38980;Italy;96;48;1.3;63.0;Tuscany;Chianti Classico;;Monteraponi 2010 Baron' Ugo Riserva  (Chianti Classico);2010;Red Blend;Monteraponi;2010
+38994;Italy;95;39;1.4;55.0;Tuscany;Chianti Classico;;Monteraponi 2010 Il Campitello Riserva  (Chianti Classico);2010;Red Blend;Monteraponi;2010
+39286;Italy;100;340;1.35;460.0;Tuscany;Toscana;;Tenuta dell'Ornellaia 2007 Masseto Merlot (Toscana);2007;Merlot;Tenuta dell'Ornellaia;2007
+39287;Italy;99;237;1.35;320.0;Tuscany;Toscana;;Le Macchiole 2007 Messorio Merlot (Toscana);2007;Merlot;Le Macchiole;2007
+39291;Italy;97;353;1.3;460.0;Tuscany;Toscana;;Tenuta dell'Ornellaia 2006 Masseto Merlot (Toscana);2006;Merlot;Tenuta dell'Ornellaia;2006
+39292;Italy;96;130;1.3;169.0;Tuscany;Toscana;;Castello di Ama 2006 L'Apparita Merlot (Toscana);2006;Merlot;Castello di Ama;2006
+39293;Italy;96;96;1.3;125.0;Tuscany;Toscana;;Le Macchiole 2006 Paleo Cabernet Franc (Toscana);2006;Cabernet Franc;Le Macchiole;2006
+39294;Italy;96;76;1.3;100.0;Tuscany;Toscana;;Tenuta Sette Ponti 2007 Oreno Red (Toscana);2007;Red Blend;Tenuta Sette Ponti;2007
+39298;Italy;95;85;1.4;120.0;Tuscany;Toscana;;Mazzei 2007 Castello di Fonterutoli Siepi Red (Toscana);2007;Red Blend;Mazzei;2007
+39300;Italy;95;42;1.4;60.0;Tuscany;Bolgheri Superiore;;Tenuta Argentiera 2007 Argentiera  (Bolgheri Superiore);2007;Red Blend;Tenuta Argentiera;2007
+39301;Italy;95;328;1.4;460.0;Tuscany;Toscana;;Tenuta dell'Ornellaia 2005 Masseto Merlot (Toscana);2005;Merlot;Tenuta dell'Ornellaia;2005
+39305;Italy;95;46;1.4;65.0;Piedmont;Barbaresco;;Produttori del Barbaresco 2009 Ovello Riserva  (Barbaresco);2009;Nebbiolo;Produttori del Barbaresco;2009
+40309;Italy;96;20;1.3;27.0;Tuscany;Chianti Classico;;Isole e Olena 2010  Chianti Classico;2010;Red Blend;Isole e Olena;2010
+43643;Italy;95;299;1.4;419.0;Tuscany;Toscana;;Tenuta di Biserno 2011 Lodovico Red (Toscana);2011;Red Blend;Tenuta di Biserno;2011
+43645;Italy;95;75;1.4;105.0;Tuscany;Toscana;;Marchesi Antinori 2012 Tignanello Red (Toscana);2012;Red Blend;Marchesi Antinori;2012
+43648;Italy;95;53;1.4;75.0;Tuscany;Toscana;;Michele Satta 2008 Cavaliere Sangiovese (Toscana);2008;Sangiovese;Michele Satta;2008
+44576;Italy;95;52;1.4;74.0;Tuscany;Brunello di Montalcino;;Conti Costanti 2011  Brunello di Montalcino;2011;Sangiovese;Conti Costanti;2011
+44578;Italy;95;42;1.4;59.0;Tuscany;Brunello di Montalcino;;Le Chiuse 2011  Brunello di Montalcino;2011;Sangiovese;Le Chiuse;2011
+44580;Italy;95;207;1.4;290.0;Tuscany;Brunello di Montalcino;;Poggio di Sotto 2011  Brunello di Montalcino;2011;Sangiovese;Poggio di Sotto;2011
+44584;Italy;95;92;1.4;130.0;Tuscany;Brunello di Montalcino;;Uccelliera 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Uccelliera;2010
+44585;Italy;95;107;1.4;150.0;Tuscany;Brunello di Montalcino;;Il Marroneto 2011 Madonna delle Grazie  (Brunello di Montalcino);2011;Sangiovese;Il Marroneto;2011
+44587;Italy;95;121;1.4;170.0;Tuscany;Brunello di Montalcino;;Il Palazzone 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Il Palazzone;2010
+44592;Italy;95;35;1.4;50.0;Tuscany;Brunello di Montalcino;;Capanna 2011  Brunello di Montalcino;2011;Sangiovese;Capanna;2011
+44594;Italy;95;40;1.4;56.0;Tuscany;Brunello di Montalcino;;Gianni Brunelli 2011  Brunello di Montalcino;2011;Sangiovese;Gianni Brunelli;2011
+44596;Italy;95;57;1.4;80.0;Tuscany;Brunello di Montalcino;;Lisini 2011  Brunello di Montalcino;2011;Sangiovese;Lisini;2011
+44597;Italy;95;78;1.4;110.0;Tuscany;Brunello di Montalcino;;Livio Sassetti 2010 Pertimali Riserva  (Brunello di Montalcino);2010;Sangiovese;Livio Sassetti;2010
+44598;Italy;95;60;1.4;85.0;Tuscany;Brunello di Montalcino;;Mocali 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Mocali;2010
+44994;Italy;99;440;1.35;595.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2008 Cà d'Morissio Riserva  (Barolo);2008;Nebbiolo;Mascarello Giuseppe e Figlio;2008
+44999;Italy;96;100;1.3;131.0;Piedmont;Barolo;;Luigi Oddero & Figli 2008 Vigna Rionda  (Barolo);2008;Nebbiolo;Luigi Oddero & Figli;2008
+45002;Italy;96;114;1.3;149.0;Piedmont;Barolo;;Rivetto 2010 Briccolina  (Barolo);2010;Nebbiolo;Rivetto;2010
+45004;Italy;96;60;1.3;79.0;Piedmont;Barolo;;Attilio Ghisolfi 2011 Bussia Bricco Visette  (Barolo);2011;Nebbiolo;Attilio Ghisolfi;2011
+45006;Italy;96;126;1.3;165.0;Piedmont;Barolo;;Sandrone 2011 Cannubi Boschis  (Barolo);2011;Nebbiolo;Sandrone;2011
+45573;Italy;99;129;1.35;175.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2010 Monprivato  (Barolo);2010;Nebbiolo;Mascarello Giuseppe e Figlio;2010
+45582;Italy;95;32;1.4;46.0;Piedmont;Barolo;;Guido Porro 2011 Lazzairasco  (Barolo);2011;Nebbiolo;Guido Porro;2011
+45586;Italy;95;53;1.4;75.0;Tuscany;Montecucco;;Amantis 2007 Riserva  (Montecucco);2007;Sangiovese;Amantis;2007
+45781;Italy;100;407;1.35;550.0;Tuscany;Brunello di Montalcino;;Biondi Santi 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Biondi Santi;2010
+45782;Italy;98;146;1.3;190.0;Tuscany;Brunello di Montalcino;;Conti Costanti 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Conti Costanti;2010
+45783;Italy;98;92;1.3;120.0;Tuscany;Brunello di Montalcino;;Baricci 2010 Nello Riserva  (Brunello di Montalcino);2010;Sangiovese;Baricci;2010
+45785;Italy;97;346;1.3;450.0;Tuscany;Brunello di Montalcino;;Poggio di Sotto 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Poggio di Sotto;2010
+45786;Italy;97;223;1.3;290.0;Tuscany;Brunello di Montalcino;;Poggio di Sotto 2010  Brunello di Montalcino;2010;Sangiovese;Poggio di Sotto;2010
+45787;Italy;97;76;1.3;100.0;Tuscany;Brunello di Montalcino;;Gianni Brunelli 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Gianni Brunelli;2010
+45789;Italy;97;53;1.3;70.0;Tuscany;Brunello di Montalcino;;Le Potazzine 2011  Brunello di Montalcino;2011;Sangiovese;Le Potazzine;2011
+45790;Italy;97;107;1.3;140.0;Tuscany;Brunello di Montalcino;;Ciacci Piccolomini d'Aragona 2010 Vigna di Pianrosso Santa Caterina d'Oro Riserva  (Brunello di Montalcino);2010;Sangiovese;Ciacci Piccolomini d'Aragona;2010
+45794;Italy;96;68;1.3;89.0;Tuscany;Brunello di Montalcino;;Terralsole 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Terralsole;2010
+45795;Italy;96;150;1.3;195.0;Tuscany;Brunello di Montalcino;;Fuligni 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Fuligni;2010
+45796;Italy;96;88;1.3;115.0;Tuscany;Brunello di Montalcino;;Padelletti 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Padelletti;2010
+45797;Italy;96;100;1.3;130.0;Tuscany;Brunello di Montalcino;;Canalicchio di Sopra 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Canalicchio di Sopra;2010
+45801;Italy;97;153;1.3;200.0;Tuscany;Bolgheri Superiore;;Tenuta dell'Ornellaia 2006 Ornellaia  (Bolgheri Superiore);2006;Red Blend;Tenuta dell'Ornellaia;2006
+45811;Italy;95;85;1.4;120.0;Tuscany;Toscana;;Fattoria Petrolo 2006 Galatrona Merlot (Toscana);2006;Merlot;Fattoria Petrolo;2006
+45991;Italy;97;73;1.3;96.0;Piedmont;Barolo;;Brovia 2013 Rocche di Castiglione  (Barolo);2013;Nebbiolo;Brovia;2013
+45995;Italy;96;146;1.3;190.0;Piedmont;Barolo;;Paolo Scavino 2011 Rocche dell'Annunziata Riserva  (Barolo);2011;Nebbiolo;Paolo Scavino;2011
+47899;Italy;96;61;1.3;80.0;Central Italy;Montefalco Sagrantino;;Milziade Antano 2010 Colleallodole  (Montefalco Sagrantino);2010;Sagrantino;Milziade Antano;2010
+47908;Italy;95;71;1.4;100.0;Central Italy;Montefalco Sagrantino;;Arnaldo Caprai 2010 25 Anni  (Montefalco Sagrantino);2010;Sagrantino;Arnaldo Caprai;2010
+47912;Italy;95;42;1.4;60.0;Central Italy;Montefalco Sagrantino;;Cantina Fratelli Pardi 2010 Sacrantino  (Montefalco Sagrantino);2010;Sagrantino;Cantina Fratelli Pardi;2010
+47913;Italy;95;35;1.4;50.0;Central Italy;Montefalco Sagrantino;;Milziade Antano 2010  Montefalco Sagrantino;2010;Sagrantino;Milziade Antano;2010
+48374;Italy;95;89;1.4;125.0;Piedmont;Barolo;;Giuseppe Rinaldi 2011 Tre Tine  (Barolo);2011;Nebbiolo;Giuseppe Rinaldi;2011
+48382;Italy;95;142;1.4;200.0;Piedmont;Barbaresco;;Bruno Giacosa 2012 Asili  (Barbaresco);2012;Nebbiolo;Bruno Giacosa;2012
+48383;Italy;95;54;1.4;76.0;Piedmont;Barolo;;Elvio Cogno 2011 Ravera  (Barolo);2011;Nebbiolo;Elvio Cogno;2011
+48384;Italy;95;67;1.4;95.0;Piedmont;Barolo;;Giovanni Rosso 2011 Cerretta  (Barolo);2011;Nebbiolo;Giovanni Rosso;2011
+52631;Italy;96;307;1.3;400.0;Tuscany;Brunello di Montalcino;;Biondi Santi 2001 Riserva  (Brunello di Montalcino);2001;Sangiovese;Biondi Santi;2001
+52633;Italy;95;42;1.4;60.0;Tuscany;Brunello di Montalcino;;Poggio Nardone 2001 Riserva  (Brunello di Montalcino);2001;Sangiovese;Poggio Nardone;2001
+52634;Italy;95;85;1.4;119.0;Tuscany;Tuscany;;Marchesi de' Frescobaldi 2003 Castello di Pomino Vendemmia Tardiva White (Tuscany);2003;White Blend;Marchesi de' Frescobaldi;2003
+52885;Italy;95;35;1.4;50.0;Northeastern Italy;Vigneti delle Dolomiti;;Foradori 2012 Morei Teroldego (Vigneti delle Dolomiti);2012;Teroldego;Foradori;2012
+54299;Italy;97;69;1.3;90.0;Southern Italy;Taurasi;;Guastaferro 2006 Primum Riserva  (Taurasi);2006;Aglianico;Guastaferro;2006
+54307;Italy;96;80;1.3;105.0;Southern Italy;Campania;;Feudi di San Gregorio 2012 Patrimo Merlot (Campania);2012;Merlot;Feudi di San Gregorio;2012
+54318;Italy;95;57;1.4;80.0;Southern Italy;Taurasi;;Mastroberardino 2008 Radici Antonio Riserva  (Taurasi);2008;Aglianico;Mastroberardino;2008
+54320;Italy;95;35;1.4;50.0;Southern Italy;Taurasi;;Contrade di Taurasi - Lonardo 2010  Taurasi;2010;Aglianico;Contrade di Taurasi - Lonardo;2010
+59975;Italy;96;65;1.3;85.0;Tuscany;Brunello di Montalcino;;Le Potazzine 2012  Brunello di Montalcino;2012;Sangiovese;Le Potazzine;2012
+59976;Italy;96;38;1.3;50.0;Tuscany;Brunello di Montalcino;;Baricci 2012  Brunello di Montalcino;2012;Sangiovese;Baricci;2012
+59978;Italy;95;85;1.4;120.0;Tuscany;Brunello di Montalcino;;Ridolfi 2012 Mercatale  (Brunello di Montalcino);2012;Sangiovese;Ridolfi;2012
+59983;Italy;95;64;1.4;90.0;Tuscany;Brunello di Montalcino;;Ciacci Piccolomini d'Aragona 2012 Vigna di Pianrosso  (Brunello di Montalcino);2012;Sangiovese;Ciacci Piccolomini d'Aragona;2012
+59986;Italy;95;53;1.4;75.0;Tuscany;Brunello di Montalcino;;L'Aietta 2012  Brunello di Montalcino;2012;Sangiovese;L'Aietta;2012
+59989;Italy;95;50;1.4;70.0;Tuscany;Brunello di Montalcino;;Ciacci Piccolomini d'Aragona 2012  Brunello di Montalcino;2012;Sangiovese;Ciacci Piccolomini d'Aragona;2012
+59993;Italy;95;67;1.4;95.0;Tuscany;Brunello di Montalcino;;Fuligni 2012  Brunello di Montalcino;2012;Sangiovese;Fuligni;2012
+60880;Italy;99;325;1.35;440.0;Piedmont;Langhe;;Gaja 2007 Sorì Tildìn Nebbiolo (Langhe);2007;Nebbiolo;Gaja;2007
+60881;Italy;99;325;1.35;440.0;Piedmont;Langhe;;Gaja 2007 Sorì San Lorenzo Nebbiolo (Langhe);2007;Nebbiolo;Gaja;2007
+60882;Italy;98;196;1.3;255.0;Piedmont;Langhe;;Gaja 2006 Sperss Nebbiolo (Langhe);2006;Nebbiolo;Gaja;2006
+63759;Italy;95;28;1.4;40.0;Northeastern Italy;Alto Adige;;Cantina Produttori San Michele Appiano 2015 Sanct Valentin Sauvignon (Alto Adige);2015;Sauvignon;Cantina Produttori San Michele Appiano;2015
+63760;Italy;95;75;1.4;105.0;Tuscany;Brunello di Montalcino;;Collosorbo 2011 Riserva  (Brunello di Montalcino);2011;Sangiovese;Collosorbo;2011
+63763;Italy;95;117;1.4;165.0;Northeastern Italy;Alto Adige;;Terlan 2004 Rarità 2004 Pinot Bianco (Alto Adige);2004;Pinot Bianco;Terlan;2004
+63766;Italy;95;392;1.4;550.0;Tuscany;Brunello di Montalcino;;Poggio di Sotto 2011 Riserva  (Brunello di Montalcino);2011;Sangiovese;Poggio di Sotto;2011
+65362;Italy;95;22;1.4;31.0;Veneto;Soave Classico;;Pieropan 2011 La Rocca  (Soave Classico);2011;Garganega;Pieropan;2011
+65944;Italy;95;42;1.4;59.0;Piedmont;Barbaresco;;Rizzi 2014 Nervo  (Barbaresco);2014;Nebbiolo;Rizzi;2014
+73312;Italy;95;85;1.4;119.0;Piedmont;Barbaresco;;Punset 2004 Riserva  (Barbaresco);2004;Nebbiolo;Punset;2004
+73313;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Eugenio Bocchino 2007 La Serra  (Barolo);2007;Nebbiolo;Eugenio Bocchino;2007
+73982;Italy;95;57;1.4;80.0;Tuscany;Toscana;;Tua Rita 2008 Giusto di Notri Red (Toscana);2008;Red Blend;Tua Rita;2008
+73986;Italy;95;92;1.4;130.0;Tuscany;Toscana;;Le Macchiole 2008 Paleo Cabernet Franc (Toscana);2008;Cabernet Franc;Le Macchiole;2008
+73987;Italy;95;125;1.4;175.0;Tuscany;Toscana;;Monteverro 2008 Red (Toscana);2008;Red Blend;Monteverro;2008
+73998;Italy;95;28;1.4;40.0;Tuscany;Bolgheri Superiore;;Aia Vecchia 2008 Sorugo  (Bolgheri Superiore);2008;Red Blend;Aia Vecchia;2008
+74809;Italy;95;53;1.4;75.0;Tuscany;Sant'Antimo;;Col d'Orcia 2004 Olmaia Cabernet Sauvignon (Sant'Antimo);2004;Cabernet Sauvignon;Col d'Orcia;2004
+74810;Italy;95;38;1.4;54.0;Tuscany;Toscana;;Podere L'Aione 2004 Salve Sangiovese (Toscana);2004;Sangiovese;Podere L'Aione;2004
+74811;Italy;95;57;1.4;80.0;Tuscany;Toscana;;Poggio al Tesoro 2005 Dedicato a Walter Cabernet Franc (Toscana);2005;Cabernet Franc;Poggio al Tesoro;2005
+74812;Italy;95;196;1.4;275.0;Tuscany;Toscana;;Tua Rita 2005 Redigaffi Merlot (Toscana);2005;Merlot;Tua Rita;2005
+74814;Italy;95;100;1.4;140.0;Tuscany;Maremma;;Fattoria Le Pupille 2004 Saffredi  (Maremma);2004;Red Blend;Fattoria Le Pupille;2004
+74815;Italy;95;71;1.4;100.0;Tuscany;Toscana;;Tua Rita 2005 Giusto di Notri Red (Toscana);2005;Red Blend;Tua Rita;2005
+75944;Italy;96;134;1.3;175.0;Veneto;Amarone della Valpolicella Classico;;Masi 2003 Mazzano  (Amarone della Valpolicella Classico);2003;Corvina, Rondinella, Molinara;Masi;2003
+76393;Italy;95;70;1.4;99.0;Piedmont;Barolo;;Massolino 2011 Parafada  (Barolo);2011;Nebbiolo;Massolino;2011
+76394;Italy;95;71;1.4;100.0;Piedmont;Barolo;;Paolo Scavino 2011 Bric dël Fiasc  (Barolo);2011;Nebbiolo;Paolo Scavino;2011
+76564;Italy;95;32;1.4;45.0;Sicily & Sardinia;Etna;;Benanti 2010 Pietramarina Bianco Superiore  (Etna);2010;Carricante;Benanti;2010
+77039;Italy;95;50;1.4;70.0;Central Italy;Sagrantino di Montefalco;;Milziade Antano 2009 Colleallodole  (Sagrantino di Montefalco);2009;Sagrantino;Milziade Antano;2009
+79104;Italy;99;185;1.35;250.0;Tuscany;Toscana;;Tenuta dell'Ornellaia 2004 Masseto Merlot (Toscana);2004;Merlot;Tenuta dell'Ornellaia;2004
+79105;Italy;98;134;1.3;175.0;Tuscany;Bolgheri Superiore;;Tenuta dell'Ornellaia 2004 Ornellaia  (Bolgheri Superiore);2004;Red Blend;Tenuta dell'Ornellaia;2004
+79106;Italy;97;146;1.3;190.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2004 Sassicaia  (Bolgheri Sassicaia);2004;Red Blend;Tenuta San Guido;2004
+79107;Italy;97;76;1.3;100.0;Tuscany;Toscana;;Fattoria Petrolo 2004 Galatrona Merlot (Toscana);2004;Merlot;Fattoria Petrolo;2004
+79108;Italy;96;80;1.3;105.0;Tuscany;Toscana;;Le Macchiole 2004 Paleo Cabernet Franc (Toscana);2004;Cabernet Franc;Le Macchiole;2004
+79109;Italy;96;75;1.3;98.0;Tuscany;Toscana;;Bibi Graetz 2004 Testamatta Sangiovese (Toscana);2004;Sangiovese;Bibi Graetz;2004
+79111;Italy;96;130;1.3;170.0;Tuscany;Toscana;;Marchesi Antinori 2004 Solaia Red (Toscana);2004;Red Blend;Marchesi Antinori;2004
+79112;Italy;95;66;1.4;93.0;Tuscany;Toscana;;Tenuta Sette Ponti 2005 Oreno Red (Toscana);2005;Red Blend;Tenuta Sette Ponti;2005
+79113;Italy;95;50;1.4;70.0;Tuscany;Toscana;;San Giusto a Rentennano 2004 Percarlo Sangiovese (Toscana);2004;Sangiovese;San Giusto a Rentennano;2004
+79114;Italy;95;47;1.4;66.0;Tuscany;Bolgheri Superiore;;Podere Sapaio 2004 Sapaio  (Bolgheri Superiore);2004;Red Blend;Podere Sapaio;2004
+79115;Italy;95;100;1.4;140.0;Tuscany;Toscana;;Castello del Terriccio 2004 Castello del Terriccio Red (Toscana);2004;Red Blend;Castello del Terriccio;2004
+79116;Italy;;;;;;;;;;;;
+79117;Italy;95;35;1.4;50.0;Tuscany;Cortona;;Avignonesi 2004 Desiderio Red (Cortona);2004;Red Blend;Avignonesi;2004
+81393;Italy;;;;;;;;;;;;
+81394;Italy;95;35;1.4;50.0;Tuscany;Toscana;;Petra 1998 Riserva Cabernet Sauvignon-Merlot (Toscana);1998;Cabernet Sauvignon-Merlot;Petra;1998
+81396;Italy;95;57;1.4;80.0;Tuscany;Bolgheri;;Antinori 1999 Guado Al Tasso  (Bolgheri);1999;Red Blend;Antinori;1999
+81397;Italy;95;85;1.4;119.0;Tuscany;Brunello di Montalcino;;Talenti 1997  Brunello di Montalcino;1997;Sangiovese;Talenti;1997
+81899;Italy;97;165;1.3;215.0;Piedmont;Langhe;;Gaja 2006 Conteisa Nebbiolo (Langhe);2006;Nebbiolo;Gaja;2006
+81904;Italy;95;300;1.4;420.0;Piedmont;Langhe;;Gaja 2006 Costa Russi Nebbiolo (Langhe);2006;Nebbiolo;Gaja;2006
+82750;Italy;99;175;1.35;237.0;Tuscany;Vin Santo di Montepulciano;;Avignonesi 1997 Occhio di Pernice  (Vin Santo di Montepulciano);1997;Prugnolo Gentile;Avignonesi;1997
+82755;Italy;97;130;1.3;170.0;Tuscany;Vin Santo di Montepulciano;;Avignonesi 1997 375ml  (Vin Santo di Montepulciano);1997;White Blend;Avignonesi;1997
+82819;Italy;96;115;1.3;150.0;Piedmont;Barolo;;Massolino 2010 Vigna Rionda Riserva  (Barolo);2010;Nebbiolo;Massolino;2010
+82822;Italy;96;161;1.3;210.0;Piedmont;Barolo;;Rivetto 2010 Briccolina Riserva  (Barolo);2010;Nebbiolo;Rivetto;2010
+82840;Italy;95;42;1.4;60.0;Piedmont;Gattinara;;Travaglini 2010 Riserva  (Gattinara);2010;Nebbiolo;Travaglini;2010
+82868;Italy;;;;;;;;;;;;
+82871;Italy;95;67;1.4;94.0;Piedmont;Barolo;;Massolino 2006 Parafada  (Barolo);2006;Nebbiolo;Massolino;2006
+82872;Italy;95;92;1.4;130.0;Piedmont;Barolo;;Vietti 2006 Rocche  (Barolo);2006;Nebbiolo;Vietti;2006
+82873;Italy;95;180;1.4;252.0;Piedmont;Barolo;;Ceretto 2005 Bricco Rocche Bricco Rocche  (Barolo);2005;Nebbiolo;Ceretto;2005
+82875;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Podere Rocche dei Manzoni 2006 Vigna Cappella di Santo Stefano  (Barolo);2006;Nebbiolo;Podere Rocche dei Manzoni;2006
+82877;Italy;;;;;;;;;;;;
+82878;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Cordero di Montezemolo 2006 Bricco Gattera  (Barolo);2006;Nebbiolo;Cordero di Montezemolo;2006
+82884;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Marchesi di Barolo 2006 Coste di Rose  (Barolo);2006;Nebbiolo;Marchesi di Barolo;2006
+82885;Italy;95;71;1.4;100.0;Piedmont;Barolo;;Eugenio Bocchino 2006 La Serra  (Barolo);2006;Nebbiolo;Eugenio Bocchino;2006
+83922;Italy;95;39;1.4;55.0;Piedmont;Barolo;;Giacomo Fenocchio 2013 Castellero  (Barolo);2013;Nebbiolo;Giacomo Fenocchio;2013
+83923;Italy;95;35;1.4;50.0;Piedmont;Barolo;;Renato Ratti 2013 Marcenasco  (Barolo);2013;Nebbiolo;Renato Ratti;2013
+83925;Italy;95;107;1.4;150.0;Piedmont;Barolo;;Aldo Conterno 2013 Bussia Colonnello  (Barolo);2013;Nebbiolo;Aldo Conterno;2013
+83929;Italy;95;37;1.4;52.0;Piedmont;Barolo;;Massolino 2013 Serralunga d'Alba  (Barolo);2013;Nebbiolo;Massolino;2013
+83930;Italy;95;64;1.4;90.0;Piedmont;Barolo;;Paolo Scavino 2013 Cannubi  (Barolo);2013;Nebbiolo;Paolo Scavino;2013
+83934;Italy;95;116;1.4;163.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2012 Monprivato  (Barolo);2012;Nebbiolo;Mascarello Giuseppe e Figlio;2012
+83935;Italy;95;53;1.4;75.0;Piedmont;Barolo;;Mauro Veglio 2013 Rocche dell'Annunziata  (Barolo);2013;Nebbiolo;Mauro Veglio;2013
+83939;Italy;;;;;;;;;;;;
+83942;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Cavallotto 2011 Vignolo Riserva  (Barolo);2011;Nebbiolo;Cavallotto;2011
+85152;Italy;95;103;1.4;145.0;Piedmont;Barolo;;Cantina Bartolo Mascarello 2012  Barolo;2012;Nebbiolo;Cantina Bartolo Mascarello;2012
+85153;Italy;95;55;1.4;78.0;Piedmont;Barolo;;Cavallotto 2012 Bricco Boschis  (Barolo);2012;Nebbiolo;Cavallotto;2012
+85154;Italy;95;39;1.4;55.0;Piedmont;Barolo;;Comm. G. B. Burlotto 2012 Acclivi  (Barolo);2012;Nebbiolo;Comm. G. B. Burlotto;2012
+87608;Italy;95;182;1.4;255.0;Piedmont;Barbaresco;;Gaja 2010  Barbaresco;2010;Nebbiolo;Gaja;2010
+88856;Italy;95;71;1.4;100.0;Central Italy;Sagrantino di Montefalco;;Arnaldo Caprai 2007 25 Anni  (Sagrantino di Montefalco);2007;Sagrantino;Arnaldo Caprai;2007
+89459;Italy;95;37;1.4;52.0;Tuscany;Chianti Classico;;Castello di Ama 2010 San Lorenzo Gran Selezione  (Chianti Classico);2010;Red Blend;Castello di Ama;2010
+89462;Italy;95;32;1.4;45.0;Tuscany;Chianti Classico;;Ormanni 2010 Etichetta Storica Gran Selezione  (Chianti Classico);2010;Sangiovese;Ormanni;2010
+89468;Italy;95;82;1.4;115.0;Tuscany;Chianti Classico;;Felsina 2010 Colonia Gran Selezione  (Chianti Classico);2010;Sangiovese;Felsina;2010
+90940;Italy;96;174;1.3;227.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2009 Sassicaia  (Bolgheri Sassicaia);2009;Red Blend;Tenuta San Guido;2009
+91842;Italy;95;40;1.4;57.0;Central Italy;Verdicchio dei Castelli di Jesi Classico Superiore;;Bucci 2013 Villa Bucci Riserva  (Verdicchio dei Castelli di Jesi Classico Superiore);2013;Verdicchio;Bucci;2013
+93696;Italy;95;357;1.4;500.0;Veneto;Amarone della Valpolicella;;Dal Forno Romano 2004 Vigneto di Monte Lodoletta  (Amarone della Valpolicella);2004;Corvina, Rondinella, Molinara;Dal Forno Romano;2004
+94115;Italy;95;378;1.4;530.0;Veneto;Amarone della Valpolicella;;Dal Forno Romano 2006  Amarone della Valpolicella;2006;Corvina, Rondinella, Molinara;Dal Forno Romano;2006
+94118;Italy;95;89;1.4;125.0;Veneto;Amarone della Valpolicella Classico;;Zenato 2006 Sergio Zenato Riserva  (Amarone della Valpolicella Classico);2006;Corvina, Rondinella, Molinara;Zenato;2006
+94119;Italy;95;94;1.4;132.0;Veneto;Amarone della Valpolicella Classico;;Le Salette 2008 Pergole Vece  (Amarone della Valpolicella Classico);2008;Corvina, Rondinella, Molinara;Le Salette;2008
+94229;Italy;95;35;1.4;50.0;Piedmont;Barolo;;Elvio Cogno 2007 Cascina Nuova  (Barolo);2007;Nebbiolo;Elvio Cogno;2007
+94447;Italy;95;39;1.4;55.0;Piedmont;Barolo;;Sordo 2010 Gabutti  (Barolo);2010;Nebbiolo;Sordo;2010
+94448;Italy;95;87;1.4;123.0;Piedmont;Barolo;;Oddero 2010 Brunate  (Barolo);2010;Nebbiolo;Oddero;2010
+94450;Italy;95;57;1.4;80.0;Piedmont;Barolo;;Poderi Aldo Conterno 2010 Bussia  (Barolo);2010;Nebbiolo;Poderi Aldo Conterno;2010
+94451;Italy;95;46;1.4;65.0;Piedmont;Barolo;;Sordo 2010 Monvigliero  (Barolo);2010;Nebbiolo;Sordo;2010
+94452;Italy;95;53;1.4;75.0;Piedmont;Barolo;;Elvio Cogno 2010 Ravera  (Barolo);2010;Nebbiolo;Elvio Cogno;2010
+94455;Italy;95;92;1.4;130.0;Piedmont;Barolo;;Poderi Aldo Conterno 2010 Bussia Cicala  (Barolo);2010;Nebbiolo;Poderi Aldo Conterno;2010
+95531;Italy;95;27;1.4;38.0;Piedmont;Barolo;;La Spinona 2012 Bergera  (Barolo);2012;Nebbiolo;La Spinona;2012
+95532;Italy;95;43;1.4;61.0;Piedmont;Barolo;;Paolo Scavino 2013 Bricco Ambrogio  (Barolo);2013;Nebbiolo;Paolo Scavino;2013
+95534;Italy;95;167;1.4;235.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2014 Sassicaia  (Bolgheri Sassicaia);2014;Red Blend;Tenuta San Guido;2014
+95540;Italy;95;34;1.4;48.0;Piedmont;Barolo;;Manzone 2013 Fraschin Bricco San Pietro  (Barolo);2013;Nebbiolo;Manzone;2013
+95544;Italy;95;37;1.4;52.0;Piedmont;Barolo;;Sobrero 2013 Ciabot Tanasio  (Barolo);2013;Nebbiolo;Sobrero;2013
+95549;Italy;95;57;1.4;80.0;Tuscany;Brunello di Montalcino;;Le Gode 2012  Brunello di Montalcino;2012;Sangiovese;Le Gode;2012
+95551;Italy;95;96;1.4;135.0;Piedmont;Barolo;;Mirafiore 2007 Riserva  (Barolo);2007;Nebbiolo;Mirafiore;2007
+98376;Italy;96;215;1.3;280.0;Tuscany;Toscana;;Tenuta di Biserno 2008 Lodovico Red (Toscana);2008;Red Blend;Tenuta di Biserno;2008
+98381;Italy;95;75;1.4;105.0;Tuscany;Toscana;;Marchesi Antinori 2009 Tignanello Red (Toscana);2009;Red Blend;Marchesi Antinori;2009
+98394;Italy;95;39;1.4;55.0;Piedmont;Barbaresco;;Rizzi 2010 Nervo  (Barbaresco);2010;Nebbiolo;Rizzi;2010
+98559;Italy;95;53;1.4;75.0;Southern Italy;Taurasi;;Mastroberardino 2006 Radici Riserva  (Taurasi);2006;Aglianico;Mastroberardino;2006
+99316;Italy;95;46;1.4;65.0;Tuscany;Brunello di Montalcino;;Abbadia Ardenga 2012 Vigna Piaggia  (Brunello di Montalcino);2012;Sangiovese;Abbadia Ardenga;2012
+99332;Italy;95;57;1.4;80.0;Tuscany;Brunello di Montalcino;;Il Marroneto 2012  Brunello di Montalcino;2012;Sangiovese;Il Marroneto;2012
+99333;Italy;95;45;1.4;63.0;Tuscany;Brunello di Montalcino;;Armilla 2012  Brunello di Montalcino;2012;Sangiovese;Armilla;2012
+101582;Italy;95;85;1.4;120.0;Tuscany;Brunello di Montalcino;;Le Chiuse 2004 Riserva  (Brunello di Montalcino);2004;Sangiovese Grosso;Le Chiuse;2004
+102483;Italy;97;76;1.3;100.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2010 Villero  (Barolo);2010;Nebbiolo;Mascarello Giuseppe e Figlio;2010
+102488;Italy;96;60;1.3;79.0;Piedmont;Barbaresco;;Sottimano 2010 Riserva  (Barbaresco);2010;Nebbiolo;Sottimano;2010
+102490;Italy;96;84;1.3;110.0;Piedmont;Barolo;;Elvio Cogno 2010 Bricco Pernice  (Barolo);2010;Nebbiolo;Elvio Cogno;2010
+102491;Italy;95;178;1.4;250.0;Piedmont;Barolo;;Bruno Giacosa 2011 Falletto  (Barolo);2011;Nebbiolo;Bruno Giacosa;2011
+102492;Italy;95;33;1.4;47.0;Piedmont;Barolo;;Guido Porro 2011 Vigna S. Caterina  (Barolo);2011;Nebbiolo;Guido Porro;2011
+102496;Italy;95;67;1.4;95.0;Piedmont;Barolo;;Brovia 2011 Brea Vigna Ca' Mia  (Barolo);2011;Nebbiolo;Brovia;2011
+102498;Italy;95;60;1.4;85.0;Piedmont;Barolo;;Castello di Verduno 2011 Massara  (Barolo);2011;Nebbiolo;Castello di Verduno;2011
+102499;Italy;95;71;1.4;100.0;Piedmont;Barolo;;Cavallotto 2009 Vignolo Riserva  (Barolo);2009;Nebbiolo;Cavallotto;2009
+102500;Italy;95;142;1.4;200.0;Piedmont;Barbaresco;;Bruno Giacosa 2011 Albesani Vigna Santo Stefano  (Barbaresco);2011;Nebbiolo;Bruno Giacosa;2011
+102814;Italy;95;85;1.4;119.0;Southern Italy;Taurasi;;Guastaferro 2008 Primum  (Taurasi);2008;Aglianico;Guastaferro;2008
+108646;Italy;97;423;1.3;550.0;Tuscany;Toscana;;Masseto 2010 Merlot (Toscana);2010;Merlot;Masseto;2010
+108647;Italy;97;174;1.3;227.0;Tuscany;Bolgheri Sassicaia;;Tenuta San Guido 2010 Sassicaia  (Bolgheri Sassicaia);2010;Red Blend;Tenuta San Guido;2010
+108648;Italy;97;184;1.3;240.0;Tuscany;Bolgheri Superiore;;Ornellaia 2010  Bolgheri Superiore;2010;Red Blend;Ornellaia;2010
+108649;Italy;97;100;1.3;130.0;Tuscany;Toscana;;Le Macchiole 2010 Paleo Rosso Cabernet Franc (Toscana);2010;Cabernet Franc;Le Macchiole;2010
+109335;Italy;96;242;1.3;315.0;Tuscany;Toscana;;Le Macchiole 2010 Messorio Merlot (Toscana);2010;Merlot;Le Macchiole;2010
+109408;Italy;97;62;1.3;81.0;Tuscany;Toscana;;Castello Banfi 2007 Excelsus Red (Toscana);2007;Red Blend;Castello Banfi;2007
+109409;Italy;97;103;1.3;134.0;Tuscany;Toscana;;Fattoria Petrolo 2008 Galatrona Merlot (Toscana);2008;Merlot;Fattoria Petrolo;2008
+109418;Italy;95;64;1.4;90.0;Tuscany;Toscana;;Poggio al Tesoro 2006 Dedicato a Walter Cabernet Franc (Toscana);2006;Cabernet Franc;Poggio al Tesoro;2006
+109455;Italy;95;57;1.4;80.0;Piedmont;Barolo;;Cavallotto 2011 Bricco Boschis  (Barolo);2011;Nebbiolo;Cavallotto;2011
+109462;Italy;95;42;1.4;59.0;Piedmont;Barbaresco;;Rizzi 2011 Pajorè  (Barbaresco);2011;Nebbiolo;Rizzi;2011
+109464;Italy;95;22;1.4;32.0;Piedmont;Gattinara;;Vallana 2006  Gattinara;2006;Nebbiolo;Vallana;2006
+109467;Italy;95;64;1.4;90.0;Piedmont;Barolo;;Damilano 2011 Cannubi  (Barolo);2011;Nebbiolo;Damilano;2011
+109470;Italy;;;;;;;;;;;;
+109471;Italy;95;96;1.4;135.0;Piedmont;Barolo;;Giuseppe Rinaldi 2011 Brunate  (Barolo);2011;Nebbiolo;Giuseppe Rinaldi;2011
+109842;Italy;96;55;1.3;72.0;Piedmont;Lessona;;Proprietà Sperino 2011  Lessona;2011;Nebbiolo;Proprietà Sperino;2011
+109844;Italy;96;26;1.3;35.0;Piedmont;Lessona;;Colombera & Garella 2013 Pizzaguerra  (Lessona);2013;Nebbiolo;Colombera & Garella;2013
+109846;Italy;96;153;1.3;200.0;Piedmont;Barbaresco;;Gaja 2013  Barbaresco;2013;Nebbiolo;Gaja;2013
+109849;Italy;96;80;1.3;105.0;Lombardy;Valtellina Superiore;;Arpepe 2007 Sassella Vigna Regina Riserva  (Valtellina Superiore);2007;Nebbiolo;Arpepe;2007
+111754;Italy;100;200;1.35;270.0;Tuscany;Brunello di Montalcino;;Casanova di Neri 2007 Cerretalto  (Brunello di Montalcino);2007;Sangiovese Grosso;Casanova di Neri;2007
+113931;Italy;96;361;1.3;470.0;Veneto;Amarone della Valpolicella;;Dal Forno Romano 2003 Vigneto di Monte Lodoletta  (Amarone della Valpolicella);2003;Corvina, Rondinella, Molinara;Dal Forno Romano;2003
+117317;Italy;97;116;1.3;152.0;Tuscany;Brunello di Montalcino;;Il Paradiso di Manfredi 2006 Riserva  (Brunello di Montalcino);2006;Sangiovese;Il Paradiso di Manfredi;2006
+117318;Italy;96;84;1.3;110.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2009 Santo Stefano di Perno  (Barolo);2009;Nebbiolo;Mascarello Giuseppe e Figlio;2009
+118958;Italy;95;31;1.4;44.0;Tuscany;Chianti Classico;;San Felice 2011 Il Grigio Gran Selezione  (Chianti Classico);2011;Red Blend;San Felice;2011
+118964;Italy;95;28;1.4;40.0;Tuscany;Chianti Classico;;Cafaggio 2010 Basilica Solatìo Riserva  (Chianti Classico);2010;Sangiovese;Cafaggio;2010
+118965;Italy;95;58;1.4;82.0;Tuscany;Chianti Classico;;Monteraponi 2011 Baron' Ugo Riserva  (Chianti Classico);2011;Red Blend;Monteraponi;2011
+118968;Italy;95;35;1.4;50.0;Tuscany;Vino Nobile di Montepulciano;;Contucci 2010 Mulinvecchio  (Vino Nobile di Montepulciano);2010;Red Blend;Contucci;2010
+119641;Italy;97;63;1.3;82.0;Piedmont;Barolo;;Elvio Cogno 2013 Ravera  (Barolo);2013;Nebbiolo;Elvio Cogno;2013
+119642;Italy;97;44;1.3;58.0;Piedmont;Barbaresco;;Produttori del Barbaresco 2011 Rabajà Riserva  (Barbaresco);2011;Nebbiolo;Produttori del Barbaresco;2011
+119643;Italy;97;130;1.3;170.0;Piedmont;Barolo;;Sandrone 2013 Aleste  (Barolo);2013;Nebbiolo;Sandrone;2013
+119644;Italy;97;42;1.3;55.0;Piedmont;Barolo;;Giacomo Fenocchio 2013 Bussia  (Barolo);2013;Nebbiolo;Giacomo Fenocchio;2013
+119645;Italy;97;74;1.3;97.0;Piedmont;Barolo;;Massolino 2013 Parafada  (Barolo);2013;Nebbiolo;Massolino;2013
+119646;Italy;97;288;1.3;375.0;Piedmont;Barolo;;Giuseppe Rinaldi 2013 Tre Tine  (Barolo);2013;Nebbiolo;Giuseppe Rinaldi;2013
+119647;Italy;97;57;1.3;75.0;Piedmont;Barolo;;Grimaldi Bruna 2013 Badarina  (Barolo);2013;Nebbiolo;Grimaldi Bruna;2013
+119648;Italy;96;53;1.3;70.0;Piedmont;Barolo;;Schiavenza 2013 Prapò  (Barolo);2013;Nebbiolo;Schiavenza;2013
+119649;Italy;96;73;1.3;96.0;Piedmont;Barolo;;Brovia 2013 Villero  (Barolo);2013;Nebbiolo;Brovia;2013
+119650;Italy;96;91;1.3;119.0;Piedmont;Barolo;;Cavallotto 2011 Bricco Boschis Vigna San Giuseppe Riserva  (Barolo);2011;Nebbiolo;Cavallotto;2011
+119651;Italy;96;100;1.3;130.0;Piedmont;Barolo;;Ceretto 2013 Prapò  (Barolo);2013;Nebbiolo;Ceretto;2013
+119652;Italy;96;46;1.3;60.0;Piedmont;Barolo;;Comm. G. B. Burlotto 2013 Acclivi  (Barolo);2013;Nebbiolo;Comm. G. B. Burlotto;2013
+119653;Italy;96;74;1.3;97.0;Piedmont;Barolo;;Massolino 2013 Parussi  (Barolo);2013;Nebbiolo;Massolino;2013
+119654;Italy;96;69;1.3;90.0;Piedmont;Barolo;;Cavallotto 2013 Bricco Boschis  (Barolo);2013;Nebbiolo;Cavallotto;2013
+119656;Italy;96;74;1.3;97.0;Piedmont;Barolo;;Massolino 2013 Margheria  (Barolo);2013;Nebbiolo;Massolino;2013
+119659;Italy;96;115;1.3;150.0;Piedmont;Barolo;;Aldo Conterno 2013 Bussia Cicala  (Barolo);2013;Nebbiolo;Aldo Conterno;2013
+119662;Italy;95;80;1.4;113.0;Piedmont;Barolo;;Mascarello Giuseppe e Figlio 2012 Perno  (Barolo);2012;Nebbiolo;Mascarello Giuseppe e Figlio;2012
+119667;Italy;95;82;1.4;115.0;Piedmont;Barolo;;Michele Chiarlo 2013 Cerequio  (Barolo);2013;Nebbiolo;Michele Chiarlo;2013
+119668;Italy;95;49;1.4;69.0;Piedmont;Barolo;;Paolo Scavino 2013 Monvigliero  (Barolo);2013;Nebbiolo;Paolo Scavino;2013
+119669;Italy;95;55;1.4;77.0;Piedmont;Barolo;;Pio Cesare 2013  Barolo;2013;Nebbiolo;Pio Cesare;2013
+119670;Italy;95;55;1.4;78.0;Piedmont;Barolo;;Fratelli Alessandria 2013 Monvigliero  (Barolo);2013;Nebbiolo;Fratelli Alessandria;2013
+120275;Italy;97;61;1.3;80.0;Tuscany;Brunello di Montalcino;;Casanova di Neri 2006 Tenuta Nuova  (Brunello di Montalcino);2006;Sangiovese Grosso;Casanova di Neri;2006
+120280;Italy;95;42;1.4;60.0;Tuscany;Brunello di Montalcino;;Sesta di Sopra 2006  Brunello di Montalcino;2006;Sangiovese Grosso;Sesta di Sopra;2006
+121001;Italy;95;50;1.4;70.0;Tuscany;Colli della Toscana Centrale;;Fontodi 2013 Dino Sangiovese (Colli della Toscana Centrale);2013;Sangiovese;Fontodi;2013
+121933;Italy;98;63;1.3;83.0;Piedmont;Barolo;;Brovia 2013 Garblèt Suè  (Barolo);2013;Nebbiolo;Brovia;2013
+121935;Italy;97;73;1.3;96.0;Piedmont;Barolo;;Brovia 2013 Brea Vigna Cà Mia  (Barolo);2013;Nebbiolo;Brovia;2013
+122019;Italy;95;75;1.4;105.0;Tuscany;Toscana;;Marchesi Antinori 2009 Tignanello Red (Toscana);2009;Red Blend;Marchesi Antinori;2009
+122029;Italy;95;120;1.4;169.0;Piedmont;Barolo;;Rivetto 2008 Briccolina  (Barolo);2008;Nebbiolo;Rivetto;2008
+122038;Italy;95;128;1.4;180.0;Tuscany;Toscana;;Tenuta di Biserno 2009 Biserno Red (Toscana);2009;Red Blend;Tenuta di Biserno;2009
+122419;Italy;97;61;1.3;80.0;Piedmont;Barolo;;Giacomo Fenocchio 2008 Bussia 90 Dì  (Barolo);2008;Nebbiolo;Giacomo Fenocchio;2008
+122420;Italy;97;75;1.3;98.0;Piedmont;Barolo;;Cavallotto 2007 Vignolo Riserva  (Barolo);2007;Nebbiolo;Cavallotto;2007
+122423;Italy;96;90;1.3;118.0;Piedmont;Barolo;;Paolo Scavino 2009 Cannubi  (Barolo);2009;Nebbiolo;Paolo Scavino;2009
+122425;Italy;95;85;1.4;119.0;Piedmont;Barolo;;Luigi Oddero & Figli 2009  Barolo;2009;Nebbiolo;Luigi Oddero & Figli;2009
+122426;Italy;95;70;1.4;98.0;Piedmont;Barolo;;Cavallotto 2007 Bricco Boschis Vigna San Giuseppe Riserva  (Barolo);2007;Nebbiolo;Cavallotto;2007
+122427;Italy;95;53;1.4;75.0;Piedmont;Barolo;;Cavallotto 2009 Bricco Boschis  (Barolo);2009;Nebbiolo;Cavallotto;2009
+122429;Italy;95;35;1.4;49.0;Piedmont;Barolo;;Gigi Rosso 2009 Arione  (Barolo);2009;Nebbiolo;Gigi Rosso;2009
+122431;Italy;95;84;1.4;118.0;Piedmont;Barolo;;Paolo Scavino 2009 Bric dël Fiasc  (Barolo);2009;Nebbiolo;Paolo Scavino;2009
+122432;Italy;95;64;1.4;90.0;Piedmont;Barolo;;Sandrone 2009 Le Vigne  (Barolo);2009;Nebbiolo;Sandrone;2009
+122498;Italy;95;39;1.4;55.0;Tuscany;Chianti Classico;;San Felice 2013 Il Grigio Gran Selezione  (Chianti Classico);2013;Red Blend;San Felice;2013
+122503;Italy;95;78;1.4;110.0;Tuscany;Toscana;;Le Macchiole 2012 Paleo Rosso Cabernet Franc (Toscana);2012;Cabernet Franc;Le Macchiole;2012
+122510;Italy;95;85;1.4;120.0;Tuscany;Brunello di Montalcino;;Lazzeretti 2010 Riserva  (Brunello di Montalcino);2010;Sangiovese;Lazzeretti;2010
+122516;Italy;95;57;1.4;80.0;Tuscany;Toscana;;Isole e Olena 2012 Cepparello Sangiovese (Toscana);2012;Sangiovese;Isole e Olena;2012
+122936;Italy;99;148;1.35;200.0;Tuscany;Brunello di Montalcino;;Il Marroneto 2012 Madonna delle Grazie  (Brunello di Montalcino);2012;Sangiovese;Il Marroneto;2012
+122937;Italy;98;73;1.3;95.0;Tuscany;Brunello di Montalcino;;Conti Costanti 2012  Brunello di Montalcino;2012;Sangiovese;Conti Costanti;2012
+125833;Italy;96;380;1.3;495.0;Piedmont;Langhe;;Gaja 2009 Sorì San Lorenzo Nebbiolo (Langhe);2009;Nebbiolo;Gaja;2009
+125835;Italy;96;96;1.3;125.0;Piedmont;Barolo;;Gianni Voerzio 2007 La Serra  (Barolo);2007;Nebbiolo;Gianni Voerzio;2007
+125836;Italy;96;126;1.3;165.0;Piedmont;Barolo;;Luciano Sandrone 2007 Cannubi Boschis  (Barolo);2007;Nebbiolo;Luciano Sandrone;2007
+125845;Italy;95;73;1.4;103.0;Piedmont;Barolo;;Michele Chiarlo 2006 Cerequio Riserva  (Barolo);2006;Nebbiolo;Michele Chiarlo;2006
+125846;Italy;95;171;1.4;240.0;Piedmont;Langhe;;Gaja 2008 Conteisa Nebbiolo (Langhe);2008;Nebbiolo;Gaja;2008
+125847;Italy;;;;;;;;;;;;
+126240;Italy;95;28;1.4;40.0;Sicily & Sardinia;Passito di Pantelleria;;Donnafugata 2008 Ben Ryé  (Passito di Pantelleria);2008;Zibibbo;Donnafugata;2008

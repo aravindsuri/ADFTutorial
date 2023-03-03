@@ -1,0 +1,165 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0" ,
+    "parameters": {
+      
+        "storageSku": {
+
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS"
+            ]
+        },
+
+        "datafactoryname1": {
+            "type": "string"
+            
+        },
+      
+        "sqlserver1": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }   
+        },
+        "sqlAdminLogin": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        },
+        "sqlAdminPassword": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        }
+        
+    },
+    "functions": [],
+    "variables": {
+
+         "sqlDatabase": {
+            "serverName": "[parameters('sqlserver1')]",
+            "databaseName": "[concat(parameters('sqlserver1'),'db')]"
+        },
+
+        "storageAccountName": "adlsvinoworlddev"
+
+    },
+    "resources": [
+        
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-09-01",
+            "location": "[resourceGroup().location]",
+            "name": "[variables('storageAccountName')]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "[parameters('storageSku')]"
+            },
+            "properties": {
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "isHnsEnabled": true,
+                "supportsHttpsTrafficOnly": true
+            }
+        },
+
+        {
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('dataFactoryName1')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {} 
+        },
+
+    {
+        "type": "Microsoft.Sql/servers",
+        "apiVersion": "2021-11-01-preview",
+        "name": "[parameters('sqlserver1')]",
+        "location": "West Europe",
+        "properties": {
+                
+            "administratorLogin": "[parameters('sqlAdminLogin')]",
+            "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
+        },
+        "resources": [
+            {
+                "type": "databases",
+                "name": "[variables('sqlDatabase').databaseName]",
+                "location": "West Europe",
+                "apiVersion": "2021-11-01-preview",
+                "sku": {
+                        "name": "Basic",
+                        "tier": "Basic",
+                        "family": ""
+                },
+                "dependsOn": [
+                    "[variables('sqlDatabase').serverName]"                
+                ],
+                    "properties": {
+                    "edition": "Basic",
+                    "collation": "SQL_Latin1_General_CP1_CI_AS",
+                    "maxSizeBytes": 1073741824,
+                    "requestedServiceObjectiveName": "Basic"
+                    
+                    },
+             "resources": [
+                    {
+                        "name": "Import",
+                        "type": "extensions",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.Sql/servers/databases', variables('sqlDatabase').serverName, variables('sqlDatabase').databaseName)]"
+                        ],
+                        "properties": {
+                            "operationMode": "Import",
+                            "administratorLogin": "[parameters('sqlAdminLogin')]",
+                            "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
+                            
+                        }
+                    }
+                ]
+
+            },
+                {
+                    "type": "firewallrules",
+                    "name": "AllowAllAzureIps",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2020-02-02-preview",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers/', variables('sqlDatabase').serverName)]"
+                    ],
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                }
+            
+        
+        ]
+              
+    
+    }
+    
+    
+    ],
+    "outputs": {}
+}

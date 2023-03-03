@@ -1,0 +1,184 @@
+{
+	"name": "pl_Master",
+	"properties": {
+		"activities": [
+			{
+				"name": "pl_Copy_RawtoCleansed_Sales_Arancione",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_Copy_RawtoCleansed_Sales_Verde",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_Copy_RawtoCleansed_Sales_Arancione",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_Copy_RawtoCleansed_Sales_Verde",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_CopyRawtoCleansed_Sales_Celeste",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_Copy_RawtoCleansed_Sales_Verde",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_CopyRawtoCleansed_Sales_Celeste",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_CopyMasterDataToCleansed",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_CopyRawtoCleansed_Sales_Celeste",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_CopyMasterDataToCleansed",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_CopyProductDataToCleansed",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_CopyMasterDataToCleansed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_CopyProductDataToCleansed",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_MasterAndProduct",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_CopyProductDataToCleansed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_MasterAndProduct",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_Transactions",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_MasterAndProduct",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_Transactions",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_stageProduct",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_Transactions",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_stageProduct",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_LoadStaging_stageSales",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_LoadStaging_stageProduct",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_LoadStaging_stageSales",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": []
+	}
+}

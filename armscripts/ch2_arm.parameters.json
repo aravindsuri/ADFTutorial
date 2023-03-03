@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "datafactoryname1": {
+            "value": "adf-vinoworld-dev" // TODO: Fill in parameter value
+        },
+        "sqlserver1": {
+            "value": "sql-vinoworld-dev" // TODO: Fill in parameter value
+        },
+        "sqlAdminLogin": {
+            "value": "vinoworldadmin" // TODO: Fill in parameter value
+        },
+        "sqlAdminPassword": {
+            "value": "FarNiente!" // TODO: Fill in parameter value
+        }
+    }
+}

@@ -1,0 +1,69 @@
+{
+	"name": "sql_stage_product",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductNo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Score",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DealerPrice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Markup",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ListPrice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Province",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Region_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vintage",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "Varietal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Winery",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "stage",
+			"table": "Product"
+		}
+	}
+}

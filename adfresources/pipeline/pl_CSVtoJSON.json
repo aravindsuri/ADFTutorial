@@ -1,0 +1,37 @@
+{
+	"name": "pl_CSVtoJSON",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data Flow CSV to JSON",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_CSVtoJSON",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-10-08T19:34:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

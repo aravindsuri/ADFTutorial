@@ -1,0 +1,70 @@
+{
+	"name": "df_CSVtoJSON",
+	"properties": {
+		"folder": {
+			"name": "Misc"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "abs_csv_test_Verde",
+						"type": "DatasetReference"
+					},
+					"name": "GetCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "abs_json_test_Verde",
+						"type": "DatasetReference"
+					},
+					"name": "StoreAsJSON"
+				}
+			],
+			"transformations": [
+				{
+					"name": "MakeHierarchy"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OnlineRetailer as string,",
+				"          SalesMonth as string,",
+				"          Title as string,",
+				"          Vintage as string,",
+				"          Variety as string,",
+				"          Score as string,",
+				"          ListPrice as string,",
+				"          Quantity as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> GetCSV",
+				"GetCSV derive(YearMonth = SalesMonth,",
+				"          StoreName = OnlineRetailer,",
+				"          Sales = @(Product=Title,",
+				"          Vintage=Vintage,",
+				"          Variety=Variety,",
+				"          Score=Score,",
+				"          SalesPrice=ListPrice,",
+				"          SalesQty=Quantity)) ~> MakeHierarchy",
+				"MakeHierarchy sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     rowUrlColumn:'SalesMonth',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          YearMonth,",
+				"          StoreName,",
+				"          Sales",
+				"     )) ~> StoreAsJSON"
+			]
+		}
+	}
+}

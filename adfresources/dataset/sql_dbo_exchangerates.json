@@ -1,0 +1,40 @@
+{
+	"name": "sql_dbo_exchangerates",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_vinoworld",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "FromCurrency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ToCurrency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "YearMonth",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ExchangeRate",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ExchangeRates"
+		}
+	}
+}

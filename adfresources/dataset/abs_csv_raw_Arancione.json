@@ -1,0 +1,63 @@
+{
+	"name": "abs_csv_raw_Arancione",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsvinoworld_dev",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "02-Exercise"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Arancione",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "RowId",
+				"type": "String"
+			},
+			{
+				"name": "OnlineRetailer",
+				"type": "String"
+			},
+			{
+				"name": "SalesMonth",
+				"type": "String"
+			},
+			{
+				"name": "Title",
+				"type": "String"
+			},
+			{
+				"name": "Vintage",
+				"type": "String"
+			},
+			{
+				"name": "Variety",
+				"type": "String"
+			},
+			{
+				"name": "Score",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			},
+			{
+				"name": "Quantity",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"name": "pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+	"properties": {
+		"description": "Copy Raw to Cleansed Celeste Data",
+		"activities": [
+			{
+				"name": "Data Flow Copy Raw to Cleansed Celeste",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "05-Exercise"
+		},
+		"annotations": []
+	}
+}
