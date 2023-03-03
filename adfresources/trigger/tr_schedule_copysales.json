@@ -2,22 +2,15 @@
 	"name": "tr_schedule_copysales",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pl_Master_Schedule",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2023-03-03T15:05:00Z",
-				"endTime": "2023-03-05T13:50:00Z",
+				"startTime": "2023-03-03T14:17:00Z",
+				"endTime": "2023-03-04T14:13:00Z",
 				"timeZone": "UTC"
 			}
 		}
