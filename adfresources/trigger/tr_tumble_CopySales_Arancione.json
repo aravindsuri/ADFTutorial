@@ -2,7 +2,7 @@
 	"name": "tr_tumble_CopySales_Arancione",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "pl_Copy_RawToCleansed_Sales",
