@@ -470,6 +470,9 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"folder": {
+					"name": "Misc"
+				},
 				"annotations": [],
 				"lastPublishTime": "2023-03-03T14:36:43Z"
 			},
@@ -624,6 +627,9 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
 				},
 				"annotations": [],
 				"lastPublishTime": "2023-03-03T14:13:08Z"
