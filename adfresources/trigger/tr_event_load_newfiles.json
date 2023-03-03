@@ -14,7 +14,7 @@
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/raw/blobs/Arancione/",
-			"ignoreEmptyBlobs": true,
+			"ignoreEmptyBlobs": false,
 			"scope": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-vinoworld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev",
 			"events": [
 				"Microsoft.Storage.BlobCreated"
