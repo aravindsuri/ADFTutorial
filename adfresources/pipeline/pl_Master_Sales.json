@@ -1,0 +1,24 @@
+{
+	"name": "pl_Master_Sales",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Store Sales to Cleansed",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Misc"
+		},
+		"annotations": []
+	}
+}
