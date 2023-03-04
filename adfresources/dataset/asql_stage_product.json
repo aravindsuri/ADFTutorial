@@ -1,10 +1,6 @@
 {
 	"name": "asql_stage_product",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_Sql_WineStoreDB",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "Misc"
 		},

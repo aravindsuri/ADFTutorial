@@ -1,10 +1,6 @@
 {
 	"name": "abs_csv_arancioneproducts",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LSstWineStore001",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "Misc"
 		},
