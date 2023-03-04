@@ -5,35 +5,23 @@
 		"factoryName": {
 			"value": "adf-vinoworld-dev"
 		},
-		"LSstWineStore001_connectionString": {
-			"value": ""
-		},
 		"adlsSourceData_accountKey": {
 			"value": ""
 		},
 		"adlsStageData_accountKey": {
 			"value": ""
 		},
-		"ls_Sql_WineStoreDB_connectionString": {
-			"value": ""
-		},
-		"ls_adlstestdev001_accountKey": {
-			"value": ""
-		},
 		"ls_dbr_vinoworld_accessToken": {
 			"value": ""
 		},
 		"ls_sql_vinoworld_connectionString": {
-			"value": ""
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sql-vinoworld-dev.database.windows.net;Initial Catalog=sql-vinoworld-devdb;User ID=vinoworldadmin"
 		},
 		"adlsSourceData_properties_typeProperties_url": {
 			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
 		"adlsStageData_properties_typeProperties_url": {
 			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
-		},
-		"ls_adlstestdev001_properties_typeProperties_url": {
-			"value": "https://adlstestdev001.dfs.core.windows.net/"
 		},
 		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
