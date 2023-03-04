@@ -1,5 +1,6 @@
 {
 	"name": "ls_vinworld_kv",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureKeyVault",

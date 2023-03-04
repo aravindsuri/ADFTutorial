@@ -1,5 +1,6 @@
 {
 	"name": "ls_adlsvinoworld_dev",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"description": "Linked Service to ADLS Gen2 Storage",
 		"annotations": [],
@@ -15,6 +16,5 @@
 				"secretName": "adlsvinoworld"
 			}
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
