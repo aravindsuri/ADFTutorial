@@ -4795,20 +4795,30 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_Master_Schedule",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "Day",
-						"interval": 1,
-						"startTime": "2023-03-03T14:17:00Z",
-						"endTime": "2023-03-04T14:13:00Z",
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2023-03-04T20:05:00Z",
+						"endTime": "2023-03-04T22:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_Master_Schedule')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/tr_tumble_CopySales_Arancione')]",
