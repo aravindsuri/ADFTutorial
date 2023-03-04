@@ -27,10 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adlstestdev001'"
 		},
-		"ls_adlsvinoworld_dev_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ls_adlsvinoworld_dev'"
-		},
 		"ls_dbr_vinoworld_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'ls_dbr_vinoworld'"
@@ -54,6 +50,10 @@
 		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"ls_vinworld_kv_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://vinoworld-dev-kv.vault.azure.net/"
 		},
 		"tr_event_load_newfiles_properties_typeProperties_scope": {
 			"type": "string",
@@ -109,9 +109,6 @@
 					"ls_adlstestdev001_accountKey": {
 						"value": "[parameters('ls_adlstestdev001_accountKey')]"
 					},
-					"ls_adlsvinoworld_dev_accountKey": {
-						"value": "[parameters('ls_adlsvinoworld_dev_accountKey')]"
-					},
 					"ls_dbr_vinoworld_accessToken": {
 						"value": "[parameters('ls_dbr_vinoworld_accessToken')]"
 					},
@@ -127,8 +124,8 @@
 					"ls_adlstestdev001_properties_typeProperties_url": {
 						"value": "[parameters('ls_adlstestdev001_properties_typeProperties_url')]"
 					},
-					"ls_adlsvinoworld_dev_properties_typeProperties_url": {
-						"value": "[parameters('ls_adlsvinoworld_dev_properties_typeProperties_url')]"
+					"ls_vinworld_kv_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_vinworld_kv_properties_typeProperties_baseUrl')]"
 					}
 				}
 			},
@@ -147,6 +144,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_adlsvinoworld_dev_properties_typeProperties_url": {
+						"value": "[parameters('ls_adlsvinoworld_dev_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -207,6 +207,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
+						"value": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -227,12 +233,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"trigger1_properties_pl_IngestSourceData_parameters_pSourceFile": {
-						"value": "[parameters('trigger1_properties_pl_IngestSourceData_parameters_pSourceFile')]"
-					},
-					"trigger1_properties_typeProperties_scope": {
-						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					},
 					"tr_event_load_newfiles_properties_typeProperties_scope": {
 						"value": "[parameters('tr_event_load_newfiles_properties_typeProperties_scope')]"

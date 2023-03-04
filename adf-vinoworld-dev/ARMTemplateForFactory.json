@@ -27,10 +27,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adlstestdev001'"
 		},
-		"ls_adlsvinoworld_dev_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ls_adlsvinoworld_dev'"
-		},
 		"ls_dbr_vinoworld_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'ls_dbr_vinoworld'"
@@ -54,6 +50,10 @@
 		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
+		},
+		"ls_vinworld_kv_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://vinoworld-dev-kv.vault.azure.net/"
 		},
 		"tr_event_load_newfiles_properties_typeProperties_scope": {
 			"type": "string",
@@ -2908,6 +2908,40 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pl_test')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "test feature branch",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_Copy_RawtoCleansed_Sales_Arancione')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/abs_binary_cleansed_productdata')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -5329,12 +5363,18 @@
 				"typeProperties": {
 					"url": "[parameters('ls_adlsvinoworld_dev_properties_typeProperties_url')]",
 					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('ls_adlsvinoworld_dev_accountKey')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "ls_vinworld_kv",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "adlsvinoworld"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_vinworld_kv')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ls_dbr_vinoworld')]",
@@ -5370,6 +5410,19 @@
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
 					"connectionString": "[parameters('ls_sql_vinoworld_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_vinworld_kv')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('ls_vinworld_kv_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
