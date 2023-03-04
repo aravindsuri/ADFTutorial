@@ -4810,9 +4810,9 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 15,
-						"startTime": "2023-03-04T20:05:00Z",
-						"endTime": "2023-03-04T22:00:00Z",
-						"timeZone": "UTC"
+						"startTime": "2023-03-04T19:05:00",
+						"endTime": "2023-03-04T22:00:00",
+						"timeZone": "W. Europe Standard Time"
 					}
 				}
 			},
