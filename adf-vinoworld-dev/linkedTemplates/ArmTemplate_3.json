@@ -553,7 +553,81 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "09-Exercise"
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_DWH')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pl_build_dimensions_Type1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_dimensions_Type1",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pl_build_dimensions_Type2",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pl_build_dimensions_Type1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_dimensions_Type2",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pl_build_factSales_storedproc",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pl_build_dimensions_Type2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_factSales_storedproc",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Master Pipelines"
 				},
 				"annotations": []
 			},
@@ -2534,58 +2608,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawToTest_Sales_Celeste_DQ')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Copy Raw to Cleansed Celeste Data",
-				"activities": [
-					{
-						"name": "Data Flow Copy Raw to Cleansed Celeste",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"SourceCSVCeleste": {},
-									"sinkCSVCleansedCeleste": {},
-									"sinkErrorLog": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "05-Exercise"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]"
 			]
 		}
 	]

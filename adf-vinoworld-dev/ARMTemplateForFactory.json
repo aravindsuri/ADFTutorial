@@ -1811,7 +1811,7 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "09-Exercise"
+					"name": "Misc"
 				},
 				"annotations": []
 			},
@@ -1901,7 +1901,175 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Master')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Master_DWH')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pl_build_dimensions_Type1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_dimensions_Type1",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pl_build_dimensions_Type2",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pl_build_dimensions_Type1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_dimensions_Type2",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pl_build_factSales_storedproc",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pl_build_dimensions_Type2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_build_factSales_storedproc",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Master Pipelines"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_build_dimensions_Type1')]",
+				"[concat(variables('factoryId'), '/pipelines/pl_build_dimensions_Type2')]",
+				"[concat(variables('factoryId'), '/pipelines/pl_build_factSales_storedproc')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_Sales')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Store Sales to Cleansed",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Load Cleansed Sales to Staging",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Copy Store Sales to Cleansed",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_LoadStaging_Transactions",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_Copy_RawtoCleansed_Sales_Arancione')]",
+				"[concat(variables('factoryId'), '/pipelines/pl_LoadStaging_Transactions')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_Schedule')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy Raw to Cleansed Arancione",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Misc"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_Copy_RawtoCleansed_Sales_Arancione')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_Master_Stage')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2094,7 +2262,7 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "Misc"
+					"name": "Master Pipelines"
 				},
 				"annotations": []
 			},
@@ -2108,96 +2276,6 @@
 				"[concat(variables('factoryId'), '/pipelines/pl_LoadStaging_Transactions')]",
 				"[concat(variables('factoryId'), '/pipelines/pl_LoadStaging_stageProduct')]",
 				"[concat(variables('factoryId'), '/pipelines/pl_LoadStaging_stageSales')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_Master_Sales')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy Store Sales to Cleansed",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Load Cleansed Sales to Staging",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Copy Store Sales to Cleansed",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pl_LoadStaging_Transactions",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "Misc"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_Copy_RawtoCleansed_Sales_Arancione')]",
-				"[concat(variables('factoryId'), '/pipelines/pl_LoadStaging_Transactions')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_Master_Schedule')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy Raw to Cleansed Arancione",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pl_Copy_RawtoCleansed_Sales_Arancione",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": false,
-							"parameters": {}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "Misc"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pl_Copy_RawtoCleansed_Sales_Arancione')]"
 			]
 		},
 		{
