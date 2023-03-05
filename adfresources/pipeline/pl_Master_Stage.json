@@ -1,5 +1,5 @@
 {
-	"name": "pl_Master",
+	"name": "pl_Master_Stage",
 	"properties": {
 		"activities": [
 			{
@@ -177,7 +177,7 @@
 			}
 		],
 		"folder": {
-			"name": "Misc"
+			"name": "Master Pipelines"
 		},
 		"annotations": []
 	}

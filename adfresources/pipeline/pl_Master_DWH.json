@@ -1,0 +1,64 @@
+{
+	"name": "pl_Master_DWH",
+	"properties": {
+		"activities": [
+			{
+				"name": "pl_build_dimensions_Type1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_build_dimensions_Type1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_build_dimensions_Type2",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_build_dimensions_Type1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_build_dimensions_Type2",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pl_build_factSales_storedproc",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pl_build_dimensions_Type2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_build_factSales_storedproc",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Master Pipelines"
+		},
+		"annotations": []
+	}
+}
