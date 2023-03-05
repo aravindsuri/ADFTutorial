@@ -1,6 +1,5 @@
 {
 	"name": "ls_sql_vinoworld",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureSqlDatabase",
@@ -15,5 +14,6 @@
 				"secretName": "vinoworldadmin"
 			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
