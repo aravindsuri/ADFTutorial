@@ -7,7 +7,7 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-vinoworld-dev"
 		},
-		"tr_event_load_newfiles_properties_typeProperties_scope": {
+		"tr_event_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-vinoworld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
 		}
@@ -666,12 +666,12 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/tr_event_load_newfiles')]",
+			"name": "[concat(parameters('factoryName'), '/tr_event')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -684,9 +684,8 @@
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/raw/blobs/Arancione/",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": false,
-					"scope": "[parameters('tr_event_load_newfiles_properties_typeProperties_scope')]",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('tr_event_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]

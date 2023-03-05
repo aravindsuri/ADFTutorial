@@ -40,7 +40,7 @@
 			"type": "string",
 			"defaultValue": "https://vinoworld-dev-kv.vault.azure.net/"
 		},
-		"tr_event_load_newfiles_properties_typeProperties_scope": {
+		"tr_event_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/12eadce6-10f5-41d1-8132-109c27cb5e5d/resourceGroups/rg-vinoworld-dev/providers/Microsoft.Storage/storageAccounts/adlsvinoworlddev"
 		},
@@ -187,8 +187,8 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"tr_event_load_newfiles_properties_typeProperties_scope": {
-						"value": "[parameters('tr_event_load_newfiles_properties_typeProperties_scope')]"
+					"tr_event_properties_typeProperties_scope": {
+						"value": "[parameters('tr_event_properties_typeProperties_scope')]"
 					}
 				}
 			},
