@@ -1,5 +1,13 @@
 {
 	"name": "adf-vinoworld-dev",
+	"properties": {
+		"globalParameters": {
+			"globalParamProjectName": {
+				"type": "string",
+				"value": "\"VinoWorld\""
+			}
+		}
+	},
 	"location": "germanywestcentral",
 	"identity": {
 		"type": "SystemAssigned",
