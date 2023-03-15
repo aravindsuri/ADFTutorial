@@ -1,5 +1,5 @@
 {
-	"name": "df_Copy_RawToTest_Sales_Celeste_DQ",
+	"name": "df_Copy_RawToCleansed_Sales_Celeste_v2",
 	"properties": {
 		"folder": {
 			"name": "04-Exercise"
