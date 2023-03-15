@@ -1,12 +1,12 @@
 {
-	"name": "abs_csv_cleansed_Celeste_ex3",
+	"name": "abs_csv_cleansed_Celeste_ex5",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "03-Exercise"
+			"name": "05-Exercise"
 		},
 		"annotations": [],
 		"type": "DelimitedText",

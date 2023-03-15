@@ -1,5 +1,5 @@
 {
-	"name": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+	"name": "df_Copy_RawtoCleansed_Sales_Celeste_ex5",
 	"properties": {
 		"folder": {
 			"name": "05-Exercise"
@@ -9,23 +9,24 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+						"referenceName": "abs_csv_raw_Celeste_ex5",
 						"type": "DatasetReference"
 					},
-					"name": "SourceCSVCeleste"
+					"name": "SourceCSVCeleste",
+					"description": "Import data from abs_csv_raw_Celeste_v3"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_cleansed_Celeste_onefile",
+						"referenceName": "abs_csv_cleansed_Celeste_ex5",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
 				},
 				{
 					"dataset": {
-						"referenceName": "abs_csv_test_Celeste_ErrorRows",
+						"referenceName": "abs_csv_cleansed_Celeste_ErrorRows_ex5",
 						"type": "DatasetReference"
 					},
 					"name": "sinkErrorLog"
