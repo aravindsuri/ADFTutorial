@@ -26,6 +26,9 @@
 		"ls_adlsvinoworld_dev_properties_typeProperties_url": {
 			"value": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
+		"ls_vinoworld_kv1_properties_typeProperties_baseUrl": {
+			"value": "https://vinoworld-dev.vault.azure.net/"
+		},
 		"ls_vinworld_kv_properties_typeProperties_baseUrl": {
 			"value": "https://vinoworld-dev-kv.vault.azure.net/"
 		},

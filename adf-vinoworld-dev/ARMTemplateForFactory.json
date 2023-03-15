@@ -36,6 +36,10 @@
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
+		"ls_vinoworld_kv1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://vinoworld-dev.vault.azure.net/"
+		},
 		"ls_vinworld_kv_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://vinoworld-dev-kv.vault.azure.net/"
@@ -833,7 +837,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToTest_Sales_Celeste')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToCleansed_Sales_Celeste_ex3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -853,7 +857,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "df_Copy_RawToTest_Sales_Celeste",
+								"referenceName": "df_Copy_RawToCleansed_Sales_Celeste_ex3",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -880,11 +884,11 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawToTest_Sales_Celeste')]"
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawToCleansed_Sales_Celeste_ex3')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToTest_Sales_Celeste_DQ')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawToCleansed_Sales_Celeste_ex4')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -904,7 +908,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "df_Copy_RawToTest_Sales_Celeste_DQ",
+								"referenceName": "df_Copy_RawToCleansed_Sales_Celeste_ex4",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -931,7 +935,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawToTest_Sales_Celeste_DQ')]"
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawToCleansed_Sales_Celeste_ex4')]"
 			]
 		},
 		{
@@ -1020,7 +1024,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_ex5')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1040,7 +1044,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts",
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_ex5",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -1068,11 +1072,11 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]"
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_ex5')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]",
+			"name": "[concat(parameters('factoryName'), '/pl_Copy_RawtoCleansed_Sales_Celeste_ex6')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1092,7 +1096,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH",
+								"referenceName": "df_Copy_RawtoCleansed_Sales_Celeste_ex6",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
@@ -1170,7 +1174,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]"
+				"[concat(variables('factoryId'), '/dataflows/df_Copy_RawtoCleansed_Sales_Celeste_ex6')]"
 			]
 		},
 		{
@@ -2937,6 +2941,129 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Celeste_ErrorRows')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "07-Exercise"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "test",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Celeste_ErrorRows_ex5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "05-Exercise"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "test",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Celeste_ex3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "03-Exercise"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Celeste_ex5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "05-Exercise"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "test",
+						"fileSystem": "cleansed"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/abs_csv_cleansed_Verde_param')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -3194,7 +3321,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "05-Exercise"
+					"name": "07-Exercise"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -3265,88 +3392,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste_DQ_Asserts')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adlsvinoworld_dev",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "05-Exercise"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Celeste_2022_09.csv",
-						"folderPath": "Celeste",
-						"fileSystem": "raw"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "TransactionId",
-						"type": "String"
-					},
-					{
-						"name": "TransactionDate",
-						"type": "String"
-					},
-					{
-						"name": "OnlineRetailer",
-						"type": "String"
-					},
-					{
-						"name": "SalesMonth",
-						"type": "String"
-					},
-					{
-						"name": "SalesRegion",
-						"type": "String"
-					},
-					{
-						"name": "SalesCurrency",
-						"type": "String"
-					},
-					{
-						"name": "Title",
-						"type": "String"
-					},
-					{
-						"name": "Vintage",
-						"type": "String"
-					},
-					{
-						"name": "Variety",
-						"type": "String"
-					},
-					{
-						"name": "Score",
-						"type": "String"
-					},
-					{
-						"name": "ListPrice",
-						"type": "String"
-					},
-					{
-						"name": "Quantity",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste_onefile')]",
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste_ex3')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -3363,6 +3409,87 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": "Celeste_2022_01.csv",
+						"folderPath": "Celeste",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "TransactionId",
+						"type": "String"
+					},
+					{
+						"name": "TransactionDate",
+						"type": "String"
+					},
+					{
+						"name": "OnlineRetailer",
+						"type": "String"
+					},
+					{
+						"name": "SalesMonth",
+						"type": "String"
+					},
+					{
+						"name": "SalesRegion",
+						"type": "String"
+					},
+					{
+						"name": "SalesCurrency",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "Vintage",
+						"type": "String"
+					},
+					{
+						"name": "Variety",
+						"type": "String"
+					},
+					{
+						"name": "Score",
+						"type": "String"
+					},
+					{
+						"name": "ListPrice",
+						"type": "String"
+					},
+					{
+						"name": "Quantity",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/abs_csv_raw_Celeste_ex5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adlsvinoworld_dev",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "05-Exercise"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Celeste_2022_09.csv",
 						"folderPath": "Celeste",
 						"fileSystem": "raw"
 					},
@@ -3574,65 +3701,6 @@
 						"type": "String"
 					}
 				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/abs_csv_test_Celeste_ErrorRows')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adlsvinoworld_dev",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "test",
-						"fileSystem": "cleansed"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/abs_csv_test_Celeste_onefile')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adlsvinoworld_dev",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "03-Exercise"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "test",
-						"fileSystem": "cleansed"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_adlsvinoworld_dev')]"
@@ -4824,6 +4892,19 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_vinoworld_kv1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('ls_vinoworld_kv1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_vinworld_kv')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -5077,7 +5158,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/df_Copy_RawToTest_Sales_Celeste')]",
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawToCleansed_Sales_Celeste_ex3')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -5089,7 +5170,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Celeste_onefile",
+								"referenceName": "abs_csv_raw_Celeste_ex3",
 								"type": "DatasetReference"
 							},
 							"name": "SourceCSVCeleste"
@@ -5098,7 +5179,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_onefile",
+								"referenceName": "abs_csv_cleansed_Celeste_ex3",
 								"type": "DatasetReference"
 							},
 							"name": "sinkCSVCleansedCeleste"
@@ -5158,12 +5239,12 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_onefile')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_onefile')]"
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_ex3')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ex3')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/df_Copy_RawToTest_Sales_Celeste_DQ')]",
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawToCleansed_Sales_Celeste_ex4')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -5175,7 +5256,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Celeste_onefile",
+								"referenceName": "abs_csv_raw_Celeste_ex3",
 								"type": "DatasetReference"
 							},
 							"name": "SourceCSVCeleste"
@@ -5184,7 +5265,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_onefile",
+								"referenceName": "abs_csv_cleansed_Celeste_ex3",
 								"type": "DatasetReference"
 							},
 							"name": "sinkCSVCleansedCeleste"
@@ -5267,8 +5348,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_onefile')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_onefile')]"
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_ex3')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ex3')]"
 			]
 		},
 		{
@@ -5300,7 +5381,7 @@
 						},
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_ErrorRows",
+								"referenceName": "abs_csv_cleansed_Celeste_ErrorRows",
 								"type": "DatasetReference"
 							},
 							"name": "sinkErrorLog"
@@ -5431,11 +5512,11 @@
 				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
 				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste')]",
 				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_ErrorRows')]"
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ErrorRows')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts')]",
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_ex5')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -5447,23 +5528,24 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+								"referenceName": "abs_csv_raw_Celeste_ex5",
 								"type": "DatasetReference"
 							},
-							"name": "SourceCSVCeleste"
+							"name": "SourceCSVCeleste",
+							"description": "Import data from abs_csv_raw_Celeste_v3"
 						}
 					],
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_onefile",
+								"referenceName": "abs_csv_cleansed_Celeste_ex5",
 								"type": "DatasetReference"
 							},
 							"name": "sinkCSVCleansedCeleste"
 						},
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_ErrorRows",
+								"referenceName": "abs_csv_cleansed_Celeste_ErrorRows_ex5",
 								"type": "DatasetReference"
 							},
 							"name": "sinkErrorLog"
@@ -5575,13 +5657,13 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_DQ_Asserts')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_onefile')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_ErrorRows')]"
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_ex5')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ex5')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ErrorRows_ex5')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_DQ_Asserts_EH')]",
+			"name": "[concat(parameters('factoryName'), '/df_Copy_RawtoCleansed_Sales_Celeste_ex6')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -5593,7 +5675,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_raw_Celeste_DQ_Asserts",
+								"referenceName": "abs_csv_raw_Celeste_ex5",
 								"type": "DatasetReference"
 							},
 							"name": "SourceCSVCeleste"
@@ -5602,14 +5684,14 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_onefile",
+								"referenceName": "abs_csv_cleansed_Celeste_ex5",
 								"type": "DatasetReference"
 							},
 							"name": "sinkCSVCleansedCeleste"
 						},
 						{
 							"dataset": {
-								"referenceName": "abs_csv_test_Celeste_ErrorRows",
+								"referenceName": "abs_csv_cleansed_Celeste_ErrorRows_ex5",
 								"type": "DatasetReference"
 							},
 							"name": "sinkErrorLog"
@@ -5721,9 +5803,9 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/fl_RemoveZeroValues')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_DQ_Asserts')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_onefile')]",
-				"[concat(variables('factoryId'), '/datasets/abs_csv_test_Celeste_ErrorRows')]"
+				"[concat(variables('factoryId'), '/datasets/abs_csv_raw_Celeste_ex5')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ex5')]",
+				"[concat(variables('factoryId'), '/datasets/abs_csv_cleansed_Celeste_ErrorRows_ex5')]"
 			]
 		},
 		{

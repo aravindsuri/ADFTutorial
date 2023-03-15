@@ -1,1 +1,6 @@
-{}
+{
+	"globalParamProjectName": {
+		"type": "string",
+		"value": "\"VinoWorld\""
+	}
+}

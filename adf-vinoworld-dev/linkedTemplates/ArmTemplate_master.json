@@ -36,6 +36,10 @@
 			"type": "string",
 			"defaultValue": "https://adlsvinoworlddev.dfs.core.windows.net/"
 		},
+		"ls_vinoworld_kv1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://vinoworld-dev.vault.azure.net/"
+		},
 		"ls_vinworld_kv_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://vinoworld-dev-kv.vault.azure.net/"
@@ -96,6 +100,9 @@
 					},
 					"adlsStageData_properties_typeProperties_url": {
 						"value": "[parameters('adlsStageData_properties_typeProperties_url')]"
+					},
+					"ls_vinoworld_kv1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_vinoworld_kv1_properties_typeProperties_baseUrl')]"
 					},
 					"ls_vinworld_kv_properties_typeProperties_baseUrl": {
 						"value": "[parameters('ls_vinworld_kv_properties_typeProperties_baseUrl')]"
