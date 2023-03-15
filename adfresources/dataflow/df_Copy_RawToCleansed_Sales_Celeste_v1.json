@@ -1,5 +1,5 @@
 {
-	"name": "df_Copy_RawToTest_Sales_Celeste",
+	"name": "df_Copy_RawToCleansed_Sales_Celeste_v1",
 	"properties": {
 		"folder": {
 			"name": "03-Exercise"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "abs_csv_test_Celeste_onefile",
+						"referenceName": "abs_csv_cleansed_Celeste_onefile",
 						"type": "DatasetReference"
 					},
 					"name": "sinkCSVCleansedCeleste"
