@@ -1,5 +1,5 @@
 {
-	"name": "abs_csv_test_Celeste_onefile",
+	"name": "abs_csv_cleansed_Celeste_ex3",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adlsvinoworld_dev",
@@ -13,7 +13,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "test",
 				"fileSystem": "cleansed"
 			},
 			"columnDelimiter": ",",

@@ -1,0 +1,10 @@
+{
+	"name": "ls_vinoworld_kv1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://vinoworld-dev.vault.azure.net/"
+		}
+	}
+}

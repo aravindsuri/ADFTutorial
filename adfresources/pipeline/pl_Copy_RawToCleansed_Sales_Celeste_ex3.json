@@ -1,5 +1,5 @@
 {
-	"name": "pl_Copy_RawToTest_Sales_Celeste",
+	"name": "pl_Copy_RawToCleansed_Sales_Celeste_ex3",
 	"properties": {
 		"description": "Copy Raw to Cleansed Celeste Data",
 		"activities": [
@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_Copy_RawToTest_Sales_Celeste",
+						"referenceName": "df_Copy_RawToCleansed_Sales_Celeste_ex3",
 						"type": "DataFlowReference"
 					},
 					"compute": {

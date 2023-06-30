@@ -25,7 +25,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "abs_csv_test_Celeste_ErrorRows",
+						"referenceName": "abs_csv_cleansed_Celeste_ErrorRows",
 						"type": "DatasetReference"
 					},
 					"name": "sinkErrorLog"
