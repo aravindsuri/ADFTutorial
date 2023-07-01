@@ -23,16 +23,20 @@
 # MAGIC %md
 # MAGIC ### Connect to Azure Sql DB
 # MAGIC ### Replace Sql Config values with the relevant config values. 
+# MAGIC ### <sql username> 	  replace with your sql username
+# MAGIC ### <sql servername>	replace with your sql server name
+# MAGIC ### <sql dbname>	    replace with the sql database name
+# MAGIC ### <password>		    replace with the password for the sql database
 # COMMAND ----------
 
 
-jdbcusername = "vinoworldadmin@sql-vinoworld-dev"
-jdbchostname = "sql-vinoworld-dev.database.windows.net"
-jdbcdatabase = "sql-vinoworld-devdb"
+jdbcusername = <sql username> 
+jdbchostname = <sql servername>
+jdbcdatabase = <sql dbname>
 
 jdbcport = 1433
-user = "vinoworldadmin@sql-vinoworld-dev" 
-jdbcpassword= "FarNiente!"
+user = <sql username>  
+jdbcpassword= <password>
 
 jdbcurl = "jdbc:sqlserver://{0}:{1};database={2}".format(jdbchostname, jdbcport, jdbcdatabase) 
 connectionProperties = {
