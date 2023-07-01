@@ -1,4 +1,0 @@
-<sql username> 	vinoworldadmin
-<sql servername>	sql-vinoworld-dev
-<sql dbname>	sql-vinoworld-devdb
-<password>		FarNiente!
