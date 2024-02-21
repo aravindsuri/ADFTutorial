@@ -1,0 +1,1 @@
+ALTER TABLE dbo.StoreList ADD [OnlineStore] BIT

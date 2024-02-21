@@ -188,7 +188,7 @@ CREATE TABLE [stage].[Verde_Sales](
 	[Vintage] [int] NULL,
 	[Variety] [nvarchar] (50) NULL,
 	[Score] [int] NULL,
-	[Price] [int] NULL,
+	[ListPrice] [int] NULL,
 	[Quantity] [int] NULL
 ) ON [PRIMARY]
 GO
