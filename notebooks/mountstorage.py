@@ -55,4 +55,4 @@ dbutils.fs.mount(
 
 # COMMAND ----------
 
-dbutils.fs.ls('/mnt/adlsvinoworlddev/cleansed')
+dbutils.fs.ls('/mnt/<storage account name>/cleansed')
